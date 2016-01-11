@@ -7,11 +7,11 @@ var {
   View,
 } = React;
 
-var TopMenu = React.createClass({
+var BottomMenu = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
-            <Text>top menu</Text>
+            <Text>bottom menu</Text>
       </View>
     );
   }
@@ -23,4 +23,5 @@ var styles = StyleSheet.create({
     }
 });
 
-module.exports = TopMenu;
+
+module.exports = BottomMenu;

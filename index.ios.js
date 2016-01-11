@@ -1,11 +1,9 @@
-/**
- * Blossom
- * https://github.com/facebook/react-native
- */
 'use strict';
 
 var React = require('react-native');
 var TopMenu = require('./common/TopMenu.js');
+var BottomMenu = require('./common/BottomMenu.js');
+var Book = require('./common/Book.js');
 
 var {
   AppRegistry,
@@ -14,38 +12,51 @@ var {
   View,
 } = React;
 
+
+
 var blossom = React.createClass({
   render: function() {
     return (
-      <View style={styles.container}>
-        <TopMenu></TopMenu>
+      <View style={[styles.container, this.border('yellow')]}>
+        <View style={[styles.topMenu, styles.menu, this.border('red')]}>
+          <TopMenu> </TopMenu>
+        </View>
+        <View style={[styles.book, this.border('blue')]}>
+          <Book></Book>
+        </View>
+        <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
+          <BottomMenu></BottomMenu>
+        </View>
       </View>
     );
+  },
+  border: function(color) {
+    return {
+      borderWidth : 3,
+      borderColor : color
+    }
   }
 });
 
 var styles = StyleSheet.create({
   container: {
-    position: "absolute",
-    flex: 1,
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flex : 1,
+    alignItems : 'stretch',
+    justifyContent : 'center'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  menu : {
+    justifyContent : 'space-between',
+    alignItems : 'center'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  topMenu : {
+    flex : 1
   },
+  book : {
+    flex: 18
+  },
+  bottomMenu : {
+    flex : 1
+  }
 });
 
 AppRegistry.registerComponent('blossom', () => blossom);
