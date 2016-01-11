@@ -77,13 +77,27 @@ var blossom = React.createClass({
           <TopMenu> </TopMenu>
         </View>
         <View style={[styles.book, this.border('blue')]}>
-          <Book></Book>
+          {this.prevPage()}
+          <View style={[styles.content, this.border('black')]}>
+            <Book></Book>
+          </View>
+          {this.nextPage()}
         </View>
         <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
           <BottomMenu></BottomMenu>
         </View>
       </View>
     );
+  },
+  nextPage : function() {
+    return <View style={[styles.nextPage, this.border('orange')]}>
+        <Text>next</Text>
+      </View>
+  },
+  prevPage : function() {
+    return <View style={[styles.prevPage, this.border('pink')]}>
+        <Text>prev</Text>
+      </View>
   },
   border: function(color) {
     return {
@@ -107,10 +121,21 @@ var styles = StyleSheet.create({
     flex : 1
   },
   book : {
-    flex: 18
+    flex: 18,
+    flexDirection: 'row',
+    alignItems : 'stretch'
   },
   bottomMenu : {
     flex : 1
+  },
+  content : {
+    flex: 16
+  },
+  nextPage : {
+    flex : 2
+  },
+  prevPage : {
+    flex : 2
   }
 });
 
