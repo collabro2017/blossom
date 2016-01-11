@@ -7,6 +7,7 @@ var Page = require('./common/Page.js');
 
 var {
   AppRegistry,
+  TouchableHighlight,
   StyleSheet,
   Text,
   View,
@@ -60,7 +61,7 @@ const PAGES = [
       {
         type : 'text',
         content : {
-          'en' : 'Captain, why are we out here chasing comets?',
+          'en' : 'Captain, why are we out here chasing comets? we should be doing something completely different',
           'es' : 'Capitán, ¿por qué estamos aquí persiguiendo cometas?'
         }
       }
@@ -96,14 +97,40 @@ var blossom = React.createClass({
     );
   },
   nextPage : function() {
-    return <View style={[styles.nextPage, this.border('orange')]}>
+    return <TouchableHighlight
+      underlayColor="rgba(0,0,0,0.2)"
+      onPress={this.handleNextPage}
+      style={[styles.nextPage, this.border('orange')]}>
         <Text>next</Text>
-      </View>
+      </TouchableHighlight>
   },
   prevPage : function() {
-    return <View style={[styles.prevPage, this.border('pink')]}>
+    return <TouchableHighlight
+      underlayColor="rgba(0,0,0,0.2)"
+      onPress={this.handlePrevPage}
+      style={[styles.prevPage, this.border('pink')]}>
         <Text>prev</Text>
-      </View>
+      </TouchableHighlight>
+  },
+  handleNextPage : function() {
+    if(this.state.page == PAGES.length)
+    {
+      return false;
+    }
+
+    this.setState({
+      page : this.state.page + 1
+    })
+  },
+  handlePrevPage : function() {
+    if(this.state.page == 1)
+    {
+      return false;
+    }
+
+    this.setState({
+      page : this.state.page - 1
+    })
   },
   border : function(color) {
     return {
