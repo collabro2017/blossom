@@ -1,5 +1,5 @@
 var React = require('react-native');
-
+var S = require('string');
 
 var {
   StyleSheet,
@@ -19,8 +19,10 @@ var Page = React.createClass({
   renderPage : function() {
     return this.props.content.nodes.map( (node, index) => {
       if(node.type == 'text') {
-        return <View key={index} stye={[styles[node.type + 'Node']]}>
-          <Text style={styles.node}>{node.content.en} </Text>
+        return <View key={'n' + index} stye={[styles[node.type + 'Node']]}>
+          <Text style={styles.node}>
+            {this.renderNode(node.content, index)}
+          </Text>
         </View>
       }
 
@@ -28,13 +30,20 @@ var Page = React.createClass({
         <Text>..Unknown node type..</Text>
       </View>;
     } );
+  },
+  renderNode : function(content, n) {
+    return S(content.en).trim().split(' ').map( function(word, index){
+      console.log(word);
+        return <Text key={'n' + n + 'w' + index}>{word} </Text>
+    });
   }
 });
 
 var styles = StyleSheet.create({
     container : {
         flexDirection : 'row',
-        justifyContent : "flex-start"
+        justifyContent : 'flex-start',
+        flexWrap : 'wrap'
     },
     node : {
       fontFamily: 'Lora',
