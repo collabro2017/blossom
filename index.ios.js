@@ -3,7 +3,7 @@
 var React = require('react-native');
 var TopMenu = require('./common/TopMenu.js');
 var BottomMenu = require('./common/BottomMenu.js');
-var Book = require('./common/Book.js');
+var Page = require('./common/Page.js');
 
 var {
   AppRegistry,
@@ -70,7 +70,13 @@ const PAGES = [
 ];
 
 var blossom = React.createClass({
-  render: function() {
+  getInitialState : function() {
+    return {
+      page : 1,
+      languageMix : 'A'
+    }
+  },
+  render : function() {
     return (
       <View style={[styles.container, this.border('yellow')]}>
         <View style={[styles.topMenu, styles.menu, this.border('red')]}>
@@ -79,7 +85,7 @@ var blossom = React.createClass({
         <View style={[styles.book, this.border('blue')]}>
           {this.prevPage()}
           <View style={[styles.content, this.border('black')]}>
-            <Book></Book>
+            <Page content={PAGES[this.state.page - 1]}></Page>
           </View>
           {this.nextPage()}
         </View>
@@ -99,7 +105,7 @@ var blossom = React.createClass({
         <Text>prev</Text>
       </View>
   },
-  border: function(color) {
+  border : function(color) {
     return {
       borderWidth : 3,
       borderColor : color
@@ -108,7 +114,7 @@ var blossom = React.createClass({
 });
 
 var styles = StyleSheet.create({
-  container: {
+  container : {
     flex : 1,
     alignItems : 'stretch',
     justifyContent : 'center'
@@ -121,15 +127,15 @@ var styles = StyleSheet.create({
     flex : 1
   },
   book : {
-    flex: 18,
-    flexDirection: 'row',
+    flex : 18,
+    flexDirection : 'row',
     alignItems : 'stretch'
   },
   bottomMenu : {
     flex : 1
   },
   content : {
-    flex: 16
+    flex : 16
   },
   nextPage : {
     flex : 2
