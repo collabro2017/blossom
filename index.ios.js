@@ -142,7 +142,7 @@ var blossom = React.createClass({
   getInitialState : function() {
     return {
       page : 1,
-      blend : 'A'
+      blend : 'C'
     }
   },
   render : function() {

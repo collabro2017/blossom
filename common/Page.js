@@ -35,9 +35,9 @@ var Page = React.createClass({
     </Text>
   },
   renderText : function(node, i) {
-    console.log(this.props.blend, node);
-    return <Text key={'n' + i} style={this.getStyle(node, [styles.text])}>
-      {node.content[node.blends[this.props.blend]] + ' '}
+    var renderLang = node.blends[this.props.blend];
+    return <Text key={'n' + i} style={this.getStyle(node, [styles.text, styles[renderLang + 'Text']])}>
+      {node.content[renderLang] + ' '}
     </Text>
   },
   getStyle : function(node, defaultStyle) {
@@ -71,7 +71,14 @@ var styles = StyleSheet.create({
       lineHeight : 40,
       // borderWidth : 3,
       // borderColor : 'teal'
+    },
+    enText : {
+
+    },
+    esText : {
+      color : 'navy'
     }
+
 });
 
 module.exports = Page;
