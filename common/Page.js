@@ -12,48 +12,56 @@ var Page = React.createClass({
   render : function() {
     return (
       <View style={styles.container}>
-            {this.renderPage()}
+        {this.renderContent(this.props.page)}
       </View>
     );
   },
-  renderPage : function() {
-    return this.props.content.nodes.map( (node, index) => {
-      if(node.type == 'text') {
-        return <View key={'n' + index} stye={[styles[node.type + 'Node']]}>
-          <Text style={styles.node}>
-            {this.renderNode(node.content, index)}
-          </Text>
-        </View>
+  renderContent : function(content) {
+    var words = content.map( (node, index) => {
+      switch(node.type.toLowerCase()) {
+        case 'paragraph':
+          return this.renderParagraph(node.content, index);
+        case 'text':
+          return this.renderText(node.content, index);
+        default:
+          return <Text>..Unknown node type..</Text>
       }
-
-      return <View>
-        <Text>..Unknown node type..</Text>
-      </View>;
     } );
+    return words;
   },
-  renderNode : function(content, n) {
-    return S(content.en).trim().split(' ').map( function(word, index){
-      console.log(word);
-        return <Text key={'n' + n + 'w' + index}>{word} </Text>
-    });
+  renderParagraph : function(node, i) {
+    return <Text key={'p'+i} style={styles.paragraph}>
+      {this.renderContent(node)}
+    </Text>
+  },
+  renderText : function(node, i) {
+    return <Text key={'n' + i} style={styles.text}>{node.en} </Text>
   }
 });
 
 var styles = StyleSheet.create({
     container : {
-        flexDirection : 'row',
-        justifyContent : 'flex-start',
-        flexWrap : 'wrap'
+      flexDirection : 'column',
+      alignItems : 'stretch',
+      flexWrap : 'wrap',
+      // borderWidth : 3,
+      // borderColor : 'yellow'
     },
-    node : {
+    paragraph : {
+      flex : 1,
+      flexDirection : 'row',
+      justifyContent : 'flex-start',
+      paddingBottom: 20
+      // borderWidth : 3,
+      // borderColor : 'black',
+    },
+    text : {
       fontFamily: 'Lora',
       fontSize : 30,
-      lineHeight: 40
-    },
-    textNode : {
-
+      lineHeight : 40,
+      // borderWidth : 3,
+      // borderColor : 'teal'
     }
-
 });
 
 module.exports = Page;
