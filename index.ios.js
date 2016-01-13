@@ -16,54 +16,69 @@ var {
 const PAGES = [
   //first page
   {
-    nodes : [
+    content : [
       {
-        type : 'text',
-        content : {
-          'en' : 'test',
-          'es' : 'prueba'
-        }
-      },
-      {
-        type : 'text',
-        content : {
-          'en' : 'number one',
-          'es' : 'numero uno'
-        }
-      },
-      {
-        type : 'text',
-        content : {
-          'en' : 'is done',
-          'es' : 'completo'
-        }
+        type : 'paragraph',
+        content : [
+          {
+            type : 'text',
+            content : {
+              'en' : 'test',
+              'es' : 'prueba'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              'en' : 'number one',
+              'es' : 'numero uno'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              'en' : 'is done',
+              'es' : 'completo'
+            }
+          }
+        ]
       }
     ]
   },
 
   //2nd page
   {
-    nodes : [
+    content : [
       {
-        type : 'text',
-        content : {
-          'en' : 'Well, that\'s certainly good to know.',
-          'es' : 'Bueno, eso es ciertamente bueno saberlo.'
-        }
+        type : 'paragraph',
+        content : [
+          {
+            type : 'text',
+            content : {
+              'en' : 'Well, that\'s certainly good to know.',
+              'es' : 'Bueno, eso es ciertamente bueno saberlo.'
+            }
+          }
+        ]
       },
       {
-        type : 'text',
-        content : {
-          'en' : 'I suggest you drop it, Mr. Data.',
-          'es' : 'Sugiero se te cae, Sr. Data.'
-        }
-      },
-      {
-        type : 'text',
-        content : {
-          'en' : 'Captain, why are we out here chasing comets? we should be doing something completely different',
-          'es' : 'Capitán, ¿por qué estamos aquí persiguiendo cometas?'
-        }
+        type : 'paragraph',
+        content : [
+          {
+            type : 'text',
+            content : {
+              'en' : 'I suggest you drop it, Mr. Data.',
+              'es' : 'Sugiero se te cae, Sr. Data.'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              'en' : 'Captain, why are we out here chasing comets? we should be doing something completely different',
+              'es' : 'Capitán, ¿por qué estamos aquí persiguiendo cometas?'
+            }
+          }
+        ]
       }
     ]
   }
@@ -86,7 +101,7 @@ var blossom = React.createClass({
         <View style={[styles.book, this.border('blue')]}>
           {this.prevPage()}
           <View style={[styles.content, this.border('black')]}>
-            <Page content={PAGES[this.state.page - 1]}></Page>
+            <Page page={PAGES[this.state.page - 1].content}></Page>
           </View>
           {this.nextPage()}
         </View>
@@ -134,8 +149,8 @@ var blossom = React.createClass({
   },
   border : function(color) {
     return {
-      borderWidth : 3,
-      borderColor : color
+      // borderWidth : 3,
+      // borderColor : color
     }
   }
 });
