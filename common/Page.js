@@ -20,9 +20,9 @@ var Page = React.createClass({
     var words = content.map( (node, index) => {
       switch(node.type.toLowerCase()) {
         case 'paragraph':
-          return this.renderParagraph(node.content, index);
+          return this.renderParagraph(node, index);
         case 'text':
-          return this.renderText(node.content, index);
+          return this.renderText(node, index);
         default:
           return <Text>..Unknown node type..</Text>
       }
@@ -30,12 +30,20 @@ var Page = React.createClass({
     return words;
   },
   renderParagraph : function(node, i) {
-    return <Text key={'p'+i} style={styles.paragraph}>
-      {this.renderContent(node)}
+    return <Text key={'p'+i} style={this.getStyle(node, [styles.paragraph])}>
+      {this.renderContent(node.content)}
     </Text>
   },
   renderText : function(node, i) {
-    return <Text key={'n' + i} style={styles.text}>{node.en} </Text>
+    return <Text key={'n' + i} style={this.getStyle(node, [styles.text])}>{node.content.en} </Text>
+  },
+  getStyle : function(node, defaultStyle) {
+    console.log(node, node.style);
+    if(!node.style) {
+      return defaultStyle;
+    }
+
+    return defaultStyle.concat( node.style );
   }
 });
 

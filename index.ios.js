@@ -25,6 +25,9 @@ const PAGES = [
             content : {
               'en' : 'test',
               'es' : 'prueba'
+            },
+            style : {
+              fontStyle : 'italic'
             }
           },
           {
