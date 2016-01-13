@@ -35,10 +35,12 @@ var Page = React.createClass({
     </Text>
   },
   renderText : function(node, i) {
-    return <Text key={'n' + i} style={this.getStyle(node, [styles.text])}>{node.content.en} </Text>
+    console.log(this.props.blend, node);
+    return <Text key={'n' + i} style={this.getStyle(node, [styles.text])}>
+      {node.content[node.blends[this.props.blend]] + ' '}
+    </Text>
   },
   getStyle : function(node, defaultStyle) {
-    console.log(node, node.style);
     if(!node.style) {
       return defaultStyle;
     }

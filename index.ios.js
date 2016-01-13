@@ -13,6 +13,14 @@ var {
   View,
 } = React;
 
+const BLENDS = {
+  A : '95% English',
+  B : 'mostly English',
+  C : '50% each',
+  D : 'mostly Spanish',
+  E : '95% Spanish'
+};
+
 const PAGES = [
   //first page
   {
@@ -23,8 +31,15 @@ const PAGES = [
           {
             type : 'text',
             content : {
-              'en' : 'test',
-              'es' : 'prueba'
+              en : 'test',
+              es : 'prueba',
+            },
+            blends : {
+              A : 'en',
+              B : 'en',
+              C : 'en',
+              D : 'es',
+              E : 'es'
             },
             style : {
               fontStyle : 'italic'
@@ -33,15 +48,29 @@ const PAGES = [
           {
             type : 'text',
             content : {
-              'en' : 'number one',
-              'es' : 'numero uno'
+              en : 'number one',
+              es : 'numero uno'
+            },
+            blends : {
+              A : 'en',
+              B : 'en',
+              C : 'es',
+              D : 'es',
+              E : 'es'
             }
           },
           {
             type : 'text',
             content : {
-              'en' : 'is done',
-              'es' : 'completo'
+              en : 'is done.',
+              es : 'completo.'
+            },
+            blends : {
+              A : 'en',
+              B : 'es',
+              C : 'es',
+              D : 'es',
+              E : 'es'
             }
           }
         ]
@@ -58,8 +87,15 @@ const PAGES = [
           {
             type : 'text',
             content : {
-              'en' : 'Well, that\'s certainly good to know.',
-              'es' : 'Bueno, eso es ciertamente bueno saberlo.'
+              en : 'Well, that\'s certainly good to know.',
+              es : 'Bueno, eso es ciertamente bueno saberlo.'
+            },
+            blends : {
+              A : 'en',
+              B : 'en',
+              C : 'en',
+              D : 'es',
+              E : 'es'
             }
           }
         ]
@@ -70,15 +106,29 @@ const PAGES = [
           {
             type : 'text',
             content : {
-              'en' : 'I suggest you drop it, Mr. Data.',
-              'es' : 'Sugiero se te cae, Sr. Data.'
+              en : 'I suggest you drop it, Mr. Data.',
+              es : 'Sugiero se te cae, Sr. Data.'
+            },
+            blends : {
+              A : 'en',
+              B : 'en',
+              C : 'en',
+              D : 'es',
+              E : 'es'
             }
           },
           {
             type : 'text',
             content : {
-              'en' : 'Captain, why are we out here chasing comets? we should be doing something completely different',
-              'es' : 'Capitán, ¿por qué estamos aquí persiguiendo cometas?'
+              en : 'Captain, why are we out here chasing comets? we should be doing something completely different',
+              es : 'Capitán, ¿por qué estamos aquí persiguiendo cometas?'
+            },
+            blends : {
+              A : 'en',
+              B : 'en',
+              C : 'en',
+              D : 'es',
+              E : 'es'
             }
           }
         ]
@@ -92,7 +142,7 @@ var blossom = React.createClass({
   getInitialState : function() {
     return {
       page : 1,
-      languageMix : 'A'
+      blend : 'A'
     }
   },
   render : function() {
@@ -104,7 +154,7 @@ var blossom = React.createClass({
         <View style={[styles.book, this.border('blue')]}>
           {this.prevPage()}
           <View style={[styles.content, this.border('black')]}>
-            <Page page={PAGES[this.state.page - 1].content}></Page>
+            <Page page={PAGES[this.state.page - 1].content} blend={this.state.blend}></Page>
           </View>
           {this.nextPage()}
         </View>
