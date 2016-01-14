@@ -11,7 +11,6 @@ var {
 
 var FMPicker = require('react-native-fm-picker');
 
-var TopMenu = require('./common/TopMenu.js');
 var Page = require('./common/Page.js');
 
 const BLENDS = {
