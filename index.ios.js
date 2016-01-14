@@ -9,6 +9,8 @@ var {
   View,
 } = React;
 
+var FMPicker = require('react-native-fm-picker');
+
 var TopMenu = require('./common/TopMenu.js');
 var Page = require('./common/Page.js');
 
@@ -215,7 +217,9 @@ var blossom = React.createClass({
   renderBottomMenu : function() {
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
       <View style={[styles.languageSelect, this.border('#aaa')]}>
-        {this.renderBlendSelection()}
+        <Text onPress={()=>{ this.refs.picker.show(); }}>
+          {BLENDS[this.state.blend]}
+        </Text>
       </View>
       <View style={[styles.currentPage, this.border('#111')]}>
         <Text>Page {this.state.page}</Text>
@@ -223,18 +227,25 @@ var blossom = React.createClass({
       <View style={[styles.pagesLeft, this.border('#444')]}>
         <Text>{PAGES.length - this.state.page} Page Left</Text>
       </View>
+      {this.renderBlendSelection()}
     </View>
   },
+  getBlendLabels : function() {
+    return Object.keys(BLENDS).map(function(key) {
+      console.log(key, BLENDS[key], BLENDS);
+        return BLENDS[key];
+    });
+  },
+  getBlendOptions : function() {
+    return Object.keys(BLENDS);
+  },
   renderBlendSelection : function() {
-    // var blendOptions = Object.keys(BLENDS).map(function(key) {
-    //   console.log(key, BLENDS[key], BLENDS);
-    //     return <Option key={key} value={key}>{BLENDS[key]}</Option>;
-    // });
-    // console.log(blendOptions);
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>{BLENDS[this.state.blend]}</Text>
-      </View>
+      <FMPicker ref={'picker'}
+        options={this.getBlendOptions()}
+        labels={this.getBlendLabels()}
+        onSubmit={this.setBlend}
+      />
     );
   },
   setBlend : function(blend) {
