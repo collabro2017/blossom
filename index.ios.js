@@ -1,10 +1,6 @@
 'use strict';
 
 var React = require('react-native');
-var TopMenu = require('./common/TopMenu.js');
-var BottomMenu = require('./common/BottomMenu.js');
-var Page = require('./common/Page.js');
-
 var {
   AppRegistry,
   TouchableHighlight,
@@ -12,6 +8,9 @@ var {
   Text,
   View,
 } = React;
+
+var TopMenu = require('./common/TopMenu.js');
+var Page = require('./common/Page.js');
 
 const BLENDS = {
   A : '95% English',
@@ -148,9 +147,7 @@ var blossom = React.createClass({
   render : function() {
     return (
       <View style={[styles.container, this.border('yellow')]}>
-        <View style={[styles.topMenu, styles.menu, this.border('red')]}>
-          <TopMenu> </TopMenu>
-        </View>
+        {this.renderTopMenu()}
         <View style={[styles.book, this.border('blue')]}>
           {this.prevPage()}
           <View style={[styles.content, this.border('black')]}>
@@ -158,12 +155,12 @@ var blossom = React.createClass({
           </View>
           {this.nextPage()}
         </View>
-        <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
-          <BottomMenu></BottomMenu>
-        </View>
+        {this.renderBottomMenu()}
       </View>
     );
   },
+
+  //PAGE NAVIGATION
   nextPage : function() {
     return <TouchableHighlight
       underlayColor="rgba(0,0,0,0.2)"
@@ -200,6 +197,55 @@ var blossom = React.createClass({
       page : this.state.page - 1
     })
   },
+
+  //BLEND SELECTION
+  renderTopMenu : function() {
+    return <View style={[styles.topMenu, styles.menu, this.border('green')]}>
+      <View style={[styles.backButton, this.border('#444')]}>
+        <Text>&lt;</Text>
+      </View>
+      <View style={[styles.bookTitle, this.border('#111')]}>
+        <Text>Title</Text>
+      </View>
+      <View style={[styles.languageSelect, this.border('#aaa')]}>
+        {this.renderBlendSelection()}
+      </View>
+    </View>
+  },
+  renderBottomMenu : function() {
+    return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
+      <View style={[styles.languageSelect, this.border('#aaa')]}>
+       <Text>??</Text>
+      </View>
+      <View style={[styles.currentPage, this.border('#111')]}>
+        <Text>Page {this.state.page}</Text>
+      </View>
+      <View style={[styles.pagesLeft, this.border('#444')]}>
+        <Text>{PAGES.length - this.state.page} Page Left</Text>
+      </View>
+    </View>
+  },
+  renderBlendSelection : function() {
+    // var blendOptions = Object.keys(BLENDS).map(function(key) {
+    //   console.log(key, BLENDS[key], BLENDS);
+    //     return <Option key={key} value={key}>{BLENDS[key]}</Option>;
+    // });
+    // console.log(blendOptions);
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>{BLENDS[this.state.blend]}</Text>
+      </View>
+    );
+  },
+  setBlend : function(blend) {
+    console.log(blend);
+    this.setState({
+      blend : blend
+    });
+  },
+
+  //HELPER
+  //TODO: remove
   border : function(color) {
     return {
       // borderWidth : 3,
@@ -215,19 +261,19 @@ var styles = StyleSheet.create({
     justifyContent : 'center'
   },
   menu : {
-    justifyContent : 'space-between',
-    alignItems : 'center'
+    alignItems : 'stretch',
+    flexDirection : 'row',
   },
   topMenu : {
     flex : 1
+  },
+  bottomMenu : {
+    flex : 1,
   },
   book : {
     flex : 18,
     flexDirection : 'row',
     alignItems : 'stretch'
-  },
-  bottomMenu : {
-    flex : 1
   },
   content : {
     flex : 16
@@ -237,6 +283,31 @@ var styles = StyleSheet.create({
   },
   prevPage : {
     flex : 2
+  },
+  backButton : {
+    flex : 3,
+    alignItems : 'center',
+    justifyContent : 'center'
+  },
+  bookTitle : {
+    flex : 10,
+    alignItems : 'center',
+    justifyContent : 'center'
+  },
+  languageSelect : {
+    flex : 5,
+    alignItems : 'center',
+    justifyContent : 'center'
+  },
+  currentPage : {
+    flex : 10,
+    alignItems : 'center',
+    justifyContent : 'center'
+  },
+  pagesLeft : {
+    flex : 5,
+    alignItems : 'center',
+    justifyContent : 'center'
   }
 });
 
