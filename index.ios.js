@@ -209,7 +209,7 @@ var blossom = React.createClass({
         <Text>Title</Text>
       </View>
       <View style={[styles.languageSelect, this.border('#aaa')]}>
-       <Text>TBD</Text>
+       <Text></Text>
       </View>
     </View>
   },
@@ -224,10 +224,21 @@ var blossom = React.createClass({
         <Text>Page {this.state.page}</Text>
       </View>
       <View style={[styles.pagesLeft, this.border('#444')]}>
-        <Text>{PAGES.length - this.state.page} Page Left</Text>
+        <Text>{this.getPageLeftText()}</Text>
       </View>
       {this.renderBlendSelection()}
     </View>
+  },
+  getPageLeftText : function() {
+    var numPagesLeft = PAGES.length - this.state.page;
+    if(numPagesLeft == 0) {
+      return '';
+    }
+    if(numPagesLeft == 1) {
+      return '1 Page Left';
+    }
+
+    return numPagesLeft + ' Pages Left';
   },
   getBlendLabels : function() {
     return Object.keys(BLENDS).map(function(key) {
