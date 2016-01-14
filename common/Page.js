@@ -1,12 +1,12 @@
 var React = require('react-native');
-var S = require('string');
-
 var {
   StyleSheet,
   Text,
   View,
   Touchable
 } = React;
+
+var TextNode = require('./TextNode.js');
 
 var Page = React.createClass({
   render : function() {
@@ -36,9 +36,11 @@ var Page = React.createClass({
   },
   renderText : function(node, i) {
     var renderLang = node.blends[this.props.blend];
-    return <Text key={'n' + i} style={this.getStyle(node, [styles.text, styles[renderLang + 'Text']])}>
-      {node.content[renderLang] + ' '}
-    </Text>
+    return <TextNode
+      renderLang={renderLang}
+      node={node}
+      key={'n' + i}
+    ></TextNode>
   },
   getStyle : function(node, defaultStyle) {
     if(!node.style) {
@@ -46,7 +48,7 @@ var Page = React.createClass({
     }
 
     return defaultStyle.concat( node.style );
-  }
+  },
 });
 
 var styles = StyleSheet.create({
