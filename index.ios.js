@@ -208,14 +208,14 @@ var blossom = React.createClass({
         <Text>Title</Text>
       </View>
       <View style={[styles.languageSelect, this.border('#aaa')]}>
-        {this.renderBlendSelection()}
+       <Text>TBD</Text>
       </View>
     </View>
   },
   renderBottomMenu : function() {
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
       <View style={[styles.languageSelect, this.border('#aaa')]}>
-       <Text>??</Text>
+        {this.renderBlendSelection()}
       </View>
       <View style={[styles.currentPage, this.border('#111')]}>
         <Text>Page {this.state.page}</Text>
