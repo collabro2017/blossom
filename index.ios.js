@@ -32,15 +32,15 @@ const PAGES = [
           {
             type : 'text',
             content : {
-              en : 'test',
-              es : 'prueba',
+              L1 : 'test',
+              L2 : 'prueba',
             },
             blends : {
-              A : 'en',
-              B : 'en',
-              C : 'en',
-              D : 'es',
-              E : 'es'
+              A : 'L1',
+              B : 'L1',
+              C : 'L1',
+              D : 'L2',
+              E : 'L2'
             },
             style : {
               fontStyle : 'italic'
@@ -49,29 +49,29 @@ const PAGES = [
           {
             type : 'text',
             content : {
-              en : 'number one',
-              es : 'numero uno'
+              L1 : 'number one',
+              L2 : 'numero uno'
             },
             blends : {
-              A : 'en',
-              B : 'en',
-              C : 'es',
-              D : 'es',
-              E : 'es'
+              A : 'L1',
+              B : 'L1',
+              C : 'L2',
+              D : 'L2',
+              E : 'L2'
             }
           },
           {
             type : 'text',
             content : {
-              en : 'is done.',
-              es : 'completo.'
+              L1 : 'is done.',
+              L2 : 'completo.'
             },
             blends : {
-              A : 'en',
-              B : 'es',
-              C : 'es',
-              D : 'es',
-              E : 'es'
+              A : 'L1',
+              B : 'L2',
+              C : 'L2',
+              D : 'L2',
+              E : 'L2'
             }
           }
         ]
@@ -88,15 +88,15 @@ const PAGES = [
           {
             type : 'text',
             content : {
-              en : 'Well, that\'s certainly good to know.',
-              es : 'Bueno, eso es ciertamente bueno saberlo.'
+              L1 : 'Well, that\'s certainly good to know.',
+              L2 : 'Bueno, eso es ciertamente bueno saberlo.'
             },
             blends : {
-              A : 'en',
-              B : 'en',
-              C : 'en',
-              D : 'es',
-              E : 'es'
+              A : 'L1',
+              B : 'L1',
+              C : 'L1',
+              D : 'L2',
+              E : 'L2'
             }
           }
         ]
@@ -107,29 +107,29 @@ const PAGES = [
           {
             type : 'text',
             content : {
-              en : 'I suggest you drop it, Mr. Data.',
-              es : 'Sugiero se te cae, Sr. Data.'
+              L1 : 'I suggest you drop it, Mr. Data.',
+              L2 : 'Sugiero se te cae, Sr. Data.'
             },
             blends : {
-              A : 'en',
-              B : 'en',
-              C : 'en',
-              D : 'es',
-              E : 'es'
+              A : 'L1',
+              B : 'L1',
+              C : 'L1',
+              D : 'L2',
+              E : 'L2'
             }
           },
           {
             type : 'text',
             content : {
-              en : 'Captain, why are we out here chasing comets? we should be doing something completely different',
-              es : 'Capitán, ¿por qué estamos aquí persiguiendo cometas?'
+              L1 : 'Captain, why are we out here chasing comets? we should be doing something completely different',
+              L2 : 'Capitán, ¿por qué estamos aquí persiguiendo cometas?'
             },
             blends : {
-              A : 'en',
-              B : 'en',
-              C : 'en',
-              D : 'es',
-              E : 'es'
+              A : 'L1',
+              B : 'L1',
+              C : 'L1',
+              D : 'L2',
+              E : 'L2'
             }
           }
         ]

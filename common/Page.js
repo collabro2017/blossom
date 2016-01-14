@@ -72,10 +72,10 @@ var styles = StyleSheet.create({
       // borderWidth : 3,
       // borderColor : 'teal'
     },
-    enText : {
+    L1Text : {
 
     },
-    esText : {
+    L2Text : {
       color : 'navy'
     }
 
