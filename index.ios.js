@@ -7,11 +7,13 @@ var {
   StyleSheet,
   Text,
   View,
+  Dimensions,
 } = React;
 
 var FMPicker = require('react-native-fm-picker');
 var Swiper = require('react-native-swiper');
 var Icon = require('react-native-vector-icons/EvilIcons');
+var Orientation = require('react-native-orientation');
 
 var Page = require('./common/Page.js');
 
@@ -29,23 +31,48 @@ var blossom = React.createClass({
   getInitialState : function() {
     return {
       page : 1,
-      blend : 'C'
+      blend : 'C',
+      contentWidth : Dimensions.get('window').width,
+      contentHeight : Dimensions.get('window').height,
     }
   },
+  _orientationDidChange : function(orientation) {
+    this.refs.contentWrapper.measure(this.updateBookSize);
+  },
+  updateBookSize : function(ox, oy, w, h, px, py) {
+    console.log(arguments);
+    this.setState({
+      contentWidth : w,
+      contentHeight : h
+    });
+  },
+  componentDidMount : function(){
+    Orientation.addOrientationListener(this._orientationDidChange);
+    setTimeout(this._orientationDidChange);
+  },
+  componentWillUnmount : function() {
+    Orientation.removeOrientationListener(this._orientationDidChange);
+  },
+
   render : function() {
     return (
       <View style={[styles.container, this.border('yellow')]}>
         {this.renderTopMenu()}
-        <View style={[styles.book, this.border('blue')]}>
+        <View
+          style={[styles.book, this.border('blue')]}
+          ref="contentWrapper">
             <Swiper
               style={[styles.content, this.border('black')]}
               showsButtons={true}
+              showsPagination={false}
               loop={false}
               horizontal={true}
               index={this.state.page - 1}
               nextButton={this.getNextButton()}
               prevButton={this.getPrevButton()}
               onMomentumScrollEnd={this.setCurrentPage}
+              width={this.state.contentWidth}
+              height={this.state.contentHeight}
             >
               {this.getPages()}
             </Swiper>
@@ -118,7 +145,6 @@ var blossom = React.createClass({
   },
   getBlendLabels : function() {
     return Object.keys(BLENDS).map(function(key) {
-      console.log(key, BLENDS[key], BLENDS);
         return BLENDS[key];
     });
   },
@@ -144,10 +170,10 @@ var blossom = React.createClass({
   //HELPER
   //TODO: remove
   border : function(color) {
-    // return {
-    //   borderWidth : 3,
-    //   borderColor : color
-    // }
+    return {
+      // borderWidth : 3,
+      // borderColor : color
+    }
   }
 });
 
