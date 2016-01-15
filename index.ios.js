@@ -79,9 +79,9 @@ var blossom = React.createClass({
       <View style={[styles.backButton]}>
         <Text></Text>
       </View>
-      <View style={[styles.bookTitle]}>
-        <Text>{BOOK.title}</Text>
-        <Text>by {BOOK.author}</Text>
+      <View style={[styles.bookHeader]}>
+        <Text style={styles.bookTitle}>{BOOK.title}</Text>
+        <Text style={styles.bookAuthor}>{BOOK.author}</Text>
       </View>
       <View style={[styles.languageSelect]}>
        <Text></Text>
@@ -91,15 +91,15 @@ var blossom = React.createClass({
   renderBottomMenu : function() {
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
       <View style={[styles.languageSelect]}>
-        <Text onPress={()=>{ this.refs.picker.show(); }}>
+        <Text style={styles.bottomMenuLabels} onPress={()=>{ this.refs.picker.show(); }}>
           {BLENDS[this.state.blend]}
         </Text>
       </View>
       <View style={[styles.currentPage]}>
-        <Text>Page {this.state.page}</Text>
+        <Text style={styles.bottomMenuLabels}>Page {this.state.page}</Text>
       </View>
       <View style={[styles.pagesLeft]}>
-        <Text>{this.getPageLeftText()}</Text>
+        <Text style={styles.bottomMenuLabels}>{this.getPageLeftText()}</Text>
       </View>
       {this.renderBlendSelection()}
     </View>
@@ -186,11 +186,25 @@ var styles = StyleSheet.create({
     alignItems : 'center',
     justifyContent : 'center'
   },
-  bookTitle : {
+  bookHeader : {
     flex : 10,
+    flexDirection : 'row',
     alignItems : 'center',
     justifyContent : 'center'
   },
+  bookTitle : {
+    fontFamily : 'Open Sans',
+    color : '#c0c0c0',
+    fontSize : 20
+  },
+  bookAuthor : {
+    fontFamily : 'Open Sans',
+    color : '#c0c0c0',
+    paddingLeft: 10,
+    fontSize : 15,
+    fontWeight : '600'
+  },
+
 
   //bottom menu
   languageSelect : {
@@ -207,6 +221,10 @@ var styles = StyleSheet.create({
     flex : 5,
     alignItems : 'center',
     justifyContent : 'center'
+  },
+  bottomMenuLabels : {
+    fontFamily : 'Open Sans',
+    color : '#c0c0c0',
   }
 });
 
