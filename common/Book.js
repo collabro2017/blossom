@@ -22,7 +22,7 @@ var Book = {
                 E : 'L2'
               },
               style : {
-                fontStyle : 'italic'
+                // fontStyle : 'italic'
               }
             },
             {
