@@ -56,23 +56,27 @@ var styles = StyleSheet.create({
       flexDirection : 'column',
       alignItems : 'stretch',
       flexWrap : 'wrap',
+      paddingLeft : 40,
+      paddingRight : 40,
+      paddingTop : 50,
+      paddingBottom : 50,
       // borderWidth : 3,
-      // borderColor : 'yellow'
+      // borderColor : 'pink',
     },
     paragraph : {
       flex : 1,
       flexDirection : 'row',
       justifyContent : 'flex-start',
-      paddingBottom: 20
+      paddingBottom: 20,
       // borderWidth : 3,
-      // borderColor : 'black',
+      // borderColor : 'red',
     },
     text : {
       fontFamily: 'Lora',
       fontSize : 30,
       lineHeight : 40,
       // borderWidth : 3,
-      // borderColor : 'teal'
+      // borderColor : 'green'
     },
     L1Text : {
 
