@@ -21,122 +21,126 @@ const BLENDS = {
   E : '95% Spanish'
 };
 
-const PAGES = [
-  //first page
-  {
-    content : [
-      {
-        type : 'paragraph',
-        content : [
-          {
-            type : 'text',
-            content : {
-              L1 : 'test',
-              L2 : 'prueba',
+const BOOK = {
+  title : 'My Awesome Book',
+  author : 'some guy',
+  pages : [
+    //first page
+    {
+      content : [
+        {
+          type : 'paragraph',
+          content : [
+            {
+              type : 'text',
+              content : {
+                L1 : 'test',
+                L2 : 'prueba',
+              },
+              blends : {
+                A : 'L1',
+                B : 'L1',
+                C : 'L1',
+                D : 'L2',
+                E : 'L2'
+              },
+              style : {
+                fontStyle : 'italic'
+              }
             },
-            blends : {
-              A : 'L1',
-              B : 'L1',
-              C : 'L1',
-              D : 'L2',
-              E : 'L2'
+            {
+              type : 'text',
+              content : {
+                L1 : 'number one',
+                L2 : 'numero uno'
+              },
+              blends : {
+                A : 'L1',
+                B : 'L1',
+                C : 'L2',
+                D : 'L2',
+                E : 'L2'
+              }
             },
-            style : {
-              fontStyle : 'italic'
+            {
+              type : 'text',
+              content : {
+                L1 : 'is done.',
+                L2 : 'completo.'
+              },
+              blends : {
+                A : 'L1',
+                B : 'L2',
+                C : 'L2',
+                D : 'L2',
+                E : 'L2'
+              }
             }
-          },
-          {
-            type : 'text',
-            content : {
-              L1 : 'number one',
-              L2 : 'numero uno'
-            },
-            blends : {
-              A : 'L1',
-              B : 'L1',
-              C : 'L2',
-              D : 'L2',
-              E : 'L2'
-            }
-          },
-          {
-            type : 'text',
-            content : {
-              L1 : 'is done.',
-              L2 : 'completo.'
-            },
-            blends : {
-              A : 'L1',
-              B : 'L2',
-              C : 'L2',
-              D : 'L2',
-              E : 'L2'
-            }
-          }
-        ]
-      }
-    ]
-  },
+          ]
+        }
+      ]
+    },
 
-  //2nd page
-  {
-    content : [
-      {
-        type : 'paragraph',
-        content : [
-          {
-            type : 'text',
-            content : {
-              L1 : 'Well, that\'s certainly good to know.',
-              L2 : 'Bueno, eso es ciertamente bueno saberlo.'
-            },
-            blends : {
-              A : 'L1',
-              B : 'L1',
-              C : 'L1',
-              D : 'L2',
-              E : 'L2'
+    //2nd page
+    {
+      content : [
+        {
+          type : 'paragraph',
+          content : [
+            {
+              type : 'text',
+              content : {
+                L1 : 'Well, that\'s certainly good to know.',
+                L2 : 'Bueno, eso es ciertamente bueno saberlo.'
+              },
+              blends : {
+                A : 'L1',
+                B : 'L1',
+                C : 'L1',
+                D : 'L2',
+                E : 'L2'
+              }
             }
-          }
-        ]
-      },
-      {
-        type : 'paragraph',
-        content : [
-          {
-            type : 'text',
-            content : {
-              L1 : 'I suggest you drop it, Mr. Data.',
-              L2 : 'Sugiero se te cae, Sr. Data.'
+          ]
+        },
+        {
+          type : 'paragraph',
+          content : [
+            {
+              type : 'text',
+              content : {
+                L1 : 'I suggest you drop it, Mr. Data.',
+                L2 : 'Sugiero se te cae, Sr. Data.'
+              },
+              blends : {
+                A : 'L1',
+                B : 'L1',
+                C : 'L1',
+                D : 'L2',
+                E : 'L2'
+              }
             },
-            blends : {
-              A : 'L1',
-              B : 'L1',
-              C : 'L1',
-              D : 'L2',
-              E : 'L2'
+            {
+              type : 'text',
+              content : {
+                L1 : 'Captain, why are we out here chasing comets? we should be doing something completely different',
+                L2 : 'Capitán, ¿por qué estamos aquí persiguiendo cometas?'
+              },
+              blends : {
+                A : 'L1',
+                B : 'L1',
+                C : 'L1',
+                D : 'L2',
+                E : 'L2'
+              }
             }
-          },
-          {
-            type : 'text',
-            content : {
-              L1 : 'Captain, why are we out here chasing comets? we should be doing something completely different',
-              L2 : 'Capitán, ¿por qué estamos aquí persiguiendo cometas?'
-            },
-            blends : {
-              A : 'L1',
-              B : 'L1',
-              C : 'L1',
-              D : 'L2',
-              E : 'L2'
-            }
-          }
-        ]
-      }
-    ]
-  }
+          ]
+        }
+      ]
+    }
 
-];
+  ]
+};
 
 var blossom = React.createClass({
   getInitialState : function() {
@@ -152,7 +156,7 @@ var blossom = React.createClass({
         <View style={[styles.book, this.border('blue')]}>
           {this.prevPage()}
           <View style={[styles.content, this.border('black')]}>
-            <Page page={PAGES[this.state.page - 1].content} blend={this.state.blend}></Page>
+            <Page page={BOOK.pages[this.state.page - 1].content} blend={this.state.blend}></Page>
           </View>
           {this.nextPage()}
         </View>
@@ -179,7 +183,7 @@ var blossom = React.createClass({
       </TouchableHighlight>
   },
   handleNextPage : function() {
-    if(this.state.page == PAGES.length)
+    if(this.state.page == BOOKS.pages.length)
     {
       return false;
     }
@@ -230,7 +234,7 @@ var blossom = React.createClass({
     </View>
   },
   getPageLeftText : function() {
-    var numPagesLeft = PAGES.length - this.state.page;
+    var numPagesLeft = BOOK.pages.length - this.state.page;
     if(numPagesLeft == 0) {
       return '';
     }
