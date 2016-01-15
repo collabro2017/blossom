@@ -55,10 +55,10 @@ var blossom = React.createClass({
     );
   },
   getNextButton : function() {
-    return <Icon name="arrow-right" size={60} color="#CF9653" />
+    return <Icon name="arrow-right" size={60} color="#BBB391" />
   },
   getPrevButton : function() {
-    return <Icon name="arrow-left" size={60} color="#CF9653" />
+    return <Icon name="arrow-left" size={60} color="#BBB391" />
   },
   getPages : function() {
     return BOOK.pages.map((page, index) => {
