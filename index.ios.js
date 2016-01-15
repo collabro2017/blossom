@@ -35,13 +35,13 @@ var blossom = React.createClass({
       blend : 'C',
       contentWidth : Dimensions.get('window').width,
       contentHeight : Dimensions.get('window').height,
+      statusBarShown : true
     }
   },
   _orientationDidChange : function(orientation) {
     this.refs.contentWrapper.measure(this.updateBookSize);
   },
   updateBookSize : function(ox, oy, w, h, px, py) {
-    console.log(arguments);
     this.setState({
       contentWidth : w,
       contentHeight : h
@@ -103,15 +103,24 @@ var blossom = React.createClass({
     });
   },
 
-  //BLEND SELECTION
+  toggleStatusBar : function() {
+    var show = !this.state.statusBarShown;
+    console.log(show);
+    StatusBarIOS.setHidden(show, 'slide');
+    this.setState({
+      statusBarShown : show
+    });
+  },
+
   renderTopMenu : function() {
-    return <View style={[styles.topMenu, styles.menu, this.border('green')]}>
+    return <View 
+        style={[styles.topMenu, styles.menu, this.border('green')]}>
       <View style={[styles.backButton]}>
         <Text></Text>
       </View>
       <View style={[styles.bookHeader]}>
-        <Text style={styles.bookTitle}>{BOOK.title}</Text>
-        <Text style={styles.bookAuthor}>{BOOK.author}</Text>
+          <Text onPress={this.toggleStatusBar} style={styles.bookTitle}>{BOOK.title}</Text>
+          <Text onPress={this.toggleStatusBar} style={styles.bookAuthor}>{BOOK.author}</Text>
       </View>
       <View style={[styles.languageSelect]}>
        <Text></Text>
@@ -163,7 +172,6 @@ var blossom = React.createClass({
     );
   },
   setBlend : function(blend) {
-    console.log(blend);
     this.setState({
       blend : blend
     });
@@ -222,7 +230,8 @@ var styles = StyleSheet.create({
     flex : 10,
     flexDirection : 'row',
     alignItems : 'center',
-    justifyContent : 'center'
+    justifyContent : 'center',
+    paddingTop: 20
   },
   bookTitle : {
     fontFamily : 'Open Sans',
