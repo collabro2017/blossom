@@ -14,7 +14,6 @@ var {
 var FMPicker = require('react-native-fm-picker');
 var Swiper = require('react-native-swiper');
 var Icon = require('react-native-vector-icons/EvilIcons');
-var Orientation = require('react-native-orientation');
 
 var Page = require('./common/Page.js');
 
@@ -38,10 +37,7 @@ var blossom = React.createClass({
       statusBarShown : true
     }
   },
-  _orientationDidChange : function(orientation) {
-    this.refs.contentWrapper.measure(this.updateBookSize);
-  },
-  updateBookSize : function(ox, oy, w, h, px, py) {
+  updateBookSize : function(w, h) {
     this.setState({
       contentWidth : w,
       contentHeight : h
@@ -49,19 +45,17 @@ var blossom = React.createClass({
   },
   componentDidMount : function(){
     StatusBarIOS.setHidden(true, 'slide');
-    Orientation.addOrientationListener(this._orientationDidChange);
-    setTimeout(this._orientationDidChange);
   },
-  componentWillUnmount : function() {
-    Orientation.removeOrientationListener(this._orientationDidChange);
+  layoutChange : function(e) {
+    this.updateBookSize(e.nativeEvent.layout.width, e.nativeEvent.layout.height);
   },
-
   render : function() {
     return (
       <View style={[styles.container, this.border('yellow')]}>
         {this.renderTopMenu()}
         <View
           style={[styles.book, this.border('blue')]}
+          onLayout={this.layoutChange}
           ref="contentWrapper">
             <Swiper
               style={[styles.content, this.border('black')]}
