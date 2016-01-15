@@ -36,7 +36,6 @@ var blossom = React.createClass({
       <View style={[styles.container, this.border('yellow')]}>
         {this.renderTopMenu()}
         <View style={[styles.book, this.border('blue')]}>
-          {this.prevPage()}
             <Swiper
               style={[styles.content, this.border('black')]}
               showsButtons={true}
@@ -49,7 +48,6 @@ var blossom = React.createClass({
             >
               {this.getPages()}
             </Swiper>
-          {this.nextPage()}
         </View>
         {this.renderBottomMenu()}
       </View>
@@ -74,43 +72,6 @@ var blossom = React.createClass({
       page : swiper.index + 1
     });
   },
-  //PAGE NAVIGATION
-  nextPage : function() {
-    // return <TouchableHighlight
-    //   underlayColor="rgba(0,0,0,0.2)"
-    //   onPress={this.handleNextPage}
-    //   style={[styles.nextPage]}>
-    //     <Text>next</Text>
-    //   </TouchableHighlight>
-  },
-  prevPage : function() {
-    // return <TouchableHighlight
-    //   underlayColor="rgba(0,0,0,0.2)"
-    //   onPress={this.handlePrevPage}
-    //   style={[styles.prevPage]}>
-    //     <Text>prev</Text>
-    //   </TouchableHighlight>
-  },
-  // handleNextPage : function() {
-  //   if(this.state.page == BOOK.pages.length)
-  //   {
-  //     return false;
-  //   }
-
-  //   this.setState({
-  //     page : this.state.page + 1
-  //   })
-  // },
-  // handlePrevPage : function() {
-  //   if(this.state.page == 1)
-  //   {
-  //     return false;
-  //   }
-
-  //   this.setState({
-  //     page : this.state.page - 1
-  //   })
-  // },
 
   //BLEND SELECTION
   renderTopMenu : function() {
@@ -212,18 +173,9 @@ var styles = StyleSheet.create({
   },
   content : {
     flex : 1,
-    // flexDirection : 'row',
-    // alignItems : 'stretch'
   },
-  buttonText : {
-    color: 'red'
   },
-  // nextPage : {
-  //   flex : 2
-  // },
-  // prevPage : {
-  //   flex : 2
-  // },
+
   //top menu
   backButton : {
     flex : 3,
@@ -235,6 +187,7 @@ var styles = StyleSheet.create({
     alignItems : 'center',
     justifyContent : 'center'
   },
+
   //bottom menu
   languageSelect : {
     flex : 5,
