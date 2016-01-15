@@ -8,6 +8,7 @@
   "dependencies": {
     "react-native": "^0.17.0",
     "react-native-fm-picker": "git+https://github.com/mikemorreale/React-Native-FMPicker.git",
+    "react-native-swiper": "^1.4.3",
     "string": "^3.3.1"
   }
 }

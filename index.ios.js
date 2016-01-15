@@ -10,6 +10,7 @@ var {
 } = React;
 
 var FMPicker = require('react-native-fm-picker');
+var Swiper = require('react-native-swiper')
 
 var Page = require('./common/Page.js');
 
@@ -36,79 +37,107 @@ var blossom = React.createClass({
         {this.renderTopMenu()}
         <View style={[styles.book, this.border('blue')]}>
           {this.prevPage()}
-          <View style={[styles.content, this.border('black')]}>
-            <Page page={BOOK.pages[this.state.page - 1].content} blend={this.state.blend}></Page>
-          </View>
+            <Swiper
+              style={[styles.content, this.border('black')]}
+              showsButtons={true}
+              loop={false}
+              horizontal={true}
+              index={this.state.page - 1}
+              // nextButton={this.getNextButton}
+              // prevButton={this.getPrevButton}
+              onMomentumScrollEnd={this.setCurrentPage}
+            >
+              {this.getPages()}
+            </Swiper>
           {this.nextPage()}
         </View>
         {this.renderBottomMenu()}
       </View>
     );
   },
-
+  getNextButton : function() {
+    return <Text style={style.navigationButtons}>&gt;</Text>
+  },
+  getPrevButton : function() {
+    return <Text style={style.navigationButtons}>&lt;</Text>
+  },
+  getPages : function() {
+    return BOOK.pages.map((page, index) => {
+      return <Page
+        key={'p' + index}
+        page={page.content}
+        blend={this.state.blend}></Page>
+    } );
+  },
+  setCurrentPage : function(e, swiper) {
+    this.setState({
+      page : swiper.index + 1
+    });
+  },
   //PAGE NAVIGATION
   nextPage : function() {
-    return <TouchableHighlight
-      underlayColor="rgba(0,0,0,0.2)"
-      onPress={this.handleNextPage}
-      style={[styles.nextPage, this.border('orange')]}>
-        <Text>next</Text>
-      </TouchableHighlight>
+    // return <TouchableHighlight
+    //   underlayColor="rgba(0,0,0,0.2)"
+    //   onPress={this.handleNextPage}
+    //   style={[styles.nextPage]}>
+    //     <Text>next</Text>
+    //   </TouchableHighlight>
   },
   prevPage : function() {
-    return <TouchableHighlight
-      underlayColor="rgba(0,0,0,0.2)"
-      onPress={this.handlePrevPage}
-      style={[styles.prevPage, this.border('pink')]}>
-        <Text>prev</Text>
-      </TouchableHighlight>
+    // return <TouchableHighlight
+    //   underlayColor="rgba(0,0,0,0.2)"
+    //   onPress={this.handlePrevPage}
+    //   style={[styles.prevPage]}>
+    //     <Text>prev</Text>
+    //   </TouchableHighlight>
   },
-  handleNextPage : function() {
-    if(this.state.page == BOOKS.pages.length)
-    {
-      return false;
-    }
+  // handleNextPage : function() {
+  //   if(this.state.page == BOOK.pages.length)
+  //   {
+  //     return false;
+  //   }
 
-    this.setState({
-      page : this.state.page + 1
-    })
-  },
-  handlePrevPage : function() {
-    if(this.state.page == 1)
-    {
-      return false;
-    }
+  //   this.setState({
+  //     page : this.state.page + 1
+  //   })
+  // },
+  // handlePrevPage : function() {
+  //   if(this.state.page == 1)
+  //   {
+  //     return false;
+  //   }
 
-    this.setState({
-      page : this.state.page - 1
-    })
-  },
+  //   this.setState({
+  //     page : this.state.page - 1
+  //   })
+  // },
 
   //BLEND SELECTION
   renderTopMenu : function() {
     return <View style={[styles.topMenu, styles.menu, this.border('green')]}>
-      <View style={[styles.backButton, this.border('#444')]}>
+      <View style={[styles.backButton]}>
         <Text>&lt;</Text>
       </View>
-      <View style={[styles.bookTitle, this.border('#111')]}>
-        <Text>Title</Text>
+      <View style={[styles.bookTitle]}>
+        <Text>{BOOK.title}</Text>
+        <Text>by {BOOK.author}</Text>
       </View>
-      <View style={[styles.languageSelect, this.border('#aaa')]}>
+      <View style={[styles.languageSelect]}>
        <Text></Text>
       </View>
     </View>
   },
   renderBottomMenu : function() {
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
-      <View style={[styles.languageSelect, this.border('#aaa')]}>
+      <View style={[styles.languageSelect]}>
         <Text onPress={()=>{ this.refs.picker.show(); }}>
           {BLENDS[this.state.blend]}
         </Text>
       </View>
-      <View style={[styles.currentPage, this.border('#111')]}>
+      <View style={[styles.currentPage]}>
         <Text>Page {this.state.page}</Text>
       </View>
-      <View style={[styles.pagesLeft, this.border('#444')]}>
+      <View style={[styles.pagesLeft]}>
         <Text>{this.getPageLeftText()}</Text>
       </View>
       {this.renderBlendSelection()}
@@ -153,10 +182,10 @@ var blossom = React.createClass({
   //HELPER
   //TODO: remove
   border : function(color) {
-    return {
-      // borderWidth : 3,
-      // borderColor : color
-    }
+    // return {
+    //   borderWidth : 3,
+    //   borderColor : color
+    // }
   }
 });
 
@@ -182,14 +211,20 @@ var styles = StyleSheet.create({
     alignItems : 'stretch'
   },
   content : {
-    flex : 16
+    flex : 1,
+    // flexDirection : 'row',
+    // alignItems : 'stretch'
   },
-  nextPage : {
-    flex : 2
+  buttonText : {
+    color: 'red'
   },
-  prevPage : {
-    flex : 2
-  },
+  // nextPage : {
+  //   flex : 2
+  // },
+  // prevPage : {
+  //   flex : 2
+  // },
+  //top menu
   backButton : {
     flex : 3,
     alignItems : 'center',
@@ -200,6 +235,7 @@ var styles = StyleSheet.create({
     alignItems : 'center',
     justifyContent : 'center'
   },
+  //bottom menu
   languageSelect : {
     flex : 5,
     alignItems : 'center',
