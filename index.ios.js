@@ -122,15 +122,15 @@ var blossom = React.createClass({
   },
   renderBottomMenu : function() {
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
-      <View style={[styles.languageSelect]}>
+      <View style={[styles.bottomMenuLeft]}>
         <Text style={styles.bottomMenuLabels} onPress={()=>{ this.refs.picker.show(); }}>
           {BLENDS[this.state.blend]}
         </Text>
       </View>
-      <View style={[styles.currentPage]}>
+      <View style={[styles.bottomMenuCenter]}>
         <Text style={styles.bottomMenuLabels}>Page {this.state.page}</Text>
       </View>
-      <View style={[styles.pagesLeft]}>
+      <View style={[styles.bottomMenuRight]}>
         <Text style={styles.bottomMenuLabels}>{this.getPageLeftText()}</Text>
       </View>
       {this.renderBlendSelection()}
@@ -246,17 +246,17 @@ var styles = StyleSheet.create({
 
 
   //bottom menu
-  languageSelect : {
+  bottomMenuLeft : {
     flex : 5,
     alignItems : 'center',
     justifyContent : 'center'
   },
-  currentPage : {
+  bottomMenuCenter : {
     flex : 10,
     alignItems : 'center',
     justifyContent : 'center'
   },
-  pagesLeft : {
+  bottomMenuRight : {
     flex : 5,
     alignItems : 'center',
     justifyContent : 'center'
