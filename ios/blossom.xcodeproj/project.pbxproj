@@ -35,6 +35,7 @@
 		17CD806F1C496A440026F6B4 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CD80651C496A440026F6B4 /* OpenSans-Regular.ttf */; };
 		17CD80701C496A440026F6B4 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CD80661C496A440026F6B4 /* OpenSans-Semibold.ttf */; };
 		17CD80711C496A440026F6B4 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CD80671C496A440026F6B4 /* OpenSans-SemiboldItalic.ttf */; };
+		17CD80731C49777F0026F6B4 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CD80721C49777F0026F6B4 /* EvilIcons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +153,7 @@
 		17CD80651C496A440026F6B4 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../fonts/Open_Sans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		17CD80661C496A440026F6B4 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../fonts/Open_Sans/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		17CD80671C496A440026F6B4 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiboldItalic.ttf"; path = "../fonts/Open_Sans/OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		17CD80721C49777F0026F6B4 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -315,6 +317,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				17CD80721C49777F0026F6B4 /* EvilIcons.ttf */,
 				17CD805E1C496A440026F6B4 /* OpenSans-Bold.ttf */,
 				17CD805F1C496A440026F6B4 /* OpenSans-BoldItalic.ttf */,
 				17CD80601C496A440026F6B4 /* OpenSans-ExtraBold.ttf */,
@@ -558,6 +561,7 @@
 				17CD805B1C4847B00026F6B4 /* Lora-BoldItalic.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				17CD80701C496A440026F6B4 /* OpenSans-Semibold.ttf in Resources */,
+				17CD80731C49777F0026F6B4 /* EvilIcons.ttf in Resources */,
 				17CD806B1C496A440026F6B4 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				17CD806F1C496A440026F6B4 /* OpenSans-Regular.ttf in Resources */,
 				17CD80691C496A440026F6B4 /* OpenSans-BoldItalic.ttf in Resources */,
