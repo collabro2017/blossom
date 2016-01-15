@@ -8,6 +8,16 @@
 		<string>Lora-BoldItalic.ttf</string>
 		<string>Lora-Italic.ttf</string>
 		<string>Lora-Regular.ttf</string>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-BoldItalic.ttf</string>
+		<string>OpenSans-ExtraBold.ttf</string>
+		<string>OpenSans-ExtraBoldItalic.ttf</string>
+		<string>OpenSans-Italic.ttf</string>
+		<string>OpenSans-LightItalic.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-Semibold.ttf</string>
+		<string>OpenSans-SemiboldItalic.ttf</string>
+		<string></string>
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
