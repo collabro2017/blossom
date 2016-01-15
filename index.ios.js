@@ -10,7 +10,8 @@ var {
 } = React;
 
 var FMPicker = require('react-native-fm-picker');
-var Swiper = require('react-native-swiper')
+var Swiper = require('react-native-swiper');
+var Icon = require('react-native-vector-icons/EvilIcons');
 
 var Page = require('./common/Page.js');
 
@@ -54,10 +55,10 @@ var blossom = React.createClass({
     );
   },
   getNextButton : function() {
-    return <Text style={styles.navigationButton}>&gt;</Text>
+    return <Icon name="arrow-right" size={60} color="#BBB391" />
   },
   getPrevButton : function() {
-    return <Text style={styles.navigationButton}>&lt;</Text>
+    return <Icon name="arrow-left" size={60} color="#BBB391" />
   },
   getPages : function() {
     return BOOK.pages.map((page, index) => {
@@ -150,11 +151,14 @@ var blossom = React.createClass({
   }
 });
 
+
+var controlsColor = '#583919';
 var styles = StyleSheet.create({
   container : {
     flex : 1,
     alignItems : 'stretch',
-    justifyContent : 'center'
+    justifyContent : 'center',
+    backgroundColor: '#F5F2DE'
   },
   menu : {
     alignItems : 'stretch',
@@ -175,7 +179,7 @@ var styles = StyleSheet.create({
     flex : 1,
   },
   navigationButton : {
-    color: '#c0c0c0',
+    color: controlsColor,
     fontSize : 40,
     fontWeight : 'bold'
   },
@@ -194,12 +198,12 @@ var styles = StyleSheet.create({
   },
   bookTitle : {
     fontFamily : 'Open Sans',
-    color : '#c0c0c0',
+    color : controlsColor,
     fontSize : 20
   },
   bookAuthor : {
     fontFamily : 'Open Sans',
-    color : '#c0c0c0',
+    color : controlsColor,
     paddingLeft: 10,
     fontSize : 15,
     fontWeight : '600'
@@ -224,7 +228,7 @@ var styles = StyleSheet.create({
   },
   bottomMenuLabels : {
     fontFamily : 'Open Sans',
-    color : '#c0c0c0',
+    color : controlsColor,
   }
 });
 
