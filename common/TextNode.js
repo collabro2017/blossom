@@ -48,10 +48,10 @@ var styles = StyleSheet.create({
       // borderColor : 'teal'
     },
     L1Text : {
-
+      color : '#231506'
     },
     L2Text : {
-      color : 'navy'
+      color : '#528F6B'
     }
 
 });
