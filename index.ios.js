@@ -8,6 +8,7 @@ var {
   Text,
   View,
   Dimensions,
+  StatusBarIOS
 } = React;
 
 var FMPicker = require('react-native-fm-picker');
@@ -47,6 +48,7 @@ var blossom = React.createClass({
     });
   },
   componentDidMount : function(){
+    StatusBarIOS.setHidden(true, 'slide');
     Orientation.addOrientationListener(this._orientationDidChange);
     setTimeout(this._orientationDidChange);
   },
