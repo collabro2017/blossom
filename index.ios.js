@@ -42,8 +42,8 @@ var blossom = React.createClass({
               loop={false}
               horizontal={true}
               index={this.state.page - 1}
-              // nextButton={this.getNextButton}
-              // prevButton={this.getPrevButton}
+              nextButton={this.getNextButton()}
+              prevButton={this.getPrevButton()}
               onMomentumScrollEnd={this.setCurrentPage}
             >
               {this.getPages()}
@@ -54,10 +54,10 @@ var blossom = React.createClass({
     );
   },
   getNextButton : function() {
-    return <Text style={style.navigationButtons}>&gt;</Text>
+    return <Text style={styles.navigationButton}>&gt;</Text>
   },
   getPrevButton : function() {
-    return <Text style={style.navigationButtons}>&lt;</Text>
+    return <Text style={styles.navigationButton}>&lt;</Text>
   },
   getPages : function() {
     return BOOK.pages.map((page, index) => {
@@ -174,6 +174,10 @@ var styles = StyleSheet.create({
   content : {
     flex : 1,
   },
+  navigationButton : {
+    color: '#c0c0c0',
+    fontSize : 40,
+    fontWeight : 'bold'
   },
 
   //top menu
