@@ -107,17 +107,16 @@ var blossom = React.createClass({
   },
 
   renderTopMenu : function() {
-    return <View 
+    return <View
         style={[styles.topMenu, styles.menu, this.border('green')]}>
-      <View style={[styles.backButton]}>
+      <View style={[styles.topMenuLeft]}>
         <Text></Text>
       </View>
-      <View style={[styles.bookHeader]}>
+      <View style={[styles.topMenuCenter]}>
           <Text onPress={this.toggleStatusBar} style={styles.bookTitle}>{BOOK.title}</Text>
-          <Text onPress={this.toggleStatusBar} style={styles.bookAuthor}>{BOOK.author}</Text>
       </View>
-      <View style={[styles.languageSelect]}>
-       <Text></Text>
+      <View style={[styles.topMenuRight]}>
+        <Text onPress={this.toggleStatusBar} style={styles.bookAuthor}>{BOOK.author}</Text>
       </View>
     </View>
   },
@@ -215,14 +214,20 @@ var styles = StyleSheet.create({
   },
 
   //top menu
-  backButton : {
+  topMenuLeft : {
     flex : 3,
     alignItems : 'center',
     justifyContent : 'center'
   },
-  bookHeader : {
+  topMenuCenter : {
     flex : 10,
     flexDirection : 'row',
+    alignItems : 'center',
+    justifyContent : 'center',
+    paddingTop: 20
+  },
+  topMenuRight : {
+    flex : 3,
     alignItems : 'center',
     justifyContent : 'center',
     paddingTop: 20
@@ -235,7 +240,6 @@ var styles = StyleSheet.create({
   bookAuthor : {
     fontFamily : 'Open Sans',
     color : controlsColor,
-    paddingLeft: 10,
     fontSize : 15,
     fontWeight : '600'
   },
