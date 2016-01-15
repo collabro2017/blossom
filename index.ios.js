@@ -77,7 +77,7 @@ var blossom = React.createClass({
   renderTopMenu : function() {
     return <View style={[styles.topMenu, styles.menu, this.border('green')]}>
       <View style={[styles.backButton]}>
-        <Text>&lt;</Text>
+        <Text></Text>
       </View>
       <View style={[styles.bookTitle]}>
         <Text>{BOOK.title}</Text>
