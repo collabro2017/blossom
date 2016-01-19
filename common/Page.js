@@ -31,7 +31,7 @@ var Page = React.createClass({
     return words;
   },
   renderParagraph : function(node, i) {
-    return <Text key={'p'+i} style={[mixins.styleOverride(node), styles.paragraph]}>
+    return <Text key={'p'+i} style={[styles.paragraph, mixins.styleOverride(node)]}>
       {this.renderContent(node.content)}
     </Text>
   },
