@@ -7,6 +7,7 @@ var {
 } = React;
 
 var TextNode = require('./TextNode.js');
+var mixins = require('./Mixins.js');
 
 var Page = React.createClass({
   render : function() {
@@ -30,7 +31,7 @@ var Page = React.createClass({
     return words;
   },
   renderParagraph : function(node, i) {
-    return <Text key={'p'+i} style={this.getStyle(node, [styles.paragraph])}>
+    return <Text key={'p'+i} style={[mixins.styleOverride(node), styles.paragraph]}>
       {this.renderContent(node.content)}
     </Text>
   },
@@ -41,13 +42,6 @@ var Page = React.createClass({
       node={node}
       key={'n' + i}
     ></TextNode>
-  },
-  getStyle : function(node, defaultStyle) {
-    if(!node.style) {
-      return defaultStyle;
-    }
-
-    return defaultStyle.concat( node.style );
   },
 });
 
