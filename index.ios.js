@@ -53,35 +53,73 @@ var blossom = React.createClass({
     return (
       <View style={[styles.container, this.border('yellow')]}>
         {this.renderTopMenu()}
-        <View
-          style={[styles.book, this.border('blue')]}
-          onLayout={this.layoutChange}
-          ref="contentWrapper">
-            <Swiper
-              style={[styles.content, this.border('black')]}
-              showsButtons={true}
-              showsPagination={false}
-              loop={false}
-              horizontal={true}
-              index={this.state.page - 1}
-              nextButton={this.getNextButton()}
-              prevButton={this.getPrevButton()}
-              onMomentumScrollEnd={this.setCurrentPage}
-              width={this.state.contentWidth}
-              height={this.state.contentHeight}
-            >
-              {this.getPages()}
-            </Swiper>
+        <View style={styles.book}>
+          {this.prevPage()}
+          <View
+            style={[styles.content, this.border('blue')]}
+            onLayout={this.layoutChange}
+            ref="contentWrapper">
+              <Swiper
+                style={[styles.pages, this.border('black')]}
+                showsPagination={false}
+                loop={false}
+                horizontal={true}
+                index={this.state.page - 1}
+                showsButtons={false}
+                onMomentumScrollEnd={this.setCurrentPage}
+                width={this.state.contentWidth}
+                height={this.state.contentHeight}
+              >
+                {this.getPages()}
+              </Swiper>
+          </View>
+          {this.nextPage()}
         </View>
         {this.renderBottomMenu()}
       </View>
     );
   },
-  getNextButton : function() {
-    return <Icon name="arrow-right" size={60} color="#BBB391" />
+  nextPage : function() {
+    var color = '#BBB391';
+    if(this.isLastPage())
+    {
+      color = "rgba(0,0,0,0)";
+    }
+    return <TouchableHighlight
+      underlayColor="rgba(0,0,0,0.2)"
+      onPress={this.handleNextPage}
+      style={[styles.nextPage, this.border('orange')]}>
+        <Icon name="arrow-right" size={50} color={color} />
+      </TouchableHighlight>
   },
-  getPrevButton : function() {
-    return <Icon name="arrow-left" size={60} color="#BBB391" />
+  prevPage : function() {
+    var color = '#BBB391';
+    if(this.isFirstPage())
+    {
+      color = "rgba(0,0,0,0)";
+    }
+    return <TouchableHighlight
+      underlayColor="rgba(0,0,0,0.2)"
+      onPress={this.handlePrevPage}
+      style={[styles.prevPage, this.border('pink')]}>
+        <Icon name="arrow-left" size={50} color={color} />
+      </TouchableHighlight>
+  },
+  handleNextPage : function() {
+    this.setState({
+      page : this.state.page + 1
+    })
+  },
+  handlePrevPage : function() {
+    this.setState({
+      page : this.state.page - 1
+    })
+  },
+  isFirstPage : function() {
+    return this.state.page == 1;
+  },
+  isLastPage : function() {
+    return this.state.page == BOOK.pages.length;
   },
   getPages : function() {
     return BOOK.pages.map((page, index) => {
@@ -205,12 +243,20 @@ var styles = StyleSheet.create({
     alignItems : 'stretch'
   },
   content : {
-    flex : 1,
+    flex : 16,
   },
-  navigationButton : {
-    color: controlsColor,
-    fontSize : 40,
-    fontWeight : 'bold'
+  nextPage : {
+    flex : 1,
+    alignItems : 'center',
+    justifyContent : 'center'
+  },
+  prevPage : {
+    flex : 1,
+    alignItems : 'center',
+    justifyContent : 'center'
+  },
+  page : {
+    flex : 1
   },
 
   //top menu
