@@ -65,7 +65,10 @@ var Book = {
         },
         {
           type : 'image',
-          src : 'https://upload.wikimedia.org/wikipedia/commons/8/83/Alice-white-rabbit.jpg'
+          src : 'https://upload.wikimedia.org/wikipedia/commons/8/83/Alice-white-rabbit.jpg',
+          style : {
+            minHeight: 600
+          }
         },
       ]
     },

@@ -76,7 +76,6 @@ var styles = StyleSheet.create({
     },
     image : {
       resizeMode : 'contain',
-      height: 600
     },
     text : {
       fontFamily: 'Lora',
