@@ -8,6 +8,10 @@ var Book = {
   pages : [
     //first page
     {
+      style : {
+        //example
+        // backgroundColor : 'green'
+      },
       content : [
         {
           type : 'paragraph',

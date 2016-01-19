@@ -53,7 +53,13 @@ var blossom = React.createClass({
   },
   render : function() {
     return (
-      <View style={[styles.container, this.border('yellow'), mixins.styleOverride(BOOK)]}>
+      <View
+        style={[
+          styles.container,
+          this.border('yellow'),
+          mixins.styleOverride(BOOK),
+          mixins.styleOverride(BOOK.pages[this.state.page-1]),
+        ]}>
         {this.renderTopMenu()}
         <View style={styles.book}>
           {this.prevPage()}
