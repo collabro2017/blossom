@@ -3,7 +3,8 @@ var {
   StyleSheet,
   Text,
   View,
-  Touchable
+  Touchable,
+  Image
 } = React;
 
 var TextNode = require('./TextNode.js');
@@ -22,6 +23,8 @@ var Page = React.createClass({
       switch(node.type.toLowerCase()) {
         case 'paragraph':
           return this.renderParagraph(node, index);
+        case 'image':
+          return this.renderImage(node, index);
         case 'text':
           return this.renderText(node, index);
         default:
@@ -31,9 +34,15 @@ var Page = React.createClass({
     return words;
   },
   renderParagraph : function(node, i) {
-    return <Text key={'p'+i} style={[styles.paragraph, mixins.styleOverride(node)]}>
+    return <Text key={'n'+i} style={[styles.paragraph, mixins.styleOverride(node)]}>
       {this.renderContent(node.content)}
     </Text>
+  },
+  renderImage : function(node, i) {
+    return <Image
+      key={'n' + i}
+      style={[styles.image, mixins.styleOverride(node)]}
+      source={{uri: node.src}} />
   },
   renderText : function(node, i) {
     var renderLang = node.blends[this.props.blend];
@@ -64,6 +73,9 @@ var styles = StyleSheet.create({
       paddingBottom: 20,
       // borderWidth : 3,
       // borderColor : 'red',
+    },
+    image : {
+      resizeMode : 'contain',
     },
     text : {
       fontFamily: 'Lora',
