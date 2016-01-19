@@ -114,11 +114,19 @@ var blossom = React.createClass({
       </TouchableHighlight>
   },
   handleNextPage : function() {
+    if(this.isLastPage()) {
+      return;
+    }
+
     this.setState({
       page : this.state.page + 1
     })
   },
   handlePrevPage : function() {
+    if(this.isFirstPage()) {
+      return;
+    }
+
     this.setState({
       page : this.state.page - 1
     })
