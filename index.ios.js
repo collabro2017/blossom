@@ -16,6 +16,8 @@ var Swiper = require('react-native-swiper');
 var Icon = require('react-native-vector-icons/EvilIcons');
 
 var Page = require('./common/Page.js');
+var mixins = require('./common/Mixins.js');
+
 
 const BLENDS = {
   A : '95% English',
@@ -51,7 +53,7 @@ var blossom = React.createClass({
   },
   render : function() {
     return (
-      <View style={[styles.container, this.border('yellow')]}>
+      <View style={[styles.container, this.border('yellow'), mixins.styleOverride(BOOK)]}>
         {this.renderTopMenu()}
         <View style={styles.book}>
           {this.prevPage()}

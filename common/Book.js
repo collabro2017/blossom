@@ -1,6 +1,10 @@
 var Book = {
   title : 'My Awesome Book',
   author : 'some guy',
+  style : {
+    //example
+    // backgroundColor : 'red'
+  },
   pages : [
     //first page
     {
@@ -95,6 +99,11 @@ var Book = {
                 C : 'L1',
                 D : 'L2',
                 E : 'L2'
+              },
+              //example of style override
+              style : {
+                fontStyle : 'italic',
+                fontWeight : 'bold'
               }
             },
             {
