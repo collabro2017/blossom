@@ -42,7 +42,7 @@ var Page = React.createClass({
     return <Image
       key={'n' + i}
       style={[styles.image, mixins.styleOverride(node)]}
-      source={{uri: node.src}} />
+      source={{ uri: node.src, isStatic: true }} />
   },
   renderText : function(node, i) {
     var renderLang = node.blends[this.props.blend];

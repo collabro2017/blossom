@@ -65,7 +65,7 @@ var Book = {
         },
         {
           type : 'image',
-          src : 'https://upload.wikimedia.org/wikipedia/commons/8/83/Alice-white-rabbit.jpg',
+          src : 'rabbit',
           style : {
             minHeight: 600
           }
