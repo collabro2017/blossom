@@ -11,19 +11,28 @@ var mixins = require('./Mixins.js');
 
 
 var TextNode = React.createClass({
+  componentWillReceiveProps: function(nextProps){
+    this.setState({
+      renderLang : nextProps.renderLang
+    });
+  },
   getInitialState : function() {
     return {
-      renderLang : this.props.renderLang
+      renderLang : false
     };
   },
   render : function() {
-      return (
-        <Text
-          ref={this.props.key}
-          style={[styles.text, styles[this.state.renderLang + 'Text'], mixins.styleOverride(this.props.node)]}
-          onPress={this.handleToggle}
-        >{ this.props.node.content[this.state.renderLang] + ' '}</Text>
-      );
+    if(!this.state.renderLang)
+    {
+      return <Text> </Text>;
+    }
+    return (
+      <Text
+        ref={this.props.key}
+        style={[styles.text, styles[this.state.renderLang + 'Text'], mixins.styleOverride(this.props.node)]}
+        onPress={this.handleToggle}
+      >{ this.props.node.content[this.state.renderLang] + ' '}</Text>
+    );
   },
   handleToggle : function() {
     var nextLang = this.state.renderLang == 'L1' ? 'L2' : 'L1';
