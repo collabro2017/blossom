@@ -1,6 +1,6 @@
 var Book = {
-  title : 'My Awesome Book',
-  author : 'some guy',
+  title : 'The Tale of Peter Rabbit',
+  author : 'Beatrix Potter',
   style : {
     //example
     // backgroundColor : 'red'
@@ -33,7 +33,7 @@ var Book = {
             {
               type : 'text',
               content : {
-                L1 : 'little rabbits',
+                L1 : 'little rabbits,',
                 L2 : 'conejitos,'
               },
               blends : {
@@ -47,7 +47,7 @@ var Book = {
             {
               type : 'text',
               content : {
-                L1 : ', and their names were - Flopsy, Mopsy Cotton-tail and',
+                L1 : 'and their names were - Flopsy, Mopsy Cotton-tail and',
                 L2 : 'y sus nombres eran—Flopsy,Mopsy, Cotton-tail y'
               },
               blends : {
@@ -117,8 +117,8 @@ var Book = {
             {
               type : 'text',
               content : {
-                L1 : 'a big fir-tree',
-                L2 : 'del abeto grande'
+                L1 : 'a big fir-tree.',
+                L2 : 'del abeto grande.'
               },
               blends : {
                 A : 'L1',
