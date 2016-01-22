@@ -139,60 +139,260 @@ var Book = {
         {
           type : 'paragraph',
           content : [
-            {
-              type : 'text',
-              content : {
-                L1 : 'Well, that\'s certainly good to know.',
-                L2 : 'Bueno, eso es ciertamente bueno saberlo.'
-              },
-              blends : {
-                A : 'L1',
-                B : 'L1',
-                C : 'L1',
-                D : 'L2',
-                E : 'L2'
-              }
+          {
+            type : 'text',
+            content : {
+              L1 : '"Now my dears,"',
+              L2 : '“Ahora mis queridos,”'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L2',
+              D : 'L2',
+              E : 'L2'
             }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'said old',
+              L2 : 'dijo la vieja'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L2',
+              C : 'L1',
+              D : 'L1',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'Mrs. Rabbit',
+              L2 : 'Señora Conejo'
+            },
+            blends : {
+              A : 'L2',
+              B : 'L1',
+              C : 'L2',
+              D : 'L2',
+              E : 'L1'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'one morning,',
+              L2 : 'una mañana,'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L2',
+              C : 'L2',
+              D : 'L1',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : '"you may go into',
+              L2 : '“pueden andar por'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L1',
+              D : 'L2',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'the fields',
+              L2 : 'los campos'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L2',
+              D : 'L2',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'or down the',
+              L2 : 'o por la'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L1',
+              D : 'L2',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'lane,',
+              L2 : 'calle,'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L2',
+              D : 'L2',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'but don\'t go into',
+              L2 : 'pero no vayan'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L1',
+              D : 'L2',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'Mr. McGregor\'s garden:',
+              L2 : 'al jardín de Señor McGregor:'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L2',
+              D : 'L2',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'your',
+              L2 : 'su'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L2',
+              D : 'L2',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'Father',
+              L2 : 'papá'
+            },
+            blends : {
+              A : 'L2',
+              B : 'L1',
+              C : 'L2',
+              D : 'L2',
+              E : 'L1'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'had',
+              L2 : 'tuvo'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L2',
+              D : 'L2',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'an accident there;',
+              L2 : 'un accidente allí;'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L2',
+              D : 'L2',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'he was put in',
+              L2 : 'Fue puesto en'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L1',
+              D : 'L1',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'a pie',
+              L2 : 'un pastel'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L2',
+              D : 'L2',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'by',
+              L2 : 'por la'
+            },
+            blends : {
+              A : 'L1',
+              B : 'L1',
+              C : 'L2',
+              D : 'L1',
+              E : 'L2'
+            }
+          },
+          {
+            type : 'text',
+            content : {
+              L1 : 'Mrs. McGregor."',
+              L2 : 'Señora McGregor."'
+            },
+            blends : {
+              A : 'L2',
+              B : 'L2',
+              C : 'L2',
+              D : 'L2',
+              E : 'L2'
+            }
+          }
           ]
         },
-        {
-          type : 'paragraph',
-          content : [
-            {
-              type : 'text',
-              content : {
-                L1 : 'I suggest you drop it, Mr. Data.',
-                L2 : 'Sugiero se te cae, Sr. Data.'
-              },
-              blends : {
-                A : 'L1',
-                B : 'L1',
-                C : 'L1',
-                D : 'L2',
-                E : 'L2'
-              },
-              //example of style override
-              style : {
-                fontStyle : 'italic',
-                fontWeight : 'bold'
-              }
-            },
-            {
-              type : 'text',
-              content : {
-                L1 : 'Captain, why are we out here chasing comets? we should be doing something completely different',
-                L2 : 'Capitán, ¿por qué estamos aquí persiguiendo cometas?'
-              },
-              blends : {
-                A : 'L1',
-                B : 'L1',
-                C : 'L1',
-                D : 'L2',
-                E : 'L2'
-              }
-            }
-          ]
-        }
       ]
     }
 
