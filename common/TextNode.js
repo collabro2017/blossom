@@ -31,7 +31,7 @@ var TextNode = React.createClass({
         ref={this.props.key}
         style={[styles.text, styles[this.state.renderLang + 'Text'], mixins.styleOverride(this.props.node)]}
         onPress={this.handleToggle}
-      >{ this.props.node.content[this.state.renderLang] + ' '}</Text>
+      >{ this.props.node.content[this.state.renderLang]}</Text>
     );
   },
   handleToggle : function() {
