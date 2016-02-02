@@ -1,10 +1,10 @@
 var Mixins = {
   styleOverride : function(node) {
-    if(!node.style) {
-      return {};
+    if(!!node && !!node.style) {
+      return node.style;
     }
 
-    return node.style;
+    return {};
   }
 };
 
