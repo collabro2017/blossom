@@ -28,7 +28,7 @@ var Page = React.createClass({
         case 'text':
           return this.renderText(node, index);
         default:
-          return <Text>..Unknown node type..</Text>
+          return <Text key={'n'+index}>..Unknown node type..</Text>
       }
     } );
     return words;

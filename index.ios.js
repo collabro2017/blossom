@@ -33,7 +33,7 @@ var blossom = React.createClass({
   getInitialState : function() {
     return {
       page : 1,
-      blend : 'C',
+      blend : 'A',
       contentWidth : Dimensions.get('window').width,
       contentHeight : Dimensions.get('window').height,
       statusBarShown : true

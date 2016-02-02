@@ -1,11 +1,120 @@
 var Book = {
   "title": "The Tale of Peter Rabbit",
   "author": "Beatrix Potter",
-  "pages": [{
-    "style": {},
-    "content": [{
+  "style": {
+    backgroundColor: '#fff'
+  },
+  "pages": [
+  {
+    style : {},
+    "content": [
+    {
+      type : 'image',
+      src : 'cover',
+      style : {
+        width: 500,
+        height: 500,
+        marginBottom: 40,
+        alignSelf : 'center'
+      }
+    },
+    {
       "type": "paragraph",
-      "content": [{
+      style : {
+        alignSelf : 'center'
+      },
+      "content": [
+        {
+          "type": "text",
+          style : {
+            fontSize: 40,
+            fontWeight: 'bold',
+          },
+          "content": {
+            "L1": "THE TALE OF PETER RABBIT",
+            "L2": "THE TALE OF PETER RABBIT"
+          },
+          "blends": {
+            "A": "L1",
+            "B": "L1",
+            "C": "L1",
+            "D": "L1",
+            "E": "L1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      style : {
+        alignSelf : 'center'
+      },
+      "content": [
+        {
+          "type": "text",
+          style : {
+            fontSize: 26,
+            fontWeight: '100',
+          },
+          "content": {
+            "L1": "by",
+            "L2": "by"
+          },
+          "blends": {
+            "A": "L1",
+            "B": "L1",
+            "C": "L1",
+            "D": "L1",
+            "E": "L1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      style : {
+        alignSelf : 'center'
+      },
+      "content": [
+        {
+          "type": "text",
+          style : {
+            fontSize: 34,
+            fontWeight: 'bold',
+          },
+          "content": {
+            "L1": "Beatrix Potter",
+            "L2": "Beatrix Potter"
+          },
+          "blends": {
+            "A": "L1",
+            "B": "L1",
+            "C": "L1",
+            "D": "L1",
+            "E": "L1"
+          }
+        }
+      ]
+    }
+  ]
+  },
+  {
+    "style": {},
+    "content": [
+    {
+      type : 'image',
+      src : '2',
+      style : {
+        width: 500,
+        height: 500,
+        marginBottom: 40,
+        alignSelf : 'center'
+      }
+    },
+    {
+      "type": "paragraph",
+      "content": [
+      {
         "type": "text",
         "content": {
           "L1": "Once upon a time ",
@@ -174,11 +283,23 @@ var Book = {
           "D": "L2",
           "E": "L2"
         }
-      }]
+      }
+      ]
     }]
   }, {
     "style": {},
-    "content": [{
+    "content": [
+    {
+      type : 'image',
+      src : '3',
+      style : {
+        width: 500,
+        height: 500,
+        marginBottom: 40,
+        alignSelf : 'center'
+      }
+    },
+    {
       "type": "paragraph",
       "content": [{
         "type": "text",
@@ -314,8 +435,13 @@ var Book = {
     }]
   }, {
     "style": {},
-    "content": [{
+    "content": [
+    {
       "type": "paragraph",
+      style : {
+        marginTop : 20,
+        marginBottom : 100
+      },
       "content": [{
         "type": "text",
         "content": {
@@ -330,10 +456,31 @@ var Book = {
           "E": "L2"
         }
       }]
+    },
+    {
+      type : 'image',
+      src : '4',
+      style : {
+        width: 500,
+        height: 500,
+        marginBottom: 40,
+        alignSelf : 'center'
+      }
     }]
   }, {
     "style": {},
-    "content": [{
+    "content": [
+    {
+      type : 'image',
+      src : '5',
+      style : {
+        width: 500,
+        height: 500,
+        marginBottom: 40,
+        alignSelf : 'center'
+      }
+    },
+    {
       "type": "paragraph",
       "content": [{
         "type": "text",
@@ -469,7 +616,18 @@ var Book = {
     }]
   }, {
     "style": {},
-    "content": [{
+    "content": [
+    {
+      type : 'image',
+      src : '6',
+      style : {
+        width: 500,
+        height: 500,
+        marginBottom: 40,
+        alignSelf : 'center'
+      }
+    },
+    {
       "type": "paragraph",
       "content": [{
         "type": "text",
@@ -592,7 +750,18 @@ var Book = {
     }]
   }, {
     "style": {},
-    "content": [{
+    "content": [
+    {
+      type : 'image',
+      src : '7',
+      style : {
+        width: 500,
+        height: 500,
+        marginBottom: 40,
+        alignSelf : 'center'
+      }
+    },
+    {
       "type": "paragraph",
       "content": [{
         "type": "text",
@@ -702,7 +871,18 @@ var Book = {
     }]
   }, {
     "style": {},
-    "content": [{
+    "content": [
+    {
+      type : 'image',
+      src : '8',
+      style : {
+        width: 500,
+        height: 500,
+        marginBottom: 40,
+        alignSelf : 'center'
+      }
+    },
+    {
       "type": "paragraph",
       "content": [{
         "type": "text",
@@ -785,8 +965,9 @@ var Book = {
       }]
     }]
   }, {
-    "style": {},
-    "content": [{
+    style : {},
+    "content": [
+    {
       "type": "paragraph",
       "content": [{
         "type": "text",
@@ -841,10 +1022,31 @@ var Book = {
           "E": "L2"
         }
       }]
+    },
+    {
+      type : 'image',
+      src : '9',
+      style : {
+        width: 500,
+        height: 500,
+        marginBottom: 40,
+        alignSelf : 'center'
+      }
     }]
   }, {
     "style": {},
-    "content": [{
+    "content": [
+    {
+      type : 'image',
+      src : '10',
+      style : {
+        width: 500,
+        height: 500,
+        marginBottom: 40,
+        alignSelf : 'center'
+      }
+    },
+    {
       "type": "paragraph",
       "content": [{
         "type": "text",
@@ -902,7 +1104,18 @@ var Book = {
     }]
   }, {
     "style": {},
-    "content": [{
+    "content": [
+    {
+      type : 'image',
+      src : '11',
+      style : {
+        width: 500,
+        height: 500,
+        marginBottom: 40,
+        alignSelf : 'center'
+      }
+    },
+    {
       "type": "paragraph",
       "content": [{
         "type": "text",
@@ -1025,7 +1238,8 @@ var Book = {
     }]
   }, {
     "style": {},
-    "content": [{
+    "content": [
+    {
       "type": "paragraph",
       "content": [{
         "type": "text",
