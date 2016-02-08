@@ -13,12 +13,14 @@ var mixins = require('./Mixins.js');
 var TextNode = React.createClass({
   componentWillReceiveProps: function(nextProps){
     this.setState({
-      renderLang : nextProps.renderLang
+      renderLang : nextProps.renderLang,
+      isManualToggle : false
     });
   },
   getInitialState : function() {
     return {
-      renderLang : false
+      renderLang : false,
+      isManualToggle : false
     };
   },
   render : function() {
@@ -26,10 +28,14 @@ var TextNode = React.createClass({
     {
       return <Text> </Text>;
     }
+
     return (
       <Text
         ref={this.props.key}
-        style={[styles.text, styles[this.state.renderLang + 'Text'], mixins.styleOverride(this.props.node)]}
+        style={this.state.isManualToggle ?
+        [styles.text, styles[this.state.renderLang + 'Text'], styles.manualToggle, mixins.styleOverride(this.props.node)] :
+        [styles.text, styles[this.state.renderLang + 'Text'], mixins.styleOverride(this.props.node)]
+        }
         onPress={this.handleToggle}
       >{ this.props.node.content[this.state.renderLang]}</Text>
     );
@@ -37,7 +43,8 @@ var TextNode = React.createClass({
   handleToggle : function() {
     var nextLang = this.state.renderLang == 'L1' ? 'L2' : 'L1';
     this.setState({
-      renderLang : nextLang
+      renderLang : nextLang,
+      isManualToggle : !this.state.isManualToggle
     });
   }
 });
@@ -55,6 +62,9 @@ var styles = StyleSheet.create({
     },
     L2Text : {
       color : '#528F6B'
+    },
+    manualToggle : {
+      color : '#BF5F2D'
     }
 
 });
