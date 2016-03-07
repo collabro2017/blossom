@@ -3,11 +3,12 @@ var Book = {
   "author": "",
   "pages": [
   {
-    style : {},
+    style : {
+    },
     "content": [
     {
       type : 'image',
-      src : 'cover',
+      src : '3LP-cover',
       style : {
         width: 500,
         height: 500,
