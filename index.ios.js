@@ -23,11 +23,11 @@ const BLENDS = {
   A : '95% English',
   B : 'mostly English',
   C : '50% each',
-  D : 'mostly Spanish',
-  E : '95% Spanish'
+  D : 'mostly Chinese',
+  E : '95% Chinese'
 };
 
-const BOOK = require('./common/Book.js');
+const BOOK = require('./common/Book-chinese.js');
 
 var blossom = React.createClass({
   getInitialState : function() {
