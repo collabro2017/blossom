@@ -45,7 +45,12 @@ var Book = {
   ]
   },
   {
-    "content": [{
+    "content": [
+    // {
+    //   "type" : "spacer",
+    //   "height" : 340
+    // },
+    {
       "type": "paragraph",
       "content": [{
         "type": "text",
