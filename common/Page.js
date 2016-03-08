@@ -27,6 +27,8 @@ var Page = React.createClass({
           return this.renderImage(node, index);
         case 'text':
           return this.renderText(node, index);
+        case 'spacer':
+          return this.renderSpacer(node, index);
         default:
           return <Text key={'n'+index}>..Unknown node type..</Text>
       }
@@ -52,6 +54,16 @@ var Page = React.createClass({
       key={'n' + i}
     ></TextNode>
   },
+  renderSpacer : function(node, i) {
+    var nodeHeight;
+    if(!!node.height) {
+      nodeHeight = node.height;
+    } else {
+      nodeHeight = 20;
+    }
+    return <View style={{height: nodeHeight}}>
+      </View>
+  }
 });
 
 var styles = StyleSheet.create({
