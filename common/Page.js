@@ -61,7 +61,7 @@ var Page = React.createClass({
     } else {
       nodeHeight = 20;
     }
-    return <View style={{height: nodeHeight}}>
+    return <View style={{height: nodeHeight}} key={'n' + i}>
       </View>
   }
 });
