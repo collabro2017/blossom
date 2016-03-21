@@ -20,7 +20,7 @@ var TextNode = React.createClass({
   getInitialState : function() {
     return {
       renderLang : false,
-      isManualToggle : false
+      isManualToggle : false,
     };
   },
   render : function() {
@@ -40,12 +40,18 @@ var TextNode = React.createClass({
       >{ this.props.node.content[this.state.renderLang]}</Text>
     );
   },
-  handleToggle : function() {
-    var nextLang = this.state.renderLang == 'L1' ? 'L2' : 'L1';
-    this.setState({
-      renderLang : nextLang,
-      isManualToggle : !this.state.isManualToggle
-    });
+  handleToggle : function(e) {
+    console.log(e);
+    //TODO: of course the languages shouldn't be hardcoded
+    mixins.speak(
+      this.props.node.content[this.state.renderLang],
+      this.state.renderLang === 'L1' ? 'en-US' : 'es-MX'
+    );
+    // var nextLang = this.state.renderLang == 'L1' ? 'L2' : 'L1';
+    // this.setState({
+    //   renderLang : nextLang,
+    //   isManualToggle : !this.state.isManualToggle
+    // });
   }
 });
 
