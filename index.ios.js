@@ -154,7 +154,7 @@ var blossom = React.createClass({
   toggleStatusBar : function() {
     var show = !this.state.statusBarShown;
     console.log(show);
-    StatusBarIOS.setHidden(show, 'slide');
+    StatusBar.setHidden(show, 'slide');
     this.setState({
       statusBarShown : show
     });
