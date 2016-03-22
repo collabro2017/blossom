@@ -8,7 +8,7 @@ var {
   Text,
   View,
   Dimensions,
-  StatusBarIOS
+  StatusBar
 } = React;
 
 var FMPicker = require('react-native-fm-picker');
@@ -46,7 +46,7 @@ var blossom = React.createClass({
     });
   },
   componentDidMount : function(){
-    StatusBarIOS.setHidden(true, 'slide');
+    StatusBar.setHidden(true, 'slide');
   },
   layoutChange : function(e) {
     this.updateBookSize(e.nativeEvent.layout.width, e.nativeEvent.layout.height);
