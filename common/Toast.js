@@ -26,6 +26,22 @@ var Toast = React.createClass({
       'es-MX'
     );
   },
+  renderPhrase: function(content, allowSpeech) {
+    content = content.trim().replace(/\b[-.,()&$#!\[\]{}"']+\B|\B[-.,()&$#!\[\]{}"']+\b/g, "");
+    console.log(content, allowSpeech);
+    if(!!allowSpeech) {
+      return(
+        <TouchableOpacity style={styles.textWrapper} onPress={this.playPhrase}>
+          <Icon name="play" size={50} style={styles.buttonText} />
+          <Text style={styles.toastText}>{content}</Text>
+        </TouchableOpacity>
+      );
+    }
+
+    return(
+      <Text style={[styles.toastText, styles.smallerText]}>{content}</Text>
+    );
+  },
   render(): ReactElement {
     var positionStyle;
 
@@ -41,14 +57,19 @@ var Toast = React.createClass({
       );
     }
 
+    // let currentLang = this.props.currentLang;
+    // if(!currentLang) {
+    //   currentLang = L2;
+    // }
+
     return (
       <Overlay isVisible={this.props.isVisible} aboveStatusBar={false}>
         <View style={[positionStyle, styles.toast]}>
           <View style={styles.content}>
-            <TouchableOpacity style={styles.textWrapper} onPress={this.playPhrase}>
-              <Icon name="play" size={50} style={styles.buttonText} />
-              <Text style={styles.toastText}>{this.props.node.L2} => {this.props.node.L1}</Text>
-            </TouchableOpacity>
+            <View style={styles.textWrapper}>
+              {this.renderPhrase(this.props.node.L2, true)}
+              {this.renderPhrase(this.props.node.L1)}
+            </View>
           </View>
 
           <TouchableOpacity onPress={this.props.onDismiss}>
@@ -83,6 +104,7 @@ var styles = StyleSheet.create({
   textWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     // borderWidth : 3,
     // borderColor : 'green',
   },
@@ -98,11 +120,17 @@ var styles = StyleSheet.create({
   },
   toastText: {
     color: '#ffffff',
-    padding: 15,
     backgroundColor: 'transparent',
-    fontSize: 14,
+    fontSize: 30,
+    marginRight: 20,
+    lineHeight: 30,
     // borderWidth : 3,
     // borderColor : 'red',
+  },
+  smallerText: {
+    fontStyle: 'italic',
+    fontWeight: "100",
+    fontSize: 20,
   },
   dismissButton: {
     flex: 1,
