@@ -44,10 +44,11 @@ var TextNode = React.createClass({
     if(this.props.node.content.L1 == this.props.node.content.L2) {
       return;
     }
-    
+
     this.props.onToast(
       this.props.node.content.L1,
-      this.props.node.content.L2
+      this.props.node.content.L2,
+      this.state.renderLang
     );
 
     // var nextLang = this.state.renderLang == 'L1' ? 'L2' : 'L1';
