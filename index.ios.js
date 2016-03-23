@@ -138,6 +138,7 @@ var blossom = React.createClass({
       </TouchableHighlight>
   },
   handleNextPage : function() {
+    this.hideToast()
     if(this.isLastPage()) {
       return;
     }
@@ -147,6 +148,7 @@ var blossom = React.createClass({
     })
   },
   handlePrevPage : function() {
+    this.hideToast()
     if(this.isFirstPage()) {
       return;
     }
