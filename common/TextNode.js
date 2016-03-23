@@ -3,7 +3,7 @@ var {
   StyleSheet,
   Text,
   View,
-  Touchable
+  Touchable,
 } = React;
 
 var mixins = require('./Mixins.js');
@@ -41,12 +41,11 @@ var TextNode = React.createClass({
     );
   },
   handleToggle : function(e) {
-    console.log(e);
-    //TODO: of course the languages shouldn't be hardcoded
-    mixins.speak(
-      this.props.node.content[this.state.renderLang],
-      this.state.renderLang === 'L1' ? 'en-US' : 'es-MX'
+    this.props.onToast(
+      this.props.node.content.L1,
+      this.props.node.content.L2
     );
+
     // var nextLang = this.state.renderLang == 'L1' ? 'L2' : 'L1';
     // this.setState({
     //   renderLang : nextLang,
