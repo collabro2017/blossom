@@ -41,6 +41,10 @@ var TextNode = React.createClass({
     );
   },
   handleToggle : function(e) {
+    if(this.props.node.content.L1 == this.props.node.content.L2) {
+      return;
+    }
+    
     this.props.onToast(
       this.props.node.content.L1,
       this.props.node.content.L2
