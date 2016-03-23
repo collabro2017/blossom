@@ -60,12 +60,13 @@ var blossom = React.createClass({
       toastData: null,
     });
   },
-  showToast(L1, L2) {
+  showToast(L1, L2, currentLang) {
     this.setState({
       toastShown: true,
       toastData: {
         L1: L1,
         L2: L2,
+        currentLang: currentLang,
       }
     });
   },
