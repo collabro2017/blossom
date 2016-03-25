@@ -72,7 +72,7 @@ var TextNode = React.createClass({
         onResponderRelease={this.onTouchEnd}
         onResponderTerminationRequest={() => true}
         onResponderTerminate={this._onTouch}
-        ref={this.props.key}
+        ref="myself"
         style={this.state.isManualToggle ?
         [styles.text, styles[this.state.renderLang + 'Text'], styles.manualToggle, mixins.styleOverride(this.props.node)] :
         [styles.text, styles[this.state.renderLang + 'Text'], mixins.styleOverride(this.props.node)]
