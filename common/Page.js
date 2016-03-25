@@ -50,6 +50,7 @@ var Page = React.createClass({
       renderLang={renderLang}
       node={node}
       key={'n' + i}
+      onToast={this.props.onToast}
     ></TextNode>
   },
 });

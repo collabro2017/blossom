@@ -4,11 +4,12 @@ var React = require('react-native');
 var {
   AppRegistry,
   TouchableHighlight,
+  TouchableOpacity,
   StyleSheet,
   Text,
   View,
   Dimensions,
-  StatusBarIOS
+  StatusBar
 } = React;
 
 var FMPicker = require('react-native-fm-picker');
@@ -17,7 +18,7 @@ var Icon = require('react-native-vector-icons/EvilIcons');
 
 var Page = require('./common/Page.js');
 var mixins = require('./common/Mixins.js');
-
+var Toast = require('./common/Toast.js');
 
 const BLENDS = {
   A : '95% English',
@@ -36,7 +37,9 @@ var blossom = React.createClass({
       blend : 'A',
       contentWidth : Dimensions.get('window').width,
       contentHeight : Dimensions.get('window').height,
-      statusBarShown : true
+      statusBarShown : true,
+      toastShown : false,
+      toastData : null
     }
   },
   updateBookSize : function(w, h) {
@@ -46,10 +49,26 @@ var blossom = React.createClass({
     });
   },
   componentDidMount : function(){
-    StatusBarIOS.setHidden(true, 'slide');
+    StatusBar.setHidden(true, 'slide');
   },
   layoutChange : function(e) {
     this.updateBookSize(e.nativeEvent.layout.width, e.nativeEvent.layout.height);
+  },
+  hideToast() {
+    this.setState({
+      toastShown: false,
+      toastData: null,
+    });
+  },
+  showToast(L1, L2, currentLang) {
+    this.setState({
+      toastShown: true,
+      toastData: {
+        L1: L1,
+        L2: L2,
+        currentLang: currentLang,
+      }
+    });
   },
   render : function() {
     return (
@@ -60,6 +79,12 @@ var blossom = React.createClass({
           mixins.styleOverride(BOOK),
           mixins.styleOverride(BOOK.pages[this.state.page-1]),
         ]}>
+        <Toast
+          isVisible={this.state.toastShown}
+          onDismiss={this.hideToast}
+          position="bottom"
+          node={this.state.toastData}
+        />
         {this.renderTopMenu()}
         <View style={styles.book}>
           {this.prevPage()}
@@ -114,6 +139,7 @@ var blossom = React.createClass({
       </TouchableHighlight>
   },
   handleNextPage : function() {
+    this.hideToast()
     if(this.isLastPage()) {
       return;
     }
@@ -123,6 +149,7 @@ var blossom = React.createClass({
     })
   },
   handlePrevPage : function() {
+    this.hideToast()
     if(this.isFirstPage()) {
       return;
     }
@@ -142,7 +169,8 @@ var blossom = React.createClass({
       return <Page
         key={'p' + index}
         page={page.content}
-        blend={this.state.blend}></Page>
+        blend={this.state.blend}
+        onToast={this.showToast}></Page>
     } );
   },
   setCurrentPage : function(e, swiper) {
@@ -153,8 +181,7 @@ var blossom = React.createClass({
 
   toggleStatusBar : function() {
     var show = !this.state.statusBarShown;
-    console.log(show);
-    StatusBarIOS.setHidden(show, 'slide');
+    StatusBar.setHidden(show, 'slide');
     this.setState({
       statusBarShown : show
     });
@@ -326,7 +353,7 @@ var styles = StyleSheet.create({
   bottomMenuLabels : {
     fontFamily : 'Open Sans',
     color : controlsColor,
-  }
+  },
 });
 
 AppRegistry.registerComponent('blossom', () => blossom);
