@@ -30,7 +30,7 @@ const BLENDS = {
 
 const BOOK = require('./common/Book.js');
 
-var blossom = React.createClass({
+var polli = React.createClass({
   getInitialState : function() {
     return {
       page : 1,
@@ -356,4 +356,4 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('blossom', () => blossom);
+AppRegistry.registerComponent('polli', () => polli);
