@@ -11,7 +11,7 @@ var mixins = require('./Mixins.js');
 
 
 var TextNode = React.createClass({
-  _longTouch : 600,
+  _longTouch : 1000,
   _touchStart : 0,
   componentWillReceiveProps: function(nextProps){
     this.setState({
