@@ -4,60 +4,17 @@ var Book = {
   "style": {
     backgroundColor: '#fff'
   },
-  "pages": [
-  {
-    style : {},
-    "content": [
-    {
-      type : 'image',
-      src : 'cover',
-      style : {
-        width: 500,
-        height: 500,
-        marginBottom: 40,
-        alignSelf : 'center'
-      }
-    },
-    {
-      "type": "paragraph",
-      style : {
-        alignSelf : 'center'
-      },
-      "content": [
-        {
-          "type": "text",
-          style : {
-            fontSize: 40,
-            fontWeight: 'bold',
-          },
-          "content": {
-            "L1": "THE MINIMITIES MEET BROCCORELLA",
-            "L2": "THE MINIMITIES MEET BROCCORELLA"
-          },
-          "blends": {
-            "A": "L1",
-            "B": "L1",
-            "C": "L1",
-            "D": "L1",
-            "E": "L1"
-          }
-        }
-      ]
-    }
-  ]
-  }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '1',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},
-	{
+  "pages": [{
+	"content": [{
+		"type": "image",
+		"src": "1",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -400,8 +357,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -517,24 +474,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '2',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},
-	{
+	"content": [{
+		"type": "image",
+		"src": "2",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -585,7 +540,7 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Grand. ",
+				"L1": "Grand...,” ",
 				"L2": "Abuel "
 			},
 			"blends": {
@@ -598,21 +553,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "..,” ",
-				"L2": "…,” "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
 				"L1": "Mei ",
-				"L2": "Mei "
+				"L2": "…,” "
 			},
 			"blends": {
 				"A": "L1",
@@ -625,7 +567,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "started, ",
-				"L2": "empezó, "
+				"L2": "Mei "
 			},
 			"blends": {
 				"A": "L1",
@@ -638,7 +580,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "her ",
-				"L2": "su "
+				"L2": "empezó, "
 			},
 			"blends": {
 				"A": "L1",
@@ -651,7 +593,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "little tummy ",
-				"L2": "pancita "
+				"L2": "su "
 			},
 			"blends": {
 				"A": "L1",
@@ -664,7 +606,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "rumbling inside her. ",
-				"L2": "sonando. "
+				"L2": "pancita "
 			},
 			"blends": {
 				"A": "L1",
@@ -677,6 +619,19 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
+				"L2": "sonando. "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "“ ",
 				"L2": " "
 			},
 			"blends": {
@@ -689,21 +644,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
 				"L1": "Well, ",
-				"L2": "Pues, "
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -716,7 +658,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "I ",
-				"L2": "yo "
+				"L2": "Pues, "
 			},
 			"blends": {
 				"A": "L1",
@@ -729,7 +671,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "think ",
-				"L2": "creo que "
+				"L2": "yo "
 			},
 			"blends": {
 				"A": "L1",
@@ -742,7 +684,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "your ",
-				"L2": "tu "
+				"L2": "creo que "
 			},
 			"blends": {
 				"A": "L1",
@@ -755,7 +697,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "tummy ",
-				"L2": "pancita "
+				"L2": "tu "
 			},
 			"blends": {
 				"A": "L1",
@@ -768,7 +710,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "agrees, ",
-				"L2": "está de acuerdo, "
+				"L2": "pancita "
 			},
 			"blends": {
 				"A": "L1",
@@ -781,7 +723,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Mei,” ",
-				"L2": "Mei,” "
+				"L2": "está de acuerdo, "
 			},
 			"blends": {
 				"A": "L1",
@@ -794,7 +736,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Grandma ",
-				"L2": "Abuelita "
+				"L2": "Mei,” "
 			},
 			"blends": {
 				"A": "L1",
@@ -807,7 +749,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "laughed, ",
-				"L2": "rio, "
+				"L2": "Abuelita "
 			},
 			"blends": {
 				"A": "L1",
@@ -819,8 +761,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "rio, "
 			},
 			"blends": {
 				"A": "L1",
@@ -833,7 +775,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "or ",
-				"L2": "o "
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -846,7 +788,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "you’re ",
-				"L2": "tienes "
+				"L2": "o "
 			},
 			"blends": {
 				"A": "L1",
@@ -859,7 +801,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "a little hungry. ",
-				"L2": "un poco de hambre. "
+				"L2": "tienes "
 			},
 			"blends": {
 				"A": "L1",
@@ -872,7 +814,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Come on.” ",
-				"L2": "Vengan.” "
+				"L2": "un poco de hambre. "
 			},
 			"blends": {
 				"A": "L1",
@@ -885,7 +827,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "And ",
-				"L2": "Y "
+				"L2": "Vengan.” "
 			},
 			"blends": {
 				"A": "L1",
@@ -898,7 +840,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "with great excitement, ",
-				"L2": "con gran emoción, "
+				"L2": "Y "
 			},
 			"blends": {
 				"A": "L1",
@@ -911,7 +853,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Mei, ",
-				"L2": "Mei, "
+				"L2": "con gran emoción, "
 			},
 			"blends": {
 				"A": "L1",
@@ -924,7 +866,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Milo ",
-				"L2": "Milo "
+				"L2": "Mei, "
 			},
 			"blends": {
 				"A": "L1",
@@ -937,7 +879,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and Cesar ",
-				"L2": "y Cesar "
+				"L2": "Milo "
 			},
 			"blends": {
 				"A": "L1",
@@ -950,7 +892,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "followed her ",
-				"L2": "le siguieron "
+				"L2": "y Cesar "
 			},
 			"blends": {
 				"A": "L1",
@@ -963,7 +905,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "into ",
-				"L2": "a "
+				"L2": "le siguieron "
 			},
 			"blends": {
 				"A": "L1",
@@ -976,7 +918,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "the kitchen. ",
-				"L2": "la cocina. "
+				"L2": "a "
 			},
 			"blends": {
 				"A": "L1",
@@ -988,23 +930,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '3',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "3",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -1094,8 +1035,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -1159,8 +1100,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -1302,8 +1243,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -1445,8 +1386,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -1614,23 +1555,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '4',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "4",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -1707,8 +1647,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -1837,17 +1777,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '5',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "5",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -1930,8 +1869,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -2060,17 +1999,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '6',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "6",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -2166,8 +2104,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -2387,8 +2325,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -2504,8 +2442,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -2725,17 +2663,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '7',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "7",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -2792,8 +2729,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -2845,7 +2782,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Make us mini, ",
-				"L2": "Haznos mini "
+				"L2": "Haznos mini, "
 			},
 			"blends": {
 				"A": "L1",
@@ -2858,7 +2795,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "MiniMiti. ",
-				"L2": ", "
+				"L2": "MiniMiti. "
 			},
 			"blends": {
 				"A": "L1",
@@ -2871,19 +2808,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Shrink us down and fly us around for big adventures in Yummy Town.” ",
-				"L2": "MiniMiti. "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": " ",
 				"L2": "Shrink us down and fly us around for big adventures in Yummy Town.” "
 			},
 			"blends": {
@@ -2896,21 +2820,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "As they sang ",
+				"L1": " ",
 				"L2": " "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": ", ",
-				"L2": "Mientras ellos cantaban "
 			},
 			"blends": {
 				"A": "L1",
@@ -2922,8 +2833,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
+				"L1": "As they sang, ",
+				"L2": "Mientras ellos cantaban, "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
 				"L1": "Dotty ",
-				"L2": ", "
+				"L2": "Dotty "
 			},
 			"blends": {
 				"A": "L1",
@@ -2936,7 +2860,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "flew ",
-				"L2": "Dotty "
+				"L2": "voló "
 			},
 			"blends": {
 				"A": "L1",
@@ -2949,7 +2873,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "into ",
-				"L2": "voló "
+				"L2": "a "
 			},
 			"blends": {
 				"A": "L1",
@@ -2962,7 +2886,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "the room, ",
-				"L2": "a "
+				"L2": "la sala, "
 			},
 			"blends": {
 				"A": "L1",
@@ -2975,19 +2899,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "zooming ",
-				"L2": "la sala, "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "around ",
 				"L2": "zumbando "
 			},
 			"blends": {
@@ -3000,8 +2911,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "them ",
+				"L1": "around ",
 				"L2": "alrededor "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "them ",
+				"L2": "ellos "
 			},
 			"blends": {
 				"A": "L1",
@@ -3014,7 +2938,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "faster and faster ",
-				"L2": "ellos "
+				"L2": "rápido y más rápido "
 			},
 			"blends": {
 				"A": "L1",
@@ -3027,7 +2951,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "until ",
-				"L2": "rápido y más rápido "
+				"L2": "hasta que "
 			},
 			"blends": {
 				"A": "L1",
@@ -3040,7 +2964,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "they ",
-				"L2": "hasta que "
+				"L2": "ellos "
 			},
 			"blends": {
 				"A": "L1",
@@ -3053,19 +2977,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "began to ",
-				"L2": "ellos "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "shrink, ",
 				"L2": "empezaron "
 			},
 			"blends": {
@@ -3078,8 +2989,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "hidden ",
+				"L1": "shrink, ",
 				"L2": "a contraerse, "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "hidden ",
+				"L2": "escondidos "
 			},
 			"blends": {
 				"A": "L1",
@@ -3092,7 +3016,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "in ",
-				"L2": "escondidos "
+				"L2": "en "
 			},
 			"blends": {
 				"A": "L1",
@@ -3105,7 +3029,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "a big bright cloud ",
-				"L2": "en "
+				"L2": "una nube grande y radiante "
 			},
 			"blends": {
 				"A": "L1",
@@ -3118,7 +3042,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "of ",
-				"L2": "una nube grande y radiante "
+				"L2": "de "
 			},
 			"blends": {
 				"A": "L1",
@@ -3131,7 +3055,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "red smoke. ",
-				"L2": "de "
+				"L2": "humo rojo. "
 			},
 			"blends": {
 				"A": "L1",
@@ -3143,17 +3067,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '8',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "8",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -3327,8 +3250,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -3444,8 +3367,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -3535,8 +3458,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -3665,8 +3588,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -3756,8 +3679,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -3808,8 +3731,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -3873,36 +3796,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '9',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "9",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
-				"L1": "Before Cesar had time to respond ",
-				"L2": "Antes de que Cesar tuviera tiempo para responder "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": ", ",
-				"L2": ", "
+				"L1": "Before Cesar had time to respond, ",
+				"L2": "Antes de que Cesar tuviera tiempo para responder, "
 			},
 			"blends": {
 				"A": "L1",
@@ -3940,21 +3849,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "Hang on ",
-				"L2": "¡Agárrense! "
+				"L1": "“Hang on! ",
+				"L2": "“¡Agárrense! "
 			},
 			"blends": {
 				"A": "L1",
@@ -3966,7 +3862,7 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "! ",
+				"L1": " ",
 				"L2": "¡Allá vamos!” "
 			},
 			"blends": {
@@ -4174,17 +4070,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '10',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "10",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -4306,8 +4201,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -4397,17 +4292,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '11',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "11",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -4516,8 +4410,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -4581,8 +4475,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -4659,8 +4553,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -4776,17 +4670,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '12',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "12",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -4856,8 +4749,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -4986,8 +4879,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -5103,8 +4996,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -5168,8 +5061,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -5298,17 +5191,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '13',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "13",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -5443,8 +5335,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -5573,8 +5465,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -5664,23 +5556,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '14',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "14",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -5770,8 +5661,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -5835,8 +5726,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "And so ",
-				"L2": "Entonces "
+				"L1": "And so, ",
+				"L2": "Entonces, "
 			},
 			"blends": {
 				"A": "L1",
@@ -5844,19 +5735,6 @@ var Book = {
 				"C": "L1",
 				"D": "L1",
 				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": ", ",
-				"L2": ", "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
 			}
 		}, {
 			"type": "text",
@@ -6004,24 +5882,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '15',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},
-	{
+	"content": [{
+		"type": "image",
+		"src": "15",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
-				"L1": "After a short while ",
-				"L2": "Después de un tiempo "
+				"L1": "After a short while, ",
+				"L2": "Después de un tiempo, "
 			},
 			"blends": {
 				"A": "L1",
@@ -6029,19 +5905,6 @@ var Book = {
 				"C": "L2",
 				"D": "L2",
 				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": ", ",
-				"L2": ", "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
 			}
 		}, {
 			"type": "text",
@@ -6228,8 +6091,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -6384,8 +6247,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -6449,17 +6312,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '16',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "16",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -6659,8 +6521,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -6763,8 +6625,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -6893,8 +6755,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -7023,23 +6885,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '17',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "17",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
 				"L1": "Overwhelmed, ",
-				"L2": "Abrumada "
+				"L2": "Abrumada, "
 			},
 			"blends": {
 				"A": "L1",
@@ -7052,7 +6913,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Broccorella ",
-				"L2": ", "
+				"L2": "Brocolicienta "
 			},
 			"blends": {
 				"A": "L1",
@@ -7065,7 +6926,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "tripped ",
-				"L2": "Brocolicienta "
+				"L2": "se tropezó "
 			},
 			"blends": {
 				"A": "L1",
@@ -7078,7 +6939,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and ",
-				"L2": "se tropezó "
+				"L2": "y "
 			},
 			"blends": {
 				"A": "L1",
@@ -7091,7 +6952,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "fell to ",
-				"L2": "y "
+				"L2": "se cayó "
 			},
 			"blends": {
 				"A": "L1",
@@ -7104,7 +6965,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "the floor. ",
-				"L2": "se cayó "
+				"L2": "al suelo. "
 			},
 			"blends": {
 				"A": "L1",
@@ -7117,7 +6978,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "al suelo. "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -7129,8 +6990,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": " "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -7143,7 +7004,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Really, ",
-				"L2": "“"
+				"L2": "De verdad, "
 			},
 			"blends": {
 				"A": "L1",
@@ -7156,7 +7017,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Broccorella. ",
-				"L2": "De verdad, "
+				"L2": "Brocolicienta. "
 			},
 			"blends": {
 				"A": "L1",
@@ -7169,19 +7030,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "How do you expect to help us get ready for the contest when you’re lying on the floor ",
-				"L2": "Brocolicienta. "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "?” ",
 				"L2": "¿En qué nos ayudas a prepararnos para el concurso si estás tirada en el suelo "
 			},
 			"blends": {
@@ -7194,8 +7042,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Candy ",
+				"L1": "?” ",
 				"L2": "?” "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "Candy ",
+				"L2": "Caramelo "
 			},
 			"blends": {
 				"A": "L1",
@@ -7208,7 +7069,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "asked ",
-				"L2": "Caramelo "
+				"L2": "preguntó "
 			},
 			"blends": {
 				"A": "L1",
@@ -7220,8 +7081,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "with an evil grin ",
-				"L2": "preguntó "
+				"L1": "with an evil grin. ",
+				"L2": "con una sonrisa mala. "
 			},
 			"blends": {
 				"A": "L1",
@@ -7229,19 +7090,6 @@ var Book = {
 				"C": "L2",
 				"D": "L2",
 				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": ". ",
-				"L2": "con una sonrisa mala. "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
 			}
 		}, {
 			"type": "text",
@@ -7259,8 +7107,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": " ",
+				"L2": "“ "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "“ ",
+				"L2": "Tampoco "
 			},
 			"blends": {
 				"A": "L1",
@@ -7273,7 +7134,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Not that ",
-				"L2": "Tampoco "
+				"L2": "necesitamos "
 			},
 			"blends": {
 				"A": "L1",
@@ -7286,7 +7147,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "we need ",
-				"L2": "necesitamos "
+				"L2": "mucha "
 			},
 			"blends": {
 				"A": "L1",
@@ -7299,7 +7160,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "much ",
-				"L2": "mucha "
+				"L2": "ayuda "
 			},
 			"blends": {
 				"A": "L1",
@@ -7312,7 +7173,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "help ",
-				"L2": "ayuda "
+				"L2": "para quedar bellos,” "
 			},
 			"blends": {
 				"A": "L1",
@@ -7325,7 +7186,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "getting beautiful,” ",
-				"L2": "para quedar bellos,” "
+				"L2": "Paleta "
 			},
 			"blends": {
 				"A": "L1",
@@ -7338,7 +7199,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Pepper ",
-				"L2": "Paleta "
+				"L2": "rio. "
 			},
 			"blends": {
 				"A": "L1",
@@ -7351,7 +7212,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "laughed. ",
-				"L2": "rio. "
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -7363,8 +7224,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "Esas "
 			},
 			"blends": {
 				"A": "L1",
@@ -7377,7 +7238,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Those ",
-				"L2": "Esas "
+				"L2": "coronas "
 			},
 			"blends": {
 				"A": "L1",
@@ -7390,19 +7251,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "crowns ",
-				"L2": "coronas "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "will be ",
 				"L2": "serán "
 			},
 			"blends": {
@@ -7415,8 +7263,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "ours ",
+				"L1": "will be ",
 				"L2": "nuestras "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "ours ",
+				"L2": "en un santiamén.” "
 			},
 			"blends": {
 				"A": "L1",
@@ -7429,7 +7290,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "in no time.” ",
-				"L2": "en un santiamén.” "
+				"L2": "undefined "
 			},
 			"blends": {
 				"A": "L1",
@@ -7441,23 +7302,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '18',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "18",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
 				"L1": "Slowly, ",
-				"L2": "Lentamente "
+				"L2": "Lentamente, "
 			},
 			"blends": {
 				"A": "L1",
@@ -7470,7 +7330,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Broccorella ",
-				"L2": ", "
+				"L2": "Brocolicienta "
 			},
 			"blends": {
 				"A": "L1",
@@ -7483,7 +7343,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "stood up ",
-				"L2": "Brocolicienta "
+				"L2": "se puso de pie "
 			},
 			"blends": {
 				"A": "L1",
@@ -7496,7 +7356,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and ",
-				"L2": "se puso de pie "
+				"L2": "y "
 			},
 			"blends": {
 				"A": "L1",
@@ -7509,7 +7369,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "mustered up all her strength ",
-				"L2": "y "
+				"L2": "se armó de valor "
 			},
 			"blends": {
 				"A": "L1",
@@ -7522,7 +7382,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "to ask, ",
-				"L2": "se armó de valor "
+				"L2": "para preguntar, "
 			},
 			"blends": {
 				"A": "L1",
@@ -7534,8 +7394,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "para preguntar, "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -7548,7 +7408,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Um, ",
-				"L2": "“"
+				"L2": "Em, "
 			},
 			"blends": {
 				"A": "L1",
@@ -7561,19 +7421,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "can I go to the Veggie Contest too ",
-				"L2": "Em, "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "?” ",
 				"L2": "¿Puedo yo también ir al Concurso de Belleza "
 			},
 			"blends": {
@@ -7586,8 +7433,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": " ",
+				"L1": "?” ",
 				"L2": "?” "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": " ",
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -7600,7 +7460,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "But ",
-				"L2": " "
+				"L2": "Pero "
 			},
 			"blends": {
 				"A": "L1",
@@ -7613,7 +7473,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "her ",
-				"L2": "Pero "
+				"L2": "sus "
 			},
 			"blends": {
 				"A": "L1",
@@ -7626,7 +7486,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "stepsisters ",
-				"L2": "sus "
+				"L2": "hermanastras "
 			},
 			"blends": {
 				"A": "L1",
@@ -7639,19 +7499,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "just laughed. ",
-				"L2": "hermanastras "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "“",
 				"L2": "solo rieron. "
 			},
 			"blends": {
@@ -7664,8 +7511,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
+				"L1": "“ ",
+				"L2": "“ "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
 				"L1": "You ",
-				"L2": "“"
+				"L2": "¿Tú "
 			},
 			"blends": {
 				"A": "L1",
@@ -7678,7 +7538,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "? ",
-				"L2": "¿Tú "
+				"L2": "? "
 			},
 			"blends": {
 				"A": "L1",
@@ -7691,19 +7551,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "At a Veggie Contest ",
-				"L2": "? "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "? ",
 				"L2": "¿A un concurso de vegetales "
 			},
 			"blends": {
@@ -7716,8 +7563,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Please!” ",
+				"L1": "? ",
 				"L2": "? "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "Please!” ",
+				"L2": "¡Por favor!” "
 			},
 			"blends": {
 				"A": "L1",
@@ -7730,7 +7590,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Candy ",
-				"L2": "¡Por favor!” "
+				"L2": "Caramelo "
 			},
 			"blends": {
 				"A": "L1",
@@ -7743,7 +7603,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "cried. ",
-				"L2": "Caramelo "
+				"L2": "gritó. "
 			},
 			"blends": {
 				"A": "L1",
@@ -7756,7 +7616,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "gritó. "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -7768,8 +7628,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": " "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -7782,7 +7642,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Your ",
-				"L2": "“"
+				"L2": "Tu "
 			},
 			"blends": {
 				"A": "L1",
@@ -7795,19 +7655,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "hair ",
-				"L2": "Tu "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "is ",
 				"L2": "cabello "
 			},
 			"blends": {
@@ -7820,8 +7667,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "ridiculous and icky,” ",
+				"L1": "is ",
 				"L2": "es "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "ridiculous and icky,” ",
+				"L2": "absurdo y asqueroso,” "
 			},
 			"blends": {
 				"A": "L1",
@@ -7834,7 +7694,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Chocolate ",
-				"L2": "absurdo y asqueroso,” "
+				"L2": "Chocolate "
 			},
 			"blends": {
 				"A": "L1",
@@ -7847,7 +7707,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "exclaimed. ",
-				"L2": "Chocolate "
+				"L2": "exclamó. "
 			},
 			"blends": {
 				"A": "L1",
@@ -7860,7 +7720,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "exclamó. "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -7872,8 +7732,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": " "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -7886,7 +7746,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "And, ",
-				"L2": "“"
+				"L2": "Y, "
 			},
 			"blends": {
 				"A": "L1",
@@ -7899,7 +7759,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "you look like ",
-				"L2": "Y, "
+				"L2": "te parece "
 			},
 			"blends": {
 				"A": "L1",
@@ -7912,7 +7772,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "a tree,” ",
-				"L2": "te parece "
+				"L2": "un árbol,” "
 			},
 			"blends": {
 				"A": "L1",
@@ -7925,7 +7785,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Pepper ",
-				"L2": "un árbol,” "
+				"L2": "Paleta "
 			},
 			"blends": {
 				"A": "L1",
@@ -7938,7 +7798,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "added. ",
-				"L2": "Paleta "
+				"L2": "añadió. "
 			},
 			"blends": {
 				"A": "L1",
@@ -7951,7 +7811,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "añadió. "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -7964,7 +7824,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "And ",
-				"L2": " "
+				"L2": "Y "
 			},
 			"blends": {
 				"A": "L1",
@@ -7977,7 +7837,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "with that, ",
-				"L2": "Y "
+				"L2": "con eso, "
 			},
 			"blends": {
 				"A": "L1",
@@ -7990,7 +7850,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "the three stepsisters ",
-				"L2": "con eso, "
+				"L2": "las tres hermanastras "
 			},
 			"blends": {
 				"A": "L1",
@@ -8003,7 +7863,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "left ",
-				"L2": "las tres hermanastras "
+				"L2": "salieron de "
 			},
 			"blends": {
 				"A": "L1",
@@ -8016,7 +7876,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "the little pumpkin cottage, ",
-				"L2": "salieron de "
+				"L2": "la cabaña pequeña hecho de una calabaza, "
 			},
 			"blends": {
 				"A": "L1",
@@ -8029,7 +7889,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "laughing all the way. ",
-				"L2": "la cabaña pequeña hecho de una calabaza, "
+				"L2": "riendo en todo el camino. "
 			},
 			"blends": {
 				"A": "L1",
@@ -8041,23 +7901,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '19',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "19",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
 				"L1": "After they had left, ",
-				"L2": "Después de que ellos salieron "
+				"L2": "Después de que ellos salieron, "
 			},
 			"blends": {
 				"A": "L1",
@@ -8070,7 +7929,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Cesar ",
-				"L2": ", "
+				"L2": "Cesar "
 			},
 			"blends": {
 				"A": "L1",
@@ -8083,7 +7942,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "poked his head ",
-				"L2": "Cesar "
+				"L2": "se metió su cabeza "
 			},
 			"blends": {
 				"A": "L1",
@@ -8096,7 +7955,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "into ",
-				"L2": "se metió su cabeza "
+				"L2": "en "
 			},
 			"blends": {
 				"A": "L1",
@@ -8109,19 +7968,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "the doorframe ",
-				"L2": "en "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "and ",
 				"L2": "la entrada "
 			},
 			"blends": {
@@ -8134,8 +7980,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Mei ",
+				"L1": "and ",
 				"L2": "y "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "Mei ",
+				"L2": "Mei "
 			},
 			"blends": {
 				"A": "L1",
@@ -8148,7 +8007,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and ",
-				"L2": "Mei "
+				"L2": "y "
 			},
 			"blends": {
 				"A": "L1",
@@ -8161,7 +8020,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Milo ",
-				"L2": "y "
+				"L2": "Milo "
 			},
 			"blends": {
 				"A": "L1",
@@ -8174,7 +8033,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "followed him. ",
-				"L2": "Milo "
+				"L2": "le siguieron. "
 			},
 			"blends": {
 				"A": "L1",
@@ -8187,7 +8046,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "le siguieron. "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -8199,8 +8058,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": " "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -8213,7 +8072,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Gee, ",
-				"L2": "“"
+				"L2": "Vaya, "
 			},
 			"blends": {
 				"A": "L1",
@@ -8226,7 +8085,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "her ",
-				"L2": "Vaya, "
+				"L2": "sus "
 			},
 			"blends": {
 				"A": "L1",
@@ -8239,7 +8098,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "stepsisters ",
-				"L2": "sus "
+				"L2": "hermanastras "
 			},
 			"blends": {
 				"A": "L1",
@@ -8252,7 +8111,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "are mean,” ",
-				"L2": "hermanastras "
+				"L2": "son malas,” "
 			},
 			"blends": {
 				"A": "L1",
@@ -8265,7 +8124,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Cesar ",
-				"L2": "son malas,” "
+				"L2": "Cesar "
 			},
 			"blends": {
 				"A": "L1",
@@ -8278,7 +8137,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "started. ",
-				"L2": "Cesar "
+				"L2": "empezó. "
 			},
 			"blends": {
 				"A": "L1",
@@ -8291,19 +8150,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "empezó. "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "“",
 				"L2": " "
 			},
 			"blends": {
@@ -8316,8 +8162,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
+				"L1": "“ ",
+				"L2": "“ "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
 				"L1": "And ",
-				"L2": "“"
+				"L2": "Y "
 			},
 			"blends": {
 				"A": "L1",
@@ -8330,7 +8189,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "they’re ",
-				"L2": "Y "
+				"L2": "son "
 			},
 			"blends": {
 				"A": "L1",
@@ -8343,7 +8202,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "junk food,” ",
-				"L2": "son "
+				"L2": "comida chatarra,” "
 			},
 			"blends": {
 				"A": "L1",
@@ -8356,7 +8215,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Mei ",
-				"L2": "comida chatarra,” "
+				"L2": "Mei "
 			},
 			"blends": {
 				"A": "L1",
@@ -8369,7 +8228,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "added. ",
-				"L2": "Mei "
+				"L2": "añadió. "
 			},
 			"blends": {
 				"A": "L1",
@@ -8382,7 +8241,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "añadió. "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -8395,7 +8254,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Suddenly, ",
-				"L2": " "
+				"L2": "De repente, "
 			},
 			"blends": {
 				"A": "L1",
@@ -8408,7 +8267,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Cesar ",
-				"L2": "De repente "
+				"L2": "Cesar "
 			},
 			"blends": {
 				"A": "L1",
@@ -8421,7 +8280,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "fell over, ",
-				"L2": ", "
+				"L2": "se cayó, "
 			},
 			"blends": {
 				"A": "L1",
@@ -8434,7 +8293,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "crashing into ",
-				"L2": "Cesar "
+				"L2": "chocando contra "
 			},
 			"blends": {
 				"A": "L1",
@@ -8447,7 +8306,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Mei ",
-				"L2": "se cayó, "
+				"L2": "Mei "
 			},
 			"blends": {
 				"A": "L1",
@@ -8460,7 +8319,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and Milo, ",
-				"L2": "chocando contra "
+				"L2": "y Milo, "
 			},
 			"blends": {
 				"A": "L1",
@@ -8473,7 +8332,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "the three of them ",
-				"L2": "Mei "
+				"L2": "los tres "
 			},
 			"blends": {
 				"A": "L1",
@@ -8486,7 +8345,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "landing in a pile ",
-				"L2": "y Milo, "
+				"L2": "cayendo en una pila "
 			},
 			"blends": {
 				"A": "L1",
@@ -8499,7 +8358,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "on the floor. ",
-				"L2": "los tres "
+				"L2": "en el suelo. "
 			},
 			"blends": {
 				"A": "L1",
@@ -8511,23 +8370,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '20',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "20",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
 				"L1": "Surprised and confused, ",
-				"L2": "Sorprendida y confundida "
+				"L2": "Sorprendida y confundida, "
 			},
 			"blends": {
 				"A": "L1",
@@ -8540,7 +8398,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Broccorella ",
-				"L2": ", "
+				"L2": "Brocolicienta "
 			},
 			"blends": {
 				"A": "L1",
@@ -8553,7 +8411,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "asked, ",
-				"L2": "Brocolicienta "
+				"L2": "preguntó, "
 			},
 			"blends": {
 				"A": "L1",
@@ -8565,8 +8423,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "preguntó, "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -8579,7 +8437,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Are you ",
-				"L2": "“"
+				"L2": "¿Ustedes son "
 			},
 			"blends": {
 				"A": "L1",
@@ -8592,7 +8450,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "my ",
-				"L2": "¿Ustedes son "
+				"L2": "mis "
 			},
 			"blends": {
 				"A": "L1",
@@ -8605,7 +8463,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "fairy ",
-				"L2": "mis "
+				"L2": "hados "
 			},
 			"blends": {
 				"A": "L1",
@@ -8618,7 +8476,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "godparents ",
-				"L2": "hados "
+				"L2": "padrinos "
 			},
 			"blends": {
 				"A": "L1",
@@ -8631,19 +8489,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "?” ",
-				"L2": "padrinos "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": " ",
 				"L2": "?” "
 			},
 			"blends": {
@@ -8656,8 +8501,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Cesar ",
+				"L1": " ",
 				"L2": " "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "Cesar ",
+				"L2": "Cesar "
 			},
 			"blends": {
 				"A": "L1",
@@ -8670,7 +8528,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "was ",
-				"L2": "Cesar "
+				"L2": "fue "
 			},
 			"blends": {
 				"A": "L1",
@@ -8683,7 +8541,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "the first ",
-				"L2": "fue "
+				"L2": "el primero "
 			},
 			"blends": {
 				"A": "L1",
@@ -8696,7 +8554,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "to respond. ",
-				"L2": "el primero "
+				"L2": "a responder. "
 			},
 			"blends": {
 				"A": "L1",
@@ -8708,8 +8566,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "a responder. "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -8722,7 +8580,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "No, ",
-				"L2": "“"
+				"L2": "No, "
 			},
 			"blends": {
 				"A": "L1",
@@ -8735,7 +8593,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "we ",
-				"L2": "No, "
+				"L2": "nosotros "
 			},
 			"blends": {
 				"A": "L1",
@@ -8748,7 +8606,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "are ",
-				"L2": "nosotros "
+				"L2": "somos "
 			},
 			"blends": {
 				"A": "L1",
@@ -8761,19 +8619,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "the MiniMities. ",
-				"L2": "somos "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L2",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "I ",
 				"L2": "los MiniMities. "
 			},
 			"blends": {
@@ -8786,8 +8631,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "am ",
+				"L1": "I ",
 				"L2": "Yo "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L2",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "am ",
+				"L2": "soy "
 			},
 			"blends": {
 				"A": "L1",
@@ -8800,7 +8658,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Cesar.” ",
-				"L2": "soy "
+				"L2": "Cesar.” "
 			},
 			"blends": {
 				"A": "L1",
@@ -8813,19 +8671,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "Cesar.” "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "“",
 				"L2": " "
 			},
 			"blends": {
@@ -8838,8 +8683,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
+				"L1": "“ ",
+				"L2": "“ "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
 				"L1": "I’m ",
-				"L2": "“"
+				"L2": "Soy "
 			},
 			"blends": {
 				"A": "L1",
@@ -8852,7 +8710,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Mei.” ",
-				"L2": "Soy "
+				"L2": "Mei.” "
 			},
 			"blends": {
 				"A": "L1",
@@ -8865,7 +8723,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "Mei.” "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -8877,8 +8735,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": " "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -8891,19 +8749,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "And ",
-				"L2": "“"
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "I’m ",
 				"L2": "Y "
 			},
 			"blends": {
@@ -8916,8 +8761,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Milo.” ",
+				"L1": "I’m ",
 				"L2": "soy "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "Milo.” ",
+				"L2": "Milo.” "
 			},
 			"blends": {
 				"A": "L1",
@@ -8930,7 +8788,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Without ",
-				"L2": "Milo.” "
+				"L2": "Sin "
 			},
 			"blends": {
 				"A": "L1",
@@ -8943,7 +8801,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "hesitation, ",
-				"L2": "Sin "
+				"L2": "vacilar, "
 			},
 			"blends": {
 				"A": "L1",
@@ -8956,7 +8814,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "they ",
-				"L2": "vacilar, "
+				"L2": "ellos "
 			},
 			"blends": {
 				"A": "L1",
@@ -8969,19 +8827,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "began to sing, ",
-				"L2": "ellos "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "“",
 				"L2": "empezaron a cantar, "
 			},
 			"blends": {
@@ -8994,8 +8839,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
+				"L1": "“ ",
+				"L2": "“ "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
 				"L1": "We’re ",
-				"L2": "“"
+				"L2": "Somos "
 			},
 			"blends": {
 				"A": "L1",
@@ -9008,7 +8866,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "mini, ",
-				"L2": "Somos "
+				"L2": "mini, "
 			},
 			"blends": {
 				"A": "L1",
@@ -9021,19 +8879,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "but ",
-				"L2": "mini, "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "we’re ",
 				"L2": "pero "
 			},
 			"blends": {
@@ -9046,8 +8891,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "mighty ",
+				"L1": "we’re ",
 				"L2": "somos "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "mighty ",
+				"L2": "poderosos "
 			},
 			"blends": {
 				"A": "L1",
@@ -9060,7 +8918,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and ",
-				"L2": "poderosos "
+				"L2": "y "
 			},
 			"blends": {
 				"A": "L1",
@@ -9073,7 +8931,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "we’re ",
-				"L2": "y "
+				"L2": "estamos "
 			},
 			"blends": {
 				"A": "L1",
@@ -9086,19 +8944,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "here to help.” ",
-				"L2": "estamos "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": " ",
 				"L2": "para ayudarte.” "
 			},
 			"blends": {
@@ -9111,8 +8956,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Broccorella ",
+				"L1": " ",
 				"L2": " "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "Broccorella ",
+				"L2": "Brocolicienta "
 			},
 			"blends": {
 				"A": "L1",
@@ -9125,19 +8983,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "stared at them blankly. ",
-				"L2": "Brocolicienta "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "“",
 				"L2": "tenía la mirada perdida. "
 			},
 			"blends": {
@@ -9150,8 +8995,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
+				"L1": "“ ",
+				"L2": "“ "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
 				"L1": "But, ",
-				"L2": "“"
+				"L2": "Pero, "
 			},
 			"blends": {
 				"A": "L1",
@@ -9164,7 +9022,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "how can you ",
-				"L2": "Pero, "
+				"L2": "¿como podrían "
 			},
 			"blends": {
 				"A": "L1",
@@ -9177,7 +9035,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "help me ",
-				"L2": "¿como podrían "
+				"L2": "ayudarme "
 			},
 			"blends": {
 				"A": "L1",
@@ -9190,7 +9048,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "? ",
-				"L2": "ayudarme "
+				"L2": "? "
 			},
 			"blends": {
 				"A": "L1",
@@ -9203,7 +9061,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "My ",
-				"L2": "? "
+				"L2": "Mi "
 			},
 			"blends": {
 				"A": "L1",
@@ -9216,19 +9074,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "hair ",
-				"L2": "Mi "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "is ",
 				"L2": "pelo "
 			},
 			"blends": {
@@ -9241,8 +9086,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "icky ",
+				"L1": "is ",
 				"L2": "es "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "icky ",
+				"L2": "asqueroso "
 			},
 			"blends": {
 				"A": "L1",
@@ -9255,7 +9113,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and ",
-				"L2": "asqueroso "
+				"L2": "y "
 			},
 			"blends": {
 				"A": "L1",
@@ -9268,7 +9126,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "I look like ",
-				"L2": "y "
+				"L2": "parezco "
 			},
 			"blends": {
 				"A": "L1",
@@ -9281,7 +9139,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "a tree. ",
-				"L2": "parezco "
+				"L2": "un árbol. "
 			},
 			"blends": {
 				"A": "L1",
@@ -9294,7 +9152,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "They’ll never let me ",
-				"L2": "un árbol. "
+				"L2": "Nunca me dejaría entrar "
 			},
 			"blends": {
 				"A": "L1",
@@ -9307,7 +9165,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "into the Miss Veggie Princess Contest. ",
-				"L2": "Nunca me dejaría entrar "
+				"L2": "al Concurso Princesa de los Vegetales. "
 			},
 			"blends": {
 				"A": "L1",
@@ -9320,7 +9178,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Never!” ",
-				"L2": "al Concurso Princesa de los Vegetales. "
+				"L2": "¡Nunca!” "
 			},
 			"blends": {
 				"A": "L1",
@@ -9332,23 +9190,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '21',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "21",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -9451,8 +9308,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -9594,8 +9451,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -9919,8 +9776,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -9971,23 +9828,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '22',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "22",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -10103,8 +9959,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -10233,8 +10089,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -10298,8 +10154,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -10389,17 +10245,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '23',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "23",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -10508,8 +10363,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -10677,8 +10532,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -10716,7 +10571,7 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "said ",
+				"L1": "said, ",
 				"L2": "dijo, "
 			},
 			"blends": {
@@ -10729,21 +10584,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": ", ",
-				"L2": "sacando "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
 				"L1": "pulling out ",
-				"L2": "su "
+				"L2": "sacando "
 			},
 			"blends": {
 				"A": "L1",
@@ -10756,7 +10598,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "her ",
-				"L2": "aparato de mariquita. "
+				"L2": "su "
 			},
 			"blends": {
 				"A": "L1",
@@ -10769,7 +10611,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "ladybug gadget. ",
-				"L2": "“"
+				"L2": "aparato de mariquita. "
 			},
 			"blends": {
 				"A": "L1",
@@ -10781,8 +10623,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "Atlas, "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -10795,7 +10637,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Atlas, ",
-				"L2": "responde. "
+				"L2": "Atlas, "
 			},
 			"blends": {
 				"A": "L1",
@@ -10808,7 +10650,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "come in. ",
-				"L2": "Necesitamos "
+				"L2": "responde. "
 			},
 			"blends": {
 				"A": "L1",
@@ -10821,7 +10663,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "We need ",
-				"L2": "un ride.” "
+				"L2": "Necesitamos "
 			},
 			"blends": {
 				"A": "L1",
@@ -10834,7 +10676,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "a ride.” ",
-				"L2": "Y "
+				"L2": "un ride.” "
 			},
 			"blends": {
 				"A": "L1",
@@ -10847,7 +10689,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "And ",
-				"L2": "muy pronto "
+				"L2": "Y "
 			},
 			"blends": {
 				"A": "L1",
@@ -10860,7 +10702,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "soon enough ",
-				"L2": "ellos "
+				"L2": "muy pronto "
 			},
 			"blends": {
 				"A": "L1",
@@ -10873,7 +10715,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "they ",
-				"L2": "escucharon que "
+				"L2": "ellos "
 			},
 			"blends": {
 				"A": "L1",
@@ -10886,7 +10728,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "heard ",
-				"L2": "un coche "
+				"L2": "escucharon que "
 			},
 			"blends": {
 				"A": "L1",
@@ -10899,7 +10741,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "a car ",
-				"L2": "se detuvo "
+				"L2": "un coche "
 			},
 			"blends": {
 				"A": "L1",
@@ -10912,7 +10754,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "pull up ",
-				"L2": "y "
+				"L2": "se detuvo "
 			},
 			"blends": {
 				"A": "L1",
@@ -10925,7 +10767,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and ",
-				"L2": "corrieron "
+				"L2": "y "
 			},
 			"blends": {
 				"A": "L1",
@@ -10938,7 +10780,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "rushed ",
-				"L2": "afuera "
+				"L2": "corrieron "
 			},
 			"blends": {
 				"A": "L1",
@@ -10951,7 +10793,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "outside ",
-				"L2": "para encontrarlo. "
+				"L2": "afuera "
 			},
 			"blends": {
 				"A": "L1",
@@ -10964,7 +10806,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "to meet it. ",
-				"L2": "undefined "
+				"L2": "para encontrarlo. "
 			},
 			"blends": {
 				"A": "L1",
@@ -10976,17 +10818,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '24',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "24",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -11134,8 +10975,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -11173,17 +11014,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '25',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "25",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -11344,8 +11184,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -11435,8 +11275,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -11682,17 +11522,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '26',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "26",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -11788,8 +11627,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -11879,8 +11718,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Then ",
-				"L2": "Después "
+				"L1": "Then, ",
+				"L2": "Después, "
 			},
 			"blends": {
 				"A": "L1",
@@ -11892,8 +11731,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": ", ",
-				"L2": ", "
+				"L1": " ",
+				"L2": "con el rabillo del ojo, "
 			},
 			"blends": {
 				"A": "L2",
@@ -11906,7 +11745,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "out of the corner of his eye, ",
-				"L2": "con el rabillo del ojo, "
+				"L2": "él "
 			},
 			"blends": {
 				"A": "L1",
@@ -11919,7 +11758,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "he ",
-				"L2": "él "
+				"L2": "vio "
 			},
 			"blends": {
 				"A": "L1",
@@ -11932,7 +11771,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "saw ",
-				"L2": "vio "
+				"L2": "algo "
 			},
 			"blends": {
 				"A": "L1",
@@ -11945,7 +11784,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "something ",
-				"L2": "algo "
+				"L2": "brillante "
 			},
 			"blends": {
 				"A": "L1",
@@ -11958,7 +11797,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "shiny ",
-				"L2": "brillante "
+				"L2": "y "
 			},
 			"blends": {
 				"A": "L1",
@@ -11971,7 +11810,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and ",
-				"L2": "y "
+				"L2": "se agachó "
 			},
 			"blends": {
 				"A": "L1",
@@ -11984,7 +11823,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "bent down ",
-				"L2": "se agachó "
+				"L2": "para recogerlo. "
 			},
 			"blends": {
 				"A": "L1",
@@ -11997,7 +11836,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "to pick up, ",
-				"L2": "para recogerlo. "
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -12009,8 +11848,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "¡Mira! "
 			},
 			"blends": {
 				"A": "L1",
@@ -12023,7 +11862,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Look! ",
-				"L2": "¡Mira! "
+				"L2": "¡Aquí está "
 			},
 			"blends": {
 				"A": "L1",
@@ -12036,7 +11875,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Here’s ",
-				"L2": "¡Aquí está "
+				"L2": "su "
 			},
 			"blends": {
 				"A": "L1",
@@ -12049,7 +11888,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "her ",
-				"L2": "su "
+				"L2": "cinta plateada!” "
 			},
 			"blends": {
 				"A": "L1",
@@ -12062,7 +11901,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "silver ribbon!” ",
-				"L2": "cinta plateada!” "
+				"L2": "él "
 			},
 			"blends": {
 				"A": "L1",
@@ -12075,7 +11914,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "he ",
-				"L2": "él "
+				"L2": "exclamó. "
 			},
 			"blends": {
 				"A": "L1",
@@ -12088,7 +11927,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "exclaimed. ",
-				"L2": "exclamó. "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -12101,7 +11940,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": " "
+				"L2": "Caramelo "
 			},
 			"blends": {
 				"A": "L1",
@@ -12114,7 +11953,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Candy ",
-				"L2": "Caramelo "
+				"L2": "empujo sus hermanas a un lado "
 			},
 			"blends": {
 				"A": "L1",
@@ -12127,7 +11966,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "pushed her two sisters aside ",
-				"L2": "empujo sus hermanas a un lado "
+				"L2": "y "
 			},
 			"blends": {
 				"A": "L1",
@@ -12140,7 +11979,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and ",
-				"L2": "y "
+				"L2": "acercó a "
 			},
 			"blends": {
 				"A": "L1",
@@ -12153,7 +11992,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "approached ",
-				"L2": "acercó a "
+				"L2": "Buzz. "
 			},
 			"blends": {
 				"A": "L1",
@@ -12166,7 +12005,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Buzz, ",
-				"L2": "Buzz. "
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -12178,8 +12017,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "¡Es "
 			},
 			"blends": {
 				"A": "L1",
@@ -12192,7 +12031,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "It’s ",
-				"L2": "¡Es "
+				"L2": "mía, "
 			},
 			"blends": {
 				"A": "L1",
@@ -12218,19 +12057,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "mine, ",
-				"L2": "mía, "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L2",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "mine! ",
 				"L2": "mía! "
 			},
 			"blends": {
@@ -12243,8 +12069,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "I’m ",
+				"L1": "mine! ",
 				"L2": "¡Yo soy "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L2",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "I’m ",
+				"L2": "la princesa más bonita y más alta!” "
 			},
 			"blends": {
 				"A": "L1",
@@ -12257,7 +12096,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "the beautifulest, tallest princess!” ",
-				"L2": "la princesa más bonita y más alta!” "
+				"L2": "ella "
 			},
 			"blends": {
 				"A": "L1",
@@ -12270,7 +12109,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "she ",
-				"L2": "ella "
+				"L2": "gritó. "
 			},
 			"blends": {
 				"A": "L1",
@@ -12283,7 +12122,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "yelled. ",
-				"L2": "gritó. "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -12296,7 +12135,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": " "
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -12308,8 +12147,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "¡No, "
 			},
 			"blends": {
 				"A": "L1",
@@ -12322,19 +12161,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "No, ",
-				"L2": "¡No, "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "I am! ",
 				"L2": "soy yo! "
 			},
 			"blends": {
@@ -12347,8 +12173,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Let me ",
+				"L1": "I am! ",
 				"L2": "¡Déjame "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "Let me ",
+				"L2": "probarme "
 			},
 			"blends": {
 				"A": "L1",
@@ -12361,19 +12200,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "try on ",
-				"L2": "probarme "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "the ribbon!” ",
 				"L2": "la cinta!” "
 			},
 			"blends": {
@@ -12386,7 +12212,7 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Pepper ",
+				"L1": "the ribbon!” ",
 				"L2": "Paleta "
 			},
 			"blends": {
@@ -12399,8 +12225,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "said, ",
+				"L1": "Pepper ",
 				"L2": "dijo, "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "said, ",
+				"L2": "empujándole. "
 			},
 			"blends": {
 				"A": "L1",
@@ -12413,19 +12252,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "pushing back. ",
-				"L2": "empujándole. "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": " ",
 				"L2": " "
 			},
 			"blends": {
@@ -12438,8 +12264,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": " ",
+				"L2": "“ "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "“ ",
+				"L2": "¡Yo "
 			},
 			"blends": {
 				"A": "L1",
@@ -12452,7 +12291,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Me ",
-				"L2": "¡Yo "
+				"L2": "primero!” "
 			},
 			"blends": {
 				"A": "L1",
@@ -12465,19 +12304,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "first!” ",
-				"L2": "primero!” "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "Chocolate ",
 				"L2": "Chocolate "
 			},
 			"blends": {
@@ -12490,8 +12316,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "declared, ",
+				"L1": "Chocolate ",
 				"L2": "declaró, "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "declared, ",
+				"L2": "saltando alto en el aire "
 			},
 			"blends": {
 				"A": "L1",
@@ -12504,7 +12343,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "jumping high up into the air ",
-				"L2": "saltando alto en el aire "
+				"L2": "y "
 			},
 			"blends": {
 				"A": "L1",
@@ -12517,7 +12356,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and ",
-				"L2": "y "
+				"L2": "tacleando sus hermanas al suelo. "
 			},
 			"blends": {
 				"A": "L1",
@@ -12530,7 +12369,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "tackling her sisters to the ground. ",
-				"L2": "tacleando sus hermanas al suelo. "
+				"L2": "undefined "
 			},
 			"blends": {
 				"A": "L1",
@@ -12542,23 +12381,22 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '27',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "27",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
 			"content": {
 				"L1": "Meanwhile, ",
-				"L2": "Mientras tanto "
+				"L2": "Mientras tanto, "
 			},
 			"blends": {
 				"A": "L1",
@@ -12571,7 +12409,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "the MiniMities ",
-				"L2": ", "
+				"L2": "los MiniMities "
 			},
 			"blends": {
 				"A": "L1",
@@ -12584,7 +12422,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "had caught up with ",
-				"L2": "los MiniMities "
+				"L2": "han alcanzado a "
 			},
 			"blends": {
 				"A": "L1",
@@ -12597,7 +12435,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Broccorella. ",
-				"L2": "han alcanzado a "
+				"L2": "Brocolicienta. "
 			},
 			"blends": {
 				"A": "L1",
@@ -12610,7 +12448,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "Brocolicienta. "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -12622,8 +12460,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": " "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -12636,7 +12474,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Broccorella, ",
-				"L2": "“"
+				"L2": "Brocolicienta, "
 			},
 			"blends": {
 				"A": "L1",
@@ -12649,7 +12487,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "why ",
-				"L2": "Brocolicienta, "
+				"L2": "¿por qué "
 			},
 			"blends": {
 				"A": "L1",
@@ -12662,19 +12500,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "did you run away ",
-				"L2": "¿por qué "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "?” ",
 				"L2": "te huiste "
 			},
 			"blends": {
@@ -12687,8 +12512,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Milo ",
+				"L1": "?” ",
 				"L2": "?” "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "Milo ",
+				"L2": "Milo "
 			},
 			"blends": {
 				"A": "L1",
@@ -12701,7 +12539,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "started. ",
-				"L2": "Milo "
+				"L2": "empezó. "
 			},
 			"blends": {
 				"A": "L1",
@@ -12713,8 +12551,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "empezó. "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -12727,19 +12565,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Everyone ",
-				"L2": "“"
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "is looking for you!” ",
 				"L2": "¡Todo el mundo "
 			},
 			"blends": {
@@ -12752,8 +12577,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": " ",
+				"L1": "is looking for you!” ",
 				"L2": "está buscándote!” "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": " ",
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -12766,7 +12604,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Broccorella ",
-				"L2": " "
+				"L2": "Brocolicienta "
 			},
 			"blends": {
 				"A": "L1",
@@ -12779,19 +12617,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "did not dare ",
-				"L2": "Brocolicienta "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "look at ",
 				"L2": "no se atrevió a "
 			},
 			"blends": {
@@ -12804,8 +12629,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "her ",
+				"L1": "look at ",
 				"L2": "mirar a "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "her ",
+				"L2": "sus "
 			},
 			"blends": {
 				"A": "L1",
@@ -12818,7 +12656,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "friends. ",
-				"L2": "sus "
+				"L2": "amigos. "
 			},
 			"blends": {
 				"A": "L1",
@@ -12830,8 +12668,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "amigos. "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -12844,7 +12682,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "But ",
-				"L2": "“"
+				"L2": "Pero "
 			},
 			"blends": {
 				"A": "L1",
@@ -12857,7 +12695,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "my ribbon fell off ",
-				"L2": "Pero "
+				"L2": "se me salió la cinta "
 			},
 			"blends": {
 				"A": "L1",
@@ -12870,7 +12708,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "and ",
-				"L2": "se me salió la cinta "
+				"L2": "y "
 			},
 			"blends": {
 				"A": "L1",
@@ -12883,7 +12721,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "I looked like plain old icky me again,” ",
-				"L2": "y "
+				"L2": "me veía como la misma fea que siempre,” "
 			},
 			"blends": {
 				"A": "L1",
@@ -12896,7 +12734,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "she ",
-				"L2": "me veía como la misma fea que siempre,” "
+				"L2": "ella "
 			},
 			"blends": {
 				"A": "L1",
@@ -12909,7 +12747,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "said, ",
-				"L2": "ella "
+				"L2": "dijo, "
 			},
 			"blends": {
 				"A": "L1",
@@ -12922,7 +12760,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "her ",
-				"L2": "dijo, "
+				"L2": "sus "
 			},
 			"blends": {
 				"A": "L1",
@@ -12935,7 +12773,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "eyes ",
-				"L2": "sus "
+				"L2": "ojos "
 			},
 			"blends": {
 				"A": "L1",
@@ -12948,7 +12786,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "full with ",
-				"L2": "ojos "
+				"L2": "llenos de "
 			},
 			"blends": {
 				"A": "L1",
@@ -12961,7 +12799,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "tears. ",
-				"L2": "llenos de "
+				"L2": "lágrimas. "
 			},
 			"blends": {
 				"A": "L1",
@@ -12973,17 +12811,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '28',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "28",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -13040,8 +12877,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -13235,8 +13072,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -13300,8 +13137,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -13521,8 +13358,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -13651,17 +13488,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '29',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "29",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -13783,8 +13619,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -13861,8 +13697,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -13940,7 +13776,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Candy, ",
-				"L2": "Caramelo "
+				"L2": "Caramelo, "
 			},
 			"blends": {
 				"A": "L1",
@@ -13953,19 +13789,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Pepper ",
-				"L2": ", "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "and Chocolate ",
 				"L2": "Paleta, "
 			},
 			"blends": {
@@ -13978,8 +13801,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "couldn’t ",
+				"L1": "and Chocolate ",
 				"L2": "y Chocolate "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "couldn’t ",
+				"L2": "no podían "
 			},
 			"blends": {
 				"A": "L1",
@@ -13992,7 +13828,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "believe ",
-				"L2": "no podían "
+				"L2": "creer en "
 			},
 			"blends": {
 				"A": "L1",
@@ -14005,7 +13841,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "what ",
-				"L2": "creer en "
+				"L2": "lo que "
 			},
 			"blends": {
 				"A": "L1",
@@ -14018,19 +13854,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "they were seeing. ",
-				"L2": "lo que "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L2",
-				"D": "L2",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": " ",
 				"L2": "veían. "
 			},
 			"blends": {
@@ -14043,8 +13866,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
+				"L1": " ",
 				"L2": " "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L2",
+				"D": "L2",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -14057,7 +13893,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Broccorella ",
-				"L2": "“"
+				"L2": "¿Brocolicienta "
 			},
 			"blends": {
 				"A": "L1",
@@ -14070,7 +13906,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "?” ",
-				"L2": "¿Brocolicienta "
+				"L2": "?” "
 			},
 			"blends": {
 				"A": "L1",
@@ -14083,7 +13919,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Candy ",
-				"L2": "?” "
+				"L2": "Caramelo "
 			},
 			"blends": {
 				"A": "L1",
@@ -14096,7 +13932,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "gasped. ",
-				"L2": "Caramelo "
+				"L2": "suspiró. "
 			},
 			"blends": {
 				"A": "L1",
@@ -14109,7 +13945,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "suspiró. "
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -14122,7 +13958,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "“It couldn’t be,” ",
-				"L2": "“"
+				"L2": "No puede ser,” "
 			},
 			"blends": {
 				"A": "L1",
@@ -14135,7 +13971,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Pepper ",
-				"L2": "No puede ser,” "
+				"L2": "Paleta "
 			},
 			"blends": {
 				"A": "L1",
@@ -14148,7 +13984,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "agreed. ",
-				"L2": "Paleta "
+				"L2": "acordó. "
 			},
 			"blends": {
 				"A": "L1",
@@ -14161,7 +13997,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "acordó. "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -14173,8 +14009,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": " "
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -14187,19 +14023,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Could it ",
-				"L2": "“"
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "?” ",
 				"L2": "¿O sí "
 			},
 			"blends": {
@@ -14212,8 +14035,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "Chocolate ",
+				"L1": "?” ",
 				"L2": "?” "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "Chocolate ",
+				"L2": "Chocolate "
 			},
 			"blends": {
 				"A": "L1",
@@ -14226,7 +14062,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "wondered. ",
-				"L2": "Chocolate "
+				"L2": "se preguntó. "
 			},
 			"blends": {
 				"A": "L1",
@@ -14239,7 +14075,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": " ",
-				"L2": "se preguntó. "
+				"L2": " "
 			},
 			"blends": {
 				"A": "L1",
@@ -14252,7 +14088,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Broccorella ",
-				"L2": " "
+				"L2": "Brocolicienta "
 			},
 			"blends": {
 				"A": "L1",
@@ -14265,7 +14101,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "approached ",
-				"L2": "Brocolicienta "
+				"L2": "se acercó a "
 			},
 			"blends": {
 				"A": "L1",
@@ -14278,19 +14114,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "Buzz ",
-				"L2": "se acercó a "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "who tried to hand her back her ribbon. ",
 				"L2": "Buzz "
 			},
 			"blends": {
@@ -14303,7 +14126,7 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
+				"L1": "who tried to hand her back her ribbon. ",
 				"L2": "que intentó a devolver su cinta. "
 			},
 			"blends": {
@@ -14316,8 +14139,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
+				"L1": "“ ",
+				"L2": "“ "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
 				"L1": "That’s okay,” ",
-				"L2": "“"
+				"L2": "Está bien,” "
 			},
 			"blends": {
 				"A": "L1",
@@ -14330,7 +14166,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "she ",
-				"L2": "Está bien,” "
+				"L2": "ella "
 			},
 			"blends": {
 				"A": "L1",
@@ -14343,7 +14179,7 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "said, ",
-				"L2": "ella "
+				"L2": "dijo, "
 			},
 			"blends": {
 				"A": "L1",
@@ -14356,19 +14192,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "waving it away. ",
-				"L2": "dijo, "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L1"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "“",
 				"L2": "la rechazando con la mano. "
 			},
 			"blends": {
@@ -14381,8 +14204,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
+				"L1": "“ ",
+				"L2": "“ "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L1"
+			}
+		}, {
+			"type": "text",
+			"content": {
 				"L1": "I don’t need the ribbon anymore. ",
-				"L2": "“"
+				"L2": "Ya no necesito más esa cinta. "
 			},
 			"blends": {
 				"A": "L1",
@@ -14395,19 +14231,6 @@ var Book = {
 			"type": "text",
 			"content": {
 				"L1": "I’m ",
-				"L2": "Ya no necesito más esa cinta. "
-			},
-			"blends": {
-				"A": "L1",
-				"B": "L1",
-				"C": "L1",
-				"D": "L1",
-				"E": "L2"
-			}
-		}, {
-			"type": "text",
-			"content": {
-				"L1": "special ",
 				"L2": "Soy "
 			},
 			"blends": {
@@ -14420,8 +14243,21 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "just the way I am.” ",
+				"L1": "special ",
 				"L2": "especial "
+			},
+			"blends": {
+				"A": "L1",
+				"B": "L1",
+				"C": "L1",
+				"D": "L1",
+				"E": "L2"
+			}
+		}, {
+			"type": "text",
+			"content": {
+				"L1": "just the way I am.” ",
+				"L2": "tal como soy.” "
 			},
 			"blends": {
 				"A": "L1",
@@ -14433,17 +14269,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '30',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "30",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -14539,8 +14374,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -14734,8 +14569,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -14799,17 +14634,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '31',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "31",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -14892,8 +14726,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -14983,8 +14817,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -15048,17 +14882,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '32',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "32",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -15154,17 +14987,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '33',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "33",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -15273,8 +15105,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -15377,8 +15209,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -15481,8 +15313,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -15559,8 +15391,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -15689,8 +15521,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -15767,8 +15599,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -15858,17 +15690,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '34',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "34",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -16003,8 +15834,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -16068,8 +15899,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -16120,8 +15951,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -16224,17 +16055,16 @@ var Book = {
 		}]
 	}]
 }, {
-	"content": [
-	{
-	  type : 'image',
-	  src : '35',
-	  style : {
-	    width: 500,
-	    height: 300,
-	    marginBottom: 10,
-	    alignSelf : 'center'
-	  }
-	},{
+	"content": [{
+		"type": "image",
+		"src": "35",
+		"style": {
+			"width": 500,
+			"height": 300,
+			"marginBottom": 10,
+			"alignSelf": "center"
+		}
+	}, {
 		"type": "paragraph",
 		"content": [{
 			"type": "text",
@@ -16304,8 +16134,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
@@ -16434,8 +16264,8 @@ var Book = {
 		}, {
 			"type": "text",
 			"content": {
-				"L1": "“",
-				"L2": "“"
+				"L1": "“ ",
+				"L2": "“ "
 			},
 			"blends": {
 				"A": "L1",
