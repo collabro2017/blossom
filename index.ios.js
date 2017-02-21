@@ -87,7 +87,6 @@ var blossom = React.createClass({
         />
         {this.renderTopMenu()}
         <View style={styles.book}>
-          {this.prevPage()}
           <View
             style={[styles.content, this.border('blue')]}
             onLayout={this.layoutChange}
@@ -98,7 +97,7 @@ var blossom = React.createClass({
                 loop={false}
                 horizontal={true}
                 index={this.state.page - 1}
-                showsButtons={false}
+                showsButtons={true}
                 onMomentumScrollEnd={this.setCurrentPage}
                 width={this.state.contentWidth}
                 height={this.state.contentHeight}
@@ -106,7 +105,6 @@ var blossom = React.createClass({
                 {this.getPages()}
               </Swiper>
           </View>
-          {this.nextPage()}
         </View>
         {this.renderBottomMenu()}
       </View>
