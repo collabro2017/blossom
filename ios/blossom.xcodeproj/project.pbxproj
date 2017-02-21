@@ -43,6 +43,8 @@
 		7A18B1BD189240A4BDE4B558 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C899450EC94C41779DC87164 /* MaterialIcons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		85E64CE6A5D34567A701BB4D /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22A62E26BD05435587F7D450 /* Octicons.ttf */; };
+		AFE975161E5BB43C00AC6FA7 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFE975141E5BB43C00AC6FA7 /* Fabric.framework */; };
+		AFE975171E5BB43C00AC6FA7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFE975151E5BB43C00AC6FA7 /* Crashlytics.framework */; };
 		B6D6528F6AC34429B6A4A461 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79062E80D9FD473AAA49A98D /* Foundation.ttf */; };
 		C4DAED4382544C5BA8BBDB4F /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F34676AAF84B4FE78BA9BCDC /* Ionicons.ttf */; };
 		D517836FDBFE4AACA78AB50B /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B2B025423DE428E80412505 /* libRNVectorIcons.a */; };
@@ -193,6 +195,8 @@
 		79062E80D9FD473AAA49A98D /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		7E60E3B8EB564AB48811003B /* RNOverlay.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNOverlay.xcodeproj; path = "../node_modules/react-native-overlay/RNOverlay.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		AFE975141E5BB43C00AC6FA7 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		AFE975151E5BB43C00AC6FA7 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		B218F98A75FD4800AF343A86 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		B7C0CD43FE8940859907388E /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		C899450EC94C41779DC87164 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
@@ -214,12 +218,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1709C0081CA0524B00DE49CF /* libSpeechSynthesizer.a in Frameworks */,
+				AFE975171E5BB43C00AC6FA7 /* Crashlytics.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
+				AFE975161E5BB43C00AC6FA7 /* Fabric.framework in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
@@ -404,6 +410,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				AFE975141E5BB43C00AC6FA7 /* Fabric.framework */,
+				AFE975151E5BB43C00AC6FA7 /* Crashlytics.framework */,
 				17CD80721C49777F0026F6B4 /* EvilIcons.ttf */,
 				17CD805E1C496A440026F6B4 /* OpenSans-Bold.ttf */,
 				17CD805F1C496A440026F6B4 /* OpenSans-BoldItalic.ttf */,
@@ -467,6 +475,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				AFE975061E5BB41500AC6FA7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -718,6 +727,19 @@
 			shellPath = /bin/sh;
 			shellScript = "../node_modules/react-native/packager/react-native-xcode.sh";
 		};
+		AFE975061E5BB41500AC6FA7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 066b9a697cc8618835bfd9ad149888753d2fb582 221d6e1e6be2fadb29cd5d5d8e69f048128e9754552b39b2618454a25ad8e383";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -815,6 +837,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 7U26S2FT9P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -827,7 +854,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = org.transcendentendeavors.blossom;
 				PRODUCT_NAME = blossom;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d2f3ecc7-7e90-4dc2-bd15-08e434f10851";
+				PROVISIONING_PROFILE_SPECIFIER = "Polli Development";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -836,8 +864,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Transcendent International, LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Transcendent International, LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7U26S2FT9P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -850,7 +883,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = org.transcendentendeavors.blossom;
 				PRODUCT_NAME = blossom;
-				PROVISIONING_PROFILE = "7a41441c-3e22-4eb8-b6c2-3d2e55d4a787";
+				PROVISIONING_PROFILE = "d2f3ecc7-7e90-4dc2-bd15-08e434f10851";
+				PROVISIONING_PROFILE_SPECIFIER = "Polli Development";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
