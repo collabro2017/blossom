@@ -7,6 +7,8 @@ var {
   Image
 } = React;
 
+var Device = require('react-native-device');
+
 var TextNode = require('./TextNode.js');
 var mixins = require('./Mixins.js');
 
@@ -55,11 +57,27 @@ var Page = React.createClass({
   },
 });
 
+function getStoryTextSize() {
+    if (Device.isIpad()) {
+        return 30;
+    } else {
+        return 18;
+    }
+}
+
+function getStoryLineHeight() {
+    if (Device.isIpad()) {
+        return 40;
+    } else {
+        return 22;
+    }
+}
+
 var styles = StyleSheet.create({
     container : {
       flexDirection : 'column',
       alignItems : 'stretch',
-      flexWrap : 'wrap',
+      flexWrap : 'nowrap',
       paddingLeft : 40,
       paddingRight : 40,
       paddingTop : 50,
@@ -77,11 +95,12 @@ var styles = StyleSheet.create({
     },
     image : {
       resizeMode : 'contain',
+      flex: 1
     },
     text : {
       fontFamily: 'Lora',
-      fontSize : 30,
-      lineHeight : 40,
+      fontSize : getStoryTextSize(),
+      lineHeight : getStoryLineHeight(),
       // borderWidth : 3,
       // borderColor : 'green'
     },

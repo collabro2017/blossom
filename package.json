@@ -8,6 +8,7 @@
   "dependencies": {
     "react": "^0.14.7",
     "react-native": "^0.22.2",
+    "react-native-device": "^1.0.1",
     "react-native-fm-picker": "git+https://github.com/jcgertig/React-Native-FMPicker.git",
     "react-native-overlay": "^0.4.1",
     "react-native-speech": "^0.1.2",

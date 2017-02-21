@@ -1,3 +1,9 @@
+var Device = require('react-native-device');
+
+var COVER_FONT_SIZE = Device.isIpad() ? 40 : 18;
+var STORY_FONT_SIZE = Device.isIpad() ? 26 : 14;
+var STORY_LINE_HEIGHT = Device.isIpad() ? 36 : 22;
+
 var React = require('react-native');
 var {
   StyleSheet,
@@ -104,8 +110,8 @@ var TextNode = React.createClass({
 var styles = StyleSheet.create({
     text : {
       fontFamily: 'Lora',
-      fontSize : 30,
-      lineHeight : 40,
+      fontSize : STORY_FONT_SIZE,
+      lineHeight : STORY_LINE_HEIGHT,
       // borderWidth : 3,
       // borderColor : 'teal'
     },

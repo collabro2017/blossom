@@ -1,3 +1,25 @@
+var React = require('react-native');
+const {
+  AppRegistry,
+  TouchableHighlight,
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  StatusBar
+} = React;
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+var Device = require('react-native-device');
+
+const COVER_FONT_SIZE = Device.isIpad() ? 40 : 22;
+const STORY_FONT_SIZE = Device.isIpad() ? 26 : 16;
+const IMAGE_SIZE = windowWidth * 0.8;
+
+
 var Book = {
   "title": "The Tale of Peter Rabbit",
   "author": "Beatrix Potter",
@@ -12,8 +34,8 @@ var Book = {
       type : 'image',
       src : 'cover',
       style : {
-        width: 500,
-        height: 500,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
         marginBottom: 40,
         alignSelf : 'center'
       }
@@ -27,7 +49,7 @@ var Book = {
         {
           "type": "text",
           style : {
-            fontSize: 40,
+            fontSize: COVER_FONT_SIZE,
             fontWeight: 'bold',
           },
           "content": {
@@ -53,7 +75,7 @@ var Book = {
         {
           "type": "text",
           style : {
-            fontSize: 26,
+            fontSize: COVER_FONT_SIZE,
             fontWeight: '100',
           },
           "content": {
@@ -79,7 +101,7 @@ var Book = {
         {
           "type": "text",
           style : {
-            fontSize: 34,
+            fontSize: STORY_FONT_SIZE,
             fontWeight: 'bold',
           },
           "content": {
@@ -105,9 +127,10 @@ var Book = {
       type : 'image',
       src : '2',
       style : {
-        width: 500,
-        height: 500,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
         marginBottom: 40,
+        resizeMode: 'contain',
         alignSelf : 'center'
       }
     },
@@ -293,8 +316,8 @@ var Book = {
       type : 'image',
       src : '3',
       style : {
-        width: 500,
-        height: 500,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
         marginBottom: 40,
         alignSelf : 'center'
       }
@@ -461,8 +484,8 @@ var Book = {
       type : 'image',
       src : '4',
       style : {
-        width: 500,
-        height: 500,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
         marginBottom: 40,
         alignSelf : 'center'
       }
@@ -474,8 +497,8 @@ var Book = {
       type : 'image',
       src : '5',
       style : {
-        width: 500,
-        height: 500,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
         marginBottom: 40,
         alignSelf : 'center'
       }
@@ -621,8 +644,8 @@ var Book = {
       type : 'image',
       src : '6',
       style : {
-        width: 500,
-        height: 500,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
         marginBottom: 40,
         alignSelf : 'center'
       }
@@ -755,8 +778,8 @@ var Book = {
       type : 'image',
       src : '7',
       style : {
-        width: 500,
-        height: 500,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
         marginBottom: 40,
         alignSelf : 'center'
       }
@@ -876,8 +899,8 @@ var Book = {
       type : 'image',
       src : '8',
       style : {
-        width: 500,
-        height: 500,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
         marginBottom: 40,
         alignSelf : 'center'
       }
@@ -1027,8 +1050,8 @@ var Book = {
       type : 'image',
       src : '9',
       style : {
-        width: 500,
-        height: 500,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
         marginBottom: 40,
         alignSelf : 'center'
       }
@@ -1040,8 +1063,8 @@ var Book = {
       type : 'image',
       src : '10',
       style : {
-        width: 500,
-        height: 500,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
         marginBottom: 40,
         alignSelf : 'center'
       }
@@ -1109,8 +1132,8 @@ var Book = {
       type : 'image',
       src : '11',
       style : {
-        width: 500,
-        height: 500,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
         marginBottom: 40,
         alignSelf : 'center'
       }

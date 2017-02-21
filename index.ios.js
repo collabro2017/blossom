@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react-native');
-var {
+const {
   AppRegistry,
   TouchableHighlight,
   TouchableOpacity,
@@ -11,6 +11,12 @@ var {
   Dimensions,
   StatusBar
 } = React;
+
+var Device = require('react-native-device');
+
+const TITLE_FONT_SIZE = Device.isIpad() ? 20 : 14;
+const AUTHOR_FONT_SIZE = Device.isIpad() ? 15 : 9;
+const BOTTOM_FONT_SIZE = Device.isIpad() ? 13 : 11;
 
 var FMPicker = require('react-native-fm-picker');
 var Swiper = require('react-native-swiper');
@@ -322,12 +328,12 @@ var styles = StyleSheet.create({
   bookTitle : {
     fontFamily : 'Open Sans',
     color : controlsColor,
-    fontSize : 20
+    fontSize : TITLE_FONT_SIZE
   },
   bookAuthor : {
     fontFamily : 'Open Sans',
     color : controlsColor,
-    fontSize : 15,
+    fontSize : AUTHOR_FONT_SIZE,
     fontWeight : '600'
   },
 
@@ -350,6 +356,7 @@ var styles = StyleSheet.create({
   },
   bottomMenuLabels : {
     fontFamily : 'Open Sans',
+    fontSize: BOTTOM_FONT_SIZE,
     color : controlsColor,
   },
 });
