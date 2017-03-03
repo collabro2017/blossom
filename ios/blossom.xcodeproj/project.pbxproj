@@ -42,6 +42,7 @@
 		AF128E221E5F018E00191457 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF128E141E5F018E00191457 /* OpenSans-SemiboldItalic.ttf */; };
 		AF128E351E5F01E700191457 /* libRNOverlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF128E341E5F01E200191457 /* libRNOverlay.a */; };
 		AF128E361E5F9F4B00191457 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
+		AF128E371E636A3F00191457 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF128E371E636A3F00191457 /* libReact.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
