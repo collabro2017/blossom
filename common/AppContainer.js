@@ -25,12 +25,12 @@ var FMPicker = require('react-native-fm-picker');
 var Swiper = require('react-native-swiper');
 var Icon = require('react-native-vector-icons/EvilIcons');
 
-var Page = require('./common/Page.js');
-var mixins = require('./common/Mixins.js');
-var Toast = require('./common/Toast.js');
+var Page = require('./Page.js');
+var mixins = require('./Mixins.js');
+var Toast = require('./Toast.js');
 
-const BOOK = require('./common/Book.js');
-const BOOK_CHINESE = require('./common/Book-chinese.js');
+const BOOK = require('./Book.js');
+const BOOK_CHINESE = require('./Book-chinese.js');
 
 var AppContainer = React.createClass({
   getInitialState : function() {
