@@ -1,26 +1,38 @@
-var React = require('react-native');
+var ReactNative = require('react-native');
 var {
   StyleSheet,
   Text,
   View,
   Touchable,
-  Image
+  Image,
+  ListView,
+  Dimensions
+} = ReactNative;
+
+var React = require('react');
+var {
+    Component
 } = React;
 
-var Device = require('react-native-device');
+const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
+const smallerSide = windowHeight < windowWidth ? windowHeight : windowWidth;
 
 var TextNode = require('./TextNode.js');
 var mixins = require('./Mixins.js');
+import FitImage from 'react-native-fit-image';
 
-var Page = React.createClass({
-  render : function() {
-    return (
-      <View style={styles.container}>
-        {this.renderContent(this.props.page)}
-      </View>
-    );
-  },
-  renderContent : function(content) {
+class Page extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isPortraitOrientation: true };
+  }
+  setStyleToOrientation(event) {
+      this.setState({
+        isPortraitOrientation: event.nativeEvent.layout.height >= event.nativeEvent.layout.width,
+      });
+  }
+  renderContent(content) {
     var words = content.map( (node, index) => {
       switch(node.type.toLowerCase()) {
         case 'paragraph':
@@ -34,19 +46,19 @@ var Page = React.createClass({
       }
     } );
     return words;
-  },
-  renderParagraph : function(node, i) {
+  }
+  renderParagraph(node, i) {
     return <Text key={'n'+i} style={[styles.paragraph, mixins.styleOverride(node)]}>
       {this.renderContent(node.content)}
     </Text>
-  },
-  renderImage : function(node, i) {
-    return <Image
+  }
+  renderImage(node, i) {
+    return <FitImage
       key={'n' + i}
       style={[styles.image, mixins.styleOverride(node)]}
       source={{ uri: node.src, isStatic: true }} />
-  },
-  renderText : function(node, i) {
+  }
+  renderText(node, i) {
     var renderLang = node.blends[this.props.blend];
     return <TextNode
       renderLang={renderLang}
@@ -54,23 +66,30 @@ var Page = React.createClass({
       key={'n' + i}
       onToast={this.props.onToast}
     ></TextNode>
-  },
-});
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        {this.renderContent(this.props.page)}
+      </View>
+    );
+  }
+};
 
 function getStoryTextSize() {
-    if (Device.isIpad()) {
+    /*if (Device.isIpad()) {
         return 30;
-    } else {
+    } else {*/
         return 18;
-    }
+    //}
 }
 
 function getStoryLineHeight() {
-    if (Device.isIpad()) {
+    /*if (Device.isIpad()) {
         return 40;
-    } else {
+    } else {*/
         return 22;
-    }
+    //}
 }
 
 var styles = StyleSheet.create({
@@ -85,8 +104,17 @@ var styles = StyleSheet.create({
       // borderWidth : 3,
       // borderColor : 'pink',
     },
+    landscapeContainer: {
+        flexDirection : 'row',
+        alignItems : 'stretch',
+        flexWrap : 'nowrap',
+        paddingLeft : 40,
+        paddingRight : 40,
+        paddingTop : 50,
+        paddingBottom : 50,
+    },
     paragraph : {
-      flex : 1,
+      flexGrow : 1,
       flexDirection : 'row',
       justifyContent : 'flex-start',
       paddingBottom: 20,
@@ -94,8 +122,7 @@ var styles = StyleSheet.create({
       // borderColor : 'red',
     },
     image : {
-      resizeMode : 'contain',
-      flex: 1
+        maxWidth: smallerSide * 0.8
     },
     text : {
       fontFamily: 'Lora',

@@ -4,12 +4,17 @@
  */
 'use strict';
 
-var React = require('react-native');
+var ReactNative = require('react-native');
 var {
   AppRegistry,
   StyleSheet,
   Text,
   View,
+} = ReactNative;
+
+var React = require('react');
+var {
+    Component
 } = React;
 
 var blossom = React.createClass({

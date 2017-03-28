@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react-native');
+var ReactNative = require('react-native');
 const {
   AppRegistry,
   TouchableHighlight,
@@ -8,15 +8,26 @@ const {
   StyleSheet,
   Text,
   View,
+  Image,
   Dimensions,
   StatusBar
+} = ReactNative;
+
+var React = require('react');
+var {
+    Component
 } = React;
 
-var Device = require('react-native-device');
+global.currentBook = null;
 
-const TITLE_FONT_SIZE = Device.isIpad() ? 20 : 14;
-const AUTHOR_FONT_SIZE = Device.isIpad() ? 15 : 9;
-const BOTTOM_FONT_SIZE = Device.isIpad() ? 13 : 11;
+import GridView from 'react-native-grid-view';
+import FitImage from 'react-native-fit-image';
+import { StackNavigator } from 'react-navigation';
+
+const TITLE_FONT_SIZE = /*Device.isIpad() ? 20 :*/ 14;
+const AUTHOR_FONT_SIZE = /*Device.isIpad() ? 15 :*/ 9;
+const BOTTOM_FONT_SIZE = /*Device.isIpad() ? 13 :*/ 11;
+const BOOKS_PER_ROW = 2;
 
 var FMPicker = require('react-native-fm-picker');
 var Swiper = require('react-native-swiper');
@@ -26,15 +37,8 @@ var Page = require('./common/Page.js');
 var mixins = require('./common/Mixins.js');
 var Toast = require('./common/Toast.js');
 
-const BLENDS = {
-  A : '95% English',
-  B : 'mostly English',
-  C : '50% each',
-  D : 'mostly Spanish',
-  E : '95% Spanish'
-};
-
 const BOOK = require('./common/Book.js');
+const BOOK_CHINESE = require('./common/Book-chinese.js');
 
 var blossom = React.createClass({
   getInitialState : function() {
@@ -45,7 +49,7 @@ var blossom = React.createClass({
       contentHeight : Dimensions.get('window').height,
       statusBarShown : true,
       toastShown : false,
-      toastData : null
+      toastData : null,
     }
   },
   updateBookSize : function(w, h) {
@@ -55,7 +59,8 @@ var blossom = React.createClass({
     });
   },
   componentDidMount : function(){
-    StatusBar.setHidden(true, 'slide');
+    //StatusBar.setHidden(true, 'slide');
+    StatusBar.setBackgroundColor('blue');
   },
   layoutChange : function(e) {
     this.updateBookSize(e.nativeEvent.layout.width, e.nativeEvent.layout.height);
@@ -82,8 +87,8 @@ var blossom = React.createClass({
         style={[
           styles.container,
           this.border('yellow'),
-          mixins.styleOverride(BOOK),
-          mixins.styleOverride(BOOK.pages[this.state.page-1]),
+          mixins.styleOverride(global.currentBook),
+          mixins.styleOverride(global.currentBook.pages[this.state.page-1]),
         ]}>
         <Toast
           isVisible={this.state.toastShown}
@@ -166,10 +171,10 @@ var blossom = React.createClass({
     return this.state.page == 1;
   },
   isLastPage : function() {
-    return this.state.page == BOOK.pages.length;
+    return this.state.page == global.currentBook.pages.length;
   },
   getPages : function() {
-    return BOOK.pages.map((page, index) => {
+    return global.currentBook.pages.map((page, index) => {
       return <Page
         key={'p' + index}
         page={page.content}
@@ -198,10 +203,10 @@ var blossom = React.createClass({
         <Text></Text>
       </View>
       <View style={[styles.topMenuCenter]}>
-          <Text onPress={this.toggleStatusBar} style={styles.bookTitle}>{BOOK.title}</Text>
+          <Text onPress={this.toggleStatusBar} style={styles.bookTitle}>{global.currentBook.title}</Text>
       </View>
       <View style={[styles.topMenuRight]}>
-        <Text onPress={this.toggleStatusBar} style={styles.bookAuthor}>{BOOK.author}</Text>
+        <Text onPress={this.toggleStatusBar} style={styles.bookAuthor}>{global.currentBook.author}</Text>
       </View>
     </View>
   },
@@ -209,7 +214,7 @@ var blossom = React.createClass({
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
       <View style={[styles.bottomMenuLeft]}>
         <Text style={styles.bottomMenuLabels} onPress={()=>{ this.refs.picker.show(); }}>
-          {BLENDS[this.state.blend]}
+          {global.currentBook.blends[this.state.blend]}
         </Text>
       </View>
       <View style={[styles.bottomMenuCenter]}>
@@ -222,7 +227,7 @@ var blossom = React.createClass({
     </View>
   },
   getPageLeftText : function() {
-    var numPagesLeft = BOOK.pages.length - this.state.page;
+    var numPagesLeft = global.currentBook.pages.length - this.state.page;
     if(numPagesLeft == 0) {
       return '';
     }
@@ -233,12 +238,12 @@ var blossom = React.createClass({
     return numPagesLeft + ' Pages Left';
   },
   getBlendLabels : function() {
-    return Object.keys(BLENDS).map(function(key) {
-        return BLENDS[key];
+    return Object.keys(global.currentBook.blends).map(function(key) {
+        return global.currentBook.blends[key];
     });
   },
   getBlendOptions : function() {
-    return Object.keys(BLENDS);
+    return Object.keys(global.currentBook.blends);
   },
   renderBlendSelection : function() {
     return (
@@ -325,6 +330,11 @@ var styles = StyleSheet.create({
     justifyContent : 'center',
     paddingTop: 20
   },
+  bigTitle : {
+      fontFamily: 'Lora',
+      fontSize: 40,
+      marginBottom: 20
+  },
   bookTitle : {
     fontFamily : 'Open Sans',
     color : controlsColor,
@@ -336,7 +346,30 @@ var styles = StyleSheet.create({
     fontSize : AUTHOR_FONT_SIZE,
     fontWeight : '600'
   },
+  physicalBook : {
+      margin: 12,
+      padding: 5,
+      backgroundColor: '#fff',
+      borderRadius: 3,
+      shadowColor: "#000000",
+      shadowOpacity: 0.6,
+      shadowRadius: 2,
+      shadowOffset: {
+          height: 0,
+          width: 0
+        }
+  },
+  galleryContainer : {
+      paddingTop: 40,
+      paddingBottom: 10,
+      paddingLeft: 20,
+      paddingRight: 20,
+      backgroundColor: 'rgba(230,216,189,1)',
+      flex: 1
+  },
+  listView : {
 
+  },
 
   //bottom menu
   bottomMenuLeft : {
@@ -361,4 +394,73 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('blossom', () => blossom);
+class PhysicalBook extends React.Component {
+
+    showReader(book) {
+        const { navigate } = this.props.navigation;
+        global.currentBook=this.props.book;
+        navigate('Reader');
+    }
+
+    render() {
+      const { navigate } = this.props.navigation;
+
+      return (
+        <TouchableHighlight onPress={() => this.showReader(this.props.book)} style={styles.physicalBook} >
+        <View>
+          <FitImage
+            source={{uri: this.props.book.thumbnail}}
+            style={styles.thumbnail}
+          />
+          <View >
+            <Text
+            style={styles.bookTitle}
+            numberOfLines={3}>{this.props.book.title}</Text>
+            <Text style={styles.bookAuthor}>{this.props.book.author}</Text>
+          </View>
+        </View>
+        </TouchableHighlight>
+      );
+  }
+}
+
+class FrontPage extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          dataSource: [BOOK, BOOK_CHINESE],
+        }
+      }
+
+      static navigationOptions = {
+          title: 'My Books',
+        };
+
+    renderItem(item) {
+        return <PhysicalBook book={item} navigation={ this.navigation } />
+    }
+
+    render() {
+        const { navigation } = this.props;
+        return <View style={styles.galleryContainer}>
+            <Text style={styles.bigTitle}>My books</Text>
+            <GridView
+                items={this.state.dataSource}
+                itemsPerRow={BOOKS_PER_ROW}
+                renderItem={this.renderItem}
+                contentContainerStyle={styles.listView}
+                navigation={ navigation }
+              />
+        </View>
+    }
+}
+
+const App = StackNavigator({
+  Main: {screen: FrontPage},
+  Reader: {screen: blossom},
+});
+
+
+
+AppRegistry.registerComponent('blossom', () => App);

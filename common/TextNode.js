@@ -1,20 +1,36 @@
-var Device = require('react-native-device');
 
-var COVER_FONT_SIZE = Device.isIpad() ? 40 : 18;
-var STORY_FONT_SIZE = Device.isIpad() ? 26 : 14;
-var STORY_LINE_HEIGHT = Device.isIpad() ? 36 : 22;
 
-var React = require('react-native');
+var ReactNative = require('react-native');
 var {
   StyleSheet,
   Text,
   View,
   Touchable,
+  Dimensions,
+  PixelRatio,
+} = ReactNative;
+
+var React = require('react');
+var {
+    Component
 } = React;
 
 var mixins = require('./Mixins.js');
 
+const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
+const biggerSide = windowHeight > windowWidth ? windowHeight : windowWidth;
 
+function sizeFont(size) {
+    if(biggerSide > 1536) {
+        return size * 1.25;
+    }
+    return size;
+}
+
+var COVER_FONT_SIZE = sizeFont(36);
+var STORY_FONT_SIZE = sizeFont(15);
+var STORY_LINE_HEIGHT = sizeFont(22);
 
 var TextNode = React.createClass({
   _longTouch : 600,

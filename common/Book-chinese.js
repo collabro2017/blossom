@@ -1,6 +1,16 @@
 var Book = {
   "title": "Three Little Pigs",
-  "author": "",
+  "thumbnail": '3LP-cover',
+  "author": "Folklore",
+  "L1": 'English',
+  "L2": 'Chinese',
+  "blends": {
+      A : '95% English',
+      B : 'mostly English',
+      C : '50% each',
+      D : 'mostly Chinese',
+      E : '95% Chinese'
+  },
   "pages": [
   {
     style : {

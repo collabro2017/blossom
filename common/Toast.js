@@ -1,4 +1,5 @@
-var React = require('react-native');
+var React = require('react');
+var ReactNative = require('react-native');
 var Overlay = require('react-native-overlay');
 var Icon = require('react-native-vector-icons/EvilIcons');
 
@@ -9,7 +10,7 @@ var {
   StyleSheet,
   TouchableOpacity,
   Text,
-} = React;
+} = ReactNative;
 
 var mixins = require('./Mixins.js');
 
