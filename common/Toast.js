@@ -12,7 +12,7 @@ var {
   Text,
 } = ReactNative;
 
-var mixins = require('./Mixins.js');
+var mixins = require('./Mixins');
 
 
 type Props = {

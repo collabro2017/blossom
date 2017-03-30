@@ -15,7 +15,7 @@ var {
     Component
 } = React;
 
-var mixins = require('./Mixins.js');
+var mixins = require('./Mixins');
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;

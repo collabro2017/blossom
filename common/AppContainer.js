@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import {
   TouchableHighlight,
-  TouchableOpacity,
   StyleSheet,
   Text,
   View,
   Dimensions,
   StatusBar,
-  Platform,
 } from 'react-native';
+
+import { StackNavigator } from 'react-navigation';
 
 global.currentBook = null;
 
 import GridView from 'react-native-grid-view';
 import FitImage from 'react-native-fit-image';
-import { StackNavigator } from 'react-navigation';
 
 const TITLE_FONT_SIZE = /*Device.isIpad() ? 20 :*/ 14;
 const AUTHOR_FONT_SIZE = /*Device.isIpad() ? 15 :*/ 9;
@@ -26,14 +25,14 @@ var Swiper = require('react-native-swiper');
 var Icon = require('react-native-vector-icons/EvilIcons');
 
 var Page = require('./Page.js');
-var mixins = require('./Mixins.js');
+var mixins = require('./Mixins');
 var Toast = require('./Toast.js');
 
 const BOOK = require('./Book.js');
 const BOOK_CHINESE = require('./Book-chinese.js');
 
-var AppContainer = React.createClass({
-  getInitialState : function() {
+class Reader extends Component{
+  getInitialState() {
     return {
       page : 1,
       blend : 'A',
@@ -43,26 +42,26 @@ var AppContainer = React.createClass({
       toastShown : false,
       toastData : null,
     }
-  },
-  updateBookSize : function(w, h) {
+  }
+  updateBookSize(w, h) {
     this.setState({
       contentWidth : w,
       contentHeight : h
     });
-  },
-  componentDidMount : function(){
+  }
+  componentDidMount(){
     //StatusBar.setHidden(true, 'slide');
     StatusBar.setBackgroundColor('blue');
-  },
-  layoutChange : function(e) {
+  }
+  layoutChange(e) {
     this.updateBookSize(e.nativeEvent.layout.width, e.nativeEvent.layout.height);
-  },
+  }
   hideToast() {
     this.setState({
       toastShown: false,
       toastData: null,
     });
-  },
+  }
   showToast(L1, L2, currentLang) {
     this.setState({
       toastShown: true,
@@ -72,8 +71,8 @@ var AppContainer = React.createClass({
         currentLang: currentLang,
       }
     });
-  },
-  render : function() {
+  }
+  render() {
     return (
       <View
         style={[
@@ -112,8 +111,8 @@ var AppContainer = React.createClass({
         {this.renderBottomMenu()}
       </View>
     );
-  },
-  nextPage : function() {
+  }
+  nextPage() {
     var color = '#BBB391';
     if(this.isLastPage())
     {
@@ -125,8 +124,8 @@ var AppContainer = React.createClass({
       style={[styles.nextPage, this.border('orange')]}>
         <Icon name="arrow-right" size={50} color={color} />
       </TouchableHighlight>
-  },
-  prevPage : function() {
+  }
+  prevPage() {
     var color = '#BBB391';
     if(this.isFirstPage())
     {
@@ -138,8 +137,8 @@ var AppContainer = React.createClass({
       style={[styles.prevPage, this.border('pink')]}>
         <Icon name="arrow-left" size={50} color={color} />
       </TouchableHighlight>
-  },
-  handleNextPage : function() {
+  }
+  handleNextPage() {
     this.hideToast()
     if(this.isLastPage()) {
       return;
@@ -148,8 +147,8 @@ var AppContainer = React.createClass({
     this.setState({
       page : this.state.page + 1
     })
-  },
-  handlePrevPage : function() {
+  }
+  handlePrevPage() {
     this.hideToast()
     if(this.isFirstPage()) {
       return;
@@ -158,14 +157,14 @@ var AppContainer = React.createClass({
     this.setState({
       page : this.state.page - 1
     })
-  },
-  isFirstPage : function() {
+  }
+  isFirstPage() {
     return this.state.page == 1;
-  },
-  isLastPage : function() {
+  }
+  isLastPage() {
     return this.state.page == global.currentBook.pages.length;
-  },
-  getPages : function() {
+  }
+  getPages() {
     return global.currentBook.pages.map((page, index) => {
       return <Page
         key={'p' + index}
@@ -173,22 +172,22 @@ var AppContainer = React.createClass({
         blend={this.state.blend}
         onToast={this.showToast}></Page>
     } );
-  },
-  setCurrentPage : function(e, swiper) {
+  }
+  setCurrentPage(e, swiper) {
     this.setState({
       page : swiper.index + 1
     });
-  },
+  }
 
-  toggleStatusBar : function() {
+  toggleStatusBar() {
     var show = !this.state.statusBarShown;
     StatusBar.setHidden(show, 'slide');
     this.setState({
       statusBarShown : show
     });
-  },
+  }
 
-  renderTopMenu : function() {
+  renderTopMenu() {
     return <View
         style={[styles.topMenu, styles.menu, this.border('green')]}>
       <View style={[styles.topMenuLeft]}>
@@ -201,8 +200,8 @@ var AppContainer = React.createClass({
         <Text onPress={this.toggleStatusBar} style={styles.bookAuthor}>{global.currentBook.author}</Text>
       </View>
     </View>
-  },
-  renderBottomMenu : function() {
+  }
+  renderBottomMenu() {
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
       <View style={[styles.bottomMenuLeft]}>
         <Text style={styles.bottomMenuLabels} onPress={()=>{ this.refs.picker.show(); }}>
@@ -217,8 +216,8 @@ var AppContainer = React.createClass({
       </View>
       {this.renderBlendSelection()}
     </View>
-  },
-  getPageLeftText : function() {
+  }
+  getPageLeftText() {
     var numPagesLeft = global.currentBook.pages.length - this.state.page;
     if(numPagesLeft == 0) {
       return '';
@@ -228,16 +227,16 @@ var AppContainer = React.createClass({
     }
 
     return numPagesLeft + ' Pages Left';
-  },
-  getBlendLabels : function() {
+  }
+  getBlendLabels() {
     return Object.keys(global.currentBook.blends).map(function(key) {
         return global.currentBook.blends[key];
     });
-  },
-  getBlendOptions : function() {
+  }
+  getBlendOptions() {
     return Object.keys(global.currentBook.blends);
-  },
-  renderBlendSelection : function() {
+  }
+  renderBlendSelection() {
     return (
       <FMPicker ref={'picker'}
         options={this.getBlendOptions()}
@@ -245,22 +244,22 @@ var AppContainer = React.createClass({
         onSubmit={this.setBlend}
       />
     );
-  },
-  setBlend : function(blend) {
+  }
+  setBlend(blend) {
     this.setState({
       blend : blend
     });
-  },
+  }
 
   //HELPER
   //TODO: remove
-  border : function(color) {
+  border(color) {
     return {
       // borderWidth : 3,
       // borderColor : color
     }
   }
-});
+}
 
 
 var controlsColor = '#583919';
@@ -448,11 +447,9 @@ class FrontPage extends React.Component {
     }
 }
 
-const App = StackNavigator({
+const AppContainer = StackNavigator({
   Main: {screen: FrontPage},
-  Reader: {screen: blossom},
+  Reader: {screen: Reader},
 });
 
-
-
-AppRegistry.registerComponent('blossom', () => App);
+module.exports = AppContainer;
