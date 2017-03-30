@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import {
   TouchableHighlight,
+  TouchableOpacity,
   StyleSheet,
   Text,
   View,
   Dimensions,
   StatusBar,
+  Platform,
 } from 'react-native';
-
-import { StackNavigator } from 'react-navigation';
 
 global.currentBook = null;
 
 import GridView from 'react-native-grid-view';
 import FitImage from 'react-native-fit-image';
+import { StackNavigator } from 'react-navigation';
 
 const TITLE_FONT_SIZE = /*Device.isIpad() ? 20 :*/ 14;
 const AUTHOR_FONT_SIZE = /*Device.isIpad() ? 15 :*/ 9;
@@ -31,8 +32,8 @@ var Toast = require('./Toast.js');
 const BOOK = require('./Book.js');
 const BOOK_CHINESE = require('./Book-chinese.js');
 
-class Reader extends Component{
-  getInitialState() {
+var Reader = React.createClass({
+  getInitialState : function() {
     return {
       page : 1,
       blend : 'A',
@@ -42,26 +43,26 @@ class Reader extends Component{
       toastShown : false,
       toastData : null,
     }
-  }
-  updateBookSize(w, h) {
+  },
+  updateBookSize : function(w, h) {
     this.setState({
       contentWidth : w,
       contentHeight : h
     });
-  }
-  componentDidMount(){
+  },
+  componentDidMount : function(){
     //StatusBar.setHidden(true, 'slide');
     StatusBar.setBackgroundColor('blue');
-  }
-  layoutChange(e) {
+  },
+  layoutChange : function(e) {
     this.updateBookSize(e.nativeEvent.layout.width, e.nativeEvent.layout.height);
-  }
+  },
   hideToast() {
     this.setState({
       toastShown: false,
       toastData: null,
     });
-  }
+  },
   showToast(L1, L2, currentLang) {
     this.setState({
       toastShown: true,
@@ -71,8 +72,8 @@ class Reader extends Component{
         currentLang: currentLang,
       }
     });
-  }
-  render() {
+  },
+  render : function() {
     return (
       <View
         style={[
@@ -111,8 +112,8 @@ class Reader extends Component{
         {this.renderBottomMenu()}
       </View>
     );
-  }
-  nextPage() {
+  },
+  nextPage : function() {
     var color = '#BBB391';
     if(this.isLastPage())
     {
@@ -124,8 +125,8 @@ class Reader extends Component{
       style={[styles.nextPage, this.border('orange')]}>
         <Icon name="arrow-right" size={50} color={color} />
       </TouchableHighlight>
-  }
-  prevPage() {
+  },
+  prevPage : function() {
     var color = '#BBB391';
     if(this.isFirstPage())
     {
@@ -137,8 +138,8 @@ class Reader extends Component{
       style={[styles.prevPage, this.border('pink')]}>
         <Icon name="arrow-left" size={50} color={color} />
       </TouchableHighlight>
-  }
-  handleNextPage() {
+  },
+  handleNextPage : function() {
     this.hideToast()
     if(this.isLastPage()) {
       return;
@@ -147,8 +148,8 @@ class Reader extends Component{
     this.setState({
       page : this.state.page + 1
     })
-  }
-  handlePrevPage() {
+  },
+  handlePrevPage : function() {
     this.hideToast()
     if(this.isFirstPage()) {
       return;
@@ -157,14 +158,14 @@ class Reader extends Component{
     this.setState({
       page : this.state.page - 1
     })
-  }
-  isFirstPage() {
+  },
+  isFirstPage : function() {
     return this.state.page == 1;
-  }
-  isLastPage() {
+  },
+  isLastPage : function() {
     return this.state.page == global.currentBook.pages.length;
-  }
-  getPages() {
+  },
+  getPages : function() {
     return global.currentBook.pages.map((page, index) => {
       return <Page
         key={'p' + index}
@@ -172,22 +173,22 @@ class Reader extends Component{
         blend={this.state.blend}
         onToast={this.showToast}></Page>
     } );
-  }
-  setCurrentPage(e, swiper) {
+  },
+  setCurrentPage : function(e, swiper) {
     this.setState({
       page : swiper.index + 1
     });
-  }
+  },
 
-  toggleStatusBar() {
+  toggleStatusBar : function() {
     var show = !this.state.statusBarShown;
     StatusBar.setHidden(show, 'slide');
     this.setState({
       statusBarShown : show
     });
-  }
+  },
 
-  renderTopMenu() {
+  renderTopMenu : function() {
     return <View
         style={[styles.topMenu, styles.menu, this.border('green')]}>
       <View style={[styles.topMenuLeft]}>
@@ -200,8 +201,8 @@ class Reader extends Component{
         <Text onPress={this.toggleStatusBar} style={styles.bookAuthor}>{global.currentBook.author}</Text>
       </View>
     </View>
-  }
-  renderBottomMenu() {
+  },
+  renderBottomMenu : function() {
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
       <View style={[styles.bottomMenuLeft]}>
         <Text style={styles.bottomMenuLabels} onPress={()=>{ this.refs.picker.show(); }}>
@@ -216,8 +217,8 @@ class Reader extends Component{
       </View>
       {this.renderBlendSelection()}
     </View>
-  }
-  getPageLeftText() {
+  },
+  getPageLeftText : function() {
     var numPagesLeft = global.currentBook.pages.length - this.state.page;
     if(numPagesLeft == 0) {
       return '';
@@ -227,16 +228,16 @@ class Reader extends Component{
     }
 
     return numPagesLeft + ' Pages Left';
-  }
-  getBlendLabels() {
+  },
+  getBlendLabels : function() {
     return Object.keys(global.currentBook.blends).map(function(key) {
         return global.currentBook.blends[key];
     });
-  }
-  getBlendOptions() {
+  },
+  getBlendOptions : function() {
     return Object.keys(global.currentBook.blends);
-  }
-  renderBlendSelection() {
+  },
+  renderBlendSelection : function() {
     return (
       <FMPicker ref={'picker'}
         options={this.getBlendOptions()}
@@ -244,22 +245,22 @@ class Reader extends Component{
         onSubmit={this.setBlend}
       />
     );
-  }
-  setBlend(blend) {
+  },
+  setBlend : function(blend) {
     this.setState({
       blend : blend
     });
-  }
+  },
 
   //HELPER
   //TODO: remove
-  border(color) {
+  border : function(color) {
     return {
       // borderWidth : 3,
       // borderColor : color
     }
   }
-}
+});
 
 
 var controlsColor = '#583919';
@@ -452,4 +453,4 @@ const AppContainer = StackNavigator({
   Reader: {screen: Reader},
 });
 
-module.exports = AppContainer;
+export default AppContainer;
