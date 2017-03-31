@@ -12,6 +12,8 @@ import {
 
 global.currentBook = null;
 
+import Picker from 'react-native-picker';
+
 import GridView from 'react-native-grid-view';
 import FitImage from 'react-native-fit-image';
 import { StackNavigator } from 'react-navigation';
@@ -21,7 +23,6 @@ const AUTHOR_FONT_SIZE = /*Device.isIpad() ? 15 :*/ 9;
 const BOTTOM_FONT_SIZE = /*Device.isIpad() ? 13 :*/ 11;
 const BOOKS_PER_ROW = 2;
 
-var FMPicker = require('react-native-fm-picker');
 var Swiper = require('react-native-swiper');
 var Icon = require('react-native-vector-icons/EvilIcons');
 
@@ -33,8 +34,10 @@ const BOOK = require('./Book.js');
 const BOOK_CHINESE = require('./Book-chinese.js');
 
 var Reader = React.createClass({
+  displayName : 'Reader',
   getInitialState : function() {
-    return {
+
+    let initialState = {
       page : 1,
       blend : 'A',
       contentWidth : Dimensions.get('window').width,
@@ -43,6 +46,19 @@ var Reader = React.createClass({
       toastShown : false,
       toastData : null,
     }
+
+    Picker.init({
+        pickerData: this.getBlendLabels(),
+        selectedValue: [global.currentBook.blends[initialState.blend]],
+        onPickerConfirm: data => {
+          Object.keys(global.currentBook.blends).map(function(key) {
+              if (global.currentBook.blends[key] == data){
+                this.setState({blend: key});
+              }
+          }.bind(this));
+        }
+    });
+    return initialState;
   },
   updateBookSize : function(w, h) {
     this.setState({
@@ -205,7 +221,7 @@ var Reader = React.createClass({
   renderBottomMenu : function() {
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
       <View style={[styles.bottomMenuLeft]}>
-        <Text style={styles.bottomMenuLabels} onPress={()=>{ this.refs.picker.show(); }}>
+        <Text style={styles.bottomMenuLabels} onPress={()=>{ Picker.show(); }}>
           {global.currentBook.blends[this.state.blend]}
         </Text>
       </View>
@@ -215,7 +231,6 @@ var Reader = React.createClass({
       <View style={[styles.bottomMenuRight]}>
         <Text style={styles.bottomMenuLabels}>{this.getPageLeftText()}</Text>
       </View>
-      {this.renderBlendSelection()}
     </View>
   },
   getPageLeftText : function() {
@@ -232,23 +247,6 @@ var Reader = React.createClass({
   getBlendLabels : function() {
     return Object.keys(global.currentBook.blends).map(function(key) {
         return global.currentBook.blends[key];
-    });
-  },
-  getBlendOptions : function() {
-    return Object.keys(global.currentBook.blends);
-  },
-  renderBlendSelection : function() {
-    return (
-      <FMPicker ref={'picker'}
-        options={this.getBlendOptions()}
-        labels={this.getBlendLabels()}
-        onSubmit={this.setBlend}
-      />
-    );
-  },
-  setBlend : function(blend) {
-    this.setState({
-      blend : blend
     });
   },
 
@@ -390,7 +388,7 @@ class PhysicalBook extends React.Component {
 
     showReader(book) {
         const { navigate } = this.props.navigation;
-        global.currentBook=this.props.book;
+        global.currentBook=book;
         navigate('Reader');
     }
 

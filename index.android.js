@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry
+  AppRegistry, View,
 } from 'react-native';
 
 import AppContainer from './common/AppContainer';

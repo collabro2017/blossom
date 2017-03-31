@@ -33,6 +33,7 @@ var STORY_FONT_SIZE = sizeFont(15);
 var STORY_LINE_HEIGHT = sizeFont(22);
 
 var TextNode = React.createClass({
+  displayName : 'TextNode',
   _longTouch : 600,
   _touchStart : 0,
   componentWillReceiveProps: function(nextProps){

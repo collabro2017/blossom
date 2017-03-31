@@ -20,6 +20,7 @@ type Props = {
 }
 
 var Toast = React.createClass({
+  displayName : 'Toast',
   playPhrase : function() {
     //TODO: of course the language shouldn't be hardcoded
     mixins.speak(
