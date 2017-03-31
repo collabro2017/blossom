@@ -12,6 +12,7 @@ var Mixins = {
   speak : function(text, voice) {
     Speech.speak({
       text: text,
+      language: 'en',
       //voice: voice,
       // rate: 0.5, => //TODO: seems like iOS8 plays much faster??
     }).then(started => {
@@ -19,7 +20,7 @@ var Mixins = {
       //nothing to do
     })
     .catch(error => {
-      console.log('error');
+      console.log('error: ' + error + '\ntext: ' + text);
       //nothing to do, but this may be raised when flipping pages
       //while speech is playing
     });
