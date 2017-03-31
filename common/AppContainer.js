@@ -49,6 +49,7 @@ var Reader = React.createClass({
 
     Picker.init({
         pickerData: this.getBlendLabels(),
+        pickerTitleText: "Select language blend",
         selectedValue: [global.currentBook.blends[initialState.blend]],
         onPickerConfirm: data => {
           Object.keys(global.currentBook.blends).map(function(key) {
