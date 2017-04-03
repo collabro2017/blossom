@@ -59,6 +59,7 @@ var Reader = React.createClass({
           }.bind(this));
         }
     });
+    Picker.hide();
     return initialState;
   },
   updateBookSize : function(w, h) {
