@@ -12,11 +12,11 @@ import {
 
 global.currentBook = null;
 
-import Picker from 'react-native-picker';
-
 import GridView from 'react-native-grid-view';
 import FitImage from 'react-native-fit-image';
 import { StackNavigator } from 'react-navigation';
+
+import PolliPicker from './Picker';
 
 const TITLE_FONT_SIZE = /*Device.isIpad() ? 20 :*/ 14;
 const AUTHOR_FONT_SIZE = /*Device.isIpad() ? 15 :*/ 9;
@@ -36,8 +36,7 @@ const BOOK_CHINESE = require('./Book-chinese.js');
 var Reader = React.createClass({
   displayName : 'Reader',
   getInitialState : function() {
-
-    let initialState = {
+    return {
       page : 1,
       blend : 'A',
       contentWidth : Dimensions.get('window').width,
@@ -46,21 +45,6 @@ var Reader = React.createClass({
       toastShown : false,
       toastData : null,
     }
-
-    Picker.init({
-        pickerData: this.getBlendLabels(),
-        pickerTitleText: "Select language blend",
-        selectedValue: [global.currentBook.blends[initialState.blend]],
-        onPickerConfirm: data => {
-          Object.keys(global.currentBook.blends).map(function(key) {
-              if (global.currentBook.blends[key] == data){
-                this.setState({blend: key});
-              }
-          }.bind(this));
-        }
-    });
-    Picker.hide();
-    return initialState;
   },
   updateBookSize : function(w, h) {
     this.setState({
@@ -223,9 +207,7 @@ var Reader = React.createClass({
   renderBottomMenu : function() {
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
       <View style={[styles.bottomMenuLeft]}>
-        <Text style={styles.bottomMenuLabels} onPress={()=>{ Picker.show(); }}>
-          {global.currentBook.blends[this.state.blend]}
-        </Text>
+        <PolliPicker blend={this.state.blend} onValueChange={(key)=>{this.setState({blend: key})}}/>
       </View>
       <View style={[styles.bottomMenuCenter]}>
         <Text style={styles.bottomMenuLabels}>Page {this.state.page}</Text>
@@ -246,12 +228,6 @@ var Reader = React.createClass({
 
     return numPagesLeft + ' Pages Left';
   },
-  getBlendLabels : function() {
-    return Object.keys(global.currentBook.blends).map(function(key) {
-        return global.currentBook.blends[key];
-    });
-  },
-
   //HELPER
   //TODO: remove
   border : function(color) {
@@ -365,17 +341,24 @@ var styles = StyleSheet.create({
 
   //bottom menu
   bottomMenuLeft : {
-    flex : 5,
-    alignItems : 'center',
+    flex : 7,
+    ...Platform.select({
+        ios: {
+          alignItems : 'center',
+        },
+        android: {
+          alignItems : 'flex-end',
+        }
+    }),
     justifyContent : 'center'
   },
   bottomMenuCenter : {
-    flex : 10,
+    flex : 6,
     alignItems : 'center',
     justifyContent : 'center'
   },
   bottomMenuRight : {
-    flex : 5,
+    flex : 7,
     alignItems : 'center',
     justifyContent : 'center'
   },
@@ -383,6 +366,9 @@ var styles = StyleSheet.create({
     fontFamily : 'Open Sans',
     fontSize: BOTTOM_FONT_SIZE,
     color : controlsColor,
+  },
+  picker: {
+    width: 125,
   },
 });
 
