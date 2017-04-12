@@ -12,4 +12,4 @@ export default class blossom extends Component {
   }
 };
 
-AppRegistry.registerComponent('blossom', () => App);
+AppRegistry.registerComponent('blossom', () => blossom);

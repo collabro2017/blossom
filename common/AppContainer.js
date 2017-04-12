@@ -31,7 +31,7 @@ var Page = require('./Page.js');
 var mixins = require('./Mixins');
 var Toast = require('./Toast.js');
 
-var PolliBookFetch = require('./common/polli-book-fetch.js');
+var PolliBookFetch = require('./polli-book-fetch.js');
 
 
 const BOOK = require('./Book.js');
