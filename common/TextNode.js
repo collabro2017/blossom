@@ -15,7 +15,7 @@ var {
     Component
 } = React;
 
-var mixins = require('./Mixins.js');
+var mixins = require('./Mixins');
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -33,13 +33,23 @@ var STORY_FONT_SIZE = sizeFont(15);
 var STORY_LINE_HEIGHT = sizeFont(22);
 
 var TextNode = React.createClass({
+  displayName : 'TextNode',
   _longTouch : 600,
   _touchStart : 0,
   componentWillReceiveProps: function(nextProps){
+
+    var nextLang = this.state.renderLang;
+
+    //define language by props only if not in manual toggle mode
+    if (!this.state.isManualToggle) {
+      nextLang = nextProps.renderLang;
+    }
+
     this.setState({
-      renderLang : nextProps.renderLang,
-      isManualToggle : false
-    });
+      renderLang: nextLang,
+      isManualToggle: !!this.state.isManualToggle //converts null to false if needed
+    })
+
   },
   getInitialState : function() {
     return {

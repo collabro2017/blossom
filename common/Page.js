@@ -19,7 +19,7 @@ const windowWidth = Dimensions.get('window').width;
 const smallerSide = windowHeight < windowWidth ? windowHeight : windowWidth;
 
 var TextNode = require('./TextNode.js');
-var mixins = require('./Mixins.js');
+var mixins = require('./Mixins');
 import FitImage from 'react-native-fit-image';
 
 class Page extends React.Component {

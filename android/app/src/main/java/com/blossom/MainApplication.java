@@ -4,8 +4,9 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import com.rnziparchive.RNZipArchivePackage;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.beefe.picker.PickerViewPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -13,6 +14,8 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
 import java.util.List;
+
+import com.mihir.react.tts.*;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -26,9 +29,15 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+<<<<<<< HEAD
             new RNZipArchivePackage(),
             new VectorIconsPackage(),
             new RNFetchBlobPackage()
+=======
+            new VectorIconsPackage(),
+            new PickerViewPackage(),
+            new RCTTextToSpeechModule()
+>>>>>>> 1824cc27b7fa915c26901551910a79c200223ff8
       );
     }
   };
