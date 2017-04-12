@@ -23,7 +23,8 @@ const STORY_FONT_SIZE = /*Device.isIpad() ? 26 :*/ 16;
 
 var Book = {
   "title": "The Tale of Peter Rabbit",
-  "thumbnail": 'cover',
+  "bookId": "1",
+  "thumbnail": 'https://cdn-rainbowresource.netdna-ssl.com/products/007335.jpg',
   "L1": 'English',
   "L2": 'Spanish',
   "blends": {

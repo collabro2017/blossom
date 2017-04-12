@@ -56,7 +56,7 @@ class Page extends React.Component {
     return <FitImage
       key={'n' + i}
       style={[styles.image, mixins.styleOverride(node)]}
-      source={{ uri: node.src, isStatic: true }} />
+      source={{ uri: node.src }} />
   }
   renderText(node, i) {
     var renderLang = node.blends[this.props.blend];

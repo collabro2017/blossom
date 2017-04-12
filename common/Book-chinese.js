@@ -1,6 +1,7 @@
 var Book = {
   "title": "Three Little Pigs",
-  "thumbnail": '3LP-cover',
+  "bookId": "2",
+  "thumbnail": 'https://images-na.ssl-images-amazon.com/images/I/51YKtd0IuZL._SX258_BO1,204,203,200_.jpg',
   "author": "Folklore",
   "L1": 'English',
   "L2": 'Chinese',
