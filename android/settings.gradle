@@ -9,5 +9,4 @@ include ':react-native-picker'
 project(':react-native-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-picker/android')
 include ':react-native-android-speech'
 project(':react-native-android-speech').projectDir = new File(settingsDir, '../node_modules/react-native-android-speech')
->>>>>>> 1824cc27b7fa915c26901551910a79c200223ff8
 include ':app'
