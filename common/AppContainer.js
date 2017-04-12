@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Button,
   Dimensions,
   StatusBar,
   Platform,
@@ -29,6 +30,9 @@ var Icon = require('react-native-vector-icons/EvilIcons');
 var Page = require('./Page.js');
 var mixins = require('./Mixins');
 var Toast = require('./Toast.js');
+
+var PolliBookFetch = require('./common/polli-book-fetch.js');
+
 
 const BOOK = require('./Book.js');
 const BOOK_CHINESE = require('./Book-chinese.js');
@@ -335,6 +339,18 @@ var styles = StyleSheet.create({
       backgroundColor: 'rgba(230,216,189,1)',
       flex: 1
   },
+  storeGalleryContainer : {
+        paddingTop: 40,
+        paddingBottom: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        backgroundColor: 'rgba(100,189,189,1)',
+        flex: 1
+    },
+    buttonContainer : {
+        backgroundColor: 'white',
+    },
+
   listView : {
 
   },
@@ -402,6 +418,54 @@ class PhysicalBook extends React.Component {
   }
 }
 
+const fetcher = new PolliBookFetch();
+
+class DownloadableBook extends React.Component {
+
+    showReader(book) {
+        const { navigate } = this.props.navigation;
+        console.log('future book is:');
+        console.log(book.title);
+        global.currentBook = book;
+        navigate('Reader');
+    }
+
+    fetchDone(book) {
+        //var book = require(bookJsonPath);
+        this.showReader(book);
+
+    }
+
+    downloadBook(bookDescriptor) {
+        fetcher.fetchBook(bookDescriptor.bookId, this.showReader, this);
+
+        //this.showReader(book);
+    }
+
+    render() {
+      const { navigate } = this.props.navigation;
+
+      return (
+        <TouchableHighlight onPress={() => this.downloadBook(this.props.book)} style={styles.physicalBook} >
+        <View>
+          <FitImage
+            source={{uri: this.props.book.thumbnail}}
+            style={styles.thumbnail}
+          />
+          <View >
+            <Text
+            style={styles.bookTitle}
+            numberOfLines={3}>{this.props.book.title}</Text>
+            <Text style={styles.bookAuthor}>{this.props.book.author}</Text>
+          </View>
+        </View>
+        </TouchableHighlight>
+      );
+  }
+}
+
+
+
 class FrontPage extends React.Component {
 
     constructor(props) {
@@ -416,13 +480,80 @@ class FrontPage extends React.Component {
         };
 
     renderItem(item) {
-        return <PhysicalBook book={item} navigation={ this.navigation } />
+            return <PhysicalBook book={item} key={item.bookId} navigation={ this.navigation } />
+    }
+
+    render() {
+    const { navigation } = this.props;
+    return  <View style={styles.galleryContainer}>
+        <View style={styles.buttonContainer}>
+            <Button
+              onPress={() => navigation.navigate('Library') }
+              title="Get more books in the Library"
+                  color="#222288"
+              accessibilityLabel="Get more books in the library"
+            />
+        </View>
+        <GridView
+            items={this.state.dataSource}
+            itemsPerRow={BOOKS_PER_ROW}
+            renderItem={this.renderItem}
+            contentContainerStyle={styles.listView}
+            navigation={ navigation }
+          />
+    </View>
+    }
+    }
+
+    class Bookstore extends React.Component {
+
+    constructor(props) {
+    super(props);
+
+    var demoBook = {
+          "title": "War and Peace",
+          "thumbnail": 'https://images-na.ssl-images-amazon.com/images/I/510UE7bvHoL._SY344_BO1,204,203,200_.jpg',
+          "L1": 'English',
+          "L2": 'German',
+          "author": "Loolie",
+          "bookId": "peter-rabbit",
+      }
+
+    var demoBook2 = {
+        "title": "Friends for Toddlers",
+        "thumbnail": 'https://images-na.ssl-images-amazon.com/images/I/51XSMSDZBFL._SY344_BO1,204,203,200_.jpg',
+        "L1": 'English',
+        "L2": 'Spanish',
+        "author": "Loolie",
+        "bookId": "friends-rabbit",
+    }
+
+    var demoBook3 = {
+          "title": "Bananas: A Deep Analysis",
+          "thumbnail": 'https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/17499197_10154290656191366_6391349757135483406_n.jpg?oh=fa79f01cd80d93656dddbc666c948a2b&oe=59602942',
+          "L1": 'English',
+          "L2": 'Spanish',
+          "author": "Loolie",
+          "bookId": "banana-rabbit",
+      }
+
+
+    this.state = {
+      dataSource: [ demoBook, demoBook2, demoBook3],
+    }
+    }
+
+    static navigationOptions = {
+      title: 'Library',
+    };
+
+    renderItem(item) {
+        return <DownloadableBook key={item.bookId} book={item} navigation={ this.navigation } />
     }
 
     render() {
         const { navigation } = this.props;
-        return <View style={styles.galleryContainer}>
-            <Text style={styles.bigTitle}>My books</Text>
+        return  <View style={styles.storeGalleryContainer}>
             <GridView
                 items={this.state.dataSource}
                 itemsPerRow={BOOKS_PER_ROW}
@@ -437,6 +568,7 @@ class FrontPage extends React.Component {
 const AppContainer = StackNavigator({
   Main: {screen: FrontPage},
   Reader: {screen: Reader},
+  Library: {screen: Bookstore}
 });
 
 export default AppContainer;
