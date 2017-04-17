@@ -29,11 +29,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNZipArchivePackage(),
-            new RNFetchBlobPackage()
-            new VectorIconsPackage(),
-            new PickerViewPackage(),
-            new RCTTextToSpeechModule()
+          new RNZipArchivePackage(),
+          new RNFetchBlobPackage(),
+          new VectorIconsPackage(),
+          new PickerViewPackage(),
+          new RCTTextToSpeechModule()
       );
     }
   };
