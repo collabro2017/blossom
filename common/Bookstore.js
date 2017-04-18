@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 
 import DownloadableBook from './DownloadableBook';
+import styles from "./PolliStyles";
 
 import GridView from 'react-native-grid-view';
 const BOOKS_PER_ROW = 2;
@@ -68,18 +69,3 @@ export default class Bookstore extends React.Component {
       </View>
   }
 }
-
-var styles = StyleSheet.create({
-  storeGalleryContainer : {
-        paddingTop: 40,
-        paddingBottom: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
-        backgroundColor: 'rgba(100,189,189,1)',
-        flex: 1
-    },
-
-  listView : {
-
-  },
-});

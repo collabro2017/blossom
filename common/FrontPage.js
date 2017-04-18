@@ -8,6 +8,7 @@ import {
 
 import GridView from 'react-native-grid-view';
 
+import styles from './PolliStyles';
 import PhysicalBook from './PhysicalBook';
 
 const BOOKS_PER_ROW = 2;
@@ -53,28 +54,3 @@ export default class FrontPage extends React.Component {
     </View>
   }
 }
-
-var styles = StyleSheet.create({
-  galleryContainer : {
-      paddingTop: 40,
-      paddingBottom: 10,
-      paddingLeft: 20,
-      paddingRight: 20,
-      backgroundColor: 'rgba(230,216,189,1)',
-      flex: 1
-  },
-  listView : {
-
-  },
-  storeGalleryContainer : {
-    paddingTop: 40,
-    paddingBottom: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    backgroundColor: 'rgba(100,189,189,1)',
-    flex: 1
-  },
-  buttonContainer : {
-    backgroundColor: 'white',
-  },
-});

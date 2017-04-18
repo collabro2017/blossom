@@ -11,10 +11,7 @@ import {
 } from 'react-native';
 
 import PolliPicker from './Picker';
-
-const TITLE_FONT_SIZE = /*Device.isIpad() ? 20 :*/ 14;
-const AUTHOR_FONT_SIZE = /*Device.isIpad() ? 15 :*/ 9;
-const BOTTOM_FONT_SIZE = /*Device.isIpad() ? 13 :*/ 11;
+import styles from "./PolliStyles";
 
 var Swiper = require('react-native-swiper');
 import Icon from 'react-native-vector-icons/EvilIcons';
@@ -226,108 +223,6 @@ var Reader = React.createClass({
       // borderColor : color
     }
   }
-});
-
-var controlsColor = '#583919';
-var styles = StyleSheet.create({
-  container : {
-    flex : 1,
-    alignItems : 'stretch',
-    justifyContent : 'center',
-    backgroundColor: '#F5F2DE'
-  },
-  menu : {
-    alignItems : 'stretch',
-    flexDirection : 'row',
-  },
-  topMenu : {
-    flex : 1
-  },
-  bottomMenu : {
-    flex : 1,
-  },
-  book : {
-    flex : 18,
-    flexDirection : 'row',
-    alignItems : 'stretch'
-  },
-  content : {
-    flex : 16,
-  },
-  nextPage : {
-    flex : 1,
-    alignItems : 'center',
-    justifyContent : 'center'
-  },
-  prevPage : {
-    flex : 1,
-    alignItems : 'center',
-    justifyContent : 'center'
-  },
-  page : {
-    flex : 1
-  },
-
-  //top menu
-  topMenuLeft : {
-    flex : 3,
-    alignItems : 'center',
-    justifyContent : 'center'
-  },
-  topMenuCenter : {
-    flex : 10,
-    flexDirection : 'row',
-    alignItems : 'center',
-    justifyContent : 'center',
-    paddingTop: 20
-  },
-  topMenuRight : {
-    flex : 3,
-    alignItems : 'center',
-    justifyContent : 'center',
-    paddingTop: 20
-  },
-  //bottom menu
-  bottomMenuLeft : {
-    flex : 7,
-    ...Platform.select({
-        ios: {
-          alignItems : 'center',
-        },
-        android: {
-          alignItems : 'flex-end',
-        }
-    }),
-    justifyContent : 'center'
-  },
-  bottomMenuCenter : {
-    flex : 6,
-    alignItems : 'center',
-    justifyContent : 'center'
-  },
-  bottomMenuRight : {
-    flex : 7,
-    alignItems : 'center',
-    justifyContent : 'center'
-  },
-  bottomMenuLabels : {
-    fontFamily : 'Open Sans',
-    fontSize: BOTTOM_FONT_SIZE,
-    color : controlsColor,
-  },
-  
-  bookTitle : {
-    fontFamily : 'Open Sans',
-    color : controlsColor,
-    fontSize : TITLE_FONT_SIZE
-  },
-  bookAuthor : {
-    fontFamily : 'Open Sans',
-    color : controlsColor,
-    fontSize : AUTHOR_FONT_SIZE,
-    fontWeight : '600'
-  },
-
 });
 
 module.exports = Reader;

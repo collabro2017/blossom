@@ -7,10 +7,7 @@ import {
 } from 'react-native';
 
 import FitImage from 'react-native-fit-image';
-
-const TITLE_FONT_SIZE = /*Device.isIpad() ? 20 :*/ 14;
-const AUTHOR_FONT_SIZE = /*Device.isIpad() ? 15 :*/ 9;
-const BOTTOM_FONT_SIZE = /*Device.isIpad() ? 13 :*/ 11;
+import styles from "./PolliStyles";
 
 export default class PhysicalBook extends React.Component {
 
@@ -50,31 +47,3 @@ export default class PhysicalBook extends React.Component {
       );
   }
 }
-
-var controlsColor = '#583919';
-var styles = StyleSheet.create({
-  physicalBook : {
-      margin: 12,
-      padding: 5,
-      backgroundColor: '#fff',
-      borderRadius: 3,
-      shadowColor: "#000000",
-      shadowOpacity: 0.6,
-      shadowRadius: 2,
-      shadowOffset: {
-          height: 0,
-          width: 0
-        }
-  },
-  bookTitle : {
-    fontFamily : 'Open Sans',
-    color : controlsColor,
-    fontSize : TITLE_FONT_SIZE
-  },
-  bookAuthor : {
-    fontFamily : 'Open Sans',
-    color : controlsColor,
-    fontSize : AUTHOR_FONT_SIZE,
-    fontWeight : '600'
-  },
-});

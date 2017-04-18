@@ -7,6 +7,8 @@ import {
   Slider,
 } from 'react-native';
 
+import styles from "./PolliStyles";
+
 import Icon2 from 'react-native-vector-icons/FontAwesome';
 
 export default class BookDetail extends React.Component {
@@ -82,71 +84,3 @@ export default class BookDetail extends React.Component {
     );
   }
 }
-
-var styles = StyleSheet.create({
-  //details screen
-  detailContainer: {
-    flex: 1,
-    //borderWidth: 2,
-    margin: 30,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  detailTitle: {
-    height: 200,
-    flexDirection: 'row',
-    //borderWidth: 2,
-  },
-  detailTitleRight: {
-    margin: 20,
-  },
-  detailTitleBook: {
-    fontSize: 28,
-    fontWeight: 'bold',
-  },
-  detailTitleText: {
-    fontSize: 20,
-    justifyContent: 'center',
-  },
-  detailIconContainer: {
-    flexDirection:'row',
-    justifyContent: 'center',
-    margin: 10,
-  },
-  detailIcon: {
-    marginRight: 20,
-  },
-  detailThumbnail: {
-    borderWidth: 2,
-    width: 120,
-  },
-  detailMain: {
-    //marginTop: 30,
-    alignItems:'flex-start',
-  },
-  detailBottom: {
-    alignItems: 'center',
-  },
-  detailTitleRating: {
-    flexDirection:'row',
-    marginTop: 10,
-  },
-  detailButton: {
-    backgroundColor: 'green',
-    color: 'white',
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingRight: 80,
-    paddingLeft: 80,
-    fontSize: 20,
-  },
-  detailSlider: {
-    height: 10,
-    margin: 10,
-    width: 300,
-  },
-  detailSliderLabel: {
-    alignItems:'center',
-    borderWidth: 3
-  },
-});
