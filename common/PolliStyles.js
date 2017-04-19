@@ -151,7 +151,10 @@ var styles = StyleSheet.create({
   picker: {
     width: 125,
   },
-
+  thumbnail: {
+    width: 150,
+    height: 200,
+  },
   //details screen
   detailContainer: {
     flex: 1,
@@ -161,12 +164,13 @@ var styles = StyleSheet.create({
     alignItems: 'center',
   },
   detailTitle: {
-    height: 200,
     flexDirection: 'row',
     //borderWidth: 2,
   },
   detailTitleRight: {
     margin: 20,
+    flexWrap: 'wrap',
+    flex: 0.6,
   },
   detailTitleBook: {
     fontSize: 28,
@@ -185,8 +189,10 @@ var styles = StyleSheet.create({
     marginRight: 20,
   },
   detailThumbnail: {
+    borderColor: 'black',
     borderWidth: 2,
     width: 120,
+    height: 200,
   },
   detailMain: {
     //marginTop: 30,

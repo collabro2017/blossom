@@ -8,13 +8,22 @@ import {
 } from 'react-native';
 
 import styles from "./PolliStyles";
+import FitImage from 'react-native-fit-image';
 
 import Icon2 from 'react-native-vector-icons/FontAwesome';
 
 export default class BookDetail extends React.Component {
+
+  static navigationOptions = {
+    title: 'Book Details',
+  };
+
   constructor(props){
     super(props);
-    this.state = {sliderValue: 0.5};
+    this.state = {
+      sliderValue: 0.5,
+      currentRating: global.currentBook.rating,
+    };
   }
 
   getSliderLabel(value){
@@ -37,20 +46,71 @@ export default class BookDetail extends React.Component {
     }
   }
 
+  getSliderIndex(value){
+    switch (value){
+      case 0:{
+        return "A";
+      }
+      case 0.25:{
+        return "B";
+      }
+      case 0.5:{
+        return "C";
+      }
+      case 0.75:{
+        return "D";
+      }
+      case 1:{
+        return "E";
+      }
+    }
+  }
+
+  renderRating(){
+    var rating = this.state.currentRating;
+
+    jsx_rating = []
+    jsx_rating.push(this.renderStar(1,rating));
+    jsx_rating.push(this.renderStar(2,rating));
+    jsx_rating.push(this.renderStar(3,rating));
+    jsx_rating.push(this.renderStar(4,rating));
+    jsx_rating.push(this.renderStar(5,rating));
+
+    return jsx_rating;
+  }
+
+  renderStar(id,rating){
+    var decimal_value = (id - rating);
+
+    var starType = "star-o";
+    if (id <= rating){
+      starType = "star";
+    } else if (decimal_value > 0 && decimal_value < 1){
+      starType = "star-half-o";
+    }
+    return <Icon2 name={starType} size={40} color='orange' onPress ={()=>this.setState({currentRating:id})} onLongPress = {()=>this.setState({currentRating: (id - 0.5)})}/>
+  }
+
+  showReader() {
+      const { navigate } = this.props.navigation;
+      console.log("this.props.navigation = " + this.props.navigation);
+      navigate('Reader',{blend: this.getSliderIndex(this.state.sliderValue)});
+  }
+
   render() {
+
     return (
       <View style={styles.detailContainer}>
         <View style={styles.detailTitle}>
-          <Text style={styles.detailThumbnail}>image here</Text>
+          <FitImage
+            source={{uri: global.currentBook.thumbnail}}
+            style={styles.detailThumbnail}
+          />
           <View style={styles.detailTitleRight}>
-            <Text style={styles.detailTitleBook}>Book Title</Text>
-            <Text style={styles.detailTitleText}>Author</Text>
+            <Text style={styles.detailTitleBook}>{global.currentBook.title}</Text>
+            <Text style={styles.detailTitleText}>{global.currentBook.author}</Text>
             <View style={styles.detailTitleRating} >
-              <Icon2 name="star" size={40} color='orange'/>
-              <Icon2 name="star" size={40} color='orange' />
-              <Icon2 name="star" size={40} color='orange' />
-              <Icon2 name="star-half-o" size={40} color='orange' />
-              <Icon2 name="star-o" size={40} color='orange' />
+              {this.renderRating(this.state.rating)}
             </View>
           </View>
         </View>
@@ -61,7 +121,7 @@ export default class BookDetail extends React.Component {
           </View>
           <View style={styles.detailIconContainer}>
             <Icon2 style={styles.detailIcon} name="globe" size={40} color='blue'/>
-            <Text style={styles.detailTitleText}>English and Spanish</Text>
+            <Text style={styles.detailTitleText}>{global.currentBook.L1} and {global.currentBook.L2}</Text>
           </View>
 
           <Slider value={this.state.sliderValue}
@@ -78,7 +138,7 @@ export default class BookDetail extends React.Component {
 
         </View>
         <View style={styles.detailBottom}>
-          <Text style={styles.detailButton}>Start reading!</Text>
+          <Text style={styles.detailButton} onPress={()=>this.showReader()}>Start reading!</Text>
         </View>
       </View>
     );

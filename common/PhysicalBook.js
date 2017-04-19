@@ -14,7 +14,7 @@ export default class PhysicalBook extends React.Component {
     showReader(book) {
         const { navigate } = this.props.navigation;
         global.currentBook=book;
-        navigate('Reader');
+        navigate('Reader',{blend:'A'});
     }
 
     showDetails(book) {

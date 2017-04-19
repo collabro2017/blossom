@@ -22,10 +22,11 @@ var Toast = require('./Toast.js');
 
 var Reader = React.createClass({
   displayName : 'Reader',
+  
   getInitialState : function() {
     return {
       page : 1,
-      blend : 'A',
+      blend : this.props.navigation.state.params.blend,
       contentWidth : Dimensions.get('window').width,
       contentHeight : Dimensions.get('window').height,
       statusBarShown : true,
