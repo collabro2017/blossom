@@ -32,7 +32,7 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new RealmReactPackage(),
             new RNZipArchivePackage(),
-            new RNFetchBlobPackage()
+            new RNFetchBlobPackage(),
             new VectorIconsPackage(),
             new PickerViewPackage(),
             new RCTTextToSpeechModule()
