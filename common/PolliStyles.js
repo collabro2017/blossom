@@ -84,6 +84,8 @@ var styles = StyleSheet.create({
     fontWeight : '600'
   },
   physicalBook : {
+      height: 250,
+      width: 150,
       margin: 12,
       padding: 5,
       backgroundColor: '#fff',
@@ -152,8 +154,7 @@ var styles = StyleSheet.create({
     width: 125,
   },
   thumbnail: {
-    width: 150,
-    height: 200,
+
   },
   //details screen
   detailContainer: {

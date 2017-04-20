@@ -30,9 +30,7 @@ export default class DownloadableBook extends React.Component {
     }
 
     downloadBook(bookDescriptor) {
-        fetcher.fetchBook(bookDescriptor.bookId, this.showReader, this);
-
-        //this.showReader(book);
+        fetcher.fetchBook(bookDescriptor.bookId, this);
     }
 
     render() {

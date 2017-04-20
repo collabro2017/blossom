@@ -6,10 +6,6 @@ import {
   Text,
   View,
 } from 'react-native';
-import RNFetchBlob from 'react-native-fetch-blob';
-import LocalLibraryDAO from './LocalLibraryDAO.js';
-
-var LocalLibrary = new LocalLibraryDAO();
 
 var BackboneEvents = require('backbone-events-standalone');
 // global event bus
