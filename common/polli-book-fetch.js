@@ -2,6 +2,10 @@ import RNFetchBlob from 'react-native-fetch-blob';
 import React from 'react';
 import { unzip } from 'react-native-zip-archive'
 
+import LocalLibraryDAO from './LocalLibraryDAO.js';
+
+var LocalLibrary = new LocalLibraryDAO();
+
 function ObjectCreator(obj) { // CONSTRUCTOR CAN BE OVERLOADED WITH AN OBJECT
   // IF AN OBJECT WAS PASSED THEN INITIALISE PROPERTIES FROM THAT OBJECT
   for (var prop in obj) this[prop] = obj[prop];
@@ -13,14 +17,15 @@ function readFileIntoBook(basePath, bookFilename, context) {
     RNFetchBlob.fs.readFile(path, 'utf8')
       .then((data) => {
           var book = new ObjectCreator(JSON.parse(data));
-          console.log('keys', Object.keys(book.pages[0].content[0]));
+
+          book.thumbnail = `file://${basePath}${book.thumbnail}`;
 
           for(i=0; i<book.pages.length; i++) {
               var page = book.pages[i];
               for(j=0; j<page.content.length; j++) {
                   var node = page.content[j];
                   if(node.type == 'image') {
-                      console.log('src= ', `file://${basePath}${node.src}`);
+                      // divert image from assets to absolute paths
                       node.src = `file://${basePath}${node.src}`;
                   }
               }
@@ -33,7 +38,7 @@ function readFileIntoBook(basePath, bookFilename, context) {
 
 class PolliBookFetch {
 
-    fetchBook(bookId, fetchDoneCallback, context) {
+    fetchBook(bookId, context) {
         console.log('fetching', bookId);
         // check if book is stored locally
         var path = this.getPathForId(bookId);
@@ -45,7 +50,7 @@ class PolliBookFetch {
             }
             else { // if not, download and store it
                 console.log('trying to fetch');
-                this.getRemoteBook(bookId, fetchDoneCallback, context);
+                this.getRemoteBook(bookId, context);
             }
         })
         .catch(() => { console.log(`Exception when checking if file ${path} exists`) })
@@ -64,7 +69,7 @@ class PolliBookFetch {
         return dirs.DocumentDir + `/${bookId}/`;
     }
 
-    getRemoteBook(bookId, fetchDoneCallback, context) {
+    getRemoteBook(bookId, context) {
         RNFetchBlob
         .config({
             // response data will be saved to this path if it has access right.
@@ -85,6 +90,9 @@ class PolliBookFetch {
             .then((path) => {
               console.log(`unzip completed at ${path}`);
                   //RNFetchBlob.fs.readFile(PATH_TO_READ, 'base64')
+
+                  // add book to local library
+                  LocalLibrary.save(bookId, `${this.getUnzipPathForId(bookId)}`)
                   readFileIntoBook(this.getUnzipPathForId(bookId), 'book.json', context);
             })
             .catch((error) => {
