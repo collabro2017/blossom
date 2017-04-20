@@ -27,6 +27,7 @@ var Book = {
   "thumbnail": 'https://cdn-rainbowresource.netdna-ssl.com/products/007335.jpg',
   "L1": 'English',
   "L2": 'Spanish',
+  "rating": 2.5,
   "blends": {
       A : '95% English',
       B : 'mostly English',
