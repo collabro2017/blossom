@@ -328,6 +328,8 @@ var styles = StyleSheet.create({
   },
   physicalBook : {
       margin: 12,
+      width: 150,
+      height: 270,
       padding: 5,
       backgroundColor: '#fff',
       borderRadius: 3,
@@ -361,6 +363,16 @@ var styles = StyleSheet.create({
 
   listView : {
 
+  },
+
+  thumbnail : {
+
+  },
+
+  downloaded : {
+      shadowColor: "#f20075",
+      shadowOpacity: 1,
+      shadowRadius: 8,
   },
 
   //bottom menu
@@ -449,9 +461,10 @@ class DownloadableBook extends React.Component {
 
     render() {
       const { navigate } = this.props.navigation;
+      const combinedStyles = StyleSheet.flatten([styles.physicalBook, styles.downloaded]);
 
       return (
-        <TouchableHighlight onPress={() => this.downloadBook(this.props.book)} style={styles.physicalBook} >
+        <TouchableHighlight onPress={() => this.downloadBook(this.props.book)} style={this.props.book.downloaded ? combinedStyles : styles.physicalBook} >
         <View>
           <FitImage
             source={{uri: this.props.book.thumbnail}}
@@ -583,6 +596,7 @@ class Bookstore extends React.Component {
           "L2": 'German',
           "author": "Loolie",
           "bookId": "peter-rabbit",
+          "downloaded": true,
       }
 
     var demoBook2 = {
