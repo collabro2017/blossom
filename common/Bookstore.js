@@ -23,6 +23,10 @@ export default class Bookstore extends React.Component {
           "L2": 'German',
           "author": "Loolie",
           "bookId": "peter-rabbit",
+          "about": "A novel by the Russian author Leo Tolstoy, which is regarded as a central work of world literature and one of Tolstoy's finest literary achievements",
+          "ages": "60+",
+          "publisher": "The Russian Messenger",
+          "rating": 1.5,
       }
 
     var demoBook2 = {
@@ -32,6 +36,10 @@ export default class Bookstore extends React.Component {
         "L2": 'Spanish',
         "author": "Loolie",
         "bookId": "friends-rabbit",
+        "about": "Friends is an American television sitcom, created by David Crane and Marta Kauffman, which aired on NBC from September 22, 1994, to May 6, 2004, lasting ten seasons",
+        "ages": "Definitely EVERYONE!",
+        "publisher": "NBC",
+        "rating": 3.7,
     }
 
     var demoBook3 = {
@@ -41,6 +49,10 @@ export default class Bookstore extends React.Component {
           "L2": 'Spanish',
           "author": "Loolie",
           "bookId": "banana-rabbit",
+          "about": "BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA ",
+          "ages": "1-2",
+          "publisher": "PutzkyPress",
+          "rating": 4.9,
       }
 
 

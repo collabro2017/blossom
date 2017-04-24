@@ -154,7 +154,6 @@ var styles = StyleSheet.create({
     width: 125,
   },
   thumbnail: {
-
   },
   //details screen
   detailContainer: {
@@ -180,9 +179,23 @@ var styles = StyleSheet.create({
   detailTitleText: {
     fontSize: 20,
     justifyContent: 'center',
+    lineHeight: 35,
+  },
+  detailInfoText: {
+    fontSize: 18,
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
+  detailInfoTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   detailIconContainer: {
     flexDirection:'row',
+    justifyContent: 'center',
+    margin: 10,
+  },
+  detailInfoContainer: {
     justifyContent: 'center',
     margin: 10,
   },
@@ -200,6 +213,7 @@ var styles = StyleSheet.create({
     alignItems:'flex-start',
   },
   detailBottom: {
+    flexDirection: 'row',
     alignItems: 'center',
   },
   detailTitleRating: {
@@ -213,6 +227,20 @@ var styles = StyleSheet.create({
     paddingBottom: 10,
     paddingRight: 80,
     paddingLeft: 80,
+    fontSize: 20,
+  },
+  detailButtonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  detailLibraryButton: {
+    backgroundColor: 'green',
+    color: 'white',
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingRight: 40,
+    paddingLeft: 40,
     fontSize: 20,
   },
   detailSlider: {

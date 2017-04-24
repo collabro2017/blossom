@@ -24,7 +24,7 @@ const STORY_FONT_SIZE = /*Device.isIpad() ? 26 :*/ 16;
 var Book = {
   "title": "The Tale of Peter Rabbit",
   "bookId": "1",
-  "thumbnail": 'https://cdn-rainbowresource.netdna-ssl.com/products/007335.jpg',
+  "thumbnail": 'https://s3.amazonaws.com/polli-static/peter-rabbit/cover.png',
   "L1": 'English',
   "L2": 'Spanish',
   "rating": 2.5,
@@ -39,13 +39,18 @@ var Book = {
   "style": {
     backgroundColor: '#fff'
   },
+  "about":
+      "The Tale of Peter Rabbit is a British children's book written and illustrated by Beatrix Potter that follows mischievous and disobedient young Peter Rabbit as he is chased about the garden of Mr. McGregor. He escapes and returns home to his mother, who puts him to bed after dosing him with camomile tea. The tale was written for five-year-old Noel Moore, son of Potter's former governess Annie Carter Moore, in 1893. It was revised and privately printed by Potter in 1901 after several publishers' rejections, but was printed in a trade edition by Frederick Warne & Co. in 1902. The book was a success, and multiple reprints were issued in the years immediately following its debut. It has been translated into 36 languages, and with 45 million copies sold it is one of the best-selling books of all time."
+  ,
+  "ages": "1-5",
+  "publisher": "Frederick Warne & Co.",
   "pages": [
   {
     style : {},
     "content": [
     {
       type : 'image',
-      src : 'cover',
+      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/cover.png',
       style : {
           marginBottom: 40,
       }
@@ -137,7 +142,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '2',
+      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/2.png',
       style : {
         marginBottom: 40,
       }
@@ -322,7 +327,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '3',
+      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/3.png',
       style : {
         marginBottom: 40,
       }
@@ -487,7 +492,7 @@ var Book = {
     },
     {
       type : 'image',
-      src : '4',
+      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/4.png',
       style : {
         marginBottom: 40,
       }
@@ -497,7 +502,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '5',
+      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/5.png',
       style : {
         marginBottom: 40,
       }
@@ -641,7 +646,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '6',
+      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/6.png',
       style : {
         marginBottom: 40,
       }
@@ -772,7 +777,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '7',
+      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/7.png',
       style : {
         marginBottom: 40,
       }
@@ -890,7 +895,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '8',
+      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/8.png',
       style : {
         marginBottom: 40,
       }
@@ -1038,7 +1043,7 @@ var Book = {
     },
     {
       type : 'image',
-      src : '9',
+      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/9.png',
       style : {
         marginBottom: 40,
       }
@@ -1048,7 +1053,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '10',
+      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/10.png',
       style : {
         marginBottom: 40,
       }
@@ -1114,7 +1119,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '11',
+      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/11.png',
       style : {
         marginBottom: 40,
       }
