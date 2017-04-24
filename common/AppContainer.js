@@ -19,12 +19,14 @@ import Reader from './Reader';
 import FrontPage from './FrontPage';
 import Bookstore from './Bookstore';
 import BookDetail from './BookDetail';
+import BookLibraryDetail from './BookLibraryDetail';
 
 const AppContainer = StackNavigator({
   Main: {screen: FrontPage},
   Reader: {screen: Reader},
   Library: {screen: Bookstore},
-  BookDetail: {screen: BookDetail}
+  BookDetail: {screen: BookDetail},
+  BookLibraryDetail: {screen: BookLibraryDetail},
 });
 
 export default AppContainer;
