@@ -93,7 +93,7 @@ export default class FrontPage extends React.Component {
     render() {
     const { navigation } = this.props;
 
-    var clearDatabaseButton = '';
+    var clearDatabaseButton = null;
     if (__DEV__) {
         clearDatabaseButton = <Button
           onPress={() => LocalLibrary.clearDB() }
