@@ -17,10 +17,14 @@ export default class DownloadableBook extends React.Component {
 
     showReader(book) {
         const { navigate } = this.props.navigation;
-        console.log('future book is:');
-        console.log(book.title);
         global.currentBook = book;
-        navigate('Reader');
+        navigate('Reader',{blend:'A'});
+    }
+
+    showLibraryDetails(book) {
+        const { navigate } = this.props.navigation;
+        global.currentBook = book;
+        navigate('BookLibraryDetail');
     }
 
     fetchDone(book) {
@@ -37,7 +41,10 @@ export default class DownloadableBook extends React.Component {
       const { navigate } = this.props.navigation;
 
       return (
-        <TouchableHighlight onPress={() => this.downloadBook(this.props.book)} style={styles.physicalBook} >
+        <TouchableHighlight
+        onPress={() => this.downloadBook(this.props.book)}
+        onLongPress={() => this.showLibraryDetails(this.props.book)}
+        style={styles.physicalBook} >
         <View>
           <FitImage
             source={{uri: this.props.book.thumbnail}}
