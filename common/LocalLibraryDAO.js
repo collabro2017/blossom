@@ -8,7 +8,9 @@ var realm = new Realm({
     properties: {
         id: {type:'string'},
         path: 'string',
-        readCount: {type: 'int', default: 0}
+        readCount: {type: 'int', default: 0},
+        rating: {type: 'int', default: 0},
+        earmarkedPage: 'string'
     }}]
 });
 
