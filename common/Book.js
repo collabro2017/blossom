@@ -24,7 +24,7 @@ const STORY_FONT_SIZE = /*Device.isIpad() ? 26 :*/ 16;
 var Book = {
   "title": "The Tale of Peter Rabbit",
   "bookId": "1",
-  "thumbnail": 'https://s3.amazonaws.com/polli-static/peter-rabbit/cover.png',
+  "thumbnail": 'cover.png',
   "L1": 'English',
   "L2": 'Spanish',
   "rating": 2.5,
@@ -50,7 +50,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/cover.png',
+      src : 'cover.png',
       style : {
           marginBottom: 40,
       }
@@ -142,7 +142,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/2.png',
+      src : '2.png',
       style : {
         marginBottom: 40,
       }
@@ -327,7 +327,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/3.png',
+      src : '3.png',
       style : {
         marginBottom: 40,
       }
@@ -492,7 +492,7 @@ var Book = {
     },
     {
       type : 'image',
-      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/4.png',
+      src : '4.png',
       style : {
         marginBottom: 40,
       }
@@ -502,7 +502,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/5.png',
+      src : '5.png',
       style : {
         marginBottom: 40,
       }
@@ -646,7 +646,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/6.png',
+      src : '6.png',
       style : {
         marginBottom: 40,
       }
@@ -777,7 +777,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/7.png',
+      src : '7.png',
       style : {
         marginBottom: 40,
       }
@@ -895,7 +895,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/8.png',
+      src : '8.png',
       style : {
         marginBottom: 40,
       }
@@ -1043,7 +1043,7 @@ var Book = {
     },
     {
       type : 'image',
-      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/9.png',
+      src : '9.png',
       style : {
         marginBottom: 40,
       }
@@ -1053,7 +1053,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/10.png',
+      src : '10.png',
       style : {
         marginBottom: 40,
       }
@@ -1119,7 +1119,7 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : 'https://s3.amazonaws.com/polli-static/peter-rabbit/11.png',
+      src : '11.png',
       style : {
         marginBottom: 40,
       }
