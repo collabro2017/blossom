@@ -118,6 +118,36 @@ var styles = StyleSheet.create({
         backgroundColor: 'white',
     },
 
+    switchContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        padding: 4
+    },
+
+    switchLabel: {
+        fontSize: 18,
+        color: '#666',
+        padding: 10
+    },
+
+    modal: {
+        paddingTop: 10,
+        paddingBottom: 10,
+        marginTop: 100,
+        marginLeft: 40,
+        marginRight: 40,
+        backgroundColor: 'white',
+        shadowColor: "#000000",
+        shadowOpacity: 1,
+        shadowRadius: 28,
+        shadowOffset: {
+            height: 0,
+            width: 0
+        },
+        borderRadius: 2
+    },
+
   listView : {
 
   },

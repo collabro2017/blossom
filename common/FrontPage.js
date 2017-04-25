@@ -4,6 +4,9 @@ import {
   Text,
   View,
   Button,
+  Modal,
+  Alert,
+  Switch,
 } from 'react-native';
 
 import GridView from 'react-native-grid-view';
@@ -32,6 +35,8 @@ export default class FrontPage extends React.Component {
         super(props);
         this.state = {
           dataSource: [BOOK, BOOK_CHINESE],
+          user: null,
+          modalVisible: false
         }
       }
 
@@ -40,10 +45,6 @@ export default class FrontPage extends React.Component {
       this.updateBookList();
 
       window.EventBus.on('libraryUpdated', this.updateBookList.bind(this));
-  }
-
-  eventReceived() {
-      console.log('woohoo!');
   }
 
   updateBookList() {
@@ -84,34 +85,84 @@ export default class FrontPage extends React.Component {
 
     static navigationOptions = {
       title: 'My Books',
-    };
+    }
 
     renderItem(item) {
-            return <PhysicalBook book={item} key={item.bookId} navigation={ this.navigation } />
+        return <PhysicalBook book={item} key={item.bookId} navigation={ this.navigation } />
     }
 
     render() {
     const { navigation } = this.props;
 
-    var clearDatabaseButton = '';
+    var showDebugMenuButton = null;
     if (__DEV__) {
-        clearDatabaseButton = <Button
-          onPress={() => LocalLibrary.clearDB() }
-          title="Clear DB"
-              color="#882222"
-          accessibilityLabel="Clear DB"
+        showDebugMenuButton = <Button
+          onPress={() => this.setState({modalVisible : true}) }
+          title="Debug Menu"
+          color="#882222"
+          accessibilityLabel="Show debug menu"
         />
     }
 
+    function showLibrary(user) {
+        if(user) {
+            navigation.navigate('Library');
+        }
+        else {
+            //no user logged in
+            Alert.alert(
+              '',
+              'Subscribe to Polli to get access to all of our titles for $5/month',
+              [
+                {text: 'Subscribe', onPress: () => console.log('Register pressed')},
+                {text: 'Not right now', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                {text: 'I have a subscription', onPress: () => console.log('Log in Pressed')},
+              ],
+              { cancelable: true }
+            )
+        }
+    }
+
     return  <View style={styles.galleryContainer}>
+        <Modal
+            animationType={"slide"}
+            transparent={true}
+            visible={this.state.modalVisible}
+            onRequestClose={() => {alert("Modal has been closed.")}}
+            style={styles.modal}
+            >
+            <View style={styles.modal}>
+                <View>
+                    <Button
+                        onPress={() => LocalLibrary.clearDB() }
+                        title="Clear downloaded book DB"
+                        accessibilityLabel="Clear downloaded book DB"
+                    />
+                    <View style={styles.switchContainer}>
+                        <Text style={styles.switchLabel}>Demo user logged in</Text>
+                        <Switch
+                          onValueChange={(value) => this.setState({user: value})}
+                          value={this.state.user}
+                        />
+                    </View>
+                    <Button
+                      onPress={() => this.setState({modalVisible:false}) }
+                      title="Dismiss"
+                      color="#880000"
+                      accessibilityLabel="Dismiss"
+                    />
+                </View>
+            </View>
+        </Modal>
+
         <View style={styles.buttonContainer}>
             <Button
-              onPress={() => navigation.navigate('Library') }
+              onPress={() => showLibrary(this.state.user) }
               title="Get more books in the Library"
                   color="#222288"
               accessibilityLabel="Get more books in the library"
             />
-            {clearDatabaseButton}
+            {showDebugMenuButton}
         </View>
         <GridView
             items={this.state.dataSource}
@@ -119,7 +170,7 @@ export default class FrontPage extends React.Component {
             renderItem={this.renderItem}
             contentContainerStyle={styles.listView}
             navigation={ navigation }
-          />
+        />
     </View>
   }
 }
