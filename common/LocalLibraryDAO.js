@@ -2,16 +2,30 @@ import React from 'react';
 const Realm = require('realm');
 
 var realm = new Realm({
- schema: [{
-    name: 'Book',
-    primaryKey: 'id',
-    properties: {
-        id: {type:'string'},
-        path: 'string',
-        readCount: {type: 'int', default: 0},
-        rating: {type: 'int', default: 0},
-        earmarkedPage: 'string'
-    }}]
+    schema: [{
+        name: 'Book',
+        primaryKey: 'id',
+        properties: {
+            id: {type:'string'},
+            path: 'string',
+            readCount: {type: 'int', default: 0},
+            rating: {type: 'int', default: 0},
+            earmarkedPage: {type: 'int', default: 0}
+    }}],
+    schemaVersion: 1,
+    migration: function(oldRealm, newRealm) {
+    // only apply this change if upgrading to schemaVersion 1
+    if (oldRealm.schemaVersion < 1) {
+          var oldObjects = oldRealm.objects('Book');
+          var newObjects = newRealm.objects('Book');
+
+          // loop through all objects and set the new properties in the new schema
+          for (var i = 0; i < oldObjects.length; i++) {
+            newObjects[i].rating = 0;
+            newObjects[i].earmarkedPage = 0;
+          }
+        }
+    },
 });
 
 class LocalLibraryDAO {
