@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  LayoutAnimation,
 } from 'react-native';
 
 import DownloadableBook from './DownloadableBook';
@@ -66,6 +67,10 @@ export default class Bookstore extends React.Component {
 
   renderItem(item) {
       return <DownloadableBook key={item.bookId} book={item} navigation={ this.navigation } />
+  }
+
+  componentWillUpdate() {
+      LayoutAnimation.easeInEaseOut();
   }
 
   render() {

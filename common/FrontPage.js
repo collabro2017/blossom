@@ -7,6 +7,7 @@ import {
   Modal,
   Alert,
   Switch,
+  LayoutAnimation,
 } from 'react-native';
 
 import GridView from 'react-native-grid-view';
@@ -45,6 +46,10 @@ export default class FrontPage extends React.Component {
       this.updateBookList();
 
       window.EventBus.on('libraryUpdated', this.updateBookList.bind(this));
+  }
+
+  componentWillUpdate() {
+      LayoutAnimation.easeInEaseOut();
   }
 
   updateBookList() {
