@@ -18,7 +18,7 @@ function readFileIntoBook(basePath, bookFilename, context) {
       .then((data) => {
           var book = new ObjectCreator(JSON.parse(data));
 
-          book.thumbnail = `file://${basePath}${book.thumbnail}`;
+          book.thumbnail = `file://${basePath}${book.cover_image_thumbnail}`;
 
           for(i=0; i<book.pages.length; i++) {
               var page = book.pages[i];
@@ -30,7 +30,7 @@ function readFileIntoBook(basePath, bookFilename, context) {
                   }
               }
           }
-
+          
           context.fetchDone(book);
     })
     .catch((err) => { console.log(`Exception when reading book from ${path}: >> ${err} <<`) });

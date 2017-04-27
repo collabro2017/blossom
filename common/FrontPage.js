@@ -62,7 +62,7 @@ export default class FrontPage extends React.Component {
             .then((data) => {
                 var book = new ObjectCreator(JSON.parse(data));
 
-                book.thumbnail = `file://${bookDataObject.path}${book.thumbnail}`;
+                book.thumbnail = `file://${bookDataObject.path}${book.cover_image_thumbnail}`;
 
                 for(i=0; i<book.pages.length; i++) {
                     var page = book.pages[i];
