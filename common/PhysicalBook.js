@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  TouchableHighlight,
+  TouchableOpacity,
   StyleSheet,
   Text,
   View,
@@ -27,7 +27,7 @@ export default class PhysicalBook extends React.Component {
       const { navigate } = this.props.navigation;
 
       return (
-        <TouchableHighlight
+        <TouchableOpacity
           onPress={() => this.showReader(this.props.book)}
           onLongPress={() => this.showDetails(this.props.book)}
           style={styles.physicalBook} >
@@ -43,7 +43,7 @@ export default class PhysicalBook extends React.Component {
             <Text style={styles.bookAuthor}>{this.props.book.author}</Text>
           </View>
         </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
       );
   }
 }

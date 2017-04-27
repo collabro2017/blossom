@@ -99,7 +99,6 @@ var styles = StyleSheet.create({
         }
   },
   galleryContainer : {
-      paddingTop: 40,
       paddingBottom: 10,
       paddingLeft: 20,
       paddingRight: 20,
@@ -116,6 +115,14 @@ var styles = StyleSheet.create({
     },
     buttonContainer : {
         backgroundColor: 'white',
+        shadowColor: "#000000",
+        shadowOpacity: 0.25,
+        shadowRadius: 5,
+        shadowOffset: {
+            height: 2,
+            width: 0
+        },
+        zIndex: 9999
     },
 
     switchContainer: {
@@ -134,9 +141,10 @@ var styles = StyleSheet.create({
     modal: {
         paddingTop: 10,
         paddingBottom: 10,
-        marginTop: 100,
-        marginLeft: 40,
-        marginRight: 40,
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        left: 0,
         backgroundColor: 'white',
         shadowColor: "#000000",
         shadowOpacity: 1,
@@ -315,6 +323,8 @@ var styles = StyleSheet.create({
   userBarText: {
       color: 'white'
   },
+  frontPage: {
+      flex: 1
   }
 });
 

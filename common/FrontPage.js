@@ -110,10 +110,15 @@ export default class FrontPage extends React.Component {
     if (__DEV__) {
         showDebugMenuButton = <Button
           onPress={() => this.setState({modalVisible : true}) }
-          title="Debug Menu"
-          color="#882222"
+          title="▲ Debug Menu"
+          color="black"
           accessibilityLabel="Show debug menu"
         />
+    }
+
+    var frontPageOverlay = null;
+    if (this.state.modalVisible) {
+        frontPageOverlay = <View style={styles.frontPageOverlay} />
     }
 
     function showLibrary(user) {
@@ -135,55 +140,72 @@ export default class FrontPage extends React.Component {
         }
     }
 
-    return  <View style={styles.galleryContainer}>
-        <Modal
-            animationType={"slide"}
-            transparent={true}
-            visible={this.state.modalVisible}
-            onRequestClose={() => {alert("Modal has been closed.")}}
-            style={styles.modal}
-            >
-            <View style={styles.modal}>
-                <View>
-                    <Button
-                        onPress={() => LocalLibrary.clearDB() }
-                        title="Clear downloaded book DB"
-                        accessibilityLabel="Clear downloaded book DB"
-                    />
-                    <View style={styles.switchContainer}>
-                        <Text style={styles.switchLabel}>Demo user logged in</Text>
-                        <Switch
-                          onValueChange={(value) => this.setState({user: value})}
-                          value={this.state.user}
-                        />
-                    </View>
-                    <Button
-                      onPress={() => this.setState({modalVisible:false}) }
-                      title="Dismiss"
-                      color="#880000"
-                      accessibilityLabel="Dismiss"
-                    />
-                </View>
-            </View>
-        </Modal>
+    function showAlert(text, actionIfYes) {
+        Alert.alert(
+          'Are you sure?',
+          text,
+          [
+            {text: 'Do it, man!', onPress: () => actionIfYes},
+            {text: 'Nah', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          ],
+          { cancelable: true }
+        )
+    }
 
+    return <View style={styles.frontPage}>
         {userBar}
+        {frontPageOverlay}
         <View style={styles.buttonContainer}>
             <Button
               onPress={() => showLibrary(this.state.user) }
-              title="Get more books in the Library"
+              title="&#128218; Get more books in the Library &#128218;"
                   color="#222288"
               accessibilityLabel="Get more books in the library"
             />
+        </View>
+        <View style={styles.galleryContainer}>
+            <Modal
+                animationType={"slide"}
+                transparent={true}
+                visible={this.state.modalVisible}
+                onRequestClose={() => {alert("Modal has been closed.")}}
+                style={styles.modal}
+                >
+                <View style={styles.modal}>
+                    <View>
+                        <Button
+                            onPress={() => showAlert('Clearing the book DB means all the books you\'ve downloaded will stay on disk, but their DB references will be gone. You can still re-download them. Do you still want to clear the book DB?',
+                                LocalLibrary.clearDB()) }
+                            title="Clear downloaded book DB"
+                            accessibilityLabel="Clear downloaded book DB"
+                        />
+                        <View style={styles.switchContainer}>
+                            <Text style={styles.switchLabel}>Demo user logged in</Text>
+                            <Switch
+                              onValueChange={(value) => this.setState({user: value})}
+                              value={this.state.user}
+                            />
+                        </View>
+                        <Button
+                          onPress={() => this.setState({modalVisible:false}) }
+                          title="Dismiss"
+                          color="#880000"
+                          accessibilityLabel="Dismiss"
+                        />
+                    </View>
+                </View>
+            </Modal>
+
+
+            <GridView
+                items={this.state.dataSource}
+                itemsPerRow={BOOKS_PER_ROW}
+                renderItem={this.renderItem}
+                contentContainerStyle={styles.listView}
+                navigation={ navigation }
+            />
             {showDebugMenuButton}
         </View>
-        <GridView
-            items={this.state.dataSource}
-            itemsPerRow={BOOKS_PER_ROW}
-            renderItem={this.renderItem}
-            contentContainerStyle={styles.listView}
-            navigation={ navigation }
-        />
     </View>
   }
 }
