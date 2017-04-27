@@ -306,6 +306,15 @@ var styles = StyleSheet.create({
       fontFamily: 'Lora',
       color: 'white'
   },
+  userbar: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'rgba(100,189,189,1)',
+      zIndex: 800
+  },
+  userBarText: {
+      color: 'white'
+  },
   }
 });
 

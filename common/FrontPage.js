@@ -99,6 +99,13 @@ export default class FrontPage extends React.Component {
     render() {
     const { navigation } = this.props;
 
+    var userBar = null;
+    if(this.state.user) {
+        userBar = (<View style={styles.userbar}>
+            <Text style={styles.userBarText}>Demo user logged in</Text>
+        </View>);
+    }
+
     var showDebugMenuButton = null;
     if (__DEV__) {
         showDebugMenuButton = <Button
@@ -160,6 +167,7 @@ export default class FrontPage extends React.Component {
             </View>
         </Modal>
 
+        {userBar}
         <View style={styles.buttonContainer}>
             <Button
               onPress={() => showLibrary(this.state.user) }
