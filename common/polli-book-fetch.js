@@ -75,7 +75,7 @@ class PolliBookFetch {
             // response data will be saved to this path if it has access right.
             path : this.getPathForId(bookId),
         })
-        .fetch('GET', 'https://s3.amazonaws.com/polli-static/peter-rabbit/peter-rabbit.zip', {
+        .fetch('GET', `https://s3.amazonaws.com/polli-static/peter-rabbit/${bookId}.zip`, {
             //some headers ..
         })
         .progress((received, total) => {
