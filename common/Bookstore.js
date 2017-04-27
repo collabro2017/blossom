@@ -31,15 +31,15 @@ export default class Bookstore extends React.Component {
       }
 
     var demoBook2 = {
-        "title": "Friends for Toddlers",
-        "thumbnail": 'https://images-na.ssl-images-amazon.com/images/I/51XSMSDZBFL._SY344_BO1,204,203,200_.jpg',
+        "title": "I will help you",
+        "thumbnail": 'https://bookdash.org/wp-content/uploads/2015/12/i-will-help-you-cover-600x590.jpg',
         "L1": 'English',
         "L2": 'Spanish',
-        "author": "Loolie",
-        "bookId": "friends-rabbit",
-        "about": "Friends is an American television sitcom, created by David Crane and Marta Kauffman, which aired on NBC from September 22, 1994, to May 6, 2004, lasting ten seasons",
+        "author": "Andrea Abbott",
+        "bookId": "i-will-help-you",
+        "about": "When Mama Heron needs help, Lungile comes to her rescue.",
         "ages": "Definitely EVERYONE!",
-        "publisher": "NBC",
+        "publisher": "Bookdash",
         "rating": 3.7,
     }
 
