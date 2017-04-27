@@ -78,9 +78,15 @@ class PolliBookFetch {
         .fetch('GET', 'https://s3.amazonaws.com/polli-static/peter-rabbit/peter-rabbit.zip', {
             //some headers ..
         })
+        .progress((received, total) => {
+            var percent = `${Math.ceil(received/total*100)}% `;
+            context.setState({percentDownloaded : percent });
+        })
         .then((res) => {
             // the path should be dirs.DocumentDir + 'path-to-file.anything'
             console.log('The file saved to ', res.path());
+
+            context.setState({percentDownloaded : '100%' });
 
             //unzip
             const sourcePath = res.path();

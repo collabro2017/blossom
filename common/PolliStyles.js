@@ -281,6 +281,31 @@ var styles = StyleSheet.create({
   detailSliderLabel: {
     alignItems:'center',
     borderWidth: 3
+  },
+  downloadOverlay: {
+      backgroundColor: 'rgba(0,120,0,0.6)',
+      height: 250,
+      width: 150,
+      left: -5,
+      top: -5,
+      position: 'absolute',
+      justifyContent: 'center',
+      alignItems: 'center'
+  },
+  frontPageOverlay: {
+      backgroundColor: 'rgba(0,0,0,0.6)',
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      width: '100%',
+      height: '100%',
+      zIndex: 700
+  },
+  downloadProgress: {
+      fontSize: 24,
+      fontFamily: 'Lora',
+      color: 'white'
+  },
   }
 });
 

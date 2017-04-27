@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  TouchableHighlight,
+  TouchableOpacity,
   StyleSheet,
   Text,
   View,
@@ -14,6 +14,13 @@ import styles from "./PolliStyles";
 const fetcher = new PolliBookFetch();
 
 export default class DownloadableBook extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = { percentDownloaded : 0,
+                        showProgress : false }
+    }
 
     showReader(book) {
         const { navigate } = this.props.navigation;
@@ -30,34 +37,48 @@ export default class DownloadableBook extends React.Component {
     fetchDone(book) {
         //var book = require(bookJsonPath);
         this.showReader(book);
-
+        this.setState({showProgress : false});
     }
 
     downloadBook(bookDescriptor) {
+        this.setState({showProgress : true, percentDownloaded: 0});
         fetcher.fetchBook(bookDescriptor.bookId, this);
+    }
+
+    shouldShowOverlay() {
+        if(!this.state.showProgress) {
+            return { display: 'none' };
+        }
+
+        return { display: 'flex' };
     }
 
     render() {
       const { navigate } = this.props.navigation;
 
       return (
-        <TouchableHighlight
+        <TouchableOpacity
         onPress={() => this.downloadBook(this.props.book)}
         onLongPress={() => this.showLibraryDetails(this.props.book)}
         style={styles.physicalBook} >
-        <View>
-          <FitImage
-            source={{uri: this.props.book.thumbnail}}
-            style={styles.thumbnail}
-          />
-          <View >
-            <Text
-            style={styles.bookTitle}
-            numberOfLines={3}>{this.props.book.title}</Text>
-            <Text style={styles.bookAuthor}>{this.props.book.author}</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
+            <View>
+                <View>
+                  <FitImage
+                    source={{uri: this.props.book.thumbnail}}
+                    style={styles.thumbnail}
+                  />
+                  <View >
+                    <Text
+                    style={styles.bookTitle}
+                    numberOfLines={3}>{this.props.book.title}</Text>
+                    <Text style={styles.bookAuthor}>{this.props.book.author}</Text>
+                  </View>
+                </View>
+                <View style={[styles.downloadOverlay,this.shouldShowOverlay()]}>
+                    <Text style={styles.downloadProgress}>{this.state.percentDownloaded}</Text>
+                </View>
+            </View>
+        </TouchableOpacity>
       );
   }
 }
