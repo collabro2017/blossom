@@ -7,6 +7,7 @@ import {
   Modal,
   Alert,
   Switch,
+  TouchableWithoutFeedback,
   LayoutAnimation,
 } from 'react-native';
 
@@ -37,7 +38,8 @@ export default class FrontPage extends React.Component {
         this.state = {
           dataSource: [BOOK, BOOK_CHINESE],
           user: null,
-          modalVisible: false
+          modalVisible: false,
+          tutorialVisible: false,
         }
       }
 
@@ -96,6 +98,15 @@ export default class FrontPage extends React.Component {
         return <PhysicalBook book={item} key={item.bookId} navigation={ this.navigation } />
     }
 
+    showTutorial(context) {
+        console.log(this.name);
+        context.setState({ modalVisible: false});
+
+        setTimeout(function() {
+            context.setState({ tutorialVisible: true});
+        }, 400);
+    }
+
     render() {
     const { navigation } = this.props;
 
@@ -108,6 +119,8 @@ export default class FrontPage extends React.Component {
 
     var showDebugMenuButton = null;
     if (__DEV__) {
+        console.ignoredYellowBox = ['Warning: You are manually calling'];
+
         showDebugMenuButton = <Button
           onPress={() => this.setState({modalVisible : true}) }
           title="▲ Debug Menu"
@@ -165,10 +178,35 @@ export default class FrontPage extends React.Component {
         </View>
         <View style={styles.galleryContainer}>
             <Modal
+            visible={this.state.tutorialVisible}
+            animationType={"fade"}
+            transparent={true}
+            >
+                <TouchableWithoutFeedback onPress={() => this.setState({tutorialVisible: false})}>
+                    <View>
+                        <View style={{ width: 3000, height: 3000, borderRadius: 1500, backgroundColor: 'rgba(0,0,0,0)', borderWidth: 1400, borderColor: 'rgba(0,0,0,0.75)', position: 'absolute', top: -1500, left: -1500 }} >
+                        </View>
+                        <Text style={{color:'white', fontSize: 20, position: 'absolute', left: 110, top: 30, shadowColor: "#000000",
+                        shadowOpacity: 0.6,
+                        shadowRadius: 2,
+                        shadowOffset: {
+                            height: 0,
+                            width: 0
+                        } }}>This is the start of a tutorial view.{"\n"}Just a demo. Tap anywhere.</Text>
+                        <View style={{height: 200}} />
+                        <Button
+                            onPress={() => this.setState({tutorialVisible: false})}
+                            title="Get started"
+                            accessibilityLabel="Get started"
+                            color="#00DDAA"
+                        />
+                    </View>
+                </TouchableWithoutFeedback>
+            </Modal>
+            <Modal
                 animationType={"slide"}
                 transparent={true}
                 visible={this.state.modalVisible}
-                onRequestClose={() => {alert("Modal has been closed.")}}
                 style={styles.modal}
                 >
                 <View style={styles.modal}>
@@ -178,6 +216,11 @@ export default class FrontPage extends React.Component {
                                 LocalLibrary.clearDB()) }
                             title="Clear downloaded book DB"
                             accessibilityLabel="Clear downloaded book DB"
+                        />
+                        <Button
+                            onPress={() => this.showTutorial(this) }
+                            title="Show (experimental) tutorial"
+                            accessibilityLabel="Show tutorial"
                         />
                         <View style={styles.switchContainer}>
                             <Text style={styles.switchLabel}>Demo user logged in</Text>
@@ -195,7 +238,6 @@ export default class FrontPage extends React.Component {
                     </View>
                 </View>
             </Modal>
-
 
             <GridView
                 items={this.state.dataSource}
