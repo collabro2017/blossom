@@ -107,6 +107,11 @@ export default class FrontPage extends React.Component {
         }, 400);
     }
 
+    showSettings() {
+      const { navigate } = this.props.navigation;
+      navigate('UserSettings');
+    }
+
     render() {
     const { navigation } = this.props;
 
@@ -246,6 +251,16 @@ export default class FrontPage extends React.Component {
                 contentContainerStyle={styles.listView}
                 navigation={ navigation }
             />
+            <View style={styles.settingsButtonContainer}>
+                <Button
+                  title="User Settings"
+                  color="grey"
+                  style={styles.settingsButton}
+                  onPress={() => this.showSettings() }
+                />
+            </View>
+
+            
             {showDebugMenuButton}
         </View>
     </View>

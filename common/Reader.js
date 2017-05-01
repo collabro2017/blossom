@@ -10,7 +10,7 @@ import {
   Platform,
 } from 'react-native';
 
-import PolliPicker from './Picker';
+import PolliPicker from './PolliPicker';
 import styles from "./PolliStyles";
 
 var Swiper = require('react-native-swiper');
@@ -22,7 +22,7 @@ var Toast = require('./Toast.js');
 
 var Reader = React.createClass({
   displayName : 'Reader',
-  
+
   getInitialState : function() {
     return {
       page : 1,

@@ -20,6 +20,7 @@ import FrontPage from './FrontPage';
 import Bookstore from './Bookstore';
 import BookDetail from './BookDetail';
 import BookLibraryDetail from './BookLibraryDetail';
+import UserSettings from './UserSettings';
 
 const AppContainer = StackNavigator({
   Main: {screen: FrontPage},
@@ -27,6 +28,7 @@ const AppContainer = StackNavigator({
   Library: {screen: Bookstore},
   BookDetail: {screen: BookDetail},
   BookLibraryDetail: {screen: BookLibraryDetail},
+  UserSettings: {screen: UserSettings},
 });
 
 export default AppContainer;
