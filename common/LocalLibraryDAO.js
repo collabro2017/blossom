@@ -10,9 +10,10 @@ var realm = new Realm({
             path: 'string',
             readCount: {type: 'int', default: 0},
             rating: {type: 'int', default: 0},
-            earmarkedPage: {type: 'int', default: 0}
+            earmarkedPage: {type: 'int', default: 0},
+            blendLevel: {type: 'int', default: 0},
     }}],
-    schemaVersion: 1,
+    schemaVersion: 2,
     migration: function(oldRealm, newRealm) {
     // only apply this change if upgrading to schemaVersion 1
     if (oldRealm.schemaVersion < 1) {
@@ -20,9 +21,19 @@ var realm = new Realm({
           var newObjects = newRealm.objects('Book');
 
           // loop through all objects and set the new properties in the new schema
-          for (var i = 0; i < oldObjects.length; i++) {
+          for (var i = 0; i < newObjects.length; i++) {
             newObjects[i].rating = 0;
             newObjects[i].earmarkedPage = 0;
+          }
+        }
+
+    if (oldRealm.schemaVersion < 2) {
+          var oldObjects = oldRealm.objects('Book');
+          var newObjects = newRealm.objects('Book');
+
+          // loop through all objects and set the new properties in the new schema
+          for (var i = 0; i < newObjects.length; i++) {
+            newObjects[i].blendLevel = 0;
           }
         }
     },
