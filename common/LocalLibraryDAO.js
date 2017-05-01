@@ -9,11 +9,11 @@ var realm = new Realm({
             id: {type:'string'},
             path: 'string',
             readCount: {type: 'int', default: 0},
-            rating: {type: 'int', default: 0},
+            rating: {type: 'float', default: 0},
             earmarkedPage: {type: 'int', default: 0},
             blendLevel: {type: 'int', default: 0},
     }}],
-    schemaVersion: 2,
+    schemaVersion: 3,
     migration: function(oldRealm, newRealm) {
     // only apply this change if upgrading to schemaVersion 1
     if (oldRealm.schemaVersion < 1) {
@@ -48,6 +48,34 @@ class LocalLibraryDAO {
         window.EventBus.trigger('libraryUpdated', `New book added: ${bookId}`);
     }
 
+    updateRating(bookId, rating) {
+        let book = realm.objects('Book').filtered(`id = "${bookId}"`);
+        realm.write(() => {
+            book.rating = rating;
+        });
+    }
+
+    updateReadCount(bookId, readCount) {
+        let book = realm.objects('Book').filtered(`id = "${bookId}"`);
+        realm.write(() => {
+            book.readCount = readCount;
+        });
+    }
+
+    updateEarmarkedPage(bookId, earmarkedPage) {
+        let book = realm.objects('Book').filtered(`id = "${bookId}"`);
+        realm.write(() => {
+            book.earmarkedPage = earmarkedPage;
+        });
+    }
+
+    updateBlendLevel(bookId, blendLevel) {
+        let book = realm.objects('Book').filtered(`id = "${bookId}"`);
+        realm.write(() => {
+            book.blendLevel = blendLevel;
+        });
+    }
+
     delete(bookId) {
         realm.write(() => {
           let book = realm.objects('Book').filtered(`id = "${bookId}"`);
@@ -59,7 +87,7 @@ class LocalLibraryDAO {
 
     get(bookId, callback) {
         let book = realm.objects('Book').filtered(`id = "${bookId}"`);
-        callBack(book);
+        callback(book);
     }
 
     getAll() {
