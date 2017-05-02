@@ -192,6 +192,8 @@ var styles = StyleSheet.create({
     width: 125,
   },
   thumbnail: {
+    height:180,
+    width:140,
   },
   //details screen
   detailContainer: {
