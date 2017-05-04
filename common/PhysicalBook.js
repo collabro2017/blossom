@@ -29,7 +29,9 @@ export default class PhysicalBook extends React.Component {
         const { navigate } = this.props.navigation;
         var stats = statsArray[0];
         console.log('stats for book ID ' + global.currentBook.bookId, stats);
-        navigate('Reader',{blend:'A', earmarkedPage:stats.earmarkedPage});
+        var navigationProps = {blend: 'A'};
+        navigationProps.earmarkedPage = stats.earmarkedPage ? stats.earmarkedPage : 1;
+        navigate('Reader',navigationProps);
     }
 
     render() {
