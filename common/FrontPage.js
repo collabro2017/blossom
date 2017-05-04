@@ -37,6 +37,7 @@ export default class FrontPage extends React.Component {
         super(props);
         this.state = {
           dataSource: [BOOK, BOOK_CHINESE],
+          user: null,
           modalVisible: false,
           tutorialVisible: false,
         }
@@ -102,6 +103,11 @@ export default class FrontPage extends React.Component {
         }, 10);
     }
 
+    showSettings() {
+      const { navigate } = this.props.navigation;
+      navigate('UserSettings');
+    }
+
     render() {
         const { navigation } = this.props;
 
@@ -113,7 +119,7 @@ export default class FrontPage extends React.Component {
         }
 
         var showDebugMenuButton = null;
-        if (true) {
+        if (__DEV__) {
             console.ignoredYellowBox = ['Warning: You are manually calling'];
 
             showDebugMenuButton = <Button
@@ -215,15 +221,24 @@ export default class FrontPage extends React.Component {
                     </View>
                 </Modal>
 
-                <GridView
-                    items={this.state.dataSource}
-                    itemsPerRow={BOOKS_PER_ROW}
-                    renderItem={this.renderItem}
-                    contentContainerStyle={styles.listView}
-                    navigation={ navigation }
+            <GridView
+                items={this.state.dataSource}
+                itemsPerRow={BOOKS_PER_ROW}
+                renderItem={this.renderItem}
+                contentContainerStyle={styles.listView}
+                navigation={ navigation }
+            />
+            <View style={styles.settingsButtonContainer}>
+                <Button
+                  title="User Settings"
+                  color="grey"
+                  style={styles.settingsButton}
+                  onPress={() => this.showSettings() }
                 />
-                {showDebugMenuButton}
             </View>
+
+            
+            {showDebugMenuButton}
         </View>
   }
 }

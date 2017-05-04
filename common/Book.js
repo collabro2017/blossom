@@ -24,7 +24,7 @@ const STORY_FONT_SIZE = /*Device.isIpad() ? 26 :*/ 16;
 var Book = {
   "title": "The Tale of Peter Rabbit",
   "bookId": "1",
-  "thumbnail": 'cover.png',
+  "thumbnail": 'cover',
   "L1": 'English',
   "L2": 'Spanish',
   "rating": 2.5,
@@ -50,9 +50,11 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : 'cover.png',
+      src : 'cover',
       style : {
-          marginBottom: 40,
+          marginBottom: 30,
+          width: 350,
+          height: 320,
       }
     },
     {
@@ -142,9 +144,11 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '2.png',
+      src : 'pr_2',
       style : {
         marginBottom: 40,
+        width: 350,
+        height: 360,
       }
     },
     {
@@ -327,9 +331,11 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '3.png',
+      src : 'pr_3',
       style : {
-        marginBottom: 40,
+        marginBottom: 30,
+        width: 350,
+        height: 360,
       }
     },
     {
@@ -473,7 +479,7 @@ var Book = {
       "type": "paragraph",
       style : {
         marginTop : 20,
-        marginBottom : 100
+        marginBottom : 20
       },
       "content": [{
         "type": "text",
@@ -492,9 +498,11 @@ var Book = {
     },
     {
       type : 'image',
-      src : '4.png',
+      src : 'pr_4',
       style : {
         marginBottom: 40,
+        width: 350,
+        height: 360,
       }
     }]
   }, {
@@ -502,9 +510,11 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '5.png',
+      src : 'pr_5',
       style : {
         marginBottom: 40,
+        width: 350,
+        height: 360,
       }
     },
     {
@@ -646,9 +656,11 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '6.png',
+      src : 'pr_6',
       style : {
         marginBottom: 40,
+        width: 350,
+        height: 360,
       }
     },
     {
@@ -777,9 +789,11 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '7.png',
+      src : 'pr_7',
       style : {
         marginBottom: 40,
+        width: 350,
+        height: 360,
       }
     },
     {
@@ -895,9 +909,11 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '8.png',
+      src : 'pr_8',
       style : {
         marginBottom: 40,
+        width: 350,
+        height: 360,
       }
     },
     {
@@ -1043,9 +1059,11 @@ var Book = {
     },
     {
       type : 'image',
-      src : '9.png',
+      src : 'pr_9',
       style : {
         marginBottom: 40,
+        width: 350,
+        height: 360,
       }
     }]
   }, {
@@ -1053,9 +1071,11 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '10.png',
+      src : 'pr_10',
       style : {
         marginBottom: 40,
+        width: 350,
+        height: 360,
       }
     },
     {
@@ -1119,9 +1139,11 @@ var Book = {
     "content": [
     {
       type : 'image',
-      src : '11.png',
+      src : 'pr_11',
       style : {
         marginBottom: 40,
+        width: 350,
+        height: 360,
       }
     },
     {

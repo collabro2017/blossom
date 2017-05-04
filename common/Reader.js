@@ -11,7 +11,7 @@ import {
   Platform,
 } from 'react-native';
 
-import PolliPicker from './Picker';
+import PolliPicker from './PolliPicker';
 import styles from "./PolliStyles";
 
 var Swiper = require('react-native-swiper');

@@ -192,6 +192,8 @@ var styles = StyleSheet.create({
     width: 125,
   },
   thumbnail: {
+    height:180,
+    width:140,
   },
   //details screen
   detailContainer: {
@@ -325,7 +327,36 @@ var styles = StyleSheet.create({
   },
   frontPage: {
       flex: 1
-  }
+  },
+
+  //settings screen
+  settingsContainer: {
+    flex: 1,
+  },
+  settingsSection: {
+    justifyContent: 'center',
+    margin: 20,
+  },
+  settingsTextTitle: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: 'black',
+  },
+  settingsTextInput: {
+    fontSize: 20,
+    width: 175,
+  },
+  settingsSectionTitle: {
+    fontWeight: 'bold',
+    fontSize: 28,
+    marginBottom: 10,
+  },
+  settingsField: {
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+  },
+
 });
 
 module.exports = styles;

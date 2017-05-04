@@ -6,7 +6,7 @@ import {
 
 import Picker from 'react-native-picker';
 
-export default class GeneralPicker extends Component {
+export default class PolliPicker extends Component {
 
   constructor(props){
     super(props);

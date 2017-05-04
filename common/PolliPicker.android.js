@@ -4,21 +4,20 @@ import {
   StyleSheet,
 } from 'react-native';
 
+import styles from './PolliStyles';
+
 export default class PolliPicker extends Component {
   render () {
     var items = [];
-    var pickerOptions = this.props.pickerOptions;
-
-    Object.keys(pickerOptions).map(function(key) {
-      items.push(<Picker.Item label={pickerOptions[key]} value={key} />);
+    Object.keys(global.currentBook.blends).map(function(key) {
+      items.push(<Picker.Item label={global.currentBook.blends[key]} value={key} />);
     });
     return (
       <Picker
         style={styles.picker}
-        selectedValue={this.props.selected}
+        selectedValue={this.props.blend}
         onValueChange={(key)=>{this.props.onValueChange(key)}}
-        mode="dropdown"
-        enabled={this.props.enabled}>
+        mode="dropdown">
 
         {items}
 
@@ -26,9 +25,3 @@ export default class PolliPicker extends Component {
     )
   }
 }
-
-var styles = StyleSheet.create({
-  picker: {
-    width: 110,
-  },
-});
