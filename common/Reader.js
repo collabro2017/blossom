@@ -28,9 +28,12 @@ var Reader = React.createClass({
   displayName : 'Reader',
 
   getInitialState : function() {
+      var page = this.props.navigation.state.params.earmarkedPage
+          ? this.props.navigation.state.params.earmarkedPage
+          : 1;
     return {
-      page : this.props.navigation.state.params.earmarkedPage,
-      continuedBar: this.props.navigation.state.params.earmarkedPage,
+      page : page,
+      continuedBar: this.props.navigation.state.params.earmarkedPage > 1,
       blend : this.props.navigation.state.params.blend,
       contentWidth : Dimensions.get('window').width,
       contentHeight : Dimensions.get('window').height,
