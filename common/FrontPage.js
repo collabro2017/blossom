@@ -37,7 +37,7 @@ export default class FrontPage extends React.Component {
         super(props);
         this.state = {
           dataSource: [BOOK, BOOK_CHINESE],
-          user: null,
+          demoUserSwitchOn: false,
           modalVisible: false,
           tutorialVisible: false,
         }
@@ -106,6 +106,12 @@ export default class FrontPage extends React.Component {
     showSettings() {
       const { navigate } = this.props.navigation;
       navigate('UserSettings');
+    }
+
+    enableDemoUser(shouldEnable) {
+        global.user = shouldEnable;
+        console.log(`switch on: ${shouldEnable}`);
+        this.setState({demoUserSwitchOn: shouldEnable, modalVisible:false});
     }
 
     render() {
@@ -207,8 +213,8 @@ export default class FrontPage extends React.Component {
                             <View style={styles.switchContainer}>
                                 <Text style={styles.switchLabel}>Demo user logged in</Text>
                                 <Switch
-                                  onValueChange={(value) => global.user = value}
-                                  value={global.user}
+                                  onValueChange={(value) => this.enableDemoUser(value)}
+                                  value={this.state.demoUserSwitchOn}
                                 />
                             </View>
                             <Button
@@ -237,9 +243,10 @@ export default class FrontPage extends React.Component {
                 />
             </View>
 
-            
+
             {showDebugMenuButton}
         </View>
+    </View>
   }
 }
 
