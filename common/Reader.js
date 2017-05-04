@@ -42,7 +42,8 @@ var Reader = React.createClass({
   },
   componentDidMount : function(){
     //StatusBar.setHidden(true, 'slide');
-    StatusBar.setBackgroundColor('blue');
+    if(Platform.OS == 'android')
+        StatusBar.setBackgroundColor('blue');
   },
   layoutChange : function(e) {
     this.updateBookSize(e.nativeEvent.layout.width, e.nativeEvent.layout.height);
