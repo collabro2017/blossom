@@ -37,17 +37,17 @@ export default class FrontPage extends React.Component {
         super(props);
         this.state = {
           dataSource: [BOOK, BOOK_CHINESE],
-          user: null,
           modalVisible: false,
           tutorialVisible: false,
         }
       }
 
       componentDidMount() {
-      console.log('did mount');
-      this.updateBookList();
+          console.log('did mount');
+          global.user = null;
+          this.updateBookList();
 
-      window.EventBus.on('libraryUpdated', this.updateBookList.bind(this));
+          window.EventBus.on('libraryUpdated', this.updateBookList.bind(this));
   }
 
   componentWillUpdate() {
@@ -89,11 +89,6 @@ export default class FrontPage extends React.Component {
       console.log('Number of books in library: ', downloadedBooks.length);
   }
 
-
-    static navigationOptions = {
-      title: 'My Books',
-    }
-
     renderItem(item) {
         return <PhysicalBook book={item} key={item.bookId} navigation={ this.navigation } />
     }
@@ -104,150 +99,169 @@ export default class FrontPage extends React.Component {
 
         setTimeout(function() {
             context.setState({ tutorialVisible: true});
-        }, 400);
+        }, 10);
     }
 
     render() {
-    const { navigation } = this.props;
+        const { navigation } = this.props;
 
-    var userBar = null;
-    if(this.state.user) {
-        userBar = (<View style={styles.userbar}>
-            <Text style={styles.userBarText}>Demo user logged in</Text>
-        </View>);
-    }
-
-    var showDebugMenuButton = null;
-    if (__DEV__) {
-        console.ignoredYellowBox = ['Warning: You are manually calling'];
-
-        showDebugMenuButton = <Button
-          onPress={() => this.setState({modalVisible : true}) }
-          title="▲ Debug Menu"
-          color="black"
-          accessibilityLabel="Show debug menu"
-        />
-    }
-
-    var frontPageOverlay = null;
-    if (this.state.modalVisible) {
-        frontPageOverlay = <View style={styles.frontPageOverlay} />
-    }
-
-    function showLibrary(user) {
-        if(user) {
-            navigation.navigate('Library');
+        var userBar = null;
+        if(global.user) {
+            userBar = (<View style={styles.userbar}>
+                <Text style={styles.userBarText}>Demo user logged in</Text>
+            </View>);
         }
-        else {
-            //no user logged in
+
+        var showDebugMenuButton = null;
+        if (true) {
+            console.ignoredYellowBox = ['Warning: You are manually calling'];
+
+            showDebugMenuButton = <Button
+              onPress={() => this.setState({modalVisible : true}) }
+              title="▲ Debug Menu"
+              color="black"
+              accessibilityLabel="Show debug menu"
+            />
+        }
+
+        var frontPageOverlay = null;
+        if (this.state.modalVisible) {
+            frontPageOverlay = <View style={styles.frontPageOverlay} />
+        }
+
+        function showAlert(text, actionIfYes) {
             Alert.alert(
-              '',
-              'Subscribe to Polli to get access to all of our titles for $5/month',
+              'Are you sure?',
+              text,
               [
-                {text: 'Subscribe', onPress: () => console.log('Register pressed')},
-                {text: 'Not right now', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                {text: 'I have a subscription', onPress: () => console.log('Log in Pressed')},
+                {text: 'Do it, man!', onPress: () => actionIfYes},
+                {text: 'Nah', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
               ],
               { cancelable: true }
             )
         }
-    }
 
-    function showAlert(text, actionIfYes) {
-        Alert.alert(
-          'Are you sure?',
-          text,
-          [
-            {text: 'Do it, man!', onPress: () => actionIfYes},
-            {text: 'Nah', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-          ],
-          { cancelable: true }
-        )
-    }
-
-    return <View style={styles.frontPage}>
-        {userBar}
-        {frontPageOverlay}
-        <View style={styles.buttonContainer}>
-            <Button
-              onPress={() => showLibrary(this.state.user) }
-              title="&#128218; Get more books in the Library &#128218;"
-                  color="#222288"
-              accessibilityLabel="Get more books in the library"
-            />
-        </View>
-        <View style={styles.galleryContainer}>
-            <Modal
-            visible={this.state.tutorialVisible}
-            animationType={"fade"}
-            transparent={true}
-            >
-                <TouchableWithoutFeedback onPress={() => this.setState({tutorialVisible: false})}>
-                    <View>
-                        <View style={{ width: 3000, height: 3000, borderRadius: 1500, backgroundColor: 'rgba(0,0,0,0)', borderWidth: 1400, borderColor: 'rgba(0,0,0,0.75)', position: 'absolute', top: -1500, left: -1500 }} >
-                        </View>
-                        <Text style={{color:'white', fontSize: 20, position: 'absolute', left: 110, top: 30, shadowColor: "#000000",
-                        shadowOpacity: 0.6,
-                        shadowRadius: 2,
-                        shadowOffset: {
-                            height: 0,
-                            width: 0
-                        } }}>This is the start of a tutorial view.{"\n"}Just a demo. Tap anywhere.</Text>
-                        <View style={{height: 200}} />
-                        <Button
-                            onPress={() => this.setState({tutorialVisible: false})}
-                            title="Get started"
-                            accessibilityLabel="Get started"
-                            color="#00DDAA"
-                        />
-                    </View>
-                </TouchableWithoutFeedback>
-            </Modal>
-            <Modal
-                animationType={"slide"}
+        return <View style={styles.frontPage}>
+            {userBar}
+            {frontPageOverlay}
+            {/*<View style={styles.buttonContainer}>
+                <Button
+                  onPress={() => showLibrary(global.user) }
+                  title="&#128218; Get more books in the Library &#128218;"
+                      color="#222288"
+                  accessibilityLabel="Get more books in the library"
+                />
+            </View>*/}
+            <View style={styles.galleryContainer}>
+                <Modal
+                visible={this.state.tutorialVisible}
+                animationType={"fade"}
                 transparent={true}
-                visible={this.state.modalVisible}
-                style={styles.modal}
                 >
-                <View style={styles.modal}>
-                    <View>
-                        <Button
-                            onPress={() => showAlert('Clearing the book DB means all the books you\'ve downloaded will stay on disk, but their DB references will be gone. You can still re-download them. Do you still want to clear the book DB?',
-                                LocalLibrary.clearDB()) }
-                            title="Clear downloaded book DB"
-                            accessibilityLabel="Clear downloaded book DB"
-                        />
-                        <Button
-                            onPress={() => this.showTutorial(this) }
-                            title="Show (experimental) tutorial"
-                            accessibilityLabel="Show tutorial"
-                        />
-                        <View style={styles.switchContainer}>
-                            <Text style={styles.switchLabel}>Demo user logged in</Text>
-                            <Switch
-                              onValueChange={(value) => this.setState({user: value})}
-                              value={this.state.user}
+                    <TouchableWithoutFeedback onPress={() => this.setState({tutorialVisible: false})}>
+                        <View>
+                            <View style={{ width: 3000, height: 3000, borderRadius: 1500, backgroundColor: 'rgba(0,0,0,0)', borderWidth: 1400, borderColor: 'rgba(0,0,0,0.75)', position: 'absolute', top: -1500, left: -1500 }} >
+                            </View>
+                            <Text style={{color:'white', fontSize: 20, position: 'absolute', left: 110, top: 30, shadowColor: "#000000",
+                            shadowOpacity: 0.6,
+                            shadowRadius: 2,
+                            shadowOffset: {
+                                height: 0,
+                                width: 0
+                            } }}>This is the start of a tutorial view.{"\n"}Just a demo. Tap anywhere.</Text>
+                            <View style={{height: 200}} />
+                            <Button
+                                onPress={() => this.setState({tutorialVisible: false})}
+                                title="Get started"
+                                accessibilityLabel="Get started"
+                                color="#00DDAA"
                             />
                         </View>
-                        <Button
-                          onPress={() => this.setState({modalVisible:false}) }
-                          title="Dismiss"
-                          color="#880000"
-                          accessibilityLabel="Dismiss"
-                        />
+                    </TouchableWithoutFeedback>
+                </Modal>
+                <Modal
+                    animationType={"slide"}
+                    transparent={true}
+                    visible={this.state.modalVisible}
+                    style={styles.modal}
+                    >
+                    <View style={styles.modal}>
+                        <View>
+                            <Button
+                                onPress={() => showAlert('Clearing the book DB means all the books you\'ve downloaded will stay on disk, but their DB references will be gone. You can still re-download them. Do you still want to clear the book DB?',
+                                    LocalLibrary.clearDB()) }
+                                title="Clear downloaded book DB"
+                                accessibilityLabel="Clear downloaded book DB"
+                            />
+                            <Button
+                                onPress={() => this.showTutorial(this) }
+                                title="Show (experimental) tutorial"
+                                accessibilityLabel="Show tutorial"
+                            />
+                            <View style={styles.switchContainer}>
+                                <Text style={styles.switchLabel}>Demo user logged in</Text>
+                                <Switch
+                                  onValueChange={(value) => global.user = value}
+                                  value={global.user}
+                                />
+                            </View>
+                            <Button
+                              onPress={() => this.setState({modalVisible:false}) }
+                              title="Dismiss"
+                              color="#880000"
+                              accessibilityLabel="Dismiss"
+                            />
+                        </View>
                     </View>
-                </View>
-            </Modal>
+                </Modal>
 
-            <GridView
-                items={this.state.dataSource}
-                itemsPerRow={BOOKS_PER_ROW}
-                renderItem={this.renderItem}
-                contentContainerStyle={styles.listView}
-                navigation={ navigation }
-            />
-            {showDebugMenuButton}
+                <GridView
+                    items={this.state.dataSource}
+                    itemsPerRow={BOOKS_PER_ROW}
+                    renderItem={this.renderItem}
+                    contentContainerStyle={styles.listView}
+                    navigation={ navigation }
+                />
+                {showDebugMenuButton}
+            </View>
         </View>
-    </View>
   }
 }
+
+FrontPage.navigationOptions = props => {
+  const {navigation} = props;
+  const {state, setParams} = navigation;
+  const {params} = state;
+
+  function showLibrary() {
+      console.log("go to library", global.user)
+      if(global.user) {
+          navigation.navigate('Library');
+      }
+      else {
+          //no user logged in
+          Alert.alert(
+            '',
+            'Subscribe to Polli to get access to all of our titles for $5/month',
+            [
+              {text: 'Subscribe', onPress: () => console.log('Register pressed')},
+              {text: 'Not right now', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+              {text: 'I have a subscription', onPress: () => console.log('Log in Pressed')},
+            ],
+            { cancelable: true }
+          )
+      }
+  }
+
+  return {
+      title: 'My Books',
+      headerRight: (
+      <Button
+        title={'Library'}
+        color='#222288'
+        onPress={() => showLibrary() }
+        accessibilityLabel='Get more books in the Library'
+      />
+    ),
+  };
+};
