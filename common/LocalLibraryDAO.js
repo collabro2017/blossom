@@ -15,26 +15,34 @@ var realm = new Realm({
     }}],
     schemaVersion: 3,
     migration: function(oldRealm, newRealm) {
-    // only apply this change if upgrading to schemaVersion 1
-    if (oldRealm.schemaVersion < 1) {
-          var oldObjects = oldRealm.objects('Book');
-          var newObjects = newRealm.objects('Book');
+        // only apply this change if upgrading to schemaVersion 1
+        if (oldRealm.schemaVersion < 1) {
+              var oldObjects = oldRealm.objects('Book');
+              var newObjects = newRealm.objects('Book');
 
-          // loop through all objects and set the new properties in the new schema
-          for (var i = 0; i < newObjects.length; i++) {
-            newObjects[i].rating = 0;
-            newObjects[i].earmarkedPage = 0;
-          }
+              // loop through all objects and set the new properties in the new schema
+              for (var i = 0; i < newObjects.length; i++) {
+                newObjects[i].rating = 0;
+                newObjects[i].earmarkedPage = 0;
+              }
         }
+        if (oldRealm.schemaVersion < 2) {
+              var oldObjects = oldRealm.objects('Book');
+              var newObjects = newRealm.objects('Book');
 
-    if (oldRealm.schemaVersion < 2) {
-          var oldObjects = oldRealm.objects('Book');
-          var newObjects = newRealm.objects('Book');
+              // loop through all objects and set the new properties in the new schema
+              for (var i = 0; i < newObjects.length; i++) {
+                newObjects[i].blendLevel = 0;
+              }
+        }
+        if (oldRealm.schemaVersion < 3) {
+              var oldObjects = oldRealm.objects('Book');
+              var newObjects = newRealm.objects('Book');
 
-          // loop through all objects and set the new properties in the new schema
-          for (var i = 0; i < newObjects.length; i++) {
-            newObjects[i].blendLevel = 0;
-          }
+              // loop through all objects and set the new properties in the new schema
+              for (var i = 0; i < newObjects.length; i++) {
+                newObjects[i].rating = oldObjects[i].rating;
+              }
         }
     },
 });
