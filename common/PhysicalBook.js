@@ -9,18 +9,27 @@ import {
 import FitImage from 'react-native-fit-image';
 import styles from "./PolliStyles";
 
+import LocalLibraryDAO from './LocalLibraryDAO.js';
+var LocalLibrary = new LocalLibraryDAO();
+
 export default class PhysicalBook extends React.Component {
 
     showReader(book) {
-        const { navigate } = this.props.navigation;
         global.currentBook=book;
-        navigate('Reader',{blend:'A'});
+        LocalLibrary.get(global.currentBook.bookId, this.updateThenDisplayBook.bind(this));
     }
 
     showDetails(book) {
         const { navigate } = this.props.navigation;
         global.currentBook=book;
         navigate('BookDetail');
+    }
+
+    updateThenDisplayBook(statsArray) {
+        const { navigate } = this.props.navigation;
+        var stats = statsArray[0];
+        console.log('stats for book ID ' + global.currentBook.bookId, stats);
+        navigate('Reader',{blend:'A', earmarkedPage:stats.earmarkedPage});
     }
 
     render() {

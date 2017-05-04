@@ -12,18 +12,43 @@ import FitImage from 'react-native-fit-image';
 
 import Icon2 from 'react-native-vector-icons/FontAwesome';
 
+import LocalLibraryDAO from './LocalLibraryDAO.js';
+var LocalLibrary = new LocalLibraryDAO();
+
 export default class BookDetail extends React.Component {
 
   static navigationOptions = {
     title: 'Book Details',
   };
 
+  updateBookStats(statsArray) {
+      var stats = statsArray[0];
+      console.log('stats for book ID ' + global.currentBook.bookId, stats);
+
+      global.currentBook.rating = stats.rating;
+      global.currentBook.blendLevel = stats.blendLevel;
+      global.currentBook.readCount = stats.readCount;
+
+      this.setState({
+              currentRating: stats.rating,
+              sliderValue: 0.25 * stats.blendLevel,
+              readCount: stats.readCount
+          }
+      );
+  }
+
   constructor(props){
     super(props);
+
     this.state = {
-      sliderValue: 0.5,
-      currentRating: global.currentBook.rating,
+      sliderValue: 0,
+      currentRating: 0,
+      readCount: 0
     };
+  }
+
+  componentDidMount() {
+      LocalLibrary.get(global.currentBook.bookId, this.updateBookStats.bind(this));
   }
 
   getSliderLabel(value){
@@ -79,6 +104,18 @@ export default class BookDetail extends React.Component {
     return jsx_rating;
   }
 
+  updateRating(rating) {
+      this.setState({currentRating:rating});
+      global.currentBook.rating = rating;
+      LocalLibrary.update(global.currentBook);
+  }
+
+  updateReadCount(count) {
+      this.setState({readCount:count});
+      global.currentBook.readCount = count;
+      LocalLibrary.update(global.currentBook);
+  }
+
   renderStar(id,rating){
     var decimal_value = (id - rating);
 
@@ -88,7 +125,7 @@ export default class BookDetail extends React.Component {
     } else if (decimal_value > 0 && decimal_value < 1){
       starType = "star-half-o";
     }
-    return <Icon2 name={starType} size={40} color='orange' onPress ={()=>this.setState({currentRating:id})} onLongPress = {()=>this.setState({currentRating: (id - 0.5)})}/>
+    return <Icon2 name={starType} size={40} color='orange' onPress ={()=>this.updateRating(id)} onLongPress = {()=>this.updateRating(id - 0.5)}/>
   }
 
   showReader() {
@@ -117,7 +154,7 @@ export default class BookDetail extends React.Component {
         <View style={styles.detailMain}>
           <View style={styles.detailIconContainer}>
             <Icon2 style={styles.detailIcon} name="trophy" size={40} color='purple'/>
-            <Text style={styles.detailTitleText}>I've read this book 4 times</Text>
+            <Text style={styles.detailTitleText}>I've read this book {this.state.readCount} times</Text>
           </View>
           <View style={styles.detailIconContainer}>
             <Icon2 style={styles.detailIcon} name="globe" size={40} color='blue'/>

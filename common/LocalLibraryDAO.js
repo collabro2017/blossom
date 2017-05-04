@@ -48,31 +48,21 @@ class LocalLibraryDAO {
         window.EventBus.trigger('libraryUpdated', `New book added: ${bookId}`);
     }
 
-    updateRating(bookId, rating) {
-        let book = realm.objects('Book').filtered(`id = "${bookId}"`);
-        realm.write(() => {
-            book.rating = rating;
-        });
-    }
+    update(book) {
+        let storedBook = realm.objects('Book').filtered(`id = "${book.bookId}"`);
 
-    updateReadCount(bookId, readCount) {
-        let book = realm.objects('Book').filtered(`id = "${bookId}"`);
-        realm.write(() => {
-            book.readCount = readCount;
-        });
-    }
+        var creationParams = {id: book.bookId};
+        creationParams.path = (storedBook && storedBook.path) ? storedBook.path : '';
 
-    updateEarmarkedPage(bookId, earmarkedPage) {
-        let book = realm.objects('Book').filtered(`id = "${bookId}"`);
-        realm.write(() => {
-            book.earmarkedPage = earmarkedPage;
-        });
-    }
+        if(book.rating) {creationParams.rating = book.rating};
+        if(book.earmarkedPage) {creationParams.earmarkedPage = book.earmarkedPage};
+        if(book.readCount) {creationParams.readCount = book.readCount};
+        if(book.blendLevel) {creationParams.blendLevel = book.blendLevel};
 
-    updateBlendLevel(bookId, blendLevel) {
-        let book = realm.objects('Book').filtered(`id = "${bookId}"`);
+        console.log('creationParams', creationParams);
+
         realm.write(() => {
-            book.blendLevel = blendLevel;
+            realm.create('Book', creationParams, true);
         });
     }
 

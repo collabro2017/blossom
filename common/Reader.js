@@ -7,6 +7,7 @@ import {
   Button,
   Dimensions,
   StatusBar,
+  LayoutAnimation,
   Platform,
 } from 'react-native';
 
@@ -20,12 +21,16 @@ var Page = require('./Page.js');
 var mixins = require('./Mixins');
 var Toast = require('./Toast.js');
 
+import LocalLibraryDAO from './LocalLibraryDAO.js';
+var LocalLibrary = new LocalLibraryDAO();
+
 var Reader = React.createClass({
   displayName : 'Reader',
-  
+
   getInitialState : function() {
     return {
-      page : 1,
+      page : this.props.navigation.state.params.earmarkedPage,
+      continuedBar: this.props.navigation.state.params.earmarkedPage,
       blend : this.props.navigation.state.params.blend,
       contentWidth : Dimensions.get('window').width,
       contentHeight : Dimensions.get('window').height,
@@ -44,6 +49,16 @@ var Reader = React.createClass({
     //StatusBar.setHidden(true, 'slide');
     if(Platform.OS == 'android')
         StatusBar.setBackgroundColor('blue');
+  },
+  componentWillUnmount : function(){
+      console.log(`unmount ${global.currentBook.bookId}`, this.state.page);
+      global.currentBook.earmarkedPage = this.state.page;
+      if(this.isLastPage()) {
+          global.currentBook.readCount += 1;
+          global.currentBook.earmarkedPage = 1;
+      }
+      console.log(`page after update: ${global.currentBook.earmarkedPage}`)
+      LocalLibrary.update(global.currentBook);
   },
   layoutChange : function(e) {
     this.updateBookSize(e.nativeEvent.layout.width, e.nativeEvent.layout.height);
@@ -65,6 +80,8 @@ var Reader = React.createClass({
     });
   },
   render : function() {
+      console.ignoredYellowBox = ['\`setBackgroundColor\`'];
+
     return (
       <View
         style={[
@@ -79,6 +96,7 @@ var Reader = React.createClass({
           position="bottom"
           node={this.state.toastData}
         />
+        {this.renderNotificationBar()}
         {this.renderTopMenu()}
         <View style={styles.book}>
           <View
@@ -138,7 +156,7 @@ var Reader = React.createClass({
 
     this.setState({
       page : this.state.page + 1
-    })
+    });
   },
   handlePrevPage : function() {
     this.hideToast()
@@ -178,7 +196,23 @@ var Reader = React.createClass({
       statusBarShown : show
     });
   },
-
+  hideNotification : function() {
+      this.setState({continuedBar : false})
+      LayoutAnimation.easeInEaseOut();
+  },
+  renderNotificationBar : function() {
+      if(!this.state.continuedBar)
+        return null;
+      return <View style={styles.userbar}>
+          <Text style={styles.userBarText}>This is where you last left off</Text>
+          <Button
+            onPress={() => this.hideNotification() }
+            title="Dismiss"
+            color="black"
+            accessibilityLabel="Dismiss"
+          />
+      </View>
+  },
   renderTopMenu : function() {
     return <View
         style={[styles.topMenu, styles.menu, this.border('green')]}>
