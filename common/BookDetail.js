@@ -15,23 +15,41 @@ import Icon2 from 'react-native-vector-icons/FontAwesome';
 import LocalLibraryDAO from './LocalLibraryDAO.js';
 var LocalLibrary = new LocalLibraryDAO();
 
+const STAR_MAX = 5;
+
 export default class BookDetail extends React.Component {
 
   static navigationOptions = {
     title: 'Book Details',
   };
 
+  static blendLevelLabels = [
+      "95% English",
+      "Mostly English",
+      "50% Each",
+      "Mostly Spanish",
+      "95% Spanish"
+  ];
+
+  static blendLevelIndexes = [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+  ];
+
   updateBookStats(statsArray) {
-      var stats = statsArray[0];
+      var stats = statsArray[0] || {};
       console.log('stats for book ID ' + global.currentBook.bookId, stats);
 
-      global.currentBook.rating = stats.rating;
-      global.currentBook.blendLevel = stats.blendLevel;
-      global.currentBook.readCount = stats.readCount;
+      global.currentBook.rating = stats.rating || 0;
+      global.currentBook.blendLevel = stats.blendLevel || 0;
+      global.currentBook.readCount = stats.readCount || 0;
 
       this.setState({
               currentRating: stats.rating,
-              sliderValue: 0.25 * stats.blendLevel,
+              sliderValue: stats.blendLevel,
               readCount: stats.readCount
           }
       );
@@ -52,54 +70,20 @@ export default class BookDetail extends React.Component {
   }
 
   getSliderLabel(value){
-    switch (value){
-      case 0:{
-        return "95% English";
-      }
-      case 0.25:{
-        return "Mostly English";
-      }
-      case 0.5:{
-        return "50% Each";
-      }
-      case 0.75:{
-        return "Mostly Spanish";
-      }
-      case 1:{
-        return "95% Spanish";
-      }
-    }
+    return BookDetail.blendLevelLabels[value];
   }
 
   getSliderIndex(value){
-    switch (value){
-      case 0:{
-        return "A";
-      }
-      case 0.25:{
-        return "B";
-      }
-      case 0.5:{
-        return "C";
-      }
-      case 0.75:{
-        return "D";
-      }
-      case 1:{
-        return "E";
-      }
-    }
+    return BookDetail.blendLevelIndexes[value];
   }
 
   renderRating(){
     var rating = this.state.currentRating;
 
-    jsx_rating = []
-    jsx_rating.push(this.renderStar(1,rating));
-    jsx_rating.push(this.renderStar(2,rating));
-    jsx_rating.push(this.renderStar(3,rating));
-    jsx_rating.push(this.renderStar(4,rating));
-    jsx_rating.push(this.renderStar(5,rating));
+    jsx_rating = [];
+    for(var i=1; i<STAR_MAX; i++) {
+        jsx_rating.push(this.renderStar(i,rating));
+    }
 
     return jsx_rating;
   }
@@ -116,6 +100,12 @@ export default class BookDetail extends React.Component {
       LocalLibrary.update(global.currentBook);
   }
 
+  updateBlendLevel(level) {
+      this.setState({sliderValue:level});
+      global.currentBook.blendLevel = level;
+      LocalLibrary.update(global.currentBook);
+  }
+
   renderStar(id,rating){
     var decimal_value = (id - rating);
 
@@ -125,7 +115,7 @@ export default class BookDetail extends React.Component {
     } else if (decimal_value > 0 && decimal_value < 1){
       starType = "star-half-o";
     }
-    return <Icon2 name={starType} size={40} color='orange' onPress ={()=>this.updateRating(id)} onLongPress = {()=>this.updateRating(id - 0.5)}/>
+    return <Icon2 key={id} name={starType} size={40} color='orange' onPress ={()=>this.updateRating(id)} onLongPress = {()=>this.updateRating(id - 0.5)}/>
   }
 
   showReader() {
@@ -147,7 +137,7 @@ export default class BookDetail extends React.Component {
             <Text style={styles.detailTitleBook}>{global.currentBook.title}</Text>
             <Text style={styles.detailTitleText}>{global.currentBook.author}</Text>
             <View style={styles.detailTitleRating} >
-              {this.renderRating(this.state.rating)}
+              {this.renderRating(this.state.currentRating)}
             </View>
           </View>
         </View>
@@ -162,9 +152,10 @@ export default class BookDetail extends React.Component {
           </View>
 
           <Slider value={this.state.sliderValue}
-                  step={0.25}
+                  step={1}
+                  maximumValue={STAR_MAX-1}
                   style={styles.detailSlider}
-                  onValueChange={(data)=>this.setState({sliderValue:data})}
+                  onValueChange={(data)=>this.updateBlendLevel(data)}
                 />
 
           <View style={styles.detailIconContainer}>

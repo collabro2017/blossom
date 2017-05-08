@@ -24,6 +24,19 @@ var Toast = require('./Toast.js');
 import LocalLibraryDAO from './LocalLibraryDAO.js';
 var LocalLibrary = new LocalLibraryDAO();
 
+const blendLevelIndexes = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+];
+
+const blendLevelKeyByIndex = [];
+for(var i=0; i<blendLevelIndexes.length; i++) {
+    blendLevelKeyByIndex[blendLevelIndexes[i]] = i;
+}
+
 var Reader = React.createClass({
   displayName : 'Reader',
 
@@ -199,6 +212,11 @@ var Reader = React.createClass({
       statusBarShown : show
     });
   },
+  updateBlendLevel(level, levelIndex) {
+      global.currentBook.blendLevel = level;
+      LocalLibrary.update(global.currentBook);
+      this.setState({blend:levelIndex});
+  },
   hideNotification : function() {
       this.setState({continuedBar : false})
       LayoutAnimation.easeInEaseOut();
@@ -233,7 +251,7 @@ var Reader = React.createClass({
   renderBottomMenu : function() {
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
       <View style={[styles.bottomMenuLeft]}>
-        <PolliPicker blend={this.state.blend} onValueChange={(key)=>{this.setState({blend: key})}}/>
+        <PolliPicker blend={this.state.blend} onValueChange={(key)=>{this.updateBlendLevel(blendLevelKeyByIndex[key], key)}}/>
       </View>
       <View style={[styles.bottomMenuCenter]}>
         <Text style={styles.bottomMenuLabels}>Page {this.state.page}</Text>

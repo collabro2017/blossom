@@ -13,6 +13,13 @@ import LocalLibraryDAO from './LocalLibraryDAO.js';
 var LocalLibrary = new LocalLibraryDAO();
 
 export default class PhysicalBook extends React.Component {
+    static blendLevelIndexes = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+    ]
 
     showReader(book) {
         global.currentBook=book;
@@ -27,12 +34,13 @@ export default class PhysicalBook extends React.Component {
 
     updateThenDisplayBook(statsArray) {
         const { navigate } = this.props.navigation;
-        var stats = statsArray[0];
+        var stats = statsArray[0] || {};
         console.log('stats for book ID ' + global.currentBook.bookId, stats);
-        var navigationProps = {blend: 'A'};
-        if(stats && stats.earmarkedPage !== undefined && stats.earmarkedPage) {
-            navigationProps.earmarkedPage = stats.earmarkedPage;
-        }
+
+        var navigationProps = {};
+        navigationProps.blend = PhysicalBook.blendLevelIndexes[stats.blendLevel] || 'A';
+        navigationProps.earmarkedPage = stats.earmarkedPage || 1;
+
         navigate('Reader',navigationProps);
     }
 
