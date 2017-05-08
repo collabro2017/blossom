@@ -9,6 +9,7 @@ import {
   StatusBar,
   LayoutAnimation,
   Platform,
+  UIManager,
 } from 'react-native';
 
 import PolliPicker from './PolliPicker';
@@ -41,9 +42,13 @@ var Reader = React.createClass({
   displayName : 'Reader',
 
   getInitialState : function() {
-      var page = this.props.navigation.state.params.earmarkedPage
+    var page = this.props.navigation.state.params.earmarkedPage
           ? this.props.navigation.state.params.earmarkedPage
           : 1;
+    // Enable LayoutAnimation under Android
+    if (Platform.OS === 'android') {
+      UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
     return {
       page : page,
       continuedBar: this.props.navigation.state.params.earmarkedPage > 1,
