@@ -10,8 +10,10 @@ import {
 
 import styles from "./PolliStyles";
 import FitImage from 'react-native-fit-image';
-
 import Icon2 from 'react-native-vector-icons/FontAwesome';
+import StarRating from './StarRating';
+
+const STAR_MAX = 5;
 
 export default class BookLibraryDetail extends React.Component {
 
@@ -68,28 +70,11 @@ export default class BookLibraryDetail extends React.Component {
   }
 
   renderRating(){
-    var rating = this.state.currentRating;
-
-    jsx_rating = []
-    jsx_rating.push(this.renderStar(1,rating));
-    jsx_rating.push(this.renderStar(2,rating));
-    jsx_rating.push(this.renderStar(3,rating));
-    jsx_rating.push(this.renderStar(4,rating));
-    jsx_rating.push(this.renderStar(5,rating));
-
-    return jsx_rating;
-  }
-
-  renderStar(id,rating){
-    var decimal_value = (id - rating);
-
-    var starType = "star-o";
-    if (id <= rating){
-      starType = "star";
-    } else if (decimal_value > 0 && decimal_value < 1){
-      starType = "star-half-o";
-    }
-    return <Icon2 name={starType} size={40} color='orange' />
+    return (<StarRating
+              currentRating={this.state.currentRating}
+              maxRating={STAR_MAX}
+              updateRating={()=>{}}
+             />);
   }
 
   showReader() {
@@ -109,9 +94,7 @@ export default class BookLibraryDetail extends React.Component {
           <View style={styles.detailTitleRight}>
             <Text style={styles.detailTitleBook}>{global.currentBook.title}</Text>
             <Text style={styles.detailTitleText}>{global.currentBook.author}</Text>
-            <View style={styles.detailTitleRating} >
-              {this.renderRating(this.state.rating)}
-            </View>
+            {this.renderRating()}
           </View>
         </View>
 

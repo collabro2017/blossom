@@ -9,8 +9,8 @@ import {
 
 import styles from "./PolliStyles";
 import FitImage from 'react-native-fit-image';
-
 import Icon2 from 'react-native-vector-icons/FontAwesome';
+import StarRating from './StarRating';
 
 import LocalLibraryDAO from './LocalLibraryDAO.js';
 var LocalLibrary = new LocalLibraryDAO();
@@ -78,14 +78,11 @@ export default class BookDetail extends React.Component {
   }
 
   renderRating(){
-    var rating = this.state.currentRating;
-
-    jsx_rating = [];
-    for(var i=1; i<STAR_MAX; i++) {
-        jsx_rating.push(this.renderStar(i,rating));
-    }
-
-    return jsx_rating;
+    return (<StarRating
+              currentRating={this.state.currentRating}
+              maxRating={STAR_MAX}
+              updateRating={(rating)=>this.updateRating(rating)}
+             />);
   }
 
   updateRating(rating) {
@@ -106,18 +103,6 @@ export default class BookDetail extends React.Component {
       LocalLibrary.update(global.currentBook);
   }
 
-  renderStar(id,rating){
-    var decimal_value = (id - rating);
-
-    var starType = "star-o";
-    if (id <= rating){
-      starType = "star";
-    } else if (decimal_value > 0 && decimal_value < 1){
-      starType = "star-half-o";
-    }
-    return <Icon2 key={id} name={starType} size={40} color='orange' onPress ={()=>this.updateRating(id)} onLongPress = {()=>this.updateRating(id - 0.5)}/>
-  }
-
   showReader() {
       const { navigate } = this.props.navigation;
       console.log("this.props.navigation = " + this.props.navigation);
@@ -136,9 +121,7 @@ export default class BookDetail extends React.Component {
           <View style={styles.detailTitleRight}>
             <Text style={styles.detailTitleBook}>{global.currentBook.title}</Text>
             <Text style={styles.detailTitleText}>{global.currentBook.author}</Text>
-            <View style={styles.detailTitleRating} >
-              {this.renderRating(this.state.currentRating)}
-            </View>
+            {this.renderRating()}
           </View>
         </View>
         <View style={styles.detailMain}>
