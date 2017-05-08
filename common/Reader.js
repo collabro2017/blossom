@@ -229,14 +229,24 @@ var Reader = React.createClass({
   renderNotificationBar : function() {
       if(!this.state.continuedBar)
         return null;
+      if (Platform.OS === 'android') {
+        var dismissButton = <Icon
+          name="close"
+          onPress={() => this.hideNotification() }
+          color="white"
+          size={30}
+        />;
+      }else{
+        var dismissButton = <Button
+          onPress={() => this.hideNotification() }
+          title="Dismiss"
+          color="black"
+          accessibilityLabel="Dismiss"
+        />
+      }
       return <View style={styles.userbar}>
           <Text style={styles.userBarText}>This is where you last left off</Text>
-          <Button
-            onPress={() => this.hideNotification() }
-            title="Dismiss"
-            color="black"
-            accessibilityLabel="Dismiss"
-          />
+          {dismissButton}
       </View>
   },
   renderTopMenu : function() {

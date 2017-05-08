@@ -318,9 +318,15 @@ var styles = StyleSheet.create({
   },
   userbar: {
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       backgroundColor: 'rgba(100,189,189,1)',
-      zIndex: 800
+      zIndex: 800,
+      padding: 10,
+      ...Platform.select({
+        android: {
+            flexDirection: 'row',
+        }
+      }),
   },
   userBarText: {
       color: 'white'
