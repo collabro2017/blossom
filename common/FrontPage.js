@@ -259,7 +259,6 @@ FrontPage.navigationOptions = props => {
             [
               {text: 'Subscribe', onPress: () => console.log('Register pressed')},
               {text: 'Not right now', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-              {text: 'I have a subscription', onPress: () => console.log('Log in Pressed')},
             ],
             { cancelable: true }
           )
