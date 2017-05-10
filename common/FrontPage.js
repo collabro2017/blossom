@@ -105,11 +105,6 @@ export default class FrontPage extends React.Component {
         }, 10);
     }
 
-    showSettings() {
-      const { navigate } = this.props.navigation;
-      navigate('UserSettings');
-    }
-
     enableDemoUser(shouldEnable) {
         global.user = shouldEnable;
         console.log(`switch on: ${shouldEnable}`);
@@ -236,15 +231,6 @@ export default class FrontPage extends React.Component {
                 contentContainerStyle={styles.listView}
                 navigation={ navigation }
             />
-            <View style={styles.settingsButtonContainer}>
-                <Button
-                  title="User Settings"
-                  color="grey"
-                  style={styles.settingsButton}
-                  onPress={() => this.showSettings() }
-                />
-            </View>
-
 
             {showDebugMenuButton}
         </View>
@@ -277,15 +263,29 @@ FrontPage.navigationOptions = props => {
       }
   }
 
+  function showSettings() {
+    navigation.navigate('UserSettings');
+  }
+
   return {
       title: 'My Books',
       headerRight: (
-      <Button
-        title={'Library'}
-        color='#222288'
-        onPress={() => showLibrary() }
-        accessibilityLabel='Get more books in the Library'
-      />
+      <View style={{flexDirection:'row'}}>
+        <Icon
+          style={styles.detailIcon}
+          name="plus"
+          size={40}
+          color='black'
+          onPress={() => showLibrary() }
+        />
+        <Icon
+          style={styles.detailIcon}
+          name="gear"
+          size={40}
+          color='black'
+          onPress={() => showSettings() }
+        />
+      </View>
     ),
   };
 };
