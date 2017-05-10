@@ -58,9 +58,13 @@ class LocalLibraryDAO {
 
     update(book) {
         let storedBook = realm.objects('Book').filtered(`id = "${book.bookId}"`);
+        if(!storedBook || !storedBook.bookId) {
+            console.log("Could not find book, id=", book.bookId);
+            return;
+        }
 
         var creationParams = {id: book.bookId};
-        creationParams.path = (storedBook && storedBook.path) ? storedBook.path : '';
+        creationParams.path = storedBook.path || '';
 
         if(book.rating) {creationParams.rating = book.rating};
         if(book.earmarkedPage) {creationParams.earmarkedPage = book.earmarkedPage};
