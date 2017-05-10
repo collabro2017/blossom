@@ -422,6 +422,10 @@ var styles = StyleSheet.create({
     color: '#008000',
     fontSize: 20,
   },
+  loginLogo: {
+    height: 100,
+    width: 225.15,
+  },
 });
 
 module.exports = styles;

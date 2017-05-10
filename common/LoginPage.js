@@ -38,7 +38,7 @@ export default class LoginPage extends Component{
     return (
       <ScrollView style={styles.loginContainer} contentContainerStyle={styles.loginContentContainer}>
         <View>
-          <Image source={require('../images/Icon-76.png')} />
+          <Image source={require('../images/Polli-Logo-s.png')} style={styles.loginLogo} />
         </View>
         <View style={styles.loginInputContainer}>
           <View style={styles.loginField}>
