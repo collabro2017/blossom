@@ -19,6 +19,8 @@ import PhysicalBook from './PhysicalBook';
 import RNFetchBlob from 'react-native-fetch-blob';
 import LocalLibraryDAO from './LocalLibraryDAO.js';
 
+import Icon from 'react-native-vector-icons/EvilIcons';
+
 var LocalLibrary = new LocalLibraryDAO();
 
 function ObjectCreator(obj) { // CONSTRUCTOR CAN BE OVERLOADED WITH AN OBJECT
@@ -37,18 +39,18 @@ export default class FrontPage extends React.Component {
         super(props);
         this.state = {
           dataSource: [BOOK, BOOK_CHINESE],
-          demoUserSwitchOn: false,
+          demoUserSwitchOn:  this.props.navigation.state.params.demoUserEnabled,
           modalVisible: false,
           tutorialVisible: false,
         }
       }
 
-      componentDidMount() {
-          console.log('did mount');
-          global.user = null;
-          this.updateBookList();
+  componentDidMount() {
+    console.log('did mount');
+    global.user = this.state.demoUserSwitchOn;
+    this.updateBookList();
 
-          window.EventBus.on('libraryUpdated', this.updateBookList.bind(this));
+    window.EventBus.on('libraryUpdated', this.updateBookList.bind(this));
   }
 
   componentWillUpdate() {

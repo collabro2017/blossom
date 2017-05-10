@@ -22,9 +22,11 @@ import Bookstore from './Bookstore';
 import BookDetail from './BookDetail';
 import BookLibraryDetail from './BookLibraryDetail';
 import UserSettings from './UserSettings';
+import LoginPage from './LoginPage';
 
 const AppContainer = StackNavigator({
-  Main: {screen: FrontPage},
+  Main: {screen: LoginPage},
+  FrontPage: {screen: FrontPage},
   Reader: {screen: Reader},
   Library: {screen: Bookstore},
   BookDetail: {screen: BookDetail},
