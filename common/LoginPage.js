@@ -24,8 +24,13 @@ export default class LoginPage extends Component{
   }
 
   showFrontPage(demoUserEnabled=false){
+    if (demoUserEnabled) {
+      global.user = true;
+    }else{
+      global.user = null;
+    }
     const {navigation} = this.props;
-    navigation.navigate('FrontPage',{demoUserEnabled:demoUserEnabled});
+    navigation.navigate('FrontPage');
   }
 
   render () {
@@ -59,13 +64,13 @@ export default class LoginPage extends Component{
         <View style={styles.loginButtons}>
           <View style={styles.loginButtonContainer}>
             <Icon2.Button name="sign-in" backgroundColor="#00a1f1" style={styles.loginButton}
-              onPress={()=>this.showFrontPage(true)}>
+              onPress={()=>this.showFrontPage(false)}>
               <Text style={styles.loginButtonText}>Login</Text>
             </Icon2.Button>
           </View>
           <View style={styles.loginButtonContainer}>
             <Icon2.Button name="user-plus" backgroundColor="#34a853" style={styles.loginButton}
-              onPress={()=>this.showFrontPage(false)}>
+              onPress={()=>this.showFrontPage(true)}>
               <Text style={styles.loginButtonText}>Sign Up</Text>
             </Icon2.Button>
           </View>

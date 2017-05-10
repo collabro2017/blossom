@@ -39,15 +39,18 @@ export default class FrontPage extends React.Component {
         super(props);
         this.state = {
           dataSource: [BOOK, BOOK_CHINESE],
-          demoUserSwitchOn:  this.props.navigation.state.params.demoUserEnabled,
+          demoUserSwitchOn:  global.user,
           modalVisible: false,
           tutorialVisible: false,
         }
       }
 
   componentDidMount() {
-    console.log('did mount');
-    global.user = this.state.demoUserSwitchOn;
+    if (this.state.demoUserSwitchOn){
+      console.log('did mount with demo user');
+    }else{
+      console.log('did mount with anon user');
+    }
     this.updateBookList();
 
     window.EventBus.on('libraryUpdated', this.updateBookList.bind(this));
