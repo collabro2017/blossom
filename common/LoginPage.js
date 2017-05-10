@@ -64,15 +64,13 @@ export default class LoginPage extends Component{
         <View style={styles.loginButtons}>
           <View style={styles.loginButtonContainer}>
             <Icon2.Button name="sign-in" backgroundColor="#00a1f1" style={styles.loginButton}
-              onPress={()=>this.showFrontPage(false)}>
+              onPress={()=>this.showFrontPage(true)}>
               <Text style={styles.loginButtonText}>Login</Text>
             </Icon2.Button>
           </View>
-          <View style={styles.loginButtonContainer}>
-            <Icon2.Button name="user-plus" backgroundColor="#34a853" style={styles.loginButton}
-              onPress={()=>this.showFrontPage(true)}>
-              <Text style={styles.loginButtonText}>Sign Up</Text>
-            </Icon2.Button>
+          <View style={styles.loginSignUpContainer}>
+              <Text style={styles.loginSignUpText}>No account yet? </Text>
+              <Text style={styles.loginSignUpLink} onPress={()=>this.showFrontPage(false)}>Sign Up</Text>
           </View>
           <View style={styles.loginButtonContainer}>
             <Icon2.Button name="facebook" iconStyle={{marginLeft:3,marginRight:15}} backgroundColor="#3b5998" style={styles.loginButton}>

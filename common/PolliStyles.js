@@ -410,7 +410,18 @@ var styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
   },
-
+  loginSignUpContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 40,
+  },
+  loginSignUpText: {
+    fontSize: 20,
+  },
+  loginSignUpLink: {
+    color: '#008000',
+    fontSize: 20,
+  },
 });
 
 module.exports = styles;
