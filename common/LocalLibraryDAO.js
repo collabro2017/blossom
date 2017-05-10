@@ -57,11 +57,11 @@ class LocalLibraryDAO {
     }
 
     update(book) {
-        let storedBook = realm.objects('Book').filtered(`id = "${book.bookId}"`);
-        if(!storedBook || !storedBook.bookId) {
-            console.log("Could not find book, id=", book.bookId);
+        if(!book.bookId) {
+            console.warn(`Cannot fetch book without id, failed persisting stats`);
             return;
         }
+        let storedBook = realm.objects('Book').filtered(`id = "${book.bookId}"`);
 
         var creationParams = {id: book.bookId};
         creationParams.path = storedBook.path || '';
