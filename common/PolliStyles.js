@@ -363,6 +363,69 @@ var styles = StyleSheet.create({
     alignItems:'center',
   },
 
+  //login screen:
+  loginContainer: {
+    flex: 1,
+  },
+  loginContentContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 30,
+  },
+  loginInputContainer: {
+    marginTop: 30,
+    flex: 0.5,
+    borderColor: 'grey',
+    borderWidth: 1,
+    borderRadius: 10,
+    backgroundColor: 'white',
+  },
+  loginField: {
+    flex: 0.5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 10,
+  },
+  loginTextTitle: {
+    // flex: 20,
+    fontSize: 20,
+  },
+  loginTextInput: {
+    // flex: 3,
+    fontSize: 20,
+    width: 200,
+  },
+  loginButtons: {
+    marginTop: 20,
+    flex: 0.4,
+  },
+  loginButtonContainer: {
+    margin: 5,
+  },
+  loginButton: {
+    padding: 10,
+  },
+  loginButtonText: {
+    color: 'white',
+    fontSize: 20,
+  },
+  loginSignUpContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 40,
+  },
+  loginSignUpText: {
+    fontSize: 20,
+  },
+  loginSignUpLink: {
+    color: '#008000',
+    fontSize: 20,
+  },
+  loginLogo: {
+    height: 100,
+    width: 225.15,
+  },
 });
 
 module.exports = styles;

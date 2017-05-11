@@ -19,6 +19,8 @@ import PhysicalBook from './PhysicalBook';
 import RNFetchBlob from 'react-native-fetch-blob';
 import LocalLibraryDAO from './LocalLibraryDAO.js';
 
+import Icon from 'react-native-vector-icons/EvilIcons';
+
 var LocalLibrary = new LocalLibraryDAO();
 
 function ObjectCreator(obj) { // CONSTRUCTOR CAN BE OVERLOADED WITH AN OBJECT
@@ -37,18 +39,21 @@ export default class FrontPage extends React.Component {
         super(props);
         this.state = {
           dataSource: [BOOK, BOOK_CHINESE],
-          demoUserSwitchOn: false,
+          demoUserSwitchOn:  global.user,
           modalVisible: false,
           tutorialVisible: false,
         }
       }
 
-      componentDidMount() {
-          console.log('did mount');
-          global.user = null;
-          this.updateBookList();
+  componentDidMount() {
+    if (this.state.demoUserSwitchOn){
+      console.log('did mount with demo user');
+    }else{
+      console.log('did mount with anon user');
+    }
+    this.updateBookList();
 
-          window.EventBus.on('libraryUpdated', this.updateBookList.bind(this));
+    window.EventBus.on('libraryUpdated', this.updateBookList.bind(this));
   }
 
   componentWillUpdate() {
@@ -101,11 +106,6 @@ export default class FrontPage extends React.Component {
         setTimeout(function() {
             context.setState({ tutorialVisible: true});
         }, 10);
-    }
-
-    showSettings() {
-      const { navigate } = this.props.navigation;
-      navigate('UserSettings');
     }
 
     enableDemoUser(shouldEnable) {
@@ -234,15 +234,6 @@ export default class FrontPage extends React.Component {
                 contentContainerStyle={styles.listView}
                 navigation={ navigation }
             />
-            <View style={styles.settingsButtonContainer}>
-                <Button
-                  title="User Settings"
-                  color="grey"
-                  style={styles.settingsButton}
-                  onPress={() => this.showSettings() }
-                />
-            </View>
-
 
             {showDebugMenuButton}
         </View>
@@ -275,15 +266,29 @@ FrontPage.navigationOptions = props => {
       }
   }
 
+  function showSettings() {
+    navigation.navigate('UserSettings');
+  }
+
   return {
       title: 'My Books',
       headerRight: (
-      <Button
-        title={'Bookstore'}
-        color='#222288'
-        onPress={() => showLibrary() }
-        accessibilityLabel='Get more books in the Bookstore'
-      />
+      <View style={{flexDirection:'row'}}>
+        <Icon
+          style={styles.detailIcon}
+          name="plus"
+          size={40}
+          color='black'
+          onPress={() => showLibrary() }
+        />
+        <Icon
+          style={styles.detailIcon}
+          name="gear"
+          size={40}
+          color='black'
+          onPress={() => showSettings() }
+        />
+      </View>
     ),
   };
 };
