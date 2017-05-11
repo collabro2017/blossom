@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import {
   Text,
@@ -10,13 +11,14 @@ export default class GeneralPicker extends Component {
 
   constructor(props){
     super(props);
+    var pickerOptions = props.pickerOptions;
     Picker.init({
-      pickerData: this.getBlendLabels(),
-      pickerTitleText: "Select language blend",
-      selectedValue: [global.currentBook.blends[this.props.blend]],
+      pickerData: this.getBlendLabels(pickerOptions),
+      pickerTitleText: "Select from options",
+      selectedValue: [pickerOptions[props.selected]],
       onPickerConfirm: (data) => {
-        Object.keys(global.currentBook.blends).map(function(key) {
-            if (global.currentBook.blends[key] == data){
+        Object.keys(pickerOptions).map(function(key) {
+            if (pickerOptions[key] == data){
               this.props.onValueChange(key);
             }
         }.bind(this));
@@ -25,16 +27,17 @@ export default class GeneralPicker extends Component {
     Picker.hide();
   }
 
-  getBlendLabels() {
-    return Object.keys(global.currentBook.blends).map(function(key) {
-        return global.currentBook.blends[key];
+  getBlendLabels(pickerOptions) {
+    return Object.keys(pickerOptions).map(function(key) {
+        return pickerOptions[key];
     });
   }
 
   render() {
+    var pickerOptions = this.props.pickerOptions;
     return (
       <Text style={styles.bottomMenuLabels} onPress={()=>{ Picker.show(); }}>
-        {global.currentBook.blends[this.props.blend]}
+        {pickerOptions[this.props.selected]}
       </Text>
     )
   }
