@@ -18,47 +18,73 @@ export default class Bookstore extends React.Component {
     super(props);
 
     var demoBook = {
-          "title": "War and Peace",
-          "thumbnail": 'https://images-na.ssl-images-amazon.com/images/I/510UE7bvHoL._SY344_BO1,204,203,200_.jpg',
+          "title": "Rapunzel",
+          "thumbnail": 'Rapunzel.jpg',
           "L1": 'English',
-          "L2": 'German',
-          "author": "Loolie",
-          "bookId": "peter-rabbit",
-          "about": "A novel by the Russian author Leo Tolstoy, which is regarded as a central work of world literature and one of Tolstoy's finest literary achievements",
-          "ages": "60+",
-          "publisher": "The Russian Messenger",
-          "rating": 1.5,
+          "L2": 'Spanish',
+          "author": "Jacob and William Grimm",
+          "bookId": "1",
+          "about": "\"Rapunzel, Rapunzel, let down your hair!\" calls the witch to the beautiful girl imprisoned in her tower, and Rapunzel lowers her long, golden braid for the witch to climb.",
+          "ages": "3+",
+          "publisher": "NordSed Switzerland",
+          "rating": 4,
       }
 
     var demoBook2 = {
         "title": "I will help you",
-        "thumbnail": 'https://bookdash.org/wp-content/uploads/2015/12/i-will-help-you-cover-600x590.jpg',
+        "thumbnail": 'i-will-help-you-cover-600x590.jpg',
         "L1": 'English',
         "L2": 'Spanish',
         "author": "Andrea Abbott",
         "bookId": "i-will-help-you",
         "about": "When Mama Heron needs help, Lungile comes to her rescue.",
-        "ages": "Definitely EVERYONE!",
+        "ages": "All",
         "publisher": "Bookdash",
-        "rating": 3.7,
+        "rating": 3,
     }
 
     var demoBook3 = {
-          "title": "Bananas: A Deep Analysis",
-          "thumbnail": 'https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/17499197_10154290656191366_6391349757135483406_n.jpg?oh=fa79f01cd80d93656dddbc666c948a2b&oe=59602942',
+          "title": "Little Red Riding Hood",
+          "thumbnail": 'Little Red Riding Hood.jpg',
           "L1": 'English',
           "L2": 'Spanish',
-          "author": "Loolie",
-          "bookId": "banana-rabbit",
-          "about": "BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA BANANA BA NA NA NA BAAAAAA BANANA ",
-          "ages": "1-2",
-          "publisher": "PutzkyPress",
+          "author": "Joy Cowley",
+          "bookId": "3",
+          "about": "A cautionary fairy tale about the dangers of letting strangers into your home.",
+          "ages": "4+",
+          "publisher": "Big And Small Publishing",
           "rating": 4.9,
       }
 
+      var demoBook4 = {
+            "title": "Hansel and Gretel",
+            "thumbnail": 'Hansel and Gretel.jpg',
+            "L1": 'English',
+            "L2": 'Spanish',
+            "author": "Eric Blair",
+            "bookId": "4",
+            "about": "What not to do when strangers offer candy.",
+            "ages": "5+",
+            "publisher": "Picture Window Books",
+            "rating": 4,
+        }
+
+      var demoBook5 = {
+            "title": "Rumpelstiltskin",
+            "thumbnail": 'Rumpel-book-cover.jpg',
+            "L1": 'English',
+            "L2": 'Spanish',
+            "author": "Parragon Books",
+            "bookId": "5",
+            "about": "This clear, simple retelling of the classic children's story of a Rumpelstiltskin helps with children's speech and language skills as they learn first words.",
+            "ages": "4-7",
+            "publisher": "Parragon Books",
+            "rating": 4.5,
+        }
+
 
     this.state = {
-      dataSource: [ demoBook, demoBook2, demoBook3],
+      dataSource: [ demoBook, demoBook2, demoBook3, demoBook4, demoBook5],
     }
   }
   static navigationOptions = {
