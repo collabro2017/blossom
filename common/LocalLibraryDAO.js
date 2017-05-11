@@ -58,20 +58,23 @@ class LocalLibraryDAO {
 
     update(book) {
         if(!book.bookId) {
-            console.warn(`Cannot fetch book without id, failed persisting stats`);
+            console.warn("LocalLibraryDAO", `Cannot fetch book without id, failed persisting stats`);
             return;
         }
-        let storedBook = realm.objects('Book').filtered(`id = "${book.bookId}"`);
+        let storedBooks = realm.objects('Book').filtered(`id = "${book.bookId}"`);
+        let storedBook = storedBooks[0];
 
         var creationParams = {id: book.bookId};
-        creationParams.path = storedBook.path || '';
+        creationParams.path = storedBook
+                            ? (storedBook.path || '')
+                            : '';
 
         if(book.rating) {creationParams.rating = book.rating};
         if(book.earmarkedPage) {creationParams.earmarkedPage = book.earmarkedPage};
         if(book.readCount) {creationParams.readCount = book.readCount};
         if(book.blendLevel) {creationParams.blendLevel = book.blendLevel};
 
-        console.log('creationParams', creationParams);
+        console.log("LocalLibraryDAO", 'creationParams', creationParams);
 
         realm.write(() => {
             realm.create('Book', creationParams, true);
