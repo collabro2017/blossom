@@ -16,7 +16,7 @@ import PolliPicker from './PolliPicker';
 import styles from "./PolliStyles";
 
 var Swiper = require('react-native-swiper');
-import Icon from 'react-native-vector-icons/EvilIcons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 var Page = require('./Page.js');
 var mixins = require('./Mixins');
@@ -72,7 +72,7 @@ var Reader = React.createClass({
         StatusBar.setBackgroundColor('blue');
   },
   componentWillUnmount : function(){
-      console.log(`unmount ${global.currentBook.bookId}`, this.state.page);
+      console.log(`unmount ${global.currentBook.bookId}`, this.state.page, global.currentBook.path);
       global.currentBook.earmarkedPage = this.state.page;
       if(this.isLastPage()) {
           global.currentBook.readCount += 1;
@@ -245,7 +245,8 @@ var Reader = React.createClass({
         />
       }
       return <View style={styles.userbar}>
-          <Text style={styles.userBarText}>This is where you last left off</Text>
+          <Icon name="bookmark" size={26} color={'white'} />
+          <Text style={styles.dismissableNotificationText}>This is where you last left off</Text>
           {dismissButton}
       </View>
   },
