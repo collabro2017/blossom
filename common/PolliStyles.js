@@ -436,6 +436,49 @@ var styles = StyleSheet.create({
     height: 100,
     width: 225.15,
   },
+
+  //Onboarding Wizard screens:
+  obwContainer: {
+    flex: 1,
+    marginTop: 20,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  obwTitle: {
+    textAlign: 'center',
+    marginBottom: 10,
+    fontSize: 32,
+  },
+  obwLogo: {
+    height: 100,
+    width: 225.15,
+  },
+  obwText: {
+    margin: 15,
+    fontSize: 20,
+    textAlign: 'center',
+  },
+  obwImageContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 30,
+  },
+  obwImage: {
+    height: 194,
+    width: 120,
+  },
+  obwButtonText: {
+    color: 'white',
+    fontSize: 20,
+  },
+  obwButton: {
+    padding: 10,
+  },
+  obwButtonContainer: {
+    margin: 30,
+  },
 });
 
 module.exports = styles;

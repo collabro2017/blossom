@@ -10,11 +10,14 @@ import {
 
 import styles from './PolliStyles';
 import Icon2 from 'react-native-vector-icons/FontAwesome';
+import { NavigationActions } from 'react-navigation';
 
 export default class LoginPage extends Component{
+
   static navigationOptions = {
-    title: 'Welcome to Polli!',
+    header: null
   };
+
   constructor(props) {
     super(props);
     this.state={
@@ -23,14 +26,22 @@ export default class LoginPage extends Component{
     };
   }
 
-  showFrontPage(demoUserEnabled=false){
-    if (demoUserEnabled) {
-      global.user = true;
-    }else{
-      global.user = null;
-    }
+  showFrontPage(){
+    global.user = true;
+
     const {navigation} = this.props;
-    navigation.navigate('FrontPage');
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: 'FrontPage' })
+      ]
+    });
+    navigation.dispatch(resetAction);
+  }
+
+  showUserOnboarding(){
+    const {navigation} = this.props;
+    navigation.navigate('OBWFirst');
   }
 
   render () {
@@ -70,7 +81,7 @@ export default class LoginPage extends Component{
           </View>
           <View style={styles.loginSignUpContainer}>
               <Text style={styles.loginSignUpText}>No account yet? </Text>
-              <Text style={styles.loginSignUpLink} onPress={()=>this.showFrontPage(false)}>Sign Up</Text>
+              <Text style={styles.loginSignUpLink} onPress={()=>this.showUserOnboarding()}>Sign Up</Text>
           </View>
           <View style={styles.loginButtonContainer}>
             <Icon2.Button name="facebook" iconStyle={{marginLeft:3,marginRight:15}} backgroundColor="#3b5998" style={styles.loginButton}>
