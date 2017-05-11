@@ -45,7 +45,7 @@ export default class FrontPage extends React.Component {
 
       componentDidMount() {
           console.log('did mount');
-          global.user = null;
+          global.user = "Bill Tan";
           this.updateBookList();
 
           window.EventBus.on('libraryUpdated', this.updateBookList.bind(this));
@@ -120,12 +120,12 @@ export default class FrontPage extends React.Component {
         var userBar = null;
         if(global.user) {
             userBar = (<View style={styles.userbar}>
-                <Text style={styles.userBarText}>Demo user logged in</Text>
+                <Text style={styles.userBarText}>Logged in as Bill Tan</Text>
             </View>);
         }
 
         var showDebugMenuButton = null;
-        if (__DEV__) {
+        if (false) {
             console.ignoredYellowBox = ['Warning: You are manually calling'];
 
             showDebugMenuButton = <Button
