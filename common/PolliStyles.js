@@ -83,6 +83,12 @@ var styles = StyleSheet.create({
     fontSize : AUTHOR_FONT_SIZE,
     fontWeight : '600'
   },
+  invisibleBook: {
+      height: 250,
+      width: 150,
+      margin: 12,
+      padding: 5,
+  },
   physicalBook : {
       height: 250,
       width: 150,
@@ -322,14 +328,18 @@ var styles = StyleSheet.create({
       backgroundColor: 'rgba(100,189,189,1)',
       zIndex: 800,
       padding: 10,
-      ...Platform.select({
-        android: {
-            flexDirection: 'row',
-        }
-      }),
+      flexDirection: 'row',
   },
   userBarText: {
-      color: 'white'
+      color: 'white',
+      flex: 1,
+      textAlign: 'center'
+  },
+  dismissableNotificationText: {
+      color: 'white',
+      flex: 1,
+      paddingLeft: 4,
+      paddingBottom: 2
   },
   frontPage: {
       flex: 1

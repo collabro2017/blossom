@@ -19,7 +19,7 @@ import PhysicalBook from './PhysicalBook';
 import RNFetchBlob from 'react-native-fetch-blob';
 import LocalLibraryDAO from './LocalLibraryDAO.js';
 
-import Icon from 'react-native-vector-icons/EvilIcons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 var LocalLibrary = new LocalLibraryDAO();
 
@@ -60,19 +60,37 @@ export default class FrontPage extends React.Component {
       LayoutAnimation.easeInEaseOut();
   }
 
+  addSettingsToGrid(dataSourceArray) {
+      console.log('addSettingsToGrid');
+      if(dataSourceArray.length % 2) {
+          dataSourceArray.push({"type" : "invisibleBook"})
+      }
+
+      dataSourceArray.push({"type" : "settings"});
+
+      this.setState ({
+        dataSource: dataSourceArray,
+      });
+  }
+
   updateBookList() {
-      let downloadedBooks = LocalLibrary.getAll();
+      let downloadedBooks = LocalLibrary.getAll().filtered('path != \'\'');
       var dataSourceArray = [BOOK, BOOK_CHINESE];
 
-      for(var i=0; i<downloadedBooks.length; i++) {
-          let bookDataObject = downloadedBooks[i];
+      if(!downloadedBooks.length) {
+          this.addSettingsToGrid(dataSourceArray);
+      }
+
+      for(var bookIndex=0; bookIndex<downloadedBooks.length; bookIndex++) {
+          let bookDataObject = downloadedBooks[bookIndex];
+
           RNFetchBlob.fs.readFile(`${bookDataObject.path}book.json`, 'utf8')
             .then((data) => {
                 var book = new ObjectCreator(JSON.parse(data));
 
                 book.thumbnail = `file://${bookDataObject.path}${book.cover_image_thumbnail}`;
 
-                for(i=0; i<book.pages.length; i++) {
+                for(var i=0; i<book.pages.length; i++) {
                     var page = book.pages[i];
                     for(j=0; j<page.content.length; j++) {
                         var node = page.content[j];
@@ -82,21 +100,44 @@ export default class FrontPage extends React.Component {
                         }
                     }
                 }
+
                 dataSourceArray.push(book);
 
-                this.setState ({
-                  dataSource: dataSourceArray,
-                });
+                if(bookIndex>=downloadedBooks.length - 1) {
+                    console.log('Number of books in library: ', downloadedBooks.length);
+                    this.addSettingsToGrid(dataSourceArray);
+                }
           })
           .catch((error) => {
               console.log(`error when updating book list >> ${bookDataObject.path} >>`, error);
           })
       }
-      console.log('Number of books in library: ', downloadedBooks.length);
+
   }
 
     renderItem(item) {
-        return <PhysicalBook book={item} key={item.bookId} navigation={ this.navigation } />
+        console.log("item", item)
+        if(item.bookId) {
+            return <PhysicalBook book={item} key={item.bookId} navigation={ this.navigation } />
+        }
+
+        if(item.type == "invisibleBook") {
+            return <View key="invisibleBook" style={styles.invisibleBook} />
+        }
+
+        if(item.type == "settings"){
+            return <View key="settings">
+            <Icon.Button
+              style={styles.detailIcon}
+              name="settings"
+              size={30}
+              color={"#888"}
+              backgroundColor={"transparent"}
+              onPress={() => this.navigation.navigate('UserSettings') }
+            ><Text style={{fontSize:18, color:'#888'}}>Settings</Text></Icon.Button>
+
+            </View>
+        }
     }
 
     showTutorial(context) {
@@ -276,17 +317,11 @@ FrontPage.navigationOptions = props => {
       <View style={{flexDirection:'row'}}>
         <Icon
           style={styles.detailIcon}
-          name="plus"
-          size={40}
-          color='black'
+          name="library"
+          title="Bookstore"
+          size={30}
+          color={"rgba(100,189,189,1)"}
           onPress={() => showLibrary() }
-        />
-        <Icon
-          style={styles.detailIcon}
-          name="gear"
-          size={40}
-          color='black'
-          onPress={() => showSettings() }
         />
       </View>
     ),
