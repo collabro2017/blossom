@@ -84,7 +84,7 @@ export default class FrontPage extends React.Component {
                 });
           })
           .catch((error) => {
-              console.log('error when updating book list >> ', error);
+              console.log(`error when updating book list >> ${bookDataObject.path} >>`, error);
           })
       }
       console.log('Number of books in library: ', downloadedBooks.length);
