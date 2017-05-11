@@ -62,7 +62,7 @@ export default class Bookstore extends React.Component {
     }
   }
   static navigationOptions = {
-    title: 'Library',
+    title: 'Bookstore',
   };
 
   renderItem(item) {

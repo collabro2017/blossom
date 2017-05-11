@@ -279,10 +279,10 @@ FrontPage.navigationOptions = props => {
       title: 'My Books',
       headerRight: (
       <Button
-        title={'Library'}
+        title={'Bookstore'}
         color='#222288'
         onPress={() => showLibrary() }
-        accessibilityLabel='Get more books in the Library'
+        accessibilityLabel='Get more books in the Bookstore'
       />
     ),
   };
