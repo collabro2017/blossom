@@ -4,9 +4,13 @@ import {
   Platform,
 } from 'react-native';
 
-const TITLE_FONT_SIZE = /*Device.isIpad() ? 20 :*/ 14;
-const AUTHOR_FONT_SIZE = /*Device.isIpad() ? 15 :*/ 9;
-const BOTTOM_FONT_SIZE = /*Device.isIpad() ? 13 :*/ 11;
+import Device from 'react-native-device-detection';
+
+if (Device.isTablet) {
+  //Tablet specific styles
+} else {
+  //Phone specific styles
+}
 
 var controlsColor = '#583919';
 var styles = StyleSheet.create({
@@ -75,19 +79,13 @@ var styles = StyleSheet.create({
   bookTitle : {
     fontFamily : 'Open Sans',
     color : controlsColor,
-    fontSize : TITLE_FONT_SIZE
+    fontSize : 14,
   },
   bookAuthor : {
     fontFamily : 'Open Sans',
     color : controlsColor,
-    fontSize : AUTHOR_FONT_SIZE,
+    fontSize : 9,
     fontWeight : '600'
-  },
-  invisibleBook: {
-      height: 250,
-      width: 150,
-      margin: 12,
-      padding: 5,
   },
   physicalBook : {
       height: 250,
@@ -191,7 +189,7 @@ var styles = StyleSheet.create({
   },
   bottomMenuLabels : {
     fontFamily : 'Open Sans',
-    fontSize: BOTTOM_FONT_SIZE,
+    fontSize: 11,
     color : controlsColor,
   },
   picker: {
@@ -328,18 +326,14 @@ var styles = StyleSheet.create({
       backgroundColor: 'rgba(100,189,189,1)',
       zIndex: 800,
       padding: 10,
-      flexDirection: 'row',
+      ...Platform.select({
+        android: {
+            flexDirection: 'row',
+        }
+      }),
   },
   userBarText: {
-      color: 'white',
-      flex: 1,
-      textAlign: 'center'
-  },
-  dismissableNotificationText: {
-      color: 'white',
-      flex: 1,
-      paddingLeft: 4,
-      paddingBottom: 2
+      color: 'white'
   },
   frontPage: {
       flex: 1
