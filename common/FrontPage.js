@@ -9,6 +9,7 @@ import {
   Switch,
   TouchableWithoutFeedback,
   LayoutAnimation,
+  Platform,
 } from 'react-native';
 
 import GridView from 'react-native-grid-view';
@@ -126,17 +127,21 @@ export default class FrontPage extends React.Component {
         }
 
         if(item.type == "settings"){
-            return <View key="settings">
-            <Icon.Button
-              style={styles.detailIcon}
-              name="settings"
-              size={30}
-              color={"#888"}
-              backgroundColor={"transparent"}
-              onPress={() => this.navigation.navigate('UserSettings') }
-            ><Text style={{fontSize:18, color:'#888'}}>Settings</Text></Icon.Button>
+            if (Platform.OS === 'android'){
+              return null;
+            }else{
+              return <View key="settings">
+              <Icon.Button
+                style={styles.detailIcon}
+                name="settings"
+                size={30}
+                color={"#888"}
+                backgroundColor={"transparent"}
+                onPress={() => this.navigation.navigate('UserSettings') }
+              ><Text style={{fontSize:18, color:'#888'}}>Settings</Text></Icon.Button>
 
-            </View>
+              </View>
+            }
         }
     }
 
@@ -311,6 +316,20 @@ FrontPage.navigationOptions = props => {
     navigation.navigate('UserSettings');
   }
 
+  if (Platform.OS === 'android'){
+    var settingsIcon = (
+    <Icon
+      style={styles.detailIcon}
+      name="settings"
+      title="Settings"
+      size={30}
+      color={"#888"}
+      onPress={() => showSettings() }
+    />);
+  }else{
+    var settingsIcon = null;
+  }
+
   return {
       title: 'My Books',
       headerRight: (
@@ -323,6 +342,7 @@ FrontPage.navigationOptions = props => {
           color={"rgba(100,189,189,1)"}
           onPress={() => showLibrary() }
         />
+        {settingsIcon}
       </View>
     ),
   };
