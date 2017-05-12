@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native';
 
-import styles from './PolliStyles';
+import styles, {propStyles} from './PolliStyles';
 import Icon2 from 'react-native-vector-icons/FontAwesome';
 import { NavigationActions } from 'react-navigation';
 
@@ -49,7 +49,7 @@ export default class LoginPage extends Component{
     return (
       <ScrollView style={styles.loginContainer} contentContainerStyle={styles.loginContentContainer}>
         <View>
-          <Image source={require('../images/Polli-Logo-s.png')} style={styles.loginLogo} />
+          <Image source={require('../images/Polli-Logo-l.png')} style={styles.loginLogo} />
         </View>
         <View style={styles.loginInputContainer}>
           <View style={styles.loginField}>
@@ -74,7 +74,7 @@ export default class LoginPage extends Component{
         </View>
         <View style={styles.loginButtons}>
           <View style={styles.loginButtonContainer}>
-            <Icon2.Button name="sign-in" backgroundColor="#00a1f1" style={styles.loginButton}
+            <Icon2.Button name="sign-in" size={propStyles.iconSize} backgroundColor="#00a1f1" style={styles.loginButton}
               onPress={()=>this.showFrontPage(true)}>
               <Text style={styles.loginButtonText}>Login</Text>
             </Icon2.Button>
@@ -84,12 +84,12 @@ export default class LoginPage extends Component{
               <Text style={styles.loginSignUpLink} onPress={()=>this.showUserOnboarding()}>Sign Up</Text>
           </View>
           <View style={styles.loginButtonContainer}>
-            <Icon2.Button name="facebook" iconStyle={{marginLeft:3,marginRight:15}} backgroundColor="#3b5998" style={styles.loginButton}>
+            <Icon2.Button name="facebook" size={propStyles.iconSize} iconStyle={{marginLeft:3,marginRight:15}} backgroundColor="#3b5998" style={styles.loginButton}>
               <Text style={styles.loginButtonText}>Login with Facebook</Text>
             </Icon2.Button>
           </View>
           <View style={styles.loginButtonContainer}>
-            <Icon2.Button name="google" backgroundColor="#ea4335" style={styles.loginButton}>
+            <Icon2.Button name="google" size={propStyles.iconSize} backgroundColor="#ea4335" style={styles.loginButton}>
               <Text style={styles.loginButtonText}>Login with Google</Text>
             </Icon2.Button>
           </View>

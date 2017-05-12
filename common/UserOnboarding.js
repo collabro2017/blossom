@@ -34,8 +34,8 @@ export class OBWFirst extends Component {
 
         <View style={styles.obwImageContainer}>
           <Image source={require('../images/pr_cover.png')} style={styles.obwImage} />
-          <Text style={[styles.obwText,{fontSize: 16,flex:1}]}>
-            Once upon a time there were <Text style={{color:'#528F6B'}}>quantro</Text> rabbits,
+          <Text style={styles.obwSmallText}>
+            Once upon a time there were <Text style={{color:'#528F6B'}}>quatro</Text> rabbits,
             and their names were - Flopsy, Mopsy,
             Cotton-tail, and Peter. They lived with their
             <Text style={{color:'#BF5F2D'}}> mother</Text> in the sand-bank, underneath the root
@@ -85,7 +85,7 @@ export class OBWSecond extends Component {
     };
 
     return (
-      <View style={[styles.obwContainer, {justifyContent:'center'}]}>
+      <View style={styles.obwContainer}>
         <View >
           <Text style={styles.obwTitle}>How old is the reader?</Text>
 
@@ -98,10 +98,10 @@ export class OBWSecond extends Component {
           <Text style={styles.obwTitle}> {this.getAge()}</Text>
 
         </View>
-        <View style={{margin:40}}>
+        <View style={styles.obwSection}>
           <Text style={styles.obwTitle}>What Languages?</Text>
 
-          <Text style={[styles.obwText,{fontSize: 16}]}>
+          <Text style={styles.obwText}>
             Tell us what language the reader speaks and what language you want them to learn
           </Text>
 

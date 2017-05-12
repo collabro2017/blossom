@@ -8,9 +8,49 @@ import Device from 'react-native-device-detection';
 
 if (Device.isTablet) {
   //Tablet specific styles
+  var logoHeight = 223;
+  var logoWidth = 500;
+
+  var fontSizeXL = 64;
+  var fontSizeL = 40;
+  var fontSizeM = 32;
+  var fontSizeS = 26;
+
+  var loginInputWidth = 500;
+  var loginInputHeight = 150;
+  var smallMargin = 40;
+  var commonMargin = 100;
+  var loginButtonPadding = 20;
+
+  var obwImageWidth = 240;
+  var obwImageHeight = 388;
+
+  var iconSize = 50;
 } else {
   //Phone specific styles
+  var logoHeight = 100;
+  var logoWidth = 225.15;
+
+  var fontSizeXL = 40;
+  var fontSizeL = 32;
+  var fontSizeM = 20;
+  var fontSizeS = 14;
+
+  var loginInputWidth = 300;
+  var loginInputHeight = 100;
+  var smallMargin = 20;
+  var commonMargin = 30;
+  var loginButtonPadding = 10;
+
+  var obwImageWidth = 120;
+  var obwImageHeight = 194;
+
+  var iconSize = 30;
 }
+
+var propStyles = {
+  iconSize: iconSize
+};
 
 var controlsColor = '#583919';
 var styles = StyleSheet.create({
@@ -372,13 +412,14 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   loginContentContainer: {
+    flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
     margin: 30,
   },
   loginInputContainer: {
-    marginTop: 30,
-    flex: 0.5,
+    margin: commonMargin,
+    height: loginInputHeight,
+    width: loginInputWidth,
     borderColor: 'grey',
     borderWidth: 1,
     borderRadius: 10,
@@ -393,7 +434,7 @@ var styles = StyleSheet.create({
   },
   loginTextTitle: {
     // flex: 20,
-    fontSize: 20,
+    fontSize: fontSizeM,
   },
   loginTextInput: {
     // flex: 3,
@@ -401,18 +442,18 @@ var styles = StyleSheet.create({
     width: 200,
   },
   loginButtons: {
-    marginTop: 20,
+    //marginTop: 20,
     flex: 0.4,
   },
   loginButtonContainer: {
     margin: 5,
   },
   loginButton: {
-    padding: 10,
+    padding: loginButtonPadding,
   },
   loginButtonText: {
     color: 'white',
-    fontSize: 20,
+    fontSize: fontSizeM,
   },
   loginSignUpContainer: {
     flexDirection: 'row',
@@ -420,36 +461,43 @@ var styles = StyleSheet.create({
     marginBottom: 40,
   },
   loginSignUpText: {
-    fontSize: 20,
+    fontSize: fontSizeM,
   },
   loginSignUpLink: {
     color: '#008000',
-    fontSize: 20,
+    fontSize: fontSizeM,
   },
   loginLogo: {
-    height: 100,
-    width: 225.15,
+    marginTop: commonMargin,
+    height: logoHeight,
+    width: logoWidth,
   },
 
   //Onboarding Wizard screens:
   obwContainer: {
     flex: 1,
-    marginTop: 20,
-    justifyContent: 'flex-start',
+    margin: smallMargin,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   obwTitle: {
     textAlign: 'center',
     marginBottom: 10,
-    fontSize: 32,
+    fontSize: fontSizeL,
   },
   obwLogo: {
-    height: 100,
-    width: 225.15,
+    height: logoHeight,
+    width: logoWidth,
   },
   obwText: {
-    margin: 15,
-    fontSize: 20,
+    margin: smallMargin,
+    fontSize: fontSizeM,
+    textAlign: 'center',
+  },
+  obwSmallText: {
+    flex: 1,
+    margin: smallMargin,
+    fontSize: fontSizeS,
     textAlign: 'center',
   },
   obwImageContainer: {
@@ -457,22 +505,24 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 30,
   },
   obwImage: {
-    height: 194,
-    width: 120,
+    height: obwImageHeight,
+    width: obwImageWidth,
   },
   obwButtonText: {
     color: 'white',
-    fontSize: 20,
+    fontSize: fontSizeM,
   },
   obwButton: {
     padding: 10,
   },
   obwButtonContainer: {
-    margin: 30,
+    //margin: commonMargin,
+  },
+  obwSection: {
+    margin: smallMargin,
   },
 });
-
-module.exports = styles;
+export {propStyles};
+export default styles;
