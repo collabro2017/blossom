@@ -138,7 +138,13 @@ export default class FrontPage extends React.Component {
                 backgroundColor={"transparent"}
                 onPress={() => this.navigation.navigate('UserSettings') }
               ><Text style={{fontSize:18, color:'#888'}}>Settings</Text></Icon.Button>
-
+              <Icon.Button
+                style={styles.detailIcon}
+                name="logout"
+                color={"#888"}
+                backgroundColor={"transparent"}
+                onPress={() => {global.user=null;this.navigation.navigate('LoginPage')} }
+              ><Text style={{fontSize:18, color:'#888'}}>Logout</Text></Icon.Button>
               </View>
             }
         }
