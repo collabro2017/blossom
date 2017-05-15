@@ -86,7 +86,7 @@ export class OBWSecond extends Component {
 
     return (
       <View style={styles.obwContainer}>
-        <View >
+        <View style={styles.obwSection}>
           <Text style={styles.obwTitle}>How old is the reader?</Text>
 
           <Slider value={this.state.ageSliderValue}
@@ -158,7 +158,7 @@ export class OBWThird extends Component {
         <Text style={styles.obwText}>
           Create an account to save your information and start reading
         </Text>
-        <View style={[styles.loginInputContainer,{margin:50}]}>
+        <View style={styles.loginInputContainer}>
           <View style={styles.loginField}>
             <Text style={styles.loginTextTitle}>Email:</Text>
             <TextInput

@@ -14,7 +14,7 @@ import {
 
 import GridView from 'react-native-grid-view';
 
-import styles from './PolliStyles';
+import styles, {propStyles} from './PolliStyles';
 import PhysicalBook from './PhysicalBook';
 
 import RNFetchBlob from 'react-native-fetch-blob';
@@ -134,7 +134,6 @@ export default class FrontPage extends React.Component {
               <Icon.Button
                 style={styles.detailIcon}
                 name="settings"
-                size={30}
                 color={"#888"}
                 backgroundColor={"transparent"}
                 onPress={() => this.navigation.navigate('UserSettings') }
@@ -316,18 +315,31 @@ FrontPage.navigationOptions = props => {
     navigation.navigate('UserSettings');
   }
 
+  function logout() {
+    global.user = null;
+    navigation.navigate('LoginPage');
+  }
+
   if (Platform.OS === 'android'){
     var settingsIcon = (
     <Icon
       style={styles.detailIcon}
       name="settings"
       title="Settings"
-      size={30}
       color={"#888"}
       onPress={() => showSettings() }
     />);
+    var logoutIcon = (
+    <Icon
+      style={styles.detailIcon}
+      name="logout"
+      title="Logout"
+      color={"#888"}
+      onPress={() => logout() }
+    />);
   }else{
     var settingsIcon = null;
+    var logoutIcon = null;
   }
 
   return {
@@ -338,11 +350,11 @@ FrontPage.navigationOptions = props => {
           style={styles.detailIcon}
           name="library"
           title="Bookstore"
-          size={30}
           color={"rgba(100,189,189,1)"}
           onPress={() => showLibrary() }
         />
         {settingsIcon}
+        {logoutIcon}
       </View>
     ),
   };

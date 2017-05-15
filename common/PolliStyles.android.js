@@ -16,8 +16,9 @@ if (Device.isTablet) {
   var fontSizeM = 32;
   var fontSizeS = 26;
 
-  var loginInputWidth = 500;
-  var loginInputHeight = 150;
+  var loginInputWidth = 600;
+  var loginInputHeight = 80;
+  var loginTextInputWidth = 350;
   var smallMargin = 40;
   var commonMargin = 100;
   var loginButtonPadding = 20;
@@ -37,7 +38,8 @@ if (Device.isTablet) {
   var fontSizeS = 14;
 
   var loginInputWidth = 300;
-  var loginInputHeight = 100;
+  var loginInputHeight = 70;
+  var loginTextInputWidth = 200;
   var smallMargin = 20;
   var commonMargin = 30;
   var loginButtonPadding = 10;
@@ -418,19 +420,19 @@ var styles = StyleSheet.create({
   },
   loginInputContainer: {
     margin: commonMargin,
-    height: loginInputHeight,
-    width: loginInputWidth,
     borderColor: 'grey',
     borderWidth: 1,
     borderRadius: 10,
     backgroundColor: 'white',
   },
   loginField: {
-    flex: 0.5,
+    // flex: 0.5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 10,
+    height: loginInputHeight,
+    width: loginInputWidth,
   },
   loginTextTitle: {
     // flex: 20,
@@ -438,8 +440,8 @@ var styles = StyleSheet.create({
   },
   loginTextInput: {
     // flex: 3,
-    fontSize: 20,
-    width: 200,
+    fontSize: fontSizeM,
+    width: loginTextInputWidth,
   },
   loginButtons: {
     //marginTop: 20,
@@ -518,10 +520,11 @@ var styles = StyleSheet.create({
     padding: 10,
   },
   obwButtonContainer: {
-    //margin: commonMargin,
+
   },
   obwSection: {
-    margin: smallMargin,
+    marginTop: smallMargin,
+    justifyContent: 'center',
   },
 });
 export {propStyles};
