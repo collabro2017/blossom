@@ -102,6 +102,7 @@ var styles = StyleSheet.create({
       paddingRight : 40,
       paddingTop : 50,
       paddingBottom : 50,
+      flex: 1
       // borderWidth : 3,
       // borderColor : 'pink',
     },
