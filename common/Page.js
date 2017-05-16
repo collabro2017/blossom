@@ -56,6 +56,7 @@ class Page extends React.Component {
     return <FitImage
       key={'n' + i}
       style={[styles.image, mixins.styleOverride(node)]}
+      resizeMode={'contain'}
       source={{ uri: node.src }} />
   }
   renderText(node, i) {
@@ -122,7 +123,8 @@ var styles = StyleSheet.create({
       // borderColor : 'red',
     },
     image : {
-        maxWidth: smallerSide * 0.8
+        maxWidth: smallerSide * 0.8,
+        flexShrink: 3
     },
     text : {
       fontFamily: 'Lora',
