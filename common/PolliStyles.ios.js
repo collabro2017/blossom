@@ -378,11 +378,7 @@ var styles = StyleSheet.create({
       backgroundColor: 'rgba(100,189,189,1)',
       zIndex: 800,
       padding: 10,
-      ...Platform.select({
-        android: {
-            flexDirection: 'row',
-        }
-      }),
+      flexDirection: 'row',
   },
   userBarText: {
       color: 'white'
@@ -534,6 +530,13 @@ var styles = StyleSheet.create({
   },
   obwSection: {
     margin: smallMargin,
+  },
+  dismissableNotificationText: {
+     color: 'white',
+     fontSize: responsiveFontSize(1.7),
+     textAlign: 'left',
+     flex: 1,
+     paddingLeft: 8,
   },
 });
 export {propStyles};
