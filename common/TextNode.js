@@ -17,6 +17,8 @@ var {
 
 var mixins = require('./Mixins');
 
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
+
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 const biggerSide = windowHeight > windowWidth ? windowHeight : windowWidth;
@@ -28,9 +30,9 @@ function sizeFont(size) {
     return size;
 }
 
-var COVER_FONT_SIZE = sizeFont(36);
-var STORY_FONT_SIZE = sizeFont(15);
-var STORY_LINE_HEIGHT = sizeFont(22);
+var COVER_FONT_SIZE = responsiveFontSize(6);
+var STORY_FONT_SIZE = responsiveFontSize(2.25);
+var STORY_LINE_HEIGHT = responsiveFontSize(3);
 
 var TextNode = React.createClass({
   displayName : 'TextNode',
