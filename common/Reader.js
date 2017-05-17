@@ -257,17 +257,17 @@ var Reader = React.createClass({
         <Text></Text>
       </View>
       <View style={[styles.topMenuCenter]}>
-          <Text onPress={this.toggleStatusBar} style={styles.bookTitle}>{global.currentBook.title}</Text>
+          <Text onPress={this.toggleStatusBar} style={styles.topMenuCenterText}>{global.currentBook.title}</Text>
       </View>
       <View style={[styles.topMenuRight]}>
-        <Text onPress={this.toggleStatusBar} style={styles.bookAuthor}>{global.currentBook.author}</Text>
+        <Text onPress={this.toggleStatusBar} style={styles.topMenuRightText}>{global.currentBook.author}</Text>
       </View>
     </View>
   },
   renderBottomMenu : function() {
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
       <View style={[styles.bottomMenuLeft]}>
-        <PolliPicker blend={this.state.blend} onValueChange={(key)=>{this.updateBlendLevel(blendLevelKeyByIndex[key], key)}}/>
+        <PolliPicker style={styles.bottomMenuLabels} blend={this.state.blend} onValueChange={(key)=>{this.updateBlendLevel(blendLevelKeyByIndex[key], key)}}/>
       </View>
       <View style={[styles.bottomMenuCenter]}>
         <Text style={styles.bottomMenuLabels}>Page {this.state.page}</Text>

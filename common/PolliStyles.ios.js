@@ -5,6 +5,8 @@ import {
 } from 'react-native';
 
 import Device from 'react-native-device-detection';
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
+
 
 if (Device.isTablet) {
   //Tablet specific styles
@@ -105,11 +107,21 @@ var styles = StyleSheet.create({
     justifyContent : 'center',
     paddingTop: 20
   },
+  topMenuCenterText : {
+    fontSize: responsiveFontSize(2),
+    fontFamily : 'Open Sans',
+    color : controlsColor,
+  },
   topMenuRight : {
     flex : 3,
     alignItems : 'center',
     justifyContent : 'center',
     paddingTop: 20
+  },
+  topMenuRightText : {
+    fontSize: responsiveFontSize(1.5),
+    fontFamily : 'Open Sans',
+    color : controlsColor,
   },
   bigTitle : {
       fontFamily: 'Lora',
@@ -229,7 +241,7 @@ var styles = StyleSheet.create({
   },
   bottomMenuLabels : {
     fontFamily : 'Open Sans',
-    fontSize: 11,
+    fontSize: responsiveFontSize(2),
     color : controlsColor,
   },
   picker: {

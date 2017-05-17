@@ -14,6 +14,8 @@ var {
     Component
 } = React;
 
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
+
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 const smallerSide = windowHeight < windowWidth ? windowHeight : windowWidth;
@@ -124,7 +126,7 @@ var styles = StyleSheet.create({
       // borderColor : 'red',
     },
     image : {
-        maxWidth: smallerSide * 0.8,
+        maxWidth: responsiveWidth(80),
         flexShrink: 3
     },
     text : {
