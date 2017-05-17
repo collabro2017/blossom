@@ -357,6 +357,7 @@ FrontPage.navigationOptions = props => {
           name="library"
           title="Bookstore"
           color={"rgba(100,189,189,1)"}
+          size={30}
           onPress={() => showLibrary() }
         />
         {settingsIcon}
