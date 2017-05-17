@@ -98,7 +98,8 @@ function getStoryLineHeight() {
 var styles = StyleSheet.create({
     container : {
       flexDirection : 'column',
-      alignItems : 'stretch',
+      alignItems : 'center',
+      justifyContent: 'center',
       flexWrap : 'nowrap',
       paddingLeft : 40,
       paddingRight : 40,
@@ -122,6 +123,7 @@ var styles = StyleSheet.create({
       flexDirection : 'row',
       justifyContent : 'flex-start',
       paddingBottom: 20,
+      paddingTop: 20,
       // borderWidth : 3,
       // borderColor : 'red',
     },
