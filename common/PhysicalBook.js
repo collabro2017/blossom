@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
 } from 'react-native';
 
 import FitImage from 'react-native-fit-image';
@@ -52,18 +53,10 @@ export default class PhysicalBook extends React.Component {
           onPress={() => this.showReader(this.props.book)}
           onLongPress={() => this.showDetails(this.props.book)}
           style={styles.physicalBook} >
-        <View>
-          <FitImage
+          <Image
             source={{uri: this.props.book.thumbnail}}
             style={styles.thumbnail}
           />
-          <View >
-            <Text
-            style={styles.bookTitle}
-            numberOfLines={3}>{this.props.book.title}</Text>
-            <Text style={styles.bookAuthor}>{this.props.book.author}</Text>
-          </View>
-        </View>
         </TouchableOpacity>
       );
   }

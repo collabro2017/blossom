@@ -33,6 +33,40 @@ const BOOKS_PER_ROW = 2;
 
 const BOOK = require('./Book.js');
 const BOOK_CHINESE = require('./Book-chinese.js');
+const second_shelf = [
+    {
+        bookId: 1,
+        title:"Charlotte's Web",
+        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/charlotteweb.jpg'
+    },
+    {
+        bookId: 2,
+        title:'Frog and Toad Are Friends',
+        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/frogandtoad_0.jpg'
+    },
+    {
+        bookId: 3,
+        title:'Green Eggs and Ham',
+        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/green_eggs_and_ham.jpg'
+    },
+    {
+        bookId: 4,
+        title:'Harold and the Purple Crayon',
+        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/haroldcrayon.jpg'
+    },
+    {
+        bookId: 5,
+        title:'Matilda',
+        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/matilda.jpg'
+    },
+    {
+        bookId: 6,
+        title:'The Phantom Tollbooth',
+        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/phantom_tollbooth.jpg'
+    }
+]
+
+
 
 export default class FrontPage extends React.Component {
 
@@ -279,7 +313,7 @@ export default class FrontPage extends React.Component {
                 </Modal>
 
 
-            <View style={{backgroundColor:'saddlebrown',height:15,resizeMode:'stretch',top:275}} />
+            <View style={{backgroundColor:'saddlebrown',height:15,resizeMode:'stretch',top:190}} />
             <FlatList
                 horizontal
                 data={this.state.dataSource}
@@ -288,7 +322,14 @@ export default class FrontPage extends React.Component {
                 navigation={ navigation }
             />
 
-
+            <View style={{backgroundColor:'saddlebrown',height:15,resizeMode:'stretch',top:190}} />
+            <FlatList
+                horizontal
+                data={second_shelf}
+                renderItem={this.renderItem}
+                initialNumToRender={8}
+                navigation={ navigation }
+            />
 
             {showDebugMenuButton}
         </View>

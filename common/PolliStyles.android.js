@@ -130,19 +130,9 @@ var styles = StyleSheet.create({
     fontWeight : '600'
   },
   physicalBook : {
-      height: 250,
-      width: 150,
-      margin: 12,
-      padding: 5,
-      backgroundColor: '#fff',
-      borderRadius: 3,
-      shadowColor: "#000000",
-      shadowOpacity: 0.6,
-      shadowRadius: 2,
-      shadowOffset: {
-          height: 0,
-          width: 0
-        }
+      height: 190,
+      width: 130,
+      marginRight: 25,
   },
   galleryContainer : {
       paddingBottom: 10,
