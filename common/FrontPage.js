@@ -333,6 +333,7 @@ FrontPage.navigationOptions = props => {
       name="settings"
       title="Settings"
       color={"#888"}
+      size={propStyles.iconSize}
       onPress={() => showSettings() }
     />);
     var logoutIcon = (
@@ -341,6 +342,7 @@ FrontPage.navigationOptions = props => {
       name="logout"
       title="Logout"
       color={"#888"}
+      size={propStyles.iconSize}
       onPress={() => logout() }
     />);
   }else{
@@ -357,7 +359,7 @@ FrontPage.navigationOptions = props => {
           name="library"
           title="Bookstore"
           color={"rgba(100,189,189,1)"}
-          size={30}
+          size={propStyles.iconSize}
           onPress={() => showLibrary() }
         />
         {settingsIcon}
