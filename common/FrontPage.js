@@ -10,9 +10,9 @@ import {
   TouchableWithoutFeedback,
   LayoutAnimation,
   Platform,
+  FlatList,
+  Image,
 } from 'react-native';
-
-import GridView from 'react-native-grid-view';
 
 import styles, {propStyles} from './PolliStyles';
 import PhysicalBook from './PhysicalBook';
@@ -116,10 +116,10 @@ export default class FrontPage extends React.Component {
 
   }
 
-    renderItem(item) {
-        console.log("item", item)
+    renderItem = ({item}) => {
+        const {navigation} = this.props;
         if(item.bookId) {
-            return <PhysicalBook book={item} key={item.bookId} navigation={ this.navigation } />
+            return <PhysicalBook book={item} key={item.bookId} navigation={ navigation } />
         }
 
         if(item.type == "invisibleBook") {
@@ -278,13 +278,17 @@ export default class FrontPage extends React.Component {
                     </View>
                 </Modal>
 
-            <GridView
-                items={this.state.dataSource}
-                itemsPerRow={BOOKS_PER_ROW}
+
+            <View style={{backgroundColor:'saddlebrown',height:15,resizeMode:'stretch',top:275}} />
+            <FlatList
+                horizontal
+                data={this.state.dataSource}
                 renderItem={this.renderItem}
-                contentContainerStyle={styles.listView}
+                initialNumToRender={8}
                 navigation={ navigation }
             />
+
+
 
             {showDebugMenuButton}
         </View>
