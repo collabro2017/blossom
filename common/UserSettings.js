@@ -7,6 +7,7 @@ import {
   TextInput,
   ScrollView,
   Slider,
+  Alert,
 } from 'react-native';
 
 import FitImage from 'react-native-fit-image';
@@ -51,15 +52,28 @@ export default class UserSettings extends Component{
       return null;
     }
   }
+  showSubscriptionAlert() {
+      Alert.alert(
+        'End Subscription?',
+        'If you end your subscription, you will only be able to read free titles.',
+        [
+          {text: 'Keep subscription', onPress: () => {}},
+          {text: 'End subscription', onPress: () => {}},
+        ],
+        { cancelable: true }
+      )
+  }
   renderSubscription(){
     if (this.state.editmode){
       return (
         <View style={[styles.settingsButtonContainer,{marginTop:20}]}>
             <Button
-              title="Deactivate Account"
+              title="End subscription"
               color="navy"
               style={styles.settingsButton}
+              onPress={()=>this.showSubscriptionAlert()}
             />
+            <Text style={{color:'red',textAlign:'center',margin:10}}>Deactivate account</Text>
         </View>
       );
     }else{
