@@ -12,6 +12,7 @@ import {
   Platform,
   FlatList,
   Image,
+  Dimensions,
 } from 'react-native';
 
 import styles, {propStyles} from './PolliStyles';
@@ -30,6 +31,7 @@ function ObjectCreator(obj) { // CONSTRUCTOR CAN BE OVERLOADED WITH AN OBJECT
 }
 
 const BOOKS_PER_ROW = 2;
+const BOOKS_TO_RENDER = 3;
 
 const BOOK = require('./Book.js');
 const BOOK_CHINESE = require('./Book-chinese.js');
@@ -52,7 +54,7 @@ const second_shelf = [
     {
         bookId: 4,
         title:'Harold and the Purple Crayon',
-        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/haroldcrayon.jpg'
+        thumbnail: 'http://images.gr-assets.com/books/1327390957l/98573.jpg'
     },
     {
         bookId: 5,
@@ -199,6 +201,30 @@ export default class FrontPage extends React.Component {
         this.setState({demoUserSwitchOn: shouldEnable, modalVisible:false});
     }
 
+    renderShelf(data,title){
+      const { navigation } = this.props;
+      return(
+        <View>
+
+          <View style={styles.galleryShelfTitle}><Text style={styles.galleryShelfTitleText}>{title}</Text></View>
+
+          <View style={styles.galleryShelfRectangle} />
+          <View style={{top:193,flexDirection:'row'}}>
+            <View style={styles.galleryShelfTriangle} />
+            <View style={styles.galleryShelfBottom} />
+            <View style={[styles.galleryShelfTriangle,{transform:[{rotate:"360deg"}]}]} />
+          </View>
+          <FlatList
+              horizontal
+              data={data}
+              renderItem={this.renderItem}
+              initialNumToRender={BOOKS_TO_RENDER}
+              navigation={ navigation }
+          />
+        </View>
+      );
+    }
+
     render() {
         const { navigation } = this.props;
 
@@ -213,12 +239,12 @@ export default class FrontPage extends React.Component {
         if (__DEV__) {
             console.ignoredYellowBox = ['Warning: You are manually calling'];
 
-            showDebugMenuButton = <Button
+            showDebugMenuButton = <View style={{margin:35}}><Button
               onPress={() => this.setState({modalVisible : true}) }
               title="▲ Debug Menu"
               color="black"
               accessibilityLabel="Show debug menu"
-            />
+            /></View>
         }
 
         var frontPageOverlay = null;
@@ -312,24 +338,8 @@ export default class FrontPage extends React.Component {
                     </View>
                 </Modal>
 
-
-            <View style={{backgroundColor:'saddlebrown',height:15,resizeMode:'stretch',top:190}} />
-            <FlatList
-                horizontal
-                data={this.state.dataSource}
-                renderItem={this.renderItem}
-                initialNumToRender={8}
-                navigation={ navigation }
-            />
-
-            <View style={{backgroundColor:'saddlebrown',height:15,resizeMode:'stretch',top:190}} />
-            <FlatList
-                horizontal
-                data={second_shelf}
-                renderItem={this.renderItem}
-                initialNumToRender={8}
-                navigation={ navigation }
-            />
+            {this.renderShelf(this.state.dataSource,'Downloaded books:')}
+            {this.renderShelf(second_shelf,'Recommended from Bookstore:')}
 
             {showDebugMenuButton}
         </View>

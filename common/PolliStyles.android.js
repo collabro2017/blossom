@@ -2,9 +2,13 @@ import React from 'react';
 import {
   StyleSheet,
   Platform,
+  Dimensions,
 } from 'react-native';
 
 import Device from 'react-native-device-detection';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 if (Device.isTablet) {
   //Tablet specific styles
@@ -130,24 +134,67 @@ var styles = StyleSheet.create({
     fontWeight : '600'
   },
   physicalBook : {
-      height: 190,
-      width: 130,
-      marginRight: 25,
+    marginLeft: 13,
+    marginRight: 2,
+    zIndex: 1,
+  },
+  thumbnail: {
+    height:180,
+    width:140,
+    borderWidth: 0,
+    borderBottomRightRadius: 7,
+    borderTopRightRadius: 7,
+    borderBottomLeftRadius: 2,
+    borderTopLeftRadius: 2,
+    // borderColor: 'black',
+    //overflow: 'hidden',
   },
   galleryContainer : {
       paddingBottom: 10,
-      paddingLeft: 20,
-      paddingRight: 20,
       backgroundColor: 'rgba(230,216,189,1)',
       flex: 1
   },
+  galleryShelfTitle: {
+    marginTop:10,
+    marginLeft:15,
+  },
+
+  galleryShelfTriangle: {
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderRightWidth: 4,
+    borderTopWidth: 4,
+    borderRightColor: 'transparent',
+    borderTopColor: '#61300d',
+    transform: [
+      {rotate: '90deg'}
+    ],
+
+  },
+  galleryShelfBottom: {
+    height:4,
+    width:windowWidth-8,
+    backgroundColor:'#61300d'
+  },
+  galleryShelfTitleText: {
+    fontWeight:'bold',
+    marginTop: 10,
+  },
+  galleryShelfRectangle: {
+    backgroundColor:'#8B4513',
+    height:15,
+    borderColor: '#61300d',
+    borderBottomWidth: 1,
+    top:193,
+    zIndex: 2,
+  },
   storeGalleryContainer : {
-        paddingTop: 40,
-        paddingBottom: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
-        backgroundColor: 'rgba(100,189,189,1)',
-        flex: 1
+      paddingTop: 40,
+      paddingBottom: 10,
+      backgroundColor: 'rgba(100,189,189,1)',
+      flex: 1
     },
     buttonContainer : {
         backgroundColor: 'white',
@@ -226,10 +273,6 @@ var styles = StyleSheet.create({
   },
   picker: {
     width: 125,
-  },
-  thumbnail: {
-    height:180,
-    width:140,
   },
   //details screen
   detailContainer: {
