@@ -136,7 +136,7 @@ var styles = StyleSheet.create({
   physicalBook : {
     marginLeft: 13,
     marginRight: 2,
-    zIndex: 1,
+    //zIndex: 4,
   },
   thumbnail: {
     height:180,
@@ -164,18 +164,18 @@ var styles = StyleSheet.create({
     height: 0,
     backgroundColor: 'transparent',
     borderStyle: 'solid',
-    borderRightWidth: 4,
-    borderTopWidth: 4,
+    borderRightWidth: 9,
+    borderTopWidth: 9,
     borderRightColor: 'transparent',
     borderTopColor: '#61300d',
     transform: [
-      {rotate: '90deg'}
+      {rotate: '180deg'}
     ],
 
   },
-  galleryShelfBottom: {
-    height:4,
-    width:windowWidth-8,
+  galleryShelfTop: {
+    height:9,
+    width:windowWidth,
     backgroundColor:'#61300d'
   },
   galleryShelfTitleText: {
@@ -187,8 +187,8 @@ var styles = StyleSheet.create({
     height:15,
     borderColor: '#61300d',
     borderBottomWidth: 1,
-    top:193,
-    zIndex: 2,
+    top:210,
+    //zIndex: 1,
   },
   storeGalleryContainer : {
       paddingTop: 40,

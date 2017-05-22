@@ -41,36 +41,34 @@ const second_shelf = [
     {
         bookId: 1,
         title:"Charlotte's Web",
-        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/charlotteweb.jpg'
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/sample_covers/cw.jpg'
     },
     {
         bookId: 2,
         title:'Frog and Toad Are Friends',
-        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/frogandtoad_0.jpg'
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/sample_covers/ft.jpg'
     },
     {
         bookId: 3,
         title:'Green Eggs and Ham',
-        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/green_eggs_and_ham.jpg'
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/sample_covers/eh.jpg'
     },
     {
         bookId: 4,
         title:'Harold and the Purple Crayon',
-        thumbnail: 'http://images.gr-assets.com/books/1327390957l/98573.jpg'
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/sample_covers/hp.jpg'
     },
     {
         bookId: 5,
         title:'Matilda',
-        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/matilda.jpg'
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/sample_covers/mt.jpg'
     },
     {
         bookId: 6,
         title:'The Phantom Tollbooth',
-        thumbnail: 'https://d140u095r09w96.cloudfront.net/sites/default/files/images/phantom_tollbooth.jpg'
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/sample_covers/pb.jpg'
     }
 ]
-
-
 
 export default class FrontPage extends React.Component {
 
@@ -207,18 +205,19 @@ export default class FrontPage extends React.Component {
     }
 
     renderShelf(data,title){
-      const { navigation } = this.props;
-      return(
+      const {navigation} = this.props;
+      return (
         <View>
-
           <View style={styles.galleryShelfTitle}><Text style={styles.galleryShelfTitleText}>{title}</Text></View>
 
           <View style={styles.galleryShelfRectangle} />
-          <View style={{top:193,flexDirection:'row'}}>
+
+          <View style={{top:186,flexDirection:'row'}}>
             <View style={styles.galleryShelfTriangle} />
-            <View style={styles.galleryShelfBottom} />
-            <View style={[styles.galleryShelfTriangle,{transform:[{rotate:"360deg"}]}]} />
+            <View style={styles.galleryShelfTop} />
+
           </View>
+
           <FlatList
               horizontal
               data={data}
@@ -226,6 +225,7 @@ export default class FrontPage extends React.Component {
               initialNumToRender={BOOKS_TO_RENDER}
               navigation={ navigation }
           />
+
         </View>
       );
     }

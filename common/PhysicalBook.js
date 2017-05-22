@@ -23,14 +23,18 @@ export default class PhysicalBook extends React.Component {
     ]
 
     showReader(book) {
-        global.currentBook=book;
-        LocalLibrary.get(global.currentBook.bookId, this.updateThenDisplayBook.bind(this));
+        if (book.author){
+          global.currentBook=book;
+          LocalLibrary.get(global.currentBook.bookId, this.updateThenDisplayBook.bind(this));
+        }
     }
 
     showDetails(book) {
-        const { navigate } = this.props.navigation;
-        global.currentBook=book;
-        navigate('BookDetail');
+        if (book.author){
+          const { navigate } = this.props.navigation;
+          global.currentBook=book;
+          navigate('BookDetail');
+        }
     }
 
     updateThenDisplayBook(statsArray) {
