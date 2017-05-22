@@ -17,6 +17,8 @@ import GridView from 'react-native-grid-view';
 import styles, {propStyles} from './PolliStyles';
 import PhysicalBook from './PhysicalBook';
 
+import Device from 'react-native-device-detection';
+
 import RNFetchBlob from 'react-native-fetch-blob';
 import LocalLibraryDAO from './LocalLibraryDAO.js';
 
@@ -29,7 +31,7 @@ function ObjectCreator(obj) { // CONSTRUCTOR CAN BE OVERLOADED WITH AN OBJECT
   for (var prop in obj) this[prop] = obj[prop];
 }
 
-const BOOKS_PER_ROW = 2;
+const BOOKS_PER_ROW = Device.isTablet? 4 : 2;
 
 const BOOK = require('./Book.js');
 const BOOK_CHINESE = require('./Book-chinese.js');
@@ -62,10 +64,11 @@ export default class FrontPage extends React.Component {
   }
 
   addSettingsToGrid(dataSourceArray) {
-      console.log('addSettingsToGrid');
-      if(dataSourceArray.length % 2) {
-          dataSourceArray.push({"type" : "invisibleBook"})
+      for(var i=0; i <= BOOKS_PER_ROW - dataSourceArray.length; i++) {
+          dataSourceArray.push({"type" : "invisibleBook", "key" : `invisibleBook_${i}`})
       }
+
+      console.log("BOOKS_PER_ROW", dataSourceArray);
 
       dataSourceArray.push({"type" : "settings"});
 
@@ -123,7 +126,7 @@ export default class FrontPage extends React.Component {
         }
 
         if(item.type == "invisibleBook") {
-            return <View key="invisibleBook" style={styles.invisibleBook} />
+            return <View key={item.key} style={styles.invisibleBook} />
         }
 
         if(item.type == "settings"){
@@ -135,16 +138,18 @@ export default class FrontPage extends React.Component {
                 style={styles.detailIcon}
                 name="settings"
                 color={"#888"}
+                underlayColor={'#ddd'}
                 backgroundColor={"transparent"}
                 onPress={() => this.navigation.navigate('UserSettings') }
-              ><Text style={{fontSize:18, color:'#888'}}>Settings</Text></Icon.Button>
+              ><Text style={styles.frontpageButtonLabel}>Settings</Text></Icon.Button>
               <Icon.Button
                 style={styles.detailIcon}
                 name="logout"
                 color={"#888"}
+                underlayColor={'#ddd'}
                 backgroundColor={"transparent"}
                 onPress={() => {global.user=null;this.navigation.navigate('LoginPage')} }
-              ><Text style={{fontSize:18, color:'#888'}}>Logout</Text></Icon.Button>
+              ><Text style={styles.frontpageButtonLabel}>Logout</Text></Icon.Button>
               </View>
             }
         }
