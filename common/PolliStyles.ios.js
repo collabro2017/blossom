@@ -55,6 +55,7 @@ var propStyles = {
 };
 
 var controlsColor = '#583919';
+var controlsColorTranslucent = '#58391920';
 var styles = StyleSheet.create({
   container : {
     flex : 1,
@@ -538,6 +539,12 @@ var styles = StyleSheet.create({
      flex: 1,
      paddingLeft: 8,
   },
+  dropDownContainer: {
+      backgroundColor: controlsColorTranslucent,
+      paddingLeft: 6,
+      paddingRight: 6,
+      borderRadius: 2
+  }
 });
 export {propStyles};
 export default styles;

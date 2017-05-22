@@ -260,7 +260,7 @@ var Reader = React.createClass({
           <Text onPress={this.toggleStatusBar} style={styles.topMenuCenterText}>{global.currentBook.title}</Text>
       </View>
       <View style={[styles.topMenuRight]}>
-        <Text onPress={this.toggleStatusBar} style={styles.topMenuRightText}>{global.currentBook.author}</Text>
+        {/*<Text onPress={this.toggleStatusBar} style={styles.topMenuRightText}>{global.currentBook.author}</Text>*/}
       </View>
     </View>
   },

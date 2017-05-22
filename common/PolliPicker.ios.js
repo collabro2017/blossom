@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import {
   Text,
+  View,
   StyleSheet,
 } from 'react-native';
 
 import Picker from 'react-native-picker';
+import styles from "./PolliStyles";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default class PolliPicker extends Component {
 
@@ -13,6 +16,8 @@ export default class PolliPicker extends Component {
     Picker.init({
       pickerData: this.getBlendLabels(),
       pickerTitleText: "Select language blend",
+      pickerConfirmBtnText: "OK",
+      pickerCancelBtnText: "Cancel",
       selectedValue: [global.currentBook.blends[this.props.blend]],
       onPickerConfirm: (data) => {
         Object.keys(global.currentBook.blends).map(function(key) {
@@ -33,17 +38,11 @@ export default class PolliPicker extends Component {
 
   render() {
     return (
-      <Text style={styles.bottomMenuLabels} onPress={()=>{ Picker.show(); }}>
-        {global.currentBook.blends[this.props.blend]}
-      </Text>
+        <View style={styles.dropDownContainer}>
+          <Text style={styles.bottomMenuLabels} onPress={()=>{ Picker.show(); }}>
+            {global.currentBook.blends[this.props.blend]} <Icon name="chevron-down" size={16} />
+          </Text>
+        </View>
     )
   }
 }
-
-var styles = StyleSheet.create({
-  bottomMenuLabels : {
-    fontFamily : 'Open Sans',
-    fontSize: 11,
-    color : '#583919',
-  },
-});
