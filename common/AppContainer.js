@@ -34,8 +34,10 @@ if (global.user){
 const AppContainer = StackNavigator(
   {
     LoginPage: {screen: LoginPage},
-    FrontPage: {screen: FrontPage},
-    Reader: {screen: Reader},
+    FrontPage: {screen: FrontPage, navigationOptions: ({navigation}) => ({
+      headerBackTitle: null,
+    }) },
+    Reader: {screen: Reader },
     Library: {screen: Bookstore},
     BookDetail: {screen: BookDetail},
     BookLibraryDetail: {screen: BookLibraryDetail},
