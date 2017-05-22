@@ -30,9 +30,9 @@ function sizeFont(size) {
     return size;
 }
 
-var COVER_FONT_SIZE = responsiveFontSize(6);
-var STORY_FONT_SIZE = responsiveFontSize(2.25);
-var STORY_LINE_HEIGHT = responsiveFontSize(3);
+var COVER_FONT_SIZE = Math.round(responsiveFontSize(6));
+var STORY_FONT_SIZE = Math.round(responsiveFontSize(2.25));
+var STORY_LINE_HEIGHT = Math.round(responsiveFontSize(3));
 
 var TextNode = React.createClass({
   displayName : 'TextNode',
