@@ -212,7 +212,7 @@ export default class FrontPage extends React.Component {
 
           <View style={styles.galleryShelfRectangle} />
 
-          <View style={{top:186,flexDirection:'row'}}>
+          <View style={styles.galleryShelfTopContainer}>
             <View style={styles.galleryShelfTriangle} />
             <View style={styles.galleryShelfTop} />
 
@@ -244,7 +244,7 @@ export default class FrontPage extends React.Component {
         if (__DEV__) {
             console.ignoredYellowBox = ['Warning: You are manually calling'];
 
-            showDebugMenuButton = <View style={{margin:35}}><Button
+            showDebugMenuButton = <View style={{margin:35,bottom:35}}><Button
               onPress={() => this.setState({modalVisible : true}) }
               title="▲ Debug Menu"
               color="black"
