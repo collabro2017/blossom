@@ -210,21 +210,23 @@ export default class FrontPage extends React.Component {
         <View>
           <View style={styles.galleryShelfTitle}><Text style={styles.galleryShelfTitleText}>{title}</Text></View>
 
-          <View style={styles.galleryShelfRectangle} />
-
-          <View style={styles.galleryShelfTopContainer}>
-            <View style={styles.galleryShelfTriangle} />
-            <View style={styles.galleryShelfTop} />
-
-          </View>
-
           <FlatList
               horizontal
               data={data}
               renderItem={this.renderItem}
               initialNumToRender={BOOKS_TO_RENDER}
               navigation={ navigation }
+              style={styles.galleryFlatList}
           />
+
+          {/* shelf top */}
+          <View style={styles.galleryShelfTopContainer}>
+            <View style={styles.galleryShelfTriangle} />
+            <View style={styles.galleryShelfTop} />
+          </View>
+
+          {/* shelf */}
+          <View style={styles.galleryShelfRectangle} />
 
         </View>
       );
@@ -244,7 +246,7 @@ export default class FrontPage extends React.Component {
         if (__DEV__) {
             console.ignoredYellowBox = ['Warning: You are manually calling'];
 
-            showDebugMenuButton = <View style={{margin:35,bottom:35}}><Button
+            showDebugMenuButton = <View style={{marginRight:35,marginLeft:35}}><Button
               onPress={() => this.setState({modalVisible : true}) }
               title="▲ Debug Menu"
               color="black"

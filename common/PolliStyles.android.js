@@ -136,7 +136,8 @@ var styles = StyleSheet.create({
   physicalBook : {
     marginLeft: 13,
     marginRight: 2,
-    marginBottom: 25
+    marginBottom: 25,
+    marginTop: 10,
   },
   thumbnail: {
     height:180,
@@ -152,11 +153,19 @@ var styles = StyleSheet.create({
       backgroundColor: 'rgba(230,216,189,1)',
       flex: 1
   },
+
   galleryShelfTitle: {
-    marginTop:10,
+    marginTop: 10,
+    //marginBottom:15,
     marginLeft:15,
   },
+  galleryShelfTitleText: {
+    fontWeight:'bold',
+  },
 
+  galleryShelfTopContainer: {
+    flexDirection:'row',
+  },
   galleryShelfTriangle: {
     width: 0,
     height: 0,
@@ -169,44 +178,43 @@ var styles = StyleSheet.create({
     transform: [
       {rotate: '180deg'}
     ],
-
   },
   galleryShelfTop: {
     height:9,
     width:windowWidth,
-    backgroundColor:'#61300d'
+    backgroundColor:'#61300d',
   },
-  galleryShelfTopContainer: {
-    top:186,
-    flexDirection:'row',
-  },
-  galleryShelfTitleText: {
-    fontWeight:'bold',
-  },
+
   galleryShelfRectangle: {
     backgroundColor:'#8B4513',
     height:15,
     borderColor: '#61300d',
     borderTopWidth: 1,
-    top:210,
+    marginBottom: 10,
   },
+
+  galleryFlatList: {
+    marginBottom:-30,
+    zIndex:2,
+  },
+
   storeGalleryContainer : {
-      paddingTop: 40,
-      paddingBottom: 10,
-      backgroundColor: 'rgba(100,189,189,1)',
-      flex: 1
+    paddingTop: 40,
+    paddingBottom: 10,
+    backgroundColor: 'rgba(100,189,189,1)',
+    flex: 1,
+  },
+  buttonContainer : {
+    backgroundColor: 'white',
+    shadowColor: "#000000",
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+    shadowOffset: {
+      height: 2,
+      width: 0
     },
-    buttonContainer : {
-        backgroundColor: 'white',
-        shadowColor: "#000000",
-        shadowOpacity: 0.25,
-        shadowRadius: 5,
-        shadowOffset: {
-            height: 2,
-            width: 0
-        },
-        zIndex: 9999
-    },
+    zIndex: 9999
+  },
 
     switchContainer: {
         justifyContent: 'center',
