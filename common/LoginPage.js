@@ -47,7 +47,7 @@ export default class LoginPage extends Component{
   render () {
 
     return (
-      <ScrollView style={styles.loginContainer} contentContainerStyle={styles.loginContentContainer}>
+      <View style={styles.loginContentContainer}>
         <View>
           <Image source={require('../images/Polli-Logo-l.png')} style={styles.loginLogo} />
         </View>
@@ -95,7 +95,7 @@ export default class LoginPage extends Component{
           </View>
 
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }

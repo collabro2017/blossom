@@ -21,11 +21,14 @@ if (Device.isTablet) {
   var loginInputWidth = 500;
   var loginInputHeight = 150;
   var smallMargin = 40;
-  var commonMargin = 100;
+  var commonMargin = 30;
   var loginButtonPadding = 20;
 
   var obwImageWidth = 240;
   var obwImageHeight = 388;
+
+  var bookSize = {height: 320, width: 192};
+  var thumbnailSize = {height: 234, width: 182};
 
   var iconSize = 50;
 } else {
@@ -46,6 +49,9 @@ if (Device.isTablet) {
 
   var obwImageWidth = 120;
   var obwImageHeight = 194;
+
+  var bookSize = {height: 250, width: 150};
+  var thumbnailSize = {height: 180, width: 140};
 
   var iconSize = 30;
 }
@@ -132,17 +138,17 @@ var styles = StyleSheet.create({
   bookTitle : {
     fontFamily : 'Open Sans',
     color : controlsColor,
-    fontSize : 14,
+    fontSize : responsiveFontSize(1.5),
   },
   bookAuthor : {
     fontFamily : 'Open Sans',
     color : controlsColor,
-    fontSize : 9,
+    fontSize : responsiveFontSize(1),
     fontWeight : '600'
   },
   physicalBook : {
-      height: 250,
-      width: 150,
+      height: bookSize.height,
+      width: bookSize.width,
       margin: 12,
       padding: 5,
       backgroundColor: '#fff',
@@ -249,8 +255,8 @@ var styles = StyleSheet.create({
     width: 125,
   },
   thumbnail: {
-    height:180,
-    width:140,
+    height:thumbnailSize.height,
+    width:thumbnailSize.width,
   },
   //details screen
   detailContainer: {
@@ -418,12 +424,12 @@ var styles = StyleSheet.create({
 
   //login screen:
   loginContainer: {
-    flex: 1,
+    flex: 1
   },
   loginContentContainer: {
     flex: 1,
     alignItems: 'center',
-    margin: 30,
+    padding: 30,
   },
   loginInputContainer: {
     margin: commonMargin,
@@ -452,7 +458,7 @@ var styles = StyleSheet.create({
   },
   loginButtons: {
     //marginTop: 20,
-    flex: 0.4,
+    flex: 1,
   },
   loginButtonContainer: {
     margin: 5,
@@ -538,6 +544,10 @@ var styles = StyleSheet.create({
      textAlign: 'left',
      flex: 1,
      paddingLeft: 8,
+  },
+  frontpageButtonLabel: {
+     fontSize:responsiveFontSize(1.9),
+     color:'#888'
   },
   dropDownContainer: {
       backgroundColor: controlsColorTranslucent,
