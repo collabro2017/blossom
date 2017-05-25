@@ -109,7 +109,7 @@ var propStyles = {
   iconSize: iconSize
 };
 
-var controlsColor = colors.secondary;
+var controlsColor = colors.primaryDark;
 var controlsColorTranslucent = '#58391920';
 var styles = StyleSheet.create({
   container : {
@@ -123,10 +123,17 @@ var styles = StyleSheet.create({
     flexDirection : 'row',
   },
   topMenu : {
-    flex : 1
+    position: 'absolute',
+    top: -4,
+    zIndex: 10
+  },
+  fakeTopMenu : {
+    width: '100%',
+    height: 60
   },
   bottomMenu : {
-    flex : 1,
+    position: 'absolute',
+    bottom: 6,
   },
   book : {
     flex : 18,
@@ -313,7 +320,7 @@ var styles = StyleSheet.create({
   },
   bottomMenuLabels : {
     fontFamily : 'Open Sans',
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveFontSize(1.7),
     color : controlsColor,
   },
   picker: {
@@ -722,7 +729,7 @@ var styles = StyleSheet.create({
     margin: smallMargin,
   },
   dismissableNotificationText: {
-     color: 'white',
+     color: colors.textOnSecondary,
      fontSize: responsiveFontSize(1.7),
      textAlign: 'left',
      flex: 1,
@@ -737,6 +744,9 @@ var styles = StyleSheet.create({
       paddingLeft: 6,
       paddingRight: 6,
       borderRadius: 2
+  },
+  swiperButtonText: {
+      color: colors.primaryDark
   }
 });
 export {propStyles};

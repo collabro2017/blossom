@@ -18,6 +18,7 @@ var {
 var mixins = require('./Mixins');
 
 import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
+import {colors} from './PolliStyles';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -140,17 +141,15 @@ var styles = StyleSheet.create({
       fontFamily: 'Lora',
       fontSize : STORY_FONT_SIZE,
       lineHeight : STORY_LINE_HEIGHT,
-      // borderWidth : 3,
-      // borderColor : 'teal'
     },
     L1Text : {
-      color : '#231506'
+      color : colors.textOnPrimary
     },
     L2Text : {
-      color : '#528F6B'
+      color : colors.secondaryDark
     },
     manualToggle : {
-      color : '#BF5F2D'
+      color : colors.primaryDark
     }
 
 });

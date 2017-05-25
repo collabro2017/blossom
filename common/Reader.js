@@ -9,11 +9,12 @@ import {
   StatusBar,
   LayoutAnimation,
   Platform,
+  TouchableWithoutFeedback,
   UIManager,
 } from 'react-native';
 
 import PolliPicker from './PolliPicker';
-import styles from "./PolliStyles";
+import styles, {colors} from "./PolliStyles";
 
 var Swiper = require('react-native-swiper');
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -58,6 +59,7 @@ var Reader = React.createClass({
       statusBarShown : true,
       toastShown : false,
       toastData : null,
+      showControls: true,
     }
   },
   updateBookSize : function(w, h) {
@@ -103,6 +105,9 @@ var Reader = React.createClass({
   render : function() {
       console.ignoredYellowBox = ['\`setBackgroundColor\`'];
 
+      var nextButton = <Icon name="chevron-right" size={30} color={colors.quaternaryDark} ></Icon>;
+      var prevButton = <Icon name="chevron-left" size={30} color={colors.quaternaryDark} ></Icon>;
+
     return (
       <View
         style={[
@@ -119,6 +124,7 @@ var Reader = React.createClass({
         />
         {this.renderNotificationBar()}
         {this.renderTopMenu()}
+        {this.renderFakeTopMenu()}
         <View style={styles.book}>
           <View
             style={[styles.content, this.border('blue')]}
@@ -130,7 +136,9 @@ var Reader = React.createClass({
                 loop={false}
                 horizontal={true}
                 index={this.state.page - 1}
-                showsButtons={true}
+                showsButtons={this.state.showControls}
+                nextButton={nextButton}
+                prevButton={prevButton}
                 onMomentumScrollEnd={this.setCurrentPage}
                 width={this.state.contentWidth}
                 height={this.state.contentHeight}
@@ -144,6 +152,9 @@ var Reader = React.createClass({
     );
   },
   nextPage : function() {
+      if(!this.state.showControls)
+        return <View />;
+
     var color = '#BBB391';
     if(this.isLastPage())
     {
@@ -157,6 +168,9 @@ var Reader = React.createClass({
       </TouchableHighlight>
   },
   prevPage : function() {
+      if(!this.state.showControls)
+      return <View />;
+
     var color = '#BBB391';
     if(this.isFirstPage())
     {
@@ -226,6 +240,10 @@ var Reader = React.createClass({
       this.setState({continuedBar : false})
       LayoutAnimation.easeInEaseOut();
   },
+  toggleControls : function() {
+      LayoutAnimation.easeInEaseOut();
+      this.setState({showControls : !this.state.showControls});
+  },
   renderNotificationBar : function() {
       if(!this.state.continuedBar)
         return null;
@@ -250,14 +268,22 @@ var Reader = React.createClass({
           {dismissButton}
       </View>
   },
+  renderFakeTopMenu : function() {
+      return <TouchableWithoutFeedback onPress={() => this.toggleControls()} >
+          <View style={[styles.topMenu, styles.fakeTopMenu]} />
+      </TouchableWithoutFeedback>
+  },
   renderTopMenu : function() {
+      if(!this.state.showControls)
+        return <View />
+
     return <View
         style={[styles.topMenu, styles.menu, this.border('green')]}>
       <View style={[styles.topMenuLeft]}>
         <Text></Text>
       </View>
       <View style={[styles.topMenuCenter]}>
-          <Text onPress={this.toggleStatusBar} style={styles.topMenuCenterText}>{global.currentBook.title}</Text>
+          <Text onPress={() => this.toggleControls()} style={styles.topMenuCenterText}>{global.currentBook.title}</Text>
       </View>
       <View style={[styles.topMenuRight]}>
         {/*<Text onPress={this.toggleStatusBar} style={styles.topMenuRightText}>{global.currentBook.author}</Text>*/}
@@ -265,6 +291,9 @@ var Reader = React.createClass({
     </View>
   },
   renderBottomMenu : function() {
+      if(!this.state.showControls)
+        return <View />;
+
     return <View style={[styles.bottomMenu, styles.menu, this.border('green')]}>
       <View style={[styles.bottomMenuLeft]}>
         <PolliPicker style={styles.bottomMenuLabels} blend={this.state.blend} onValueChange={(key)=>{this.updateBlendLevel(blendLevelKeyByIndex[key], key)}}/>
