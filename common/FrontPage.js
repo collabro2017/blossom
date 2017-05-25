@@ -117,10 +117,6 @@ export default class FrontPage extends React.Component {
       let downloadedBooks = LocalLibrary.getAll().filtered('path != \'\'');
       var dataSourceArray = [BOOK, BOOK_CHINESE];
 
-      if(!downloadedBooks.length) {
-          this.addSettingsToGrid(dataSourceArray);
-      }
-
       for(var bookIndex=0; bookIndex<downloadedBooks.length; bookIndex++) {
           let bookDataObject = downloadedBooks[bookIndex];
 
@@ -142,11 +138,6 @@ export default class FrontPage extends React.Component {
                 }
 
                 dataSourceArray.push(book);
-
-                if(bookIndex>=downloadedBooks.length - 1) {
-                    console.log('Number of books in library: ', downloadedBooks.length);
-                    this.addSettingsToGrid(dataSourceArray);
-                }
           })
           .catch((error) => {
               console.log(`error when updating book list >> ${bookDataObject.path} >>`, error);
@@ -206,10 +197,42 @@ export default class FrontPage extends React.Component {
         this.setState({demoUserSwitchOn: shouldEnable, modalVisible:false});
     }
 
+
+    getButton(name, position) {
+        const {navigation} = this.props;
+
+        if(Platform.OS === 'ios' && position !== 'bottom')
+            return;
+
+        if(Platform.OS === 'android' && position !== 'top')
+            return;
+
+        if(name === 'settings')
+            return (
+            <Icon.Button
+              style={styles.detailIcon}
+              name="settings"
+              color={colors.textOnSecondary}
+              underlayColor={colors.primaryDark}
+              backgroundColor={"transparent"}
+              onPress={() => navigation.navigate('UserSettings') }
+            ><Text style={styles.frontpageButtonLabel}>Settings</Text></Icon.Button>);
+
+        return (
+        <Icon.Button
+          style={styles.detailIcon}
+          name="logout"
+          color={colors.textOnSecondary}
+          underlayColor={colors.tertiaryDark}
+          backgroundColor={"transparent"}
+          onPress={() => {global.user=null;navigation.navigate('LoginPage')} }
+        ><Text style={styles.frontpageButtonLabel}>Logout</Text></Icon.Button>);
+    }
+
     renderShelf(data,title){
       const { navigation } = this.props;
       return(
-        <View>
+        <View style={styles.galleryShelf}>
 
           <View style={styles.galleryShelfTitle}><Text style={styles.galleryShelfTitleText}>{title}</Text></View>
 
@@ -346,6 +369,9 @@ export default class FrontPage extends React.Component {
             {this.renderShelf(this.state.dataSource,'Downloaded books:')}
             {this.renderShelf(second_shelf,'Recommended from Bookstore:')}
 
+            {this.getButton('settings', 'bottom')}
+            {this.getButton('logout', 'bottom')}
+
             {showDebugMenuButton}
         </View>
     </View>
@@ -386,7 +412,6 @@ FrontPage.navigationOptions = props => {
     navigation.navigate('LoginPage');
   }
 
-  if (Platform.OS === 'android'){
     var settingsIcon = (
     <Icon
       style={styles.detailIcon}
@@ -405,10 +430,19 @@ FrontPage.navigationOptions = props => {
       size={propStyles.iconSize}
       onPress={() => logout() }
     />);
-  }else{
-    var settingsIcon = null;
-    var logoutIcon = null;
-  }
+
+    function getButton(name, position) {
+        if(Platform.OS === 'ios' && position !== 'bottom')
+            return;
+
+        if(Platform.OS === 'android' && position !== 'top')
+            return;
+
+        if(name === 'settings')
+            return settingsIcon;
+
+        return logoutIcon;
+    }
 
   return {
       title: 'My Books',
@@ -418,12 +452,12 @@ FrontPage.navigationOptions = props => {
           style={styles.detailIcon}
           name="library"
           title="Bookstore"
-          color={"rgba(100,189,189,1)"}
+          color={colors.secondary}
           size={propStyles.iconSize}
           onPress={() => showLibrary() }
         />
-        {settingsIcon}
-        {logoutIcon}
+        {getButton('settings', 'top')}
+        {getButton('logout', 'top')}
       </View>
     ),
   };
