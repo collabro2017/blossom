@@ -2,10 +2,59 @@ import React from 'react';
 import {
   StyleSheet,
   Platform,
+  Dimensions,
 } from 'react-native';
 
 import Device from 'react-native-device-detection';
 import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+function ColorLuminance(hex, lum) {
+
+	// validate hex string
+    console.log('original color', hex);
+	hex = String(hex).replace(/[^0-9a-f]/gi, '');
+	if (hex.length < 6) {
+		hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+	}
+	lum = lum || 0;
+
+	// convert to decimal and change luminosity
+	var rgb = "#", c, i;
+	for (i = 0; i < 3; i++) {
+		c = parseInt(hex.substr(i*2,2), 16);
+		c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+		rgb += ("00"+c).substr(c.length);
+	}
+
+    console.log(rgb);
+
+	return rgb;
+}
+
+const colors = {
+    primary: '#FFB339',
+    primaryDark: ColorLuminance('#FFB339', -0.25),
+    primaryLight: ColorLuminance('#FFB339', 0.25),
+    secondary: '#199C95',
+    secondaryDark: ColorLuminance('#199C95', -0.25),
+    secondaryLight: ColorLuminance('#199C95', 0.25),
+    tertiary: '#FA2F2F',
+    tertiaryDark: ColorLuminance('#FA2F2F', -0.25),
+    tertiaryLight: ColorLuminance('#FA2F2F', 0.25),
+    quaternary: '#A6DE3E',
+    quaternaryDark: ColorLuminance('#A6DE3E', -0.25),
+    quaternaryLight: ColorLuminance('#A6DE3E', 0.25),
+    quinary: '#FFB339',
+    quinaryDark: ColorLuminance('#FFB339', -0.25),
+    quinaryLight: ColorLuminance('#FFB339', 0.25),
+    textOnPrimary: 'black',
+    textOnSecondary: 'white',
+    background: '#F5F5F6',
+    backgroundDark: '#E1E2E1',
+};
 
 
 if (Device.isTablet) {
@@ -60,7 +109,7 @@ var propStyles = {
   iconSize: iconSize
 };
 
-var controlsColor = '#583919';
+var controlsColor = colors.secondary;
 var controlsColorTranslucent = '#58391920';
 var styles = StyleSheet.create({
   container : {
@@ -147,25 +196,41 @@ var styles = StyleSheet.create({
     fontWeight : '600'
   },
   physicalBook : {
-      height: bookSize.height,
-      width: bookSize.width,
-      margin: 12,
-      padding: 5,
-      backgroundColor: '#fff',
-      borderRadius: 3,
-      shadowColor: "#000000",
-      shadowOpacity: 0.6,
-      shadowRadius: 2,
-      shadowOffset: {
-          height: 0,
-          width: 0
-        }
+    marginLeft: 13,
+    marginRight: 2,
+    zIndex: 1,
+  },
+  storeBook: {
+    height: bookSize.height,
+    width: bookSize.width,
+    margin: 12,
+    padding: 5,
+    backgroundColor: '#fff',
+    borderRadius: 3,
+    shadowColor: "#000000",
+    shadowOpacity: 0.6,
+    shadowRadius: 2,
+    shadowOffset: {
+        height: 0,
+        width: 0
+      }
+  },
+  thumbnail: {
+    height:180,
+    width:140,
+    borderWidth: 0,
+    borderBottomRightRadius: 7,
+    borderTopRightRadius: 7,
+    borderBottomLeftRadius: 2,
+    borderTopLeftRadius: 2,
+    // borderColor: 'black',
+    //overflow: 'hidden',
   },
   galleryContainer : {
       paddingBottom: 10,
       paddingLeft: 20,
       paddingRight: 20,
-      backgroundColor: 'rgba(230,216,189,1)',
+      backgroundColor: colors.secondary,
       flex: 1
   },
   storeGalleryContainer : {
@@ -173,7 +238,7 @@ var styles = StyleSheet.create({
         paddingBottom: 10,
         paddingLeft: 20,
         paddingRight: 20,
-        backgroundColor: 'rgba(100,189,189,1)',
+        backgroundColor: colors.primary,
         flex: 1
     },
     buttonContainer : {
@@ -261,14 +326,21 @@ var styles = StyleSheet.create({
   //details screen
   detailContainer: {
     flex: 1,
-    //borderWidth: 2,
-    margin: 30,
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'stretch',
   },
   detailTitle: {
     flexDirection: 'row',
-    //borderWidth: 2,
+    backgroundColor: colors.primary,
+    padding: 20,
+    zIndex: 2,
+    shadowColor: 'black',
+    shadowOpacity: 0.6,
+    shadowRadius: 2,
+    shadowOffset: {
+        height: 0,
+        width: 0
+      }
   },
   detailTitleRight: {
     margin: 20,
@@ -276,27 +348,114 @@ var styles = StyleSheet.create({
     flex: 0.6,
   },
   detailTitleBook: {
-    fontSize: 28,
+    fontSize: responsiveFontSize(3.2),
     fontWeight: 'bold',
+    fontFamily: 'Lora',
+    lineHeight: 28
   },
   detailTitleText: {
-    fontSize: 20,
+    fontSize: responsiveFontSize(2.5),
     justifyContent: 'center',
-    lineHeight: 35,
+    lineHeight: 30,
+    fontFamily: 'Lora',
   },
   detailInfoText: {
-    fontSize: 18,
+    fontSize: responsiveFontSize(2),
     justifyContent: 'center',
-    marginBottom: 10,
+    fontFamily: 'Open Sans'
   },
   detailInfoTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: responsiveFontSize(2),
+    color: colors.textOnSecondary
   },
   detailIconContainer: {
     flexDirection:'row',
-    justifyContent: 'center',
-    margin: 10,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  detailTitleContainer: {
+    flexDirection:'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    paddingTop: 2,
+    paddingBottom: 2,
+    backgroundColor: colors.secondaryDark
+  },
+  backgroundTertiary: {
+    backgroundColor: colors.tertiaryDark
+  },
+  backgroundQuaternary: {
+    backgroundColor: colors.quaternaryDark
+  },
+  backgroundQuinary: {
+    backgroundColor: colors.quinaryDark
+  },
+  colorPrimary: {
+      color: colors.primaryDark
+  },
+  colorSecondary: {
+      color: colors.secondaryDark
+  },
+  colorTertiary: {
+      color: colors.tertiaryDark
+  },
+  colorQuaternary: {
+      color: colors.quaternaryDark
+  },
+  colorQuinary: {
+      color: colors.quinaryDark
+  },
+  galleryShelfTitle: {
+    marginTop: 10,
+    paddingLeft: 10,
+    backgroundColor: 'transparent'
+  },
+  galleryShelfTitleText: {
+      color: colors.textOnSecondary,
+      fontSize: responsiveFontSize(2.2),
+      fontFamily: 'Open Sans',
+      fontWeight: '600'
+  },
+  galleryShelfTriangle: {
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderRightWidth: 4,
+    borderTopWidth: 4,
+    borderRightColor: 'transparent',
+    borderTopColor: '#61300d',
+    transform: [
+      {rotate: '90deg'}
+    ],
+
+  },
+  galleryShelfBottom: {
+    height:4,
+    width:windowWidth-8,
+    backgroundColor:'#61300d'
+  },
+  galleryShelfRectangle: {
+    backgroundColor:'#8B4513',
+    height:15,
+    borderColor: '#61300d',
+    borderBottomWidth: 1,
+    top:193,
+    zIndex: 2,
+  },
+  galleryShelf: {
+      marginBottom: 18,
+  },
+  detailSection: {
+      flexDirection: 'column',
+      alignItems: 'stretch',
+      marginBottom: 34,
+  },
+  sliderContainer: {
+      borderRadius: 2,
+      backgroundColor: colors.backgroundDark,
+      padding: 20,
   },
   detailInfoContainer: {
     justifyContent: 'center',
@@ -306,14 +465,25 @@ var styles = StyleSheet.create({
     marginRight: 20,
   },
   detailThumbnail: {
-    borderColor: 'black',
-    borderWidth: 2,
+    borderRadius: 2,
     width: 120,
     height: 200,
+    shadowColor: colors.primary,
+    shadowOpacity: 0.6,
+    shadowRadius: 2,
+    shadowOffset: {
+        height: 0,
+        width: 0
+      }
   },
   detailMain: {
-    //marginTop: 30,
-    alignItems:'flex-start',
+    flex: 1,
+    padding: 20,
+    alignItems:'stretch',
+    backgroundColor: colors.background
+  },
+  detailScrollView: {
+      backgroundColor: colors.background
   },
   detailBottom: {
     flexDirection: 'row',
@@ -322,15 +492,21 @@ var styles = StyleSheet.create({
   detailTitleRating: {
     flexDirection:'row',
     marginTop: 10,
+    marginBottom: 10,
   },
   detailButton: {
-    backgroundColor: 'green',
-    color: 'white',
+    backgroundColor: colors.textOnSecondary,
     paddingTop: 10,
     paddingBottom: 10,
-    paddingRight: 80,
-    paddingLeft: 80,
-    fontSize: 20,
+    paddingRight: 20,
+    paddingLeft: 20,
+    borderRadius: 2,
+    textAlign: 'center',
+  },
+  detailButtonText: {
+    color: colors.primaryDark,
+    textAlign: 'center',
+    fontSize: responsiveFontSize(2)
   },
   detailButtonContainer: {
     flexDirection: 'row',
@@ -338,18 +514,16 @@ var styles = StyleSheet.create({
     marginTop: 20,
   },
   detailLibraryButton: {
-    backgroundColor: 'green',
-    color: 'white',
+    backgroundColor: colors.textOnSecondary,
     paddingTop: 10,
     paddingBottom: 10,
-    paddingRight: 40,
-    paddingLeft: 40,
-    fontSize: 20,
+    paddingRight: 20,
+    paddingLeft: 20,
+    borderRadius: 2,
+    textAlign: 'center',
   },
   detailSlider: {
-    height: 10,
-    margin: 10,
-    width: 300,
+    minWidth: 200,
   },
   detailSliderLabel: {
     alignItems:'center',
@@ -382,10 +556,17 @@ var styles = StyleSheet.create({
   userbar: {
       alignItems: 'center',
       justifyContent: 'space-between',
-      backgroundColor: 'rgba(100,189,189,1)',
+      backgroundColor: colors.tertiaryDark,
       zIndex: 800,
       padding: 10,
       flexDirection: 'row',
+      shadowColor: "#000000",
+      shadowOpacity: 0.6,
+      shadowRadius: 2,
+      shadowOffset: {
+          height: 0,
+          width: 0
+        }
   },
   userBarText: {
       color: 'white'
@@ -547,7 +728,7 @@ var styles = StyleSheet.create({
   },
   frontpageButtonLabel: {
      fontSize:responsiveFontSize(1.9),
-     color:'#888'
+     color:colors.textOnSecondary,
   },
   dropDownContainer: {
       backgroundColor: controlsColorTranslucent,
@@ -557,4 +738,5 @@ var styles = StyleSheet.create({
   }
 });
 export {propStyles};
+export {colors};
 export default styles;

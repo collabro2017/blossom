@@ -4,12 +4,13 @@ import {
   Text,
   View,
   Platform,
+  TouchableOpacity,
   Slider,
 } from 'react-native';
 
-import styles from "./PolliStyles";
+import styles, {colors} from "./PolliStyles";
 import FitImage from 'react-native-fit-image';
-import Icon2 from 'react-native-vector-icons/FontAwesome';
+import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 import StarRating from './StarRating';
 
 import LocalLibraryDAO from './LocalLibraryDAO.js';
@@ -122,34 +123,37 @@ export default class BookDetail extends React.Component {
             <Text style={styles.detailTitleBook}>{global.currentBook.title}</Text>
             <Text style={styles.detailTitleText}>{global.currentBook.author}</Text>
             {this.renderRating()}
+            <TouchableOpacity style={styles.detailButton}>
+                <Text style={styles.detailButtonText} onPress={()=>this.showReader()}>Read now!</Text>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.detailMain}>
           <View style={styles.detailIconContainer}>
-            <Icon2 style={styles.detailIcon} name="trophy" size={40} color='purple'/>
-            <Text style={styles.detailTitleText}>I've read this book {this.state.readCount} times</Text>
+            <Icon2 style={styles.detailIcon} name="counter" size={30} color={colors.primaryDark}/>
+            <Text style={[styles.detailInfoText, styles.colorPrimary]}>I have read this book {this.state.readCount} times</Text>
           </View>
           <View style={styles.detailIconContainer}>
-            <Icon2 style={styles.detailIcon} name="globe" size={40} color='blue'/>
-            <Text style={styles.detailTitleText}>{global.currentBook.L1} and {global.currentBook.L2}</Text>
+            <Icon2 style={styles.detailIcon} name="translate" size={30} color={colors.tertiaryDark}/>
+            <Text style={[styles.detailInfoText, styles.colorTertiary]}>{global.currentBook.L1} and {global.currentBook.L2}</Text>
           </View>
 
-          <Slider value={this.state.sliderValue}
-                  step={1}
-                  maximumValue={STAR_MAX-1}
-                  style={styles.detailSlider}
-                  onValueChange={(data)=>this.updateBlendLevel(data)}
-                />
+          <View style={styles.sliderContainer}>
+              <Slider value={this.state.sliderValue}
+                      step={1}
+                      maximumValue={STAR_MAX-1}
+                      style={styles.detailSlider}
+                      minimumTrackTintColor={colors.secondary}
+                      onValueChange={(data)=>this.updateBlendLevel(data)}
+                    />
 
-          <View style={styles.detailIconContainer}>
-            <Icon2 style={styles.detailIcon} name="book" size={40} color='teal'/>
-            <Text style={styles.detailTitleText}>{this.getSliderLabel(this.state.sliderValue)}</Text>
+              <View style={styles.detailIconContainer}>
+                <Icon2 style={styles.detailIcon} name="gauge" size={30} color={colors.secondary}/>
+                <Text style={styles.detailInfoText}>{this.getSliderLabel(this.state.sliderValue)}</Text>
+              </View>
           </View>
 
 
-        </View>
-        <View style={styles.detailBottom}>
-          <Text style={styles.detailButton} onPress={()=>this.showReader()}>Start reading!</Text>
         </View>
       </View>
     );

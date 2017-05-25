@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import styles from './PolliStyles';
+import styles, {colors} from './PolliStyles';
 
-import Icon2 from 'react-native-vector-icons/FontAwesome';
+import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default class StarRating extends Component {
 
   renderStar(id,rating){
     var decimal_value = (id - rating);
 
-    var starType = "star-o";
+    var starType = "star-outline";
     if (id <= rating){
       starType = "star";
     } else if (decimal_value > 0 && decimal_value < 1){
-      starType = "star-half-o";
+      starType = "star-half";
     }
-    return <Icon2 key={id} name={starType} size={40} color='orange' onPress ={()=>this.props.updateRating(id)} onLongPress = {()=>this.props.updateRating(id - 0.5)}/>
+    return <Icon2 key={id} name={starType} size={30} color={colors.textOnSecondary} onPress ={()=>this.props.updateRating(id)} onLongPress = {()=>this.props.updateRating(id - 0.5)}/>
   }
 
   render(){

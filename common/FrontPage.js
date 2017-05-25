@@ -13,9 +13,10 @@ import {
   FlatList,
   Image,
   Dimensions,
+  ScrollView
 } from 'react-native';
 
-import styles, {propStyles} from './PolliStyles';
+import styles, {propStyles, colors} from './PolliStyles';
 import PhysicalBook from './PhysicalBook';
 
 import Device from 'react-native-device-detection';
@@ -303,7 +304,7 @@ export default class FrontPage extends React.Component {
                   accessibilityLabel="Get more books in the library"
                 />
             </View>*/}
-            <View style={styles.galleryContainer}>
+            <ScrollView style={styles.galleryContainer}>
                 <Modal
                 visible={this.state.tutorialVisible}
                 animationType={"fade"}
@@ -353,6 +354,7 @@ export default class FrontPage extends React.Component {
                                 <Text style={styles.switchLabel}>Demo user logged in</Text>
                                 <Switch
                                   onValueChange={(value) => this.enableDemoUser(value)}
+                                  onTintColor={colors.primary}
                                   value={this.state.demoUserSwitchOn}
                                 />
                             </View>
@@ -366,14 +368,14 @@ export default class FrontPage extends React.Component {
                     </View>
                 </Modal>
 
-            {this.renderShelf(this.state.dataSource,'Downloaded books:')}
-            {this.renderShelf(second_shelf,'Recommended from Bookstore:')}
+            {this.renderShelf(this.state.dataSource,'My books'.toUpperCase())}
+            {this.renderShelf(second_shelf,'Out staff recommends'.toUpperCase())}
 
             {this.getButton('settings', 'bottom')}
             {this.getButton('logout', 'bottom')}
 
             {showDebugMenuButton}
-        </View>
+        </ScrollView>
     </View>
   }
 }

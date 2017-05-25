@@ -5,12 +5,13 @@ import {
   View,
   Platform,
   Slider,
+  TouchableOpacity,
   ScrollView,
 } from 'react-native';
 
-import styles from "./PolliStyles";
+import styles, {colors} from "./PolliStyles";
 import FitImage from 'react-native-fit-image';
-import Icon2 from 'react-native-vector-icons/FontAwesome';
+import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 import StarRating from './StarRating';
 
 const STAR_MAX = 5;
@@ -95,26 +96,52 @@ export default class BookLibraryDetail extends React.Component {
             <Text style={styles.detailTitleBook}>{global.currentBook.title}</Text>
             <Text style={styles.detailTitleText}>{global.currentBook.author}</Text>
             {this.renderRating()}
+            <TouchableOpacity style={styles.detailLibraryButton}>
+                <Text style={styles.detailButtonText} onPress={()=>this.showReader()}><Icon2 style={styles.detailIcon} name="download" size={20} color={colors.primaryDark}/>  Add to my Library</Text>
+            </TouchableOpacity>
           </View>
         </View>
 
-        <View style={styles.detailIconContainer}>
-          <Icon2 style={styles.detailIcon} name="globe" size={40} color='blue'/>
-          <Text style={styles.detailTitleText}><Text style={{fontWeight: 'bold'}}>Available Langauge:</Text> {global.currentBook.L2}</Text>
-        </View>
-        <ScrollView style={{height:20}}>
+        <ScrollView style={styles.detailScrollView}>
+            <View style={styles.detailMain}>
 
-          <View >
-            <Text style={styles.detailInfoText}><Text style={styles.detailInfoTitle}>Book Info:</Text> {"\n"}{global.currentBook.about}</Text>
-            <Text style={styles.detailInfoText}><Text style={styles.detailInfoTitle}>Ages:</Text> {global.currentBook.ages}</Text>
-            <Text style={styles.detailInfoText}><Text style={styles.detailInfoTitle}>Publisher:</Text> {global.currentBook.publisher}</Text>
-          </View>
+                <View style={styles.detailSection}>
+                    <View style={[styles.detailTitleContainer]}>
+                      <Icon2 style={styles.detailIcon} name="earth" size={30} color={colors.textOnSecondary}/>
+                      <Text style={styles.detailInfoTitle}>Secondary langauge</Text>
+                    </View>
+                    <Text style={styles.detailInfoText}>{global.currentBook.L2}</Text>
+                </View>
 
+              <View >
+                    <View style={styles.detailSection}>
+                        <View style={[styles.detailTitleContainer, styles.backgroundTertiary]}>
+                            <Icon2 style={styles.detailIcon} name="book" size={30} color={colors.textOnSecondary}/>
+                            <Text style={styles.detailInfoTitle}>Description</Text>
+                        </View>
+                        <Text style={styles.detailInfoText}>{global.currentBook.about}</Text>
+                    </View>
+
+                    <View style={styles.detailSection}>
+                        <View style={[styles.detailTitleContainer, styles.backgroundQuaternary]}>
+                            <Icon2 style={styles.detailIcon} name="clock" size={30} color={colors.textOnSecondary}/>
+                            <Text style={styles.detailInfoTitle}>Ages</Text>
+                        </View>
+                        <Text style={styles.detailInfoText}>{global.currentBook.ages}</Text>
+                    </View>
+
+                    <View style={styles.detailSection}>
+                        <View style={[styles.detailTitleContainer, styles.backgroundQuinary]}>
+                            <Icon2 style={styles.detailIcon} name="pen" size={30} color={colors.textOnSecondary}/>
+                            <Text style={styles.detailInfoTitle}>Publisher</Text>
+                        </View>
+                        <Text style={styles.detailInfoText}>{global.currentBook.publisher}</Text>
+                    </View>
+              </View>
+
+
+            </View>
         </ScrollView>
-
-        <View style={[styles.detailBottom,{paddingTop:20}]}>
-          <Text style={styles.detailLibraryButton} onPress={()=>this.showReader()}><Icon2 style={styles.detailIcon} name="download" size={25} color='white'/>   Add to my Library</Text>
-        </View>
       </View>
     );
   }
