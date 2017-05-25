@@ -7,8 +7,12 @@ import {
 
 import Device from 'react-native-device-detection';
 
+import * as PolliCommon from './PolliCommon';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+
+const colors = PolliCommon.colors;
 
 if (Device.isTablet) {
   //Tablet specific styles
@@ -568,5 +572,5 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-export {propStyles};
+export {propStyles,colors};
 export default styles;
