@@ -351,7 +351,7 @@ var styles = StyleSheet.create({
     fontSize: responsiveFontSize(3.2),
     fontWeight: 'bold',
     fontFamily: 'Lora',
-    lineHeight: 28
+    lineHeight: responsiveFontSize(3.2)
   },
   detailTitleText: {
     fontSize: responsiveFontSize(2.5),
@@ -408,6 +408,7 @@ var styles = StyleSheet.create({
   },
   galleryShelfTitle: {
     marginTop: 10,
+    marginBottom: 20,
     paddingLeft: 10,
     backgroundColor: 'transparent'
   },
@@ -441,7 +442,7 @@ var styles = StyleSheet.create({
     height:15,
     borderColor: '#61300d',
     borderBottomWidth: 1,
-    top:193,
+    bottom:10,
     zIndex: 2,
   },
   galleryShelf: {
@@ -456,6 +457,7 @@ var styles = StyleSheet.create({
       borderRadius: 2,
       backgroundColor: colors.backgroundDark,
       padding: 20,
+      maxWidth: 400,
   },
   detailInfoContainer: {
     justifyContent: 'center',
@@ -466,8 +468,8 @@ var styles = StyleSheet.create({
   },
   detailThumbnail: {
     borderRadius: 2,
-    width: 120,
-    height: 200,
+    width: thumbnailSize.width,
+    height: thumbnailSize.height,
     shadowColor: colors.primary,
     shadowOpacity: 0.6,
     shadowRadius: 2,
