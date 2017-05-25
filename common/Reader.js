@@ -23,6 +23,8 @@ var Page = require('./Page.js');
 var mixins = require('./Mixins');
 var Toast = require('./Toast.js');
 
+import TimerMixin from 'react-timer-mixin';
+
 import LocalLibraryDAO from './LocalLibraryDAO.js';
 var LocalLibrary = new LocalLibraryDAO();
 
@@ -41,7 +43,7 @@ for(var i=0; i<blendLevelIndexes.length; i++) {
 
 var Reader = React.createClass({
   displayName : 'Reader',
-
+  mixins: [TimerMixin],
   getInitialState : function() {
     var page = this.props.navigation.state.params.earmarkedPage
           ? this.props.navigation.state.params.earmarkedPage
@@ -72,6 +74,8 @@ var Reader = React.createClass({
     //StatusBar.setHidden(true, 'slide');
     if(Platform.OS == 'android')
         StatusBar.setBackgroundColor('blue');
+
+    this.setTimeout(() => {this.hideNotification()}, 5000);
   },
   componentWillUnmount : function(){
       console.log(`unmount ${global.currentBook.bookId}`, this.state.page, global.currentBook.path);
@@ -237,8 +241,8 @@ var Reader = React.createClass({
       this.setState({blend:levelIndex});
   },
   hideNotification : function() {
-      this.setState({continuedBar : false})
       LayoutAnimation.easeInEaseOut();
+      this.setState({continuedBar : false});
   },
   toggleControls : function() {
       LayoutAnimation.easeInEaseOut();
@@ -251,19 +255,19 @@ var Reader = React.createClass({
         var dismissButton = <Icon
           name="close"
           onPress={() => this.hideNotification() }
-          color="white"
+          color={colors.textOnPrimary}
           size={30}
         />;
       }else{
         var dismissButton = <Button
           onPress={() => this.hideNotification() }
           title="Dismiss"
-          color="black"
+          color={colors.textOnPrimary}
           accessibilityLabel="Dismiss"
         />
       }
-      return <View style={styles.userbar}>
-          <Icon name="bookmark" size={26} color={'white'} />
+      return <View style={[styles.userbar, styles.backgroundTertiary, styles.notificationBar]}>
+          <Icon name="bookmark" size={26} color={colors.textOnSecondary} />
           <Text style={styles.dismissableNotificationText}>This is where you last left off</Text>
           {dismissButton}
       </View>

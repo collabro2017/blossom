@@ -577,6 +577,10 @@ var styles = StyleSheet.create({
           width: 0
         }
   },
+  notificationBar: {
+      position: 'absolute',
+      top: 0
+  },
   userBarText: {
       color: 'white'
   },
