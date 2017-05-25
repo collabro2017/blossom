@@ -136,7 +136,8 @@ var styles = StyleSheet.create({
   physicalBook : {
     marginLeft: 13,
     marginRight: 2,
-    zIndex: 1,
+    marginBottom: 25,
+    marginTop: 10,
   },
   thumbnail: {
     height:180,
@@ -146,67 +147,74 @@ var styles = StyleSheet.create({
     borderTopRightRadius: 7,
     borderBottomLeftRadius: 2,
     borderTopLeftRadius: 2,
-    // borderColor: 'black',
-    //overflow: 'hidden',
   },
   galleryContainer : {
       paddingBottom: 10,
       backgroundColor: 'rgba(230,216,189,1)',
       flex: 1
   },
+
   galleryShelfTitle: {
-    marginTop:10,
+    marginTop: 10,
+    //marginBottom:15,
     marginLeft:15,
   },
+  galleryShelfTitleText: {
+    fontWeight:'bold',
+  },
 
+  galleryShelfTopContainer: {
+    flexDirection:'row',
+  },
   galleryShelfTriangle: {
     width: 0,
     height: 0,
     backgroundColor: 'transparent',
     borderStyle: 'solid',
-    borderRightWidth: 4,
-    borderTopWidth: 4,
+    borderRightWidth: 9,
+    borderTopWidth: 9,
     borderRightColor: 'transparent',
     borderTopColor: '#61300d',
     transform: [
-      {rotate: '90deg'}
+      {rotate: '180deg'}
     ],
+  },
+  galleryShelfTop: {
+    height:9,
+    width:windowWidth,
+    backgroundColor:'#61300d',
+  },
 
-  },
-  galleryShelfBottom: {
-    height:4,
-    width:windowWidth-8,
-    backgroundColor:'#61300d'
-  },
-  galleryShelfTitleText: {
-    fontWeight:'bold',
-    marginTop: 10,
-  },
   galleryShelfRectangle: {
     backgroundColor:'#8B4513',
     height:15,
     borderColor: '#61300d',
-    borderBottomWidth: 1,
-    top:193,
-    zIndex: 2,
+    borderTopWidth: 1,
+    marginBottom: 10,
   },
+
+  galleryFlatList: {
+    marginBottom:-30,
+    zIndex:2,
+  },
+
   storeGalleryContainer : {
-      paddingTop: 40,
-      paddingBottom: 10,
-      backgroundColor: 'rgba(100,189,189,1)',
-      flex: 1
+    paddingTop: 40,
+    paddingBottom: 10,
+    backgroundColor: 'rgba(100,189,189,1)',
+    flex: 1,
+  },
+  buttonContainer : {
+    backgroundColor: 'white',
+    shadowColor: "#000000",
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+    shadowOffset: {
+      height: 2,
+      width: 0
     },
-    buttonContainer : {
-        backgroundColor: 'white',
-        shadowColor: "#000000",
-        shadowOpacity: 0.25,
-        shadowRadius: 5,
-        shadowOffset: {
-            height: 2,
-            width: 0
-        },
-        zIndex: 9999
-    },
+    zIndex: 9999
+  },
 
     switchContainer: {
         justifyContent: 'center',
