@@ -181,8 +181,8 @@ var styles = StyleSheet.create({
     marginTop: 10,
   },
   thumbnail: {
-    height:180,
-    width:140,
+    height:thumbnailSize.height,
+    width:thumbnailSize.width,
     borderWidth: 0,
     borderBottomRightRadius: 7,
     borderTopRightRadius: 7,
@@ -280,10 +280,7 @@ var styles = StyleSheet.create({
   picker: {
     width: 125,
   },
-  thumbnail: {
-    height:thumbnailSize.height,
-    width:thumbnailSize.width,
-  },
+
   //details screen
   detailContainer: {
     flex: 1,
@@ -495,10 +492,8 @@ var styles = StyleSheet.create({
   },
   downloadOverlay: {
       backgroundColor: 'rgba(0,120,0,0.6)',
-      height: 250,
-      width: 150,
-      left: -5,
-      top: -5,
+      height: thumbnailSize.height,
+      width: thumbnailSize.width,
       position: 'absolute',
       justifyContent: 'center',
       alignItems: 'center'
