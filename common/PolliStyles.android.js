@@ -203,8 +203,6 @@ var styles = StyleSheet.create({
   },
 
   storeGalleryContainer : {
-    paddingTop: 40,
-    paddingBottom: 10,
     backgroundColor: 'rgba(100,189,189,1)',
     flex: 1,
   },
