@@ -13,6 +13,7 @@ import {
   FlatList,
   Image,
   Dimensions,
+  ScrollView,
 } from 'react-native';
 
 import styles, {propStyles} from './PolliStyles';
@@ -332,7 +333,7 @@ export default class FrontPage extends React.Component {
           </View>);
         }
 
-        return <View style={styles.frontPage}>
+        return <ScrollView style={styles.frontPage}>
             {userBar}
             {frontPageOverlay}
             {/*<View style={styles.buttonContainer}>
@@ -413,7 +414,7 @@ export default class FrontPage extends React.Component {
             {showDebugMenuButton}
             {showAdditionalButtons}
         </View>
-    </View>
+    </ScrollView>
   }
 }
 
