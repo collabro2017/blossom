@@ -60,19 +60,13 @@ export default class DownloadableBook extends React.Component {
         <TouchableOpacity
         onPress={() => this.downloadBook(this.props.book)}
         onLongPress={() => this.showLibraryDetails(this.props.book)}
-        style={styles.storeBook} >
+        style={styles.physicalBook} >
             <View>
                 <View>
                   <FitImage
                     source={{uri: this.props.book.thumbnail}}
                     style={styles.thumbnail}
                   />
-                  <View >
-                    <Text
-                    style={styles.bookTitle}
-                    numberOfLines={3}>{this.props.book.title}</Text>
-                    <Text style={styles.bookAuthor}>{this.props.book.author}</Text>
-                  </View>
                 </View>
                 <View style={[styles.downloadOverlay,this.shouldShowOverlay()]}>
                     <Text style={styles.downloadProgress}>{this.state.percentDownloaded}</Text>

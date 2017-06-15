@@ -13,10 +13,9 @@ import {
   FlatList,
   Image,
   Dimensions,
-  ScrollView
 } from 'react-native';
 
-import styles, {propStyles, colors} from './PolliStyles';
+import styles, {propStyles} from './PolliStyles';
 import PhysicalBook from './PhysicalBook';
 
 import Device from 'react-native-device-detection';
@@ -69,7 +68,73 @@ const second_shelf = [
         title:'The Phantom Tollbooth',
         thumbnail: 'https://s3.amazonaws.com/polli-static/images/sample_covers/pb.jpg'
     }
-]
+];
+
+const third_shelf = [
+    {
+        bookId: 11,
+        title:"Charlotte's Web",
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs01.jpeg'
+    },
+    {
+        bookId: 12,
+        title:'Frog and Toad Are Friends',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs02.jpeg'
+    },
+    {
+        bookId: 13,
+        title:'Green Eggs and Ham',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs03.jpeg'
+    },
+    {
+        bookId: 14,
+        title:'Harold and the Purple Crayon',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs04.jpeg'
+    },
+    {
+        bookId: 15,
+        title:"Charlotte's Web",
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs11.jpg'
+    },
+    {
+        bookId: 16,
+        title:'Frog and Toad Are Friends',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs12.jpg'
+    }
+];
+
+const fourth_shelf = [
+    {
+        bookId: 21,
+        title:'Green Eggs and Ham',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs13.jpg'
+    },
+    {
+        bookId: 22,
+        title:'Harold and the Purple Crayon',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs14.jpg'
+    },
+    {
+        bookId: 23,
+        title:"Charlotte's Web",
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs21.jpg'
+    },
+    {
+        bookId: 24,
+        title:'Frog and Toad Are Friends',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs22.jpg'
+    },
+    {
+        bookId: 25,
+        title:'Green Eggs and Ham',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs23.jpg'
+    },
+    {
+        bookId: 26,
+        title:'Harold and the Purple Crayon',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs24.jpg'
+    }
+];
 
 export default class FrontPage extends React.Component {
 
@@ -116,6 +181,10 @@ export default class FrontPage extends React.Component {
       let downloadedBooks = LocalLibrary.getAll().filtered('path != \'\'');
       var dataSourceArray = [BOOK, BOOK_CHINESE];
 
+      if(!downloadedBooks.length) {
+          this.addSettingsToGrid(dataSourceArray);
+      }
+
       for(var bookIndex=0; bookIndex<downloadedBooks.length; bookIndex++) {
           let bookDataObject = downloadedBooks[bookIndex];
 
@@ -137,6 +206,7 @@ export default class FrontPage extends React.Component {
                 }
 
                 dataSourceArray.push(book);
+
           })
           .catch((error) => {
               console.log(`error when updating book list >> ${bookDataObject.path} >>`, error);
@@ -155,30 +225,6 @@ export default class FrontPage extends React.Component {
             return <View key={item.key} style={styles.invisibleBook} />
         }
 
-        if(item.type == "settings"){
-            if (Platform.OS === 'android'){
-              return null;
-            }else{
-              return <View key="settings">
-              <Icon.Button
-                style={styles.detailIcon}
-                name="settings"
-                color={"#888"}
-                underlayColor={'#ddd'}
-                backgroundColor={"transparent"}
-                onPress={() => this.navigation.navigate('UserSettings') }
-              ><Text style={styles.frontpageButtonLabel}>Settings</Text></Icon.Button>
-              <Icon.Button
-                style={styles.detailIcon}
-                name="logout"
-                color={"#888"}
-                underlayColor={'#ddd'}
-                backgroundColor={"transparent"}
-                onPress={() => {global.user=null;this.navigation.navigate('LoginPage')} }
-              ><Text style={styles.frontpageButtonLabel}>Logout</Text></Icon.Button>
-              </View>
-            }
-        }
     }
 
     showTutorial(context) {
@@ -196,43 +242,10 @@ export default class FrontPage extends React.Component {
         this.setState({demoUserSwitchOn: shouldEnable, modalVisible:false});
     }
 
-
-    getButton(name, position) {
-        const {navigation} = this.props;
-
-        if(Platform.OS === 'ios' && position !== 'bottom')
-            return;
-
-        if(Platform.OS === 'android' && position !== 'top')
-            return;
-
-        if(name === 'settings')
-            return (
-            <Icon.Button
-              style={styles.detailIcon}
-              name="settings"
-              color={colors.textOnSecondary}
-              underlayColor={colors.primaryDark}
-              backgroundColor={"transparent"}
-              onPress={() => navigation.navigate('UserSettings') }
-            ><Text style={styles.frontpageButtonLabel}>Settings</Text></Icon.Button>);
-
-        return (
-        <Icon.Button
-          style={styles.detailIcon}
-          name="logout"
-          color={colors.textOnSecondary}
-          underlayColor={colors.tertiaryDark}
-          backgroundColor={"transparent"}
-          onPress={() => {global.user=null;navigation.navigate('LoginPage')} }
-        ><Text style={styles.frontpageButtonLabel}>Logout</Text></Icon.Button>);
-    }
-
     renderShelf(data,title){
-      const { navigation } = this.props;
-      return(
-        <View style={styles.galleryShelf}>
-
+      const {navigation} = this.props;
+      return (
+        <View>
           <View style={styles.galleryShelfTitle}><Text style={styles.galleryShelfTitleText}>{title}</Text></View>
 
           <FlatList
@@ -279,6 +292,7 @@ export default class FrontPage extends React.Component {
             /></View>
         }
 
+
         var frontPageOverlay = null;
         if (this.state.modalVisible) {
             frontPageOverlay = <View style={styles.frontPageOverlay} />
@@ -296,6 +310,28 @@ export default class FrontPage extends React.Component {
             )
         }
 
+        var showAdditionalButtons = null;
+        if (Platform.OS !== 'android'){
+          showAdditionalButtons = (<View key="settings" style={{alignItems:'center',justifyContent:'center'}}>
+          <Icon.Button
+            style={styles.detailIcon}
+            name="settings"
+            color={"#888"}
+            underlayColor={'#ddd'}
+            backgroundColor={"transparent"}
+            onPress={() => this.navigation.navigate('UserSettings') }
+          ><Text style={styles.frontpageButtonLabel}>Settings</Text></Icon.Button>
+          <Icon.Button
+            style={styles.detailIcon}
+            name="logout"
+            color={"#888"}
+            underlayColor={'#ddd'}
+            backgroundColor={"transparent"}
+            onPress={() => {global.user=null;this.navigation.navigate('LoginPage')} }
+          ><Text style={styles.frontpageButtonLabel}>Logout</Text></Icon.Button>
+          </View>);
+        }
+
         return <View style={styles.frontPage}>
             {userBar}
             {frontPageOverlay}
@@ -307,7 +343,7 @@ export default class FrontPage extends React.Component {
                   accessibilityLabel="Get more books in the library"
                 />
             </View>*/}
-            <ScrollView style={styles.galleryContainer}>
+            <View style={styles.galleryContainer}>
                 <Modal
                 visible={this.state.tutorialVisible}
                 animationType={"fade"}
@@ -357,7 +393,6 @@ export default class FrontPage extends React.Component {
                                 <Text style={styles.switchLabel}>Demo user logged in</Text>
                                 <Switch
                                   onValueChange={(value) => this.enableDemoUser(value)}
-                                  onTintColor={colors.primary}
                                   value={this.state.demoUserSwitchOn}
                                 />
                             </View>
@@ -371,14 +406,13 @@ export default class FrontPage extends React.Component {
                     </View>
                 </Modal>
 
-            {this.renderShelf(this.state.dataSource,'My books'.toUpperCase())}
-            {this.renderShelf(second_shelf,'Out staff recommends'.toUpperCase())}
-
-            {this.getButton('settings', 'bottom')}
-            {this.getButton('logout', 'bottom')}
+            {this.renderShelf(this.state.dataSource.concat(fourth_shelf),'Downloaded books:')}
+            {this.renderShelf(second_shelf,'Recommended from Bookstore:')}
+            {this.renderShelf(third_shelf,'For Youngsters:')}
 
             {showDebugMenuButton}
-        </ScrollView>
+            {showAdditionalButtons}
+        </View>
     </View>
   }
 }
@@ -417,6 +451,7 @@ FrontPage.navigationOptions = props => {
     navigation.navigate('LoginPage');
   }
 
+  if (Platform.OS === 'android'){
     var settingsIcon = (
     <Icon
       style={styles.detailIcon}
@@ -435,34 +470,31 @@ FrontPage.navigationOptions = props => {
       size={propStyles.iconSize}
       onPress={() => logout() }
     />);
-
-    function getButton(name, position) {
-        if(Platform.OS === 'ios' && position !== 'bottom')
-            return;
-
-        if(Platform.OS === 'android' && position !== 'top')
-            return;
-
-        if(name === 'settings')
-            return settingsIcon;
-
-        return logoutIcon;
-    }
+    var bookstoreIcon = (
+      <Icon
+        style={styles.detailIcon}
+        name="library"
+        title="Bookstore"
+        color={"rgba(100,189,189,1)"}
+        size={propStyles.iconSize}
+        onPress={() => showLibrary() }
+      />
+    );
+  }else{
+    var settingsIcon = null;
+    var logoutIcon = null;
+    var bookstoreIcon = (
+      <Text onPress={()=>showLibrary()} style={{color:'blue'}}>Bookstore    </Text>
+    );
+  }
 
   return {
       title: 'My Books',
       headerRight: (
       <View style={{flexDirection:'row'}}>
-        <Icon
-          style={styles.detailIcon}
-          name="library"
-          title="Bookstore"
-          color={colors.secondary}
-          size={propStyles.iconSize}
-          onPress={() => showLibrary() }
-        />
-        {getButton('settings', 'top')}
-        {getButton('logout', 'top')}
+        {bookstoreIcon}
+        {settingsIcon}
+        {logoutIcon}
       </View>
     ),
   };

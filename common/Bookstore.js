@@ -4,13 +4,86 @@ import {
   Text,
   View,
   LayoutAnimation,
+  FlatList,
+  Image,
+  ScrollView,
 } from 'react-native';
 
 import DownloadableBook from './DownloadableBook';
 import styles from "./PolliStyles";
 
 import GridView from 'react-native-grid-view';
-const BOOKS_PER_ROW = 2;
+const BOOKS_TO_RENDER = 3;
+
+const second_shelf = [
+    {
+        bookId: 11,
+        title:"Charlotte's Web",
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs01.jpeg'
+    },
+    {
+        bookId: 12,
+        title:'Frog and Toad Are Friends',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs02.jpeg'
+    },
+    {
+        bookId: 13,
+        title:'Green Eggs and Ham',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs03.jpeg'
+    },
+    {
+        bookId: 14,
+        title:'Harold and the Purple Crayon',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs04.jpeg'
+    }
+];
+
+const third_shelf = [
+    {
+        bookId: 11,
+        title:"Charlotte's Web",
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs11.jpg'
+    },
+    {
+        bookId: 12,
+        title:'Frog and Toad Are Friends',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs12.jpg'
+    },
+    {
+        bookId: 13,
+        title:'Green Eggs and Ham',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs13.jpg'
+    },
+    {
+        bookId: 14,
+        title:'Harold and the Purple Crayon',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs14.jpg'
+    }
+];
+
+const fourth_shelf = [
+    {
+        bookId: 11,
+        title:"Charlotte's Web",
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs21.jpg'
+    },
+    {
+        bookId: 12,
+        title:'Frog and Toad Are Friends',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs22.jpg'
+    },
+    {
+        bookId: 13,
+        title:'Green Eggs and Ham',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs23.jpg'
+    },
+    {
+        bookId: 14,
+        title:'Harold and the Purple Crayon',
+        thumbnail: 'https://s3.amazonaws.com/polli-static/images/bs_sample_covers/bs24.jpg'
+    }
+];
+
 
 export default class Bookstore extends React.Component {
 
@@ -65,17 +138,47 @@ export default class Bookstore extends React.Component {
     title: 'Bookstore',
   };
 
-  renderItem(item) {
-      return <DownloadableBook key={item.bookId} book={item} navigation={ this.navigation } />
+  renderItem = ({item}) => {
+      const {navigation} = this.props;
+      return <DownloadableBook key={item.bookId} book={item} navigation={ navigation } />
   }
 
   componentWillUpdate() {
       LayoutAnimation.easeInEaseOut();
   }
 
+  renderShelf(data,title){
+    const { navigation } = this.props;
+    return (
+      <View>
+        <View style={styles.galleryShelfTitle}><Text style={styles.galleryShelfTitleText}>{title}</Text></View>
+
+        <FlatList
+            horizontal
+            data={data}
+            renderItem={this.renderItem}
+            initialNumToRender={BOOKS_TO_RENDER}
+            navigation={ navigation }
+            style={styles.galleryFlatList}
+        />
+
+        {/* shelf top */}
+        <View style={styles.galleryShelfTopContainer}>
+          <View style={styles.galleryShelfTriangle} />
+          <View style={styles.galleryShelfTop} />
+        </View>
+
+        {/* shelf */}
+        <View style={styles.galleryShelfRectangle} />
+
+      </View>
+    );
+  }
+
   render() {
-      const { navigation } = this.props;
-      return  <View style={styles.storeGalleryContainer}>
+  const { navigation } = this.props;
+  console.log("NAVIGATION HERE", navigation);
+  /*    return  <View style={styles.storeGalleryContainer}>
           <GridView
               items={this.state.dataSource}
               itemsPerRow={BOOKS_PER_ROW}
@@ -83,6 +186,17 @@ export default class Bookstore extends React.Component {
               contentContainerStyle={styles.listView}
               navigation={ navigation }
             />
-      </View>
+            {this.renderShelf(this.state.dataSource,"Favorites:")}
+            
+      </View>*/
+      return (
+          <ScrollView style={styles.storeGalleryContainer}>
+            {this.renderShelf(second_shelf,"Disney:")}
+            {this.renderShelf(third_shelf,"Templar:")}
+            {this.renderShelf(fourth_shelf,"Little Tiger:")}
+          </ScrollView>
+
+      )
+
   }
 }

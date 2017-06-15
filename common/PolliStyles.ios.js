@@ -159,11 +159,6 @@ var styles = StyleSheet.create({
     fontSize : responsiveFontSize(1),
     fontWeight : '600'
   },
-  physicalBook : {
-    marginLeft: 13,
-    marginRight: 2,
-    zIndex: 1,
-  },
   storeBook: {
     height: bookSize.height,
     width: bookSize.width,
@@ -179,6 +174,12 @@ var styles = StyleSheet.create({
         width: 0
       }
   },
+  physicalBook : {
+    marginLeft: 13,
+    marginRight: 2,
+    marginBottom: 25,
+    marginTop: 10,
+  },
   thumbnail: {
     height:180,
     width:140,
@@ -192,16 +193,12 @@ var styles = StyleSheet.create({
   },
   galleryContainer : {
       paddingBottom: 10,
-      paddingLeft: 20,
-      paddingRight: 20,
       backgroundColor: colors.secondary,
       flex: 1
   },
   storeGalleryContainer : {
         paddingTop: 40,
         paddingBottom: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
         backgroundColor: colors.primary,
         flex: 1
     },
@@ -372,45 +369,46 @@ var styles = StyleSheet.create({
   },
   galleryShelfTitle: {
     marginTop: 10,
-    marginBottom: 20,
-    paddingLeft: 10,
-    backgroundColor: 'transparent'
+    //marginBottom:15,
+    marginLeft:15,
   },
   galleryShelfTitleText: {
-      color: colors.textOnSecondary,
-      fontSize: responsiveFontSize(2.2),
-      fontFamily: 'Open Sans',
-      fontWeight: '600'
+    fontWeight:'bold',
+  },
+
+  galleryShelfTopContainer: {
+    flexDirection:'row',
   },
   galleryShelfTriangle: {
     width: 0,
     height: 0,
     backgroundColor: 'transparent',
     borderStyle: 'solid',
-    borderRightWidth: 4,
-    borderTopWidth: 4,
+    borderRightWidth: 9,
+    borderTopWidth: 9,
     borderRightColor: 'transparent',
     borderTopColor: '#61300d',
     transform: [
-      {rotate: '90deg'}
+      {rotate: '180deg'}
     ],
+  },
+  galleryShelfTop: {
+    height:9,
+    width:windowWidth,
+    backgroundColor:'#61300d',
+  },
 
-  },
-  galleryShelfBottom: {
-    height:4,
-    width:windowWidth-8,
-    backgroundColor:'#61300d'
-  },
   galleryShelfRectangle: {
     backgroundColor:'#8B4513',
     height:15,
     borderColor: '#61300d',
-    borderBottomWidth: 1,
-    bottom:10,
-    zIndex: 2,
+    borderTopWidth: 1,
+    marginBottom: 10,
   },
-  galleryShelf: {
-      marginBottom: 18,
+
+  galleryFlatList: {
+    marginBottom:-30,
+    zIndex:2,
   },
   detailSection: {
       flexDirection: 'column',
