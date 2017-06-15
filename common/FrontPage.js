@@ -320,7 +320,7 @@ export default class FrontPage extends React.Component {
             color={"#888"}
             underlayColor={'#ddd'}
             backgroundColor={"transparent"}
-            onPress={() => this.navigation.navigate('UserSettings') }
+            onPress={() => {navigation.navigate('UserSettings')} }
           ><Text style={styles.frontpageButtonLabel}>Settings</Text></Icon.Button>
           <Icon.Button
             style={styles.detailIcon}
