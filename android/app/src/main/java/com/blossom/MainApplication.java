@@ -4,7 +4,6 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import io.realm.react.RealmReactPackage;
-import com.rnziparchive.RNZipArchivePackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.beefe.picker.PickerViewPackage;
@@ -15,8 +14,6 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
 import java.util.List;
-
-import com.mihir.react.tts.*;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -31,11 +28,9 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new RealmReactPackage(),
-            new RNZipArchivePackage(),
             new RNFetchBlobPackage(),
             new VectorIconsPackage(),
-            new PickerViewPackage(),
-            new RCTTextToSpeechModule()
+            new PickerViewPackage()
       );
     }
   };

@@ -67,7 +67,6 @@ class Page extends React.Component {
       renderLang={renderLang}
       node={node}
       key={'n' + i}
-      onToast={this.props.onToast}
     ></TextNode>
   }
   render() {

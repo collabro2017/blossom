@@ -21,7 +21,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 var Page = require('./Page.js');
 var mixins = require('./Mixins');
-var Toast = require('./Toast.js');
 
 import TimerMixin from 'react-timer-mixin';
 
@@ -59,8 +58,6 @@ var Reader = React.createClass({
       contentWidth : Dimensions.get('window').width,
       contentHeight : Dimensions.get('window').height,
       statusBarShown : true,
-      toastShown : false,
-      toastData : null,
       showControls: true,
     }
   },
@@ -90,22 +87,6 @@ var Reader = React.createClass({
   layoutChange : function(e) {
     this.updateBookSize(e.nativeEvent.layout.width, e.nativeEvent.layout.height);
   },
-  hideToast() {
-    this.setState({
-      toastShown: false,
-      toastData: null,
-    });
-  },
-  showToast(L1, L2, currentLang) {
-    this.setState({
-      toastShown: true,
-      toastData: {
-        L1: L1,
-        L2: L2,
-        currentLang: currentLang,
-      }
-    });
-  },
   render : function() {
       console.ignoredYellowBox = ['\`setBackgroundColor\`'];
 
@@ -120,12 +101,6 @@ var Reader = React.createClass({
           mixins.styleOverride(global.currentBook),
           mixins.styleOverride(global.currentBook.pages[this.state.page-1]),
         ]}>
-        <Toast
-          isVisible={this.state.toastShown}
-          onDismiss={this.hideToast}
-          position="bottom"
-          node={this.state.toastData}
-        />
         {this.renderNotificationBar()}
         {this.renderTopMenu()}
         {this.renderFakeTopMenu()}
@@ -188,7 +163,6 @@ var Reader = React.createClass({
       </TouchableHighlight>
   },
   handleNextPage : function() {
-    this.hideToast()
     if(this.isLastPage()) {
       return;
     }
@@ -198,7 +172,6 @@ var Reader = React.createClass({
     });
   },
   handlePrevPage : function() {
-    this.hideToast()
     if(this.isFirstPage()) {
       return;
     }
@@ -219,7 +192,7 @@ var Reader = React.createClass({
         key={'p' + index}
         page={page.content}
         blend={this.state.blend}
-        onToast={this.showToast}></Page>
+      ></Page>
     } );
   },
   setCurrentPage : function(e, swiper) {
@@ -330,5 +303,11 @@ var Reader = React.createClass({
     }
   }
 });
+
+Reader.navigationOptions = props => {
+  return {
+      title: 'Blossom',
+    }
+}
 
 module.exports = Reader;

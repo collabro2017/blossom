@@ -184,11 +184,8 @@ var styles = StyleSheet.create({
     height:thumbnailSize.height,
     width:thumbnailSize.width,
     borderWidth: 0,
-    borderBottomRightRadius: 7,
-    borderTopRightRadius: 7,
-    borderBottomLeftRadius: 2,
-    borderTopLeftRadius: 2,
-    // borderColor: 'black',
+    borderRadius: 7,
+    borderColor: 'black',
     //overflow: 'hidden',
   },
   galleryContainer : {

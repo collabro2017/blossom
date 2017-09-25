@@ -1,6 +1,6 @@
 import RNFetchBlob from 'react-native-fetch-blob';
 import React from 'react';
-import { unzip } from 'react-native-zip-archive'
+// import { unzip } from 'react-native-zip-archive'
 
 import LocalLibraryDAO from './LocalLibraryDAO.js';
 
@@ -92,18 +92,19 @@ class PolliBookFetch {
             const sourcePath = res.path();
             const targetPath = this.getUnzipPathForId(bookId);
 
-            unzip(sourcePath, targetPath)
-            .then((path) => {
-              console.log(`unzip completed at ${path}`);
-                  //RNFetchBlob.fs.readFile(PATH_TO_READ, 'base64')
+            //TODO: fix this with different unzip library
+          //   unzip(sourcePath, targetPath)
+          //   .then((path) => {
+          //     console.log(`unzip completed at ${path}`);
+          //         //RNFetchBlob.fs.readFile(PATH_TO_READ, 'base64')
 
-                  // add book to local library
-                  LocalLibrary.save(bookId, `${this.getUnzipPathForId(bookId)}`)
-                  readFileIntoBook(this.getUnzipPathForId(bookId), 'book.json', context);
-            })
-            .catch((error) => {
-              console.log(error)
-          });
+          //         // add book to local library
+          //         LocalLibrary.save(bookId, `${this.getUnzipPathForId(bookId)}`)
+          //         readFileIntoBook(this.getUnzipPathForId(bookId), 'book.json', context);
+          //   })
+          //   .catch((error) => {
+          //     console.log(error)
+          // });
         })
     }
 

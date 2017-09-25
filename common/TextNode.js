@@ -127,7 +127,8 @@ var TextNode = React.createClass({
     });
   },
   onLongTap : function() {
-    let l = (this.state.renderLang == 'L1') ? 'en-US' : 'es-MX';
+    let l = (this.state.renderLang == 'L1') ? 'en-US' : 'zh-CN';
+    // let l = (this.state.renderLang == 'L1') ? 'en-US' : 'cmn-TW';
     let t = this.props.node.content[this.state.renderLang];
     mixins.speak(
       t,

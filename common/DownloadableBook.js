@@ -68,9 +68,6 @@ export default class DownloadableBook extends React.Component {
                     style={styles.thumbnail}
                   />
                 </View>
-                <View style={[styles.downloadOverlay,this.shouldShowOverlay()]}>
-                    <Text style={styles.downloadProgress}>{this.state.percentDownloaded}</Text>
-                </View>
             </View>
         </TouchableOpacity>
       );

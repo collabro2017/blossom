@@ -37,7 +37,7 @@ const BOOKS_PER_ROW = Device.isTablet? 4 : 2;
 const BOOKS_TO_RENDER = 3;
 
 const BOOK = require('./Book.js');
-const BOOK_CHINESE = require('./Book-chinese.js');
+const BOOK_CHINESE = require('./Poem-chinese.js');
 const second_shelf = [
     {
         bookId: 1,
@@ -146,6 +146,7 @@ export default class FrontPage extends React.Component {
           demoUserSwitchOn:  global.user,
           modalVisible: false,
           tutorialVisible: false,
+          token: null,
         }
       }
 
@@ -275,14 +276,16 @@ export default class FrontPage extends React.Component {
         const { navigation } = this.props;
 
         var userBar = null;
-        if(global.user) {
-            userBar = (<View style={styles.userbar}>
-                <Text style={styles.userBarText}>Demo user logged in</Text>
-            </View>);
-        }
+        
 
         var showDebugMenuButton = null;
         if (__DEV__) {
+            if(global.user) {
+              userBar = (<View style={styles.userbar}>
+                  <Text style={styles.userBarText}>Demo user logged in with token: {this.state.token}</Text>
+
+                </View>);
+            }
             console.ignoredYellowBox = ['Warning: You are manually calling'];
 
             showDebugMenuButton = <View style={{marginRight:35,marginLeft:35}}><Button
