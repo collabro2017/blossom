@@ -203,8 +203,8 @@ var Book = {
           "A": "L2",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
-          "E": "L2"
+          "D": "L1",
+          "E": "L1"
         }
       }, {
         "type": "text",
@@ -253,7 +253,7 @@ var Book = {
         },
         "blends": {
           "A": "L1",
-          "B": "L2",
+          "B": "L1",
           "C": "L2",
           "D": "L2",
           "E": "L2"
@@ -281,8 +281,8 @@ var Book = {
           "A": "L2",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
-          "E": "L2"
+          "D": "L1",
+          "E": "L1"
         }
       }, {
         "type": "text",
@@ -314,14 +314,15 @@ var Book = {
         "type": "text",
         "content": {
           "L1": "of a big fir-tree.",
-          "L2": "del abeto grande."
+          "L2": "of an abeto grande.",
+          "L3": "de un abeto grande."
         },
         "blends": {
           "A": "L1",
           "B": "L2",
-          "C": "L2",
-          "D": "L2",
-          "E": "L2"
+          "C": "L3",
+          "D": "L3",
+          "E": "L3"
         }
       }
       ]
