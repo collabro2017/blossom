@@ -351,7 +351,7 @@ var Book = {
           "A": "L1",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
+          "D": "L1",
           "E": "L2"
         }
       }, {
@@ -364,8 +364,8 @@ var Book = {
           "A": "L1",
           "B": "L1",
           "C": "L1",
-          "D": "L1",
-          "E": "L1"
+          "D": "L2",
+          "E": "L2"
         }
       }, {
         "type": "text",
@@ -377,8 +377,8 @@ var Book = {
           "A": "L2",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
-          "E": "L2"
+          "D": "L1",
+          "E": "L1"
         }
       }, {
         "type": "text",
@@ -390,8 +390,8 @@ var Book = {
           "A": "L1",
           "B": "L1",
           "C": "L1",
-          "D": "L1",
-          "E": "L1"
+          "D": "L2",
+          "E": "L2"
         }
       }, {
         "type": "text",
@@ -403,21 +403,23 @@ var Book = {
           "A": "L1",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
+          "D": "L1",
           "E": "L2"
         }
       }, {
         "type": "text",
         "content": {
-          "L1": "Mr. McGregor’s garden; ",
-          "L2": "al jardín de Señor McGregor; "
+          "L1": "Mr. McGregor’s garden: ",
+          "L2": "Señor McGregor jardín: ",
+          "L3": "jardín de Señor McGregor: ",
+          "L4": "jardín de Mr. McGregor: "
         },
         "blends": {
           "A": "L2",
-          "B": "L2",
-          "C": "L2",
-          "D": "L2",
-          "E": "L2"
+          "B": "L3",
+          "C": "L3",
+          "D": "L1",
+          "E": "L4"
         }
       }, {
         "type": "text",
@@ -429,7 +431,7 @@ var Book = {
           "A": "L1",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
+          "D": "L1",
           "E": "L2"
         }
       }, {
@@ -442,8 +444,8 @@ var Book = {
           "A": "L2",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
-          "E": "L2"
+          "D": "L1",
+          "E": "L1"
         }
       }, {
         "type": "text",
@@ -455,7 +457,7 @@ var Book = {
           "A": "L1",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
+          "D": "L1",
           "E": "L2"
         }
       }, {
@@ -468,7 +470,7 @@ var Book = {
           "A": "L2",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
+          "D": "L1",
           "E": "L2"
         }
       }]
@@ -492,7 +494,7 @@ var Book = {
           "A": "L1",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
+          "D": "L1",
           "E": "L2"
         }
       }]
@@ -530,7 +532,7 @@ var Book = {
           "A": "L1",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
+          "D": "L1",
           "E": "L2"
         }
       }, {
@@ -555,9 +557,9 @@ var Book = {
         "blends": {
           "A": "L2",
           "B": "L2",
-          "C": "L2",
-          "D": "L2",
-          "E": "L2"
+          "C": "L1",
+          "D": "L1",
+          "E": "L1"
         }
       }, {
         "type": "text",
@@ -595,7 +597,7 @@ var Book = {
           "A": "L1",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
+          "D": "L1",
           "E": "L2"
         }
       }, {
@@ -628,14 +630,15 @@ var Book = {
         "type": "text",
         "content": {
           "L1": "brown bread ",
-          "L2": "pan de molde moreno "
+          "L2": "pan moreno ",
+          "L3": "bread de molde moreno "
         },
         "blends": {
           "A": "L1",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
-          "E": "L2"
+          "D": "L3",
+          "E": "L3"
         }
       }, {
         "type": "text",
@@ -722,14 +725,17 @@ var Book = {
         "type": "text",
         "content": {
           "L1": "good little rabbits, ",
-          "L2": "conejitos buenos, "
+          "L2": "conejitos buenos, ",
+          "L3": "good conejitos, ",
+          "L4": "good little bunnies, ",
+          "L5": "little bunnies, ",
         },
         "blends": {
-          "A": "L1",
+          "A": "L3",
           "B": "L2",
           "C": "L2",
-          "D": "L2",
-          "E": "L2"
+          "D": "L4",
+          "E": "L5"
         }
       }, {
         "type": "text",
@@ -778,9 +784,9 @@ var Book = {
         },
         "blends": {
           "A": "L1",
-          "B": "L1",
+          "B": "L2",
           "C": "L2",
-          "D": "L2",
+          "D": "L1",
           "E": "L2"
         }
       }]
@@ -819,7 +825,7 @@ var Book = {
           "L2": "Pedro, "
         },
         "blends": {
-          "A": "L1",
+          "A": "L2",
           "B": "L2",
           "C": "L2",
           "D": "L2",
@@ -848,31 +854,33 @@ var Book = {
           "A": "L1",
           "B": "L1",
           "C": "L2",
-          "D": "L2",
+          "D": "L1",
           "E": "L2"
         }
       }, {
         "type": "text",
         "content": {
-          "L1": "naughty, ran straight to ",
-          "L2": "travieso, corrió directamente "
-        },
-        "blends": {
-          "A": "L1",
-          "B": "L1",
-          "C": "L1",
-          "D": "L2",
-          "E": "L2"
-        }
-      }, {
-        "type": "text",
-        "content": {
-          "L1": "Mr. McGregor’s garden, ",
-          "L2": "al jardín de Señor McGregor, "
+          "L1": "naughty, ran straight away to ",
+          "L2": "travieso, ran straight away to ",
+          "L3": "naughty, corrió directamente ",
+          "L4": "travieso, corrió directamente "
         },
         "blends": {
           "A": "L1",
           "B": "L2",
+          "C": "L2",
+          "D": "L3",
+          "E": "L4"
+        }
+      }, {
+        "type": "text",
+        "content": {
+          "L1": "Señor McGregor jardín, ",
+          "L2": "al jardín de Mr. McGregor, "
+        },
+        "blends": {
+          "A": "L1",
+          "B": "L1",
           "C": "L2",
           "D": "L2",
           "E": "L2"
@@ -894,14 +902,17 @@ var Book = {
         "type": "text",
         "content": {
           "L1": "the gate!",
-          "L2": "del portón!"
+          "L2": "the portón!",
+          "L3": "la verja!",
+          "L4": "del gate!",
+          "L5": "del portón!"
         },
         "blends": {
           "A": "L1",
-          "B": "L1",
-          "C": "L2",
-          "D": "L2",
-          "E": "L2"
+          "B": "L2",
+          "C": "L3",
+          "D": "L4",
+          "E": "L5"
         }
       }]
     }]
