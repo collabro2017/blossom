@@ -3,7 +3,7 @@ import {
   AppRegistry, View,
 } from 'react-native';
 import AppContainer from './common/AppContainer';
-
+console.disableYellowBox = true;
 export default class blossom extends Component {
   render() {
     return (
