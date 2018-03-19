@@ -33,7 +33,9 @@ function sizeFont(size) {
 
 var COVER_FONT_SIZE = Math.round(responsiveFontSize(6));
 var STORY_FONT_SIZE = Math.round(responsiveFontSize(2.25));
-var STORY_LINE_HEIGHT = Math.round(responsiveFontSize(3));
+var STORY_LINE_HEIGHT = Math.round(responsiveFontSize(5));
+
+var BLENDS = ["A", "B", "C", "D", "E"];
 
 var TextNode = React.createClass({
   displayName : 'TextNode',
@@ -99,6 +101,14 @@ var TextNode = React.createClass({
       return <Text> </Text>;
     }
 
+    if (!this.state.renderLangIndex) {
+      this.state.renderLangIndex = 0;
+    }
+
+    let blendKey = BLENDS[this.state.renderLangIndex];
+    let langKey = this.props.node.blends[blendKey];
+    var langText = this.props.node.content[langKey];
+
     return (
       <Text
         onStartShouldSetResponder={() => true}
@@ -112,7 +122,7 @@ var TextNode = React.createClass({
         [styles.text, styles[this.state.renderLang + 'Text'], styles.manualToggle, mixins.styleOverride(this.props.node)] :
         [styles.text, styles[this.state.renderLang + 'Text'], mixins.styleOverride(this.props.node)]
         }
-      >{ this.props.node.content[this.state.renderLang] }</Text>
+      >{ langText }</Text>
     );
   },
   onShortTap : function() {
@@ -121,19 +131,21 @@ var TextNode = React.createClass({
     }
 
     var nextLang = this.state.renderLang == 'L1' ? 'L2' : 'L1';
+    var nextLangIndex = this.state.renderLangIndex >= 4 ? 0 : this.state.renderLangIndex + 1
     this.setState({
       renderLang : nextLang,
+      renderLangIndex: nextLangIndex,
       isManualToggle : !this.state.isManualToggle
     });
   },
   onLongTap : function() {
     let l = (this.state.renderLang == 'L1') ? 'en-US' : 'zh-CN';
     // let l = (this.state.renderLang == 'L1') ? 'en-US' : 'cmn-TW';
-    let t = this.props.node.content[this.state.renderLang];
+    /*let t = this.props.node.content[this.state.renderLang];
     mixins.speak(
       t,
       l
-    );
+    );*/
   }
 });
 
