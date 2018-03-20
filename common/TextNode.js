@@ -126,9 +126,9 @@ var TextNode = React.createClass({
     );
   },
   onShortTap : function() {
-    if(this.props.node.content.L1 == this.props.node.content.L2) {
+    /*if(this.props.node.content.L1 == this.props.node.content.L2) {
       return;
-    }
+    }*/
 
     var nextLang = this.state.renderLang == 'L1' ? 'L2' : 'L1';
     var nextLangIndex = this.state.renderLangIndex >= 4 ? 0 : this.state.renderLangIndex + 1
