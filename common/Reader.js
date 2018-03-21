@@ -15,6 +15,16 @@ import {
 
 import PolliPicker from './PolliPicker';
 import styles, {colors} from "./PolliStyles";
+import PhysicalBook from './PhysicalBook'
+
+import Device from 'react-native-device-detection';
+
+import RNFetchBlob from 'react-native-fetch-blob';
+
+const BOOKS_PER_ROW = Device.isTablet? 4 : 2;
+const BOOKS_TO_RENDER = 3;
+const BOOK = require('./Book.js');
+const BOOK_CHINESE = require('./Poem-chinese.js');
 
 var Swiper = require('react-native-swiper');
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -44,21 +54,25 @@ var Reader = React.createClass({
   displayName : 'Reader',
   mixins: [TimerMixin],
   getInitialState : function() {
-    var page = this.props.navigation.state.params.earmarkedPage
+    /*var page = this.props.navigation.state.params.earmarkedPage
           ? this.props.navigation.state.params.earmarkedPage
           : 1;
+          */
+
+    var page = 1;
     // Enable LayoutAnimation under Android
     if (Platform.OS === 'android') {
       UIManager.setLayoutAnimationEnabledExperimental(true);
     }
     return {
       page : page,
-      continuedBar: this.props.navigation.state.params.earmarkedPage > 1,
-      blend : this.props.navigation.state.params.blend,
+      continuedBar: false,
+      blend : 'A',
       contentWidth : Dimensions.get('window').width,
       contentHeight : Dimensions.get('window').height,
       statusBarShown : true,
       showControls: true,
+      bookLoaded: false,
     }
   },
   updateBookSize : function(w, h) {
@@ -67,10 +81,55 @@ var Reader = React.createClass({
       contentHeight : h
     });
   },
+  addSettingsToGrid(dataSourceArray) {
+      for(var i=0; i <= BOOKS_PER_ROW - dataSourceArray.length; i++) {
+          dataSourceArray.push({"type" : "invisibleBook", "key" : `invisibleBook_${i}`})
+      }
+
+      console.log("BOOKS_PER_ROW", dataSourceArray);
+
+      dataSourceArray.push({"type" : "settings"});
+
+      this.setState ({
+        dataSource: dataSourceArray,
+      });
+  },
+  loadDefaultBook() {
+      var dataSourceArray = [BOOK, BOOK_CHINESE];
+      this.loadBook(BOOK);
+
+  },
+  loadBook(book) {
+      if (book.author){
+        global.currentBook=book;
+        LocalLibrary.get(global.currentBook.bookId, this.updateThenDisplayBook.bind(this));
+      }
+  },
+  updateThenDisplayBook(statsArray) {
+      const { navigate } = this.props.navigation;
+      var stats = statsArray[0] || {};
+      console.log('stats for book ID ' + global.currentBook.bookId, stats);
+
+      var navigationProps = {};
+      navigate.blend = PhysicalBook.blendLevelIndexes[stats.blendLevel] || 'A';
+      navigate.earmarkedPage = stats.earmarkedPage || 1;
+
+      this.setState({
+        bookLoaded : true
+      });
+
+  },
   componentDidMount : function(){
     //StatusBar.setHidden(true, 'slide');
     if(Platform.OS == 'android')
         StatusBar.setBackgroundColor('blue');
+
+    if (global.currentBook == null) {
+      this.setState({
+        bookLoaded : false
+      });
+      this.loadDefaultBook();
+    }
 
     this.setTimeout(() => {this.hideNotification()}, 5000);
   },
@@ -81,13 +140,23 @@ var Reader = React.createClass({
           global.currentBook.readCount += 1;
           global.currentBook.earmarkedPage = 1;
       }
-      console.log(`page after update: ${global.currentBook.earmarkedPage}`)
+      //console.log(`page after update: ${global.currentBook.earmarkedPage}`)
       LocalLibrary.update(global.currentBook);
   },
   layoutChange : function(e) {
     this.updateBookSize(e.nativeEvent.layout.width, e.nativeEvent.layout.height);
   },
   render : function() {
+
+    if (this.state.bookLoaded == false) {
+
+        return (
+          <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+            <Text> Loading... </Text>
+          </View>
+        );
+    }
+
       console.ignoredYellowBox = ['\`setBackgroundColor\`'];
 
       var nextButton = <Icon name="chevron-right" size={30} color={colors.quaternaryDark} ></Icon>;

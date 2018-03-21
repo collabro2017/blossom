@@ -26,17 +26,13 @@ import LoginPage from './LoginPage';
 import { OBWFirst, OBWSecond, OBWThird } from './UserOnboarding';
 
 if (global.user){
-  var initialRoute = 'FrontPage';
+  var initialRoute = 'Reader';
 }else{
-  var initialRoute = 'LoginPage';
+  var initialRoute = 'Reader';
 }
 
 const AppContainer = StackNavigator(
   {
-    LoginPage: {screen: LoginPage},
-    FrontPage: {screen: FrontPage, navigationOptions: ({navigation}) => ({
-      headerBackTitle: null,
-    }) },
     Reader: {screen: Reader },
     Library: {screen: Bookstore},
     BookDetail: {screen: BookDetail},
