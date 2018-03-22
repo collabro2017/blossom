@@ -145,7 +145,7 @@ var TextNode = React.createClass({
     }*/
 
     var nextLang = this.state.renderLang == 'L1' ? 'L2' : 'L1';
-    var nextLangIndex = this.state.renderLangIndex >= 4 ? 0 : this.state.renderLangIndex + 1
+    var nextLangIndex = this.state.renderLangIndex == 0 ? 4 : 0 
     this.setState({
       renderLang : nextLang,
       renderLangIndex: nextLangIndex,
