@@ -60,6 +60,7 @@ var TextNode = React.createClass({
     return {
       renderLang : false,
       isManualToggle : false,
+      isTappedToSwitch: false,
     };
   },
   onTouchStart: function({nativeEvent: {locationX, locationY}}) {
@@ -105,8 +106,21 @@ var TextNode = React.createClass({
       this.state.renderLangIndex = 0;
     }
 
-    let blendKey = BLENDS[this.state.renderLangIndex];
-    let langKey = this.props.node.blends[blendKey];
+
+    let langBlend = global.currentBook.blendLevel;
+    var blendKey = BLENDS[this.state.renderLangIndex];
+    var langKey = this.props.node.blends[blendKey];
+
+    if (langBlend) {
+      if (this.state.isTappedToSwitch && this.state.isTappedToSwitch == true) {
+
+      }
+      else{
+        blendKey = BLENDS[langBlend];
+        langKey = this.props.node.blends[blendKey];
+      }
+    }
+
     var langText = this.props.node.content[langKey];
 
     return (
@@ -135,7 +149,8 @@ var TextNode = React.createClass({
     this.setState({
       renderLang : nextLang,
       renderLangIndex: nextLangIndex,
-      isManualToggle : !this.state.isManualToggle
+      isManualToggle : !this.state.isManualToggle,
+      isTappedToSwitch: true
     });
   },
   onLongTap : function() {
